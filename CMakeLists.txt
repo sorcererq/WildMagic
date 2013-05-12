@@ -144,7 +144,7 @@ ENDIF(DEFINED LIBAPPLICATIONS_TYPE)
 
 ## Samples
 
-FUNCTION (ADD_SAMPLE name)
+FUNCTION (ADD_WM5_APP name)
 	
 	FILE(GLOB SRC ${name}/*.cpp)
 	FILE(GLOB HEADERS ${name}/*.h ${name}/*.inl)
@@ -165,3 +165,4 @@ ADD_SUBDIRECTORY (SampleGraphics)
 ADD_SUBDIRECTORY (SampleImagics)
 ADD_SUBDIRECTORY (SampleMathematics)
 ADD_SUBDIRECTORY (SamplePhysics)
+ADD_SUBDIRECTORY (Tools)

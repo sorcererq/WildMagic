@@ -9998,8 +9998,10 @@ int GTGetVersion ()
 #include <cstdlib>
 
 // Disable the MSVC8 warnings about deprecated functions.
+#ifdef _MSC_VER
 #pragma warning( push )
 #pragma warning( disable : 4996 )
+#endif
 
 void GTInitGL (const char* acInfoFile)
 {
@@ -10210,6 +10212,7 @@ const char* GTGetErrorString (GLenum code)
     return gsErrorString[6];
 }
 //----------------------------------------------------------------------------
-
+#ifdef _MSC_VER
 #pragma warning( pop )
+#endif
 //----------------------------------------------------------------------------
