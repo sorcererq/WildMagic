@@ -19,33 +19,33 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrRay3Plane3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrRay3Plane3 (const Ray3<Real>& ray, const Plane3<Real>& plane);
+	IntrRay3Plane3 (const Ray3<Real>& ray, const Plane3<Real>& plane);
 
-    // Object access.
-    const Ray3<Real>& GetRay () const;
-    const Plane3<Real>& GetPlane () const;
+	// Object access.
+	const Ray3<Real>& GetRay () const;
+	const Plane3<Real>& GetPlane () const;
 
-    // Test-intersection query.
-    virtual bool Test ();
+	// Test-intersection query.
+	virtual bool Test ();
 
-    // Find-intersection query.  The point of intersection is
-    // P = origin + t*direction, with t >= 0.
-    virtual bool Find ();
-    Real GetRayParameter () const;
+	// Find-intersection query.  The point of intersection is
+	// P = origin + t*direction, with t >= 0.
+	virtual bool Find ();
+	Real GetRayParameter () const;
 
 private:
-    using Intersector<Real,Vector3<Real> >::IT_EMPTY;
-    using Intersector<Real,Vector3<Real> >::mIntersectionType;
+	using Intersector<Real,Vector3<Real> >::IT_EMPTY;
+	using Intersector<Real,Vector3<Real> >::mIntersectionType;
 
-    // The objects to intersect.
-    const Ray3<Real>* mRay;
-    const Plane3<Real>* mPlane;
+	// The objects to intersect.
+	const Ray3<Real>* mRay;
+	const Plane3<Real>* mPlane;
 
-    // Information about the intersection set.
-    Real mRayParameter;
+	// Information about the intersection set.
+	Real mRayParameter;
 };
 
 typedef IntrRay3Plane3<float> IntrRay3Plane3f;

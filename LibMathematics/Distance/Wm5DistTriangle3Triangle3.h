@@ -18,40 +18,40 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM DistTriangle3Triangle3
-    : public Distance<Real,Vector3<Real> >
+	: public Distance<Real,Vector3<Real> >
 {
 public:
-    DistTriangle3Triangle3 (const Triangle3<Real>& triangle0,
-        const Triangle3<Real>& triangle1);
+	DistTriangle3Triangle3 (const Triangle3<Real>& triangle0,
+	                        const Triangle3<Real>& triangle1);
 
-    // Object access.
-    const Triangle3<Real>& GetTriangle0 () const;
-    const Triangle3<Real>& GetTriangle1 () const;
+	// Object access.
+	const Triangle3<Real>& GetTriangle0 () const;
+	const Triangle3<Real>& GetTriangle1 () const;
 
-    // Static distance queries.
-    virtual Real Get ();
-    virtual Real GetSquared ();
+	// Static distance queries.
+	virtual Real Get ();
+	virtual Real GetSquared ();
 
-    // Function calculations for dynamic distance queries.
-    virtual Real Get (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
-    virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	// Function calculations for dynamic distance queries.
+	virtual Real Get (Real t, const Vector3<Real>& velocity0,
+	                  const Vector3<Real>& velocity1);
+	virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
+	                         const Vector3<Real>& velocity1);
 
-    // Information about the closest points.
-    Real GetTriangleBary0 (int i) const;
-    Real GetTriangleBary1 (int i) const;
+	// Information about the closest points.
+	Real GetTriangleBary0 (int i) const;
+	Real GetTriangleBary1 (int i) const;
 
 private:
-    using Distance<Real,Vector3<Real> >::mClosestPoint0;
-    using Distance<Real,Vector3<Real> >::mClosestPoint1;
+	using Distance<Real,Vector3<Real> >::mClosestPoint0;
+	using Distance<Real,Vector3<Real> >::mClosestPoint1;
 
-    const Triangle3<Real>* mTriangle0;
-    const Triangle3<Real>* mTriangle1;
+	const Triangle3<Real>* mTriangle0;
+	const Triangle3<Real>* mTriangle1;
 
-    // Information about the closest points.
-    Real mTriangleBary0[3];  // closest0 = sum_{i=0}^2 bary0[i]*vertex0[i]
-    Real mTriangleBary1[3];  // closest1 = sum_{i=0}^2 bary1[i]*vertex1[i]
+	// Information about the closest points.
+	Real mTriangleBary0[3];  // closest0 = sum_{i=0}^2 bary0[i]*vertex0[i]
+	Real mTriangleBary1[3];  // closest1 = sum_{i=0}^2 bary1[i]*vertex1[i]
 };
 
 typedef DistTriangle3Triangle3<float> DistTriangle3Triangle3f;

@@ -20,10 +20,10 @@ WM5_IMPLEMENT_DEFAULT_STREAM(ShaderFloat, CameraWorldPositionConstant);
 
 //----------------------------------------------------------------------------
 CameraWorldPositionConstant::CameraWorldPositionConstant ()
-    :
-    ShaderFloat(1)
+	:
+	ShaderFloat(1)
 {
-    mAllowUpdater = true;
+	mAllowUpdater = true;
 }
 //----------------------------------------------------------------------------
 CameraWorldPositionConstant::~CameraWorldPositionConstant ()
@@ -32,13 +32,13 @@ CameraWorldPositionConstant::~CameraWorldPositionConstant ()
 //----------------------------------------------------------------------------
 void CameraWorldPositionConstant::Update (const Visual*, const Camera* camera)
 {
-    const APoint& worldPosition = camera->GetPosition();
+	const APoint& worldPosition = camera->GetPosition();
 
-    const float* source = (const float*)worldPosition;
-    float* target = mData;
-    for (int i = 0; i < 4; ++i)
-    {
-        *target++ = *source++;
-    }
+	const float* source = (const float*)worldPosition;
+	float* target = mData;
+	for (int i = 0; i < 4; ++i)
+	{
+		*target++ = *source++;
+	}
 }
 //----------------------------------------------------------------------------

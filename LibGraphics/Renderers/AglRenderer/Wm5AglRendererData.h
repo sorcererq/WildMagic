@@ -23,28 +23,28 @@ class Renderer;
 class AglRendererData : public RendererData
 {
 public:
-    // Platform-dependent data.
-    AGLDevice mDevice;
-    WindowRef mWindow;
-    AGLDrawable mDrawable;
-    AGLContext mContext;
-    DSpContextReference mDSpContext;
-    GWorldPtr mBack;
-    static Boolean msDSpStarted;
+	// Platform-dependent data.
+	AGLDevice mDevice;
+	WindowRef mWindow;
+	AGLDrawable mDrawable;
+	AGLContext mContext;
+	DSpContextReference mDSpContext;
+	GWorldPtr mBack;
+	static Boolean msDSpStarted;
 
-    // Create a font.
-    void LoadFont (const char* face, int size, bool fontBold,
-        bool fontItalic);
+	// Create a font.
+	void LoadFont (const char* face, int size, bool fontBold,
+	               bool fontItalic);
 
-    // Set up drawing area.
-    void SetUpBufferRect (int winXPos, int winYPos, int winWidth,
-        int winHeight);
+	// Set up drawing area.
+	void SetUpBufferRect (int winXPos, int winYPos, int winWidth,
+	                      int winHeight);
 
-    // Finalization after a context has been created.
-    void Finalize (Renderer* renderer);
+	// Finalization after a context has been created.
+	void Finalize (Renderer* renderer);
 
-    // Display error message and terminate.
-    void FatalErrorMessage (const char* message);
+	// Display error message and terminate.
+	void FatalErrorMessage (const char* message);
 };
 
 }

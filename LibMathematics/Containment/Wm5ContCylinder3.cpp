@@ -17,45 +17,45 @@ namespace Wm5
 template <typename Real>
 Cylinder3<Real> ContCylinder (int numPoints, const Vector3<Real>* points)
 {
-    Cylinder3<Real> cylinder;
+	Cylinder3<Real> cylinder;
 
-    Line3<Real> line = OrthogonalLineFit3(numPoints, points);
+	Line3<Real> line = OrthogonalLineFit3(numPoints, points);
 
-    Real maxRadiusSqr = (Real)0;
-    int i;
-    for (i = 0; i < numPoints; ++i)
-    {
-        Real radiusSqr = DistPoint3Line3<Real>(points[i], line).GetSquared();
-        if (radiusSqr > maxRadiusSqr)
-        {
-            maxRadiusSqr = radiusSqr;
-        }
-    }
+	Real maxRadiusSqr = (Real)0;
+	int i;
+	for (i = 0; i < numPoints; ++i)
+	{
+		Real radiusSqr = DistPoint3Line3<Real>(points[i], line).GetSquared();
+		if (radiusSqr > maxRadiusSqr)
+		{
+			maxRadiusSqr = radiusSqr;
+		}
+	}
 
-    Vector3<Real> diff = points[0] - line.Origin;
-    Real wMin = line.Direction.Dot(diff);
-    Real wMax = wMin;
-    for (i = 1; i < numPoints; ++i)
-    {
-        diff = points[i] - line.Origin;
-        Real w = line.Direction.Dot(diff);
-        if (w < wMin)
-        {
-            wMin = w;
-        }
-        else if (w > wMax)
-        {
-            wMax = w;
-        }
-    }
+	Vector3<Real> diff = points[0] - line.Origin;
+	Real wMin = line.Direction.Dot(diff);
+	Real wMax = wMin;
+	for (i = 1; i < numPoints; ++i)
+	{
+		diff = points[i] - line.Origin;
+		Real w = line.Direction.Dot(diff);
+		if (w < wMin)
+		{
+			wMin = w;
+		}
+		else if (w > wMax)
+		{
+			wMax = w;
+		}
+	}
 
-    cylinder.Axis.Origin = line.Origin +
-        (((Real)0.5)*(wMax + wMin))*line.Direction;
-    cylinder.Axis.Direction = line.Direction;
-    cylinder.Radius = Math<Real>::Sqrt(maxRadiusSqr);
-    cylinder.Height = wMax - wMin;
+	cylinder.Axis.Origin = line.Origin +
+	                       (((Real)0.5)*(wMax + wMin))*line.Direction;
+	cylinder.Axis.Direction = line.Direction;
+	cylinder.Radius = Math<Real>::Sqrt(maxRadiusSqr);
+	cylinder.Height = wMax - wMin;
 
-    return cylinder;
+	return cylinder;
 }
 //----------------------------------------------------------------------------
 

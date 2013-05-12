@@ -20,24 +20,24 @@ class Renderer;
 class PdrTexture3D
 {
 public:
-    // Construction and destruction.
-    PdrTexture3D (Renderer* renderer, const Texture3D* texture);
-    ~PdrTexture3D ();
+	// Construction and destruction.
+	PdrTexture3D (Renderer* renderer, const Texture3D* texture);
+	~PdrTexture3D ();
 
-    // Texture operations.
-    void Enable (Renderer* renderer, int textureUnit);
-    void Disable (Renderer* renderer, int textureUnit);
-    void* Lock (int level, Buffer::Locking mode);
-    void Unlock (int level);
+	// Texture operations.
+	void Enable (Renderer* renderer, int textureUnit);
+	void Disable (Renderer* renderer, int textureUnit);
+	void* Lock (int level, Buffer::Locking mode);
+	void Unlock (int level);
 
 private:
-    GLuint mTexture, mInternalFormat, mFormat, mType, mPreviousTexture;
-    GLint mNumLevels;
-    GLint mNumLevelBytes[Texture::MM_MAX_MIPMAP_LEVELS];
-    GLint mDimension[3][Texture::MM_MAX_MIPMAP_LEVELS];
-    GLuint mBuffer[Texture::MM_MAX_MIPMAP_LEVELS];
-    void* mLockedMemory[Texture::MM_MAX_MIPMAP_LEVELS];
-    bool mWriteLock[Texture::MM_MAX_MIPMAP_LEVELS];
+	GLuint mTexture, mInternalFormat, mFormat, mType, mPreviousTexture;
+	GLint mNumLevels;
+	GLint mNumLevelBytes[Texture::MM_MAX_MIPMAP_LEVELS];
+	GLint mDimension[3][Texture::MM_MAX_MIPMAP_LEVELS];
+	GLuint mBuffer[Texture::MM_MAX_MIPMAP_LEVELS];
+	void* mLockedMemory[Texture::MM_MAX_MIPMAP_LEVELS];
+	bool mWriteLock[Texture::MM_MAX_MIPMAP_LEVELS];
 };
 
 }

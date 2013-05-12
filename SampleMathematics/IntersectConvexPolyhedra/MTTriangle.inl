@@ -9,41 +9,41 @@
 //----------------------------------------------------------------------------
 inline int MTTriangle::GetLabel () const
 {
-    return mLabel;
+	return mLabel;
 }
 //----------------------------------------------------------------------------
 inline int& MTTriangle::Label ()
 {
-    return mLabel;
+	return mLabel;
 }
 //----------------------------------------------------------------------------
 inline int MTTriangle::GetVertex (int i) const
 {
-    return mVertex[i];
+	return mVertex[i];
 }
 //----------------------------------------------------------------------------
 inline int& MTTriangle::Vertex (int i)
 {
-    return mVertex[i];
+	return mVertex[i];
 }
 //----------------------------------------------------------------------------
 inline int MTTriangle::GetEdge (int i) const
 {
-    return mEdge[i];
+	return mEdge[i];
 }
 //----------------------------------------------------------------------------
 inline int& MTTriangle::Edge (int i)
 {
-    return mEdge[i];
+	return mEdge[i];
 }
 //----------------------------------------------------------------------------
 inline int MTTriangle::GetAdjacent (int i) const
 {
-    return mAdjacent[i];
+	return mAdjacent[i];
 }
 //----------------------------------------------------------------------------
 inline int& MTTriangle::Adjacent (int i)
 {
-    return mAdjacent[i];
+	return mAdjacent[i];
 }
 //----------------------------------------------------------------------------

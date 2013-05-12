@@ -28,21 +28,21 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM MinBox2
 {
 public:
-    MinBox2 (int numPoints, const Vector2<Real>* points, Real epsilon,
-        Query::Type queryType, bool isConvexPolygon);
+	MinBox2 (int numPoints, const Vector2<Real>* points, Real epsilon,
+	         Query::Type queryType, bool isConvexPolygon);
 
-    operator Box2<Real> () const;
+	operator Box2<Real> () const;
 
 private:
-    // Flags for the rotating calipers algorithm.
-    enum { F_NONE, F_LEFT, F_RIGHT, F_BOTTOM, F_TOP };
+	// Flags for the rotating calipers algorithm.
+	enum { F_NONE, F_LEFT, F_RIGHT, F_BOTTOM, F_TOP };
 
-    void UpdateBox (const Vector2<Real>& LPoint,
-        const Vector2<Real>& RPoint, const Vector2<Real>& BPoint,
-        const Vector2<Real>& TPoint, const Vector2<Real>& U,
-        const Vector2<Real>& V, Real& minAreaDiv4);
+	void UpdateBox (const Vector2<Real>& LPoint,
+	                const Vector2<Real>& RPoint, const Vector2<Real>& BPoint,
+	                const Vector2<Real>& TPoint, const Vector2<Real>& U,
+	                const Vector2<Real>& V, Real& minAreaDiv4);
 
-    Box2<Real> mMinBox;
+	Box2<Real> mMinBox;
 };
 
 }

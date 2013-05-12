@@ -14,32 +14,32 @@ using namespace Wm5;
 
 class Terrains : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    Terrains ();
+	Terrains ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
 
 protected:
-    void CreateScene ();
+	void CreateScene ();
 
-    // Turret-based camera motion.
-    virtual void MoveForward ();
-    virtual void MoveBackward ();
-    virtual void MoveUp ();
-    virtual void MoveDown ();
+	// Turret-based camera motion.
+	virtual void MoveForward ();
+	virtual void MoveBackward ();
+	virtual void MoveUp ();
+	virtual void MoveDown ();
 
-    NodePtr mScene;
-    TriMeshPtr mSkyDome;
-    TerrainPtr mTerrain;
-    float mHeightAboveTerrain;
-    Culler mCuller;
+	NodePtr mScene;
+	TriMeshPtr mSkyDome;
+	TerrainPtr mTerrain;
+	float mHeightAboveTerrain;
+	Culler mCuller;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(Terrains);

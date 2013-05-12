@@ -9,16 +9,16 @@
 //----------------------------------------------------------------------------
 inline int RayTracer::GetWidth () const
 {
-    return mWidth;
+	return mWidth;
 }
 //----------------------------------------------------------------------------
 inline int RayTracer::GetHeight () const
 {
-    return mHeight;
+	return mHeight;
 }
 //----------------------------------------------------------------------------
 inline const float* RayTracer::GetImage () const
 {
-    return mImage;
+	return mImage;
 }
 //----------------------------------------------------------------------------

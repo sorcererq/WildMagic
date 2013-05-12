@@ -47,80 +47,80 @@ namespace Wm5
 class WM5_GRAPHICS_ITEM CreateClodMesh
 {
 public:
-    // Construction and destruction.
-    CreateClodMesh (TriMesh* mesh, int& numRecords, CollapseRecord*& records);
-    ~CreateClodMesh ();
+	// Construction and destruction.
+	CreateClodMesh (TriMesh* mesh, int& numRecords, CollapseRecord*& records);
+	~CreateClodMesh ();
 
 private:
-    // Vertex-edge-triangle graph.
-    typedef std::set<TriangleKey> TriangleKeySet;
-    typedef std::set<EdgeKey> EdgeKeySet;
+	// Vertex-edge-triangle graph.
+	typedef std::set<TriangleKey> TriangleKeySet;
+	typedef std::set<EdgeKey> EdgeKeySet;
 
-    class Vertex
-    {
-    public:
-        Vertex ();
+	class Vertex
+	{
+	public:
+		Vertex ();
 
-        EdgeKeySet AdjEdges;
-        TriangleKeySet AdjTriangles;
-        bool Collapsible;
-    };
+		EdgeKeySet AdjEdges;
+		TriangleKeySet AdjTriangles;
+		bool Collapsible;
+	};
 
-    class Edge
-    {
-    public:
-        Edge ();
+	class Edge
+	{
+	public:
+		Edge ();
 
-        TriangleKeySet AdjTriangles;
-        const MinHeapRecord<EdgeKey,float>* Record;
-    };
+		TriangleKeySet AdjTriangles;
+		const MinHeapRecord<EdgeKey,float>* Record;
+	};
 
-    typedef int Triangle;
+	typedef int Triangle;
 
-    typedef std::vector<Vertex> VertexArray;
-    typedef std::map<EdgeKey,Edge> EdgeMap;
-    typedef std::map<TriangleKey,Triangle> TriangleMap;
+	typedef std::vector<Vertex> VertexArray;
+	typedef std::map<EdgeKey,Edge> EdgeMap;
+	typedef std::map<TriangleKey,Triangle> TriangleMap;
 
-    // Information about the edge collapse.
-    class CollapseInfo
-    {
-    public:
-        CollapseInfo (int vKeep = -1, int vThrow = -1);
+	// Information about the edge collapse.
+	class CollapseInfo
+	{
+	public:
+		CollapseInfo (int vKeep = -1, int vThrow = -1);
 
-        int VKeep, VThrow, TThrow0, TThrow1;
-    };
+		int VKeep, VThrow, TThrow0, TThrow1;
+	};
 
 
-    bool ValidBuffers () const;
-    void InsertTriangle (const TriangleKey& tKey, Triangle t);
-    void RemoveTriangle (const TriangleKey& tKey);
-    void ClassifyCollapsibleVertices ();
-    float ComputeMetric (const EdgeKey& eKey);
-    int CanCollapse (const EdgeKey& eKey);
-    void Collapse (const EdgeKey& eKey, int indexThrow);
-    bool ValidResults ();
-    void ReorderBuffers ();
-    void ComputeRecords (int& numRecords, CollapseRecord*& records);
+	bool ValidBuffers () const;
+	void InsertTriangle (const TriangleKey& tKey, Triangle t);
+	void RemoveTriangle (const TriangleKey& tKey);
+	void ClassifyCollapsibleVertices ();
+	float ComputeMetric (const EdgeKey& eKey);
+	int CanCollapse (const EdgeKey& eKey);
+	void Collapse (const EdgeKey& eKey, int indexThrow);
+	bool ValidResults ();
+	void ReorderBuffers ();
+	void ComputeRecords (int& numRecords, CollapseRecord*& records);
 
-    // Triangle mesh to be decimated.
-    int mNumVertices, mNumIndices, mNumTriangles;
-    int* mIndices;
-    VertexBufferAccessor mVBA;
+	// Triangle mesh to be decimated.
+	int mNumVertices, mNumIndices, mNumTriangles;
+	int* mIndices;
+	VertexBufferAccessor mVBA;
 
-    // The vertex-edge-triangle graph.
-    VertexArray mVertices;
-    EdgeMap mEdges;
-    TriangleMap mTriangles;
+	// The vertex-edge-triangle graph.
+	VertexArray mVertices;
+	EdgeMap mEdges;
+	TriangleMap mTriangles;
 
-    // The edge heap to support collapse operations.
-    MinHeap<EdgeKey,float> mHeap;
+	// The edge heap to support collapse operations.
+	MinHeap<EdgeKey,float> mHeap;
 
-    // The sequence of edge collapses.
-    std::vector<CollapseInfo> mCollapses;
+	// The sequence of edge collapses.
+	std::vector<CollapseInfo> mCollapses;
 
-    // Postprocessing of the edge collapses.
-    std::vector<int> mVerticesRemaining;
-    std::vector<int> mTrianglesRemaining;
+	// Postprocessing of the edge collapses.
+	std::vector<int> mVerticesRemaining;
+	std::vector<int> mTrianglesRemaining;
 };
 
 }

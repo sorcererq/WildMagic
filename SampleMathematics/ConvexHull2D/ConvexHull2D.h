@@ -14,34 +14,34 @@ using namespace Wm5;
 
 class ConvexHull2D : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    ConvexHull2D ();
+	ConvexHull2D ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
-    virtual void ScreenOverlay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
+	virtual void ScreenOverlay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void GenerateHull0D ();
-    void GenerateHull1D ();
-    void GenerateHull2D ();
-    void GenerateHullManyCollinear ();
-    void RegenerateHull ();
-    int UnitToScreen (float value);
+	void GenerateHull0D ();
+	void GenerateHull1D ();
+	void GenerateHull2D ();
+	void GenerateHullManyCollinear ();
+	void RegenerateHull ();
+	int UnitToScreen (float value);
 
-    float mEpsilon;
-    Query::Type mQueryType;
-    ConvexHullf* mHull;
-    int mNumVertices;
-    Vector2f* mVertices;
+	float mEpsilon;
+	Query::Type mQueryType;
+	ConvexHullf* mHull;
+	int mNumVertices;
+	Vector2f* mVertices;
 
-    int mSize;
-    Float4 mTextColor;
+	int mSize;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(ConvexHull2D);

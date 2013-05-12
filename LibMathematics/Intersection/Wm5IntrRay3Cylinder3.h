@@ -19,36 +19,36 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrRay3Cylinder3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrRay3Cylinder3 (const Ray3<Real>& ray,
-        const Cylinder3<Real>& cylinder);
+	IntrRay3Cylinder3 (const Ray3<Real>& ray,
+	                   const Cylinder3<Real>& cylinder);
 
-    // Object access.
-    const Ray3<Real>& GetRay () const;
-    const Cylinder3<Real>& GetCylinder () const;
+	// Object access.
+	const Ray3<Real>& GetRay () const;
+	const Cylinder3<Real>& GetCylinder () const;
 
-    // Static intersection query.
-    virtual bool Find ();
+	// Static intersection query.
+	virtual bool Find ();
 
-    // The intersection set.
-    int GetQuantity () const;
-    const Vector3<Real>& GetPoint (int i) const;
+	// The intersection set.
+	int GetQuantity () const;
+	const Vector3<Real>& GetPoint (int i) const;
 
 private:
-    using Intersector<Real,Vector3<Real> >::IT_EMPTY;
-    using Intersector<Real,Vector3<Real> >::IT_POINT;
-    using Intersector<Real,Vector3<Real> >::IT_SEGMENT;
-    using Intersector<Real,Vector3<Real> >::mIntersectionType;
+	using Intersector<Real,Vector3<Real> >::IT_EMPTY;
+	using Intersector<Real,Vector3<Real> >::IT_POINT;
+	using Intersector<Real,Vector3<Real> >::IT_SEGMENT;
+	using Intersector<Real,Vector3<Real> >::mIntersectionType;
 
-    // The objects to intersect.
-    const Ray3<Real>* mRay;
-    const Cylinder3<Real>* mCylinder;
+	// The objects to intersect.
+	const Ray3<Real>* mRay;
+	const Cylinder3<Real>* mCylinder;
 
-    // Information about the intersection set.
-    int mQuantity;
-    Vector3<Real> mPoint[2];
+	// Information about the intersection set.
+	int mQuantity;
+	Vector3<Real> mPoint[2];
 };
 
 typedef IntrRay3Cylinder3<float> IntrRay3Cylinder3f;

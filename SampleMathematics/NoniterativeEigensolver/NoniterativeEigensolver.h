@@ -14,26 +14,26 @@ using namespace Wm5;
 
 class NoniterativeEigensolver : public ConsoleApplication
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    NoniterativeEigensolver ();
+	NoniterativeEigensolver ();
 
-    virtual int Main (int numArguments, char** arguments);
+	virtual int Main (int numArguments, char** arguments);
 
 private:
-    void SolveAndMeasure (const Matrix3f& A, float& iterativeError,
-        float& noniterativeError, float& iterativeDeterminant,
-        float& noniterativeDeterminant);
+	void SolveAndMeasure (const Matrix3f& A, float& iterativeError,
+	                      float& noniterativeError, float& iterativeDeterminant,
+	                      float& noniterativeDeterminant);
 
-    // Data for iterative method.
-    float mIterativeEigenvalues[3];
-    Vector3f mIterativeEigenvectors[3];
+	// Data for iterative method.
+	float mIterativeEigenvalues[3];
+	Vector3f mIterativeEigenvectors[3];
 
-    // Data for noniterative method.
-    float mNoniterativeEigenvalues[3];
-    Vector3f mNoniterativeEigenvectors[3];
+	// Data for noniterative method.
+	float mNoniterativeEigenvalues[3];
+	Vector3f mNoniterativeEigenvectors[3];
 };
 
 WM5_REGISTER_INITIALIZE(NoniterativeEigensolver);

@@ -19,33 +19,33 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrRay2Box2
-    : public Intersector<Real,Vector2<Real> >
+	: public Intersector<Real,Vector2<Real> >
 {
 public:
-    IntrRay2Box2 (const Ray2<Real>& ray, const Box2<Real>& box);
+	IntrRay2Box2 (const Ray2<Real>& ray, const Box2<Real>& box);
 
-    // Object access.
-    const Ray2<Real>& GetRay () const;
-    const Box2<Real>& GetBox () const;
+	// Object access.
+	const Ray2<Real>& GetRay () const;
+	const Box2<Real>& GetBox () const;
 
-    // Static intersection queries.
-    virtual bool Test ();
-    virtual bool Find ();
+	// Static intersection queries.
+	virtual bool Test ();
+	virtual bool Find ();
 
-    // The intersection set.
-    int GetQuantity () const;
-    const Vector2<Real>& GetPoint (int i) const;
+	// The intersection set.
+	int GetQuantity () const;
+	const Vector2<Real>& GetPoint (int i) const;
 
 private:
-    using Intersector<Real,Vector2<Real> >::mIntersectionType;
+	using Intersector<Real,Vector2<Real> >::mIntersectionType;
 
-    // The objects to intersect.
-    const Ray2<Real>* mRay;
-    const Box2<Real>* mBox;
+	// The objects to intersect.
+	const Ray2<Real>* mRay;
+	const Box2<Real>* mBox;
 
-    // Information about the intersection set.
-    int mQuantity;
-    Vector2<Real> mPoint[2];
+	// Information about the intersection set.
+	int mQuantity;
+	Vector2<Real> mPoint[2];
 };
 
 typedef IntrRay2Box2<float> IntrRay2Box2f;

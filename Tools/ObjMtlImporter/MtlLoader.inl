@@ -9,11 +9,11 @@
 //----------------------------------------------------------------------------
 inline MtlLoader::ErrorCode MtlLoader::GetCode () const
 {
-    return mCode;
+	return mCode;
 }
 //----------------------------------------------------------------------------
 inline const vector<MtlLoader::Material>& MtlLoader::GetMaterials () const
 {
-    return mMaterials;
+	return mMaterials;
 }
 //----------------------------------------------------------------------------

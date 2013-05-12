@@ -14,28 +14,28 @@ using namespace Wm5;
 
 class IntersectInfiniteCylinders : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    IntersectInfiniteCylinders ();
+	IntersectInfiniteCylinders ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
+	void CreateScene ();
 
-    Float4 mTextColor;
-    NodePtr mScene;
-    WireStatePtr mWireState;
-    TriMeshPtr mCylinder0, mCylinder1;
-    float mRadius0, mRadius1, mHeight, mAngle;
-    float mC0, mW1, mW2;
-    PolysegmentPtr mCurve0, mCurve1;
-    VisibleSet mVisible;
+	Float4 mTextColor;
+	NodePtr mScene;
+	WireStatePtr mWireState;
+	TriMeshPtr mCylinder0, mCylinder1;
+	float mRadius0, mRadius1, mHeight, mAngle;
+	float mC0, mW1, mW2;
+	PolysegmentPtr mCurve0, mCurve1;
+	VisibleSet mVisible;
 };
 
 WM5_REGISTER_INITIALIZE(IntersectInfiniteCylinders);

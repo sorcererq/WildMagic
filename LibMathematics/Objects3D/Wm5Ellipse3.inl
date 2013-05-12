@@ -19,15 +19,15 @@ Ellipse3<Real>::~Ellipse3 ()
 //----------------------------------------------------------------------------
 template <typename Real>
 Ellipse3<Real>::Ellipse3 (const Vector3<Real>& center,
-    const Vector3<Real>& normal, const Vector3<Real>& major,
-    const Vector3<Real>& minor, Real majorLength, Real minorLength)
-    :
-    Center(center),
-    Normal(normal),
-    Major(major),
-    Minor(minor),
-    MajorLength(majorLength),
-    MinorLength(minorLength)
+                          const Vector3<Real>& normal, const Vector3<Real>& major,
+                          const Vector3<Real>& minor, Real majorLength, Real minorLength)
+	:
+	Center(center),
+	Normal(normal),
+	Major(major),
+	Minor(minor),
+	MajorLength(majorLength),
+	MinorLength(minorLength)
 {
 }
 //----------------------------------------------------------------------------

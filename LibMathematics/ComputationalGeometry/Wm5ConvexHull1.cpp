@@ -15,95 +15,95 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 ConvexHull1<Real>::ConvexHull1 (int numVertices, Real* vertices,
-    Real epsilon, bool owner, Query::Type queryType)
-    :
-    ConvexHull<Real>(numVertices, epsilon, owner, queryType),
-    mVertices(vertices)
+                                Real epsilon, bool owner, Query::Type queryType)
+	:
+	ConvexHull<Real>(numVertices, epsilon, owner, queryType),
+	mVertices(vertices)
 {
-    assertion(mVertices != 0, "Must provide vertices\n");
+	assertion(mVertices != 0, "Must provide vertices\n");
 
-    std::vector<SortedVertex> sortedArray(mNumVertices);
-    int i;
-    for (i = 0; i < mNumVertices; ++i)
-    {
-        sortedArray[i].Value = mVertices[i];
-        sortedArray[i].Index = i;
-    }
-    std::sort(sortedArray.begin(), sortedArray.end());
+	std::vector<SortedVertex> sortedArray(mNumVertices);
+	int i;
+	for (i = 0; i < mNumVertices; ++i)
+	{
+		sortedArray[i].Value = mVertices[i];
+		sortedArray[i].Index = i;
+	}
+	std::sort(sortedArray.begin(), sortedArray.end());
 
-    Real range = sortedArray[mNumVertices-1].Value - sortedArray[0].Value;
-    if (range >= mEpsilon)
-    {
-        mDimension = 1;
-        mNumSimplices = 2;
-        mIndices = new1<int>(2);
-        mIndices[0] = sortedArray[0].Index;
-        mIndices[1] = sortedArray[mNumVertices-1].Index;
-    }
+	Real range = sortedArray[mNumVertices-1].Value - sortedArray[0].Value;
+	if (range >= mEpsilon)
+	{
+		mDimension = 1;
+		mNumSimplices = 2;
+		mIndices = new1<int>(2);
+		mIndices[0] = sortedArray[0].Index;
+		mIndices[1] = sortedArray[mNumVertices-1].Index;
+	}
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 ConvexHull1<Real>::~ConvexHull1 ()
 {
-    if (mOwner)
-    {
-        delete1(mVertices);
-    }
+	if (mOwner)
+	{
+		delete1(mVertices);
+	}
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Real* ConvexHull1<Real>::GetVertices () const
 {
-    return mVertices;
+	return mVertices;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 ConvexHull1<Real>::ConvexHull1 (const char* filename, int mode)
-    :
-    ConvexHull<Real>(0, (Real)0, false, Query::QT_REAL),
-    mVertices(0)
+	:
+	ConvexHull<Real>(0, (Real)0, false, Query::QT_REAL),
+	mVertices(0)
 {
-    bool loaded = Load(filename, mode);
-    assertion(loaded, "Failed to load file\n");
-    WM5_UNUSED(loaded);
+	bool loaded = Load(filename, mode);
+	assertion(loaded, "Failed to load file\n");
+	WM5_UNUSED(loaded);
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool ConvexHull1<Real>::Load (const char* filename, int mode)
 {
-    FileIO inFile(filename, mode);
-    if (!inFile)
-    {
-        return false;
-    }
+	FileIO inFile(filename, mode);
+	if (!inFile)
+	{
+		return false;
+	}
 
-    ConvexHull<Real>::Load(inFile);
+	ConvexHull<Real>::Load(inFile);
 
-    if (mOwner)
-    {
-        delete1(mVertices);
-    }
+	if (mOwner)
+	{
+		delete1(mVertices);
+	}
 
-    mOwner = true;
-    mVertices = new1<Real>(mNumVertices);
-    inFile.Read(sizeof(Real), mNumVertices, mVertices);
-    inFile.Close();
-    return true;
+	mOwner = true;
+	mVertices = new1<Real>(mNumVertices);
+	inFile.Read(sizeof(Real), mNumVertices, mVertices);
+	inFile.Close();
+	return true;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool ConvexHull1<Real>::Save (const char* filename, int mode) const
 {
-    FileIO outFile(filename, mode);
-    if (!outFile)
-    {
-        return false;
-    }
+	FileIO outFile(filename, mode);
+	if (!outFile)
+	{
+		return false;
+	}
 
-    ConvexHull<Real>::Save(outFile);
-    outFile.Write(sizeof(Real), mNumVertices, mVertices);
-    outFile.Close();
-    return true;
+	ConvexHull<Real>::Save(outFile);
+	outFile.Write(sizeof(Real), mNumVertices, mVertices);
+	outFile.Close();
+	return true;
 }
 //----------------------------------------------------------------------------
 

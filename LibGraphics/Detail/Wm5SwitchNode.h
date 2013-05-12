@@ -17,26 +17,26 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM SwitchNode : public Node
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(SwitchNode);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(SwitchNode);
 
 public:
-    // Construction and destruction.
-    SwitchNode ();
-    virtual ~SwitchNode ();
+	// Construction and destruction.
+	SwitchNode ();
+	virtual ~SwitchNode ();
 
-    enum { SN_INVALID_CHILD = -1 };
+	enum { SN_INVALID_CHILD = -1 };
 
-    inline void SetActiveChild (int activeChild);
-    inline int GetActiveChild () const;
-    inline void DisableAllChildren ();
+	inline void SetActiveChild (int activeChild);
+	inline int GetActiveChild () const;
+	inline void DisableAllChildren ();
 
 protected:
-    // Support for hierarchical culling.
-    virtual void GetVisibleSet (Culler& culler, bool noCull);
+	// Support for hierarchical culling.
+	virtual void GetVisibleSet (Culler& culler, bool noCull);
 
-    int mActiveChild;
+	int mActiveChild;
 };
 
 WM5_REGISTER_STREAM(SwitchNode);

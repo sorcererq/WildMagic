@@ -18,7 +18,7 @@ namespace Wm5
 class GlutRendererData : public RendererData
 {
 public:
-    int mWindowID;
+	int mWindowID;
 };
 
 }

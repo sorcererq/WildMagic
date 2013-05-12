@@ -19,22 +19,22 @@ WM5_IMPLEMENT_DEFAULT_STREAM(VisualEffect, TerrainEffect);
 
 //----------------------------------------------------------------------------
 TerrainEffect::TerrainEffect (const std::string& effectFile)
-    :
-    VisualEffect(effectFile)
+	:
+	VisualEffect(effectFile)
 {
-    // TODO:  Once WmfxCompiler parses the Cg FX files, we will not need to
-    // set the sampler state.
-    PixelShader* pshader = GetPixelShader(0, 0);
+	// TODO:  Once WmfxCompiler parses the Cg FX files, we will not need to
+	// set the sampler state.
+	PixelShader* pshader = GetPixelShader(0, 0);
 
-    // BaseSampler
-    pshader->SetFilter(0, Shader::SF_LINEAR_LINEAR);
-    pshader->SetCoordinate(0, 0, Shader::SC_CLAMP_EDGE);
-    pshader->SetCoordinate(0, 1, Shader::SC_CLAMP_EDGE);
+	// BaseSampler
+	pshader->SetFilter(0, Shader::SF_LINEAR_LINEAR);
+	pshader->SetCoordinate(0, 0, Shader::SC_CLAMP_EDGE);
+	pshader->SetCoordinate(0, 1, Shader::SC_CLAMP_EDGE);
 
-    // DetailSampler
-    pshader->SetFilter(1, Shader::SF_LINEAR_LINEAR);
-    pshader->SetCoordinate(1, 0, Shader::SC_CLAMP_EDGE);
-    pshader->SetCoordinate(1, 1, Shader::SC_CLAMP_EDGE);
+	// DetailSampler
+	pshader->SetFilter(1, Shader::SF_LINEAR_LINEAR);
+	pshader->SetCoordinate(1, 0, Shader::SC_CLAMP_EDGE);
+	pshader->SetCoordinate(1, 1, Shader::SC_CLAMP_EDGE);
 }
 //----------------------------------------------------------------------------
 TerrainEffect::~TerrainEffect ()
@@ -42,14 +42,14 @@ TerrainEffect::~TerrainEffect ()
 }
 //----------------------------------------------------------------------------
 VisualEffectInstance* TerrainEffect::CreateInstance (Texture2D* baseTexture,
-    Texture2D* detailTexture, ShaderFloat* fogColorDensity)
+        Texture2D* detailTexture, ShaderFloat* fogColorDensity)
 {
-    VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
-    instance->SetVertexConstant(0, 0, new0 PVWMatrixConstant());
-    instance->SetVertexConstant(0, 1, new0 VWMatrixConstant());
-    instance->SetVertexConstant(0, 2, fogColorDensity);
-    instance->SetPixelTexture(0, 0, baseTexture);
-    instance->SetPixelTexture(0, 1, detailTexture);
-    return instance;
+	VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
+	instance->SetVertexConstant(0, 0, new0 PVWMatrixConstant());
+	instance->SetVertexConstant(0, 1, new0 VWMatrixConstant());
+	instance->SetVertexConstant(0, 2, fogColorDensity);
+	instance->SetPixelTexture(0, 0, baseTexture);
+	instance->SetPixelTexture(0, 1, detailTexture);
+	return instance;
 }
 //----------------------------------------------------------------------------

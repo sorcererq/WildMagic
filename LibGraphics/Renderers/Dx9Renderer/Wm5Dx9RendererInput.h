@@ -17,8 +17,8 @@ namespace Wm5
 class RendererInput
 {
 public:
-    IDirect3D9* mDriver;
-    HWND mWindowHandle;
+	IDirect3D9* mDriver;
+	HWND mWindowHandle;
 };
 
 }

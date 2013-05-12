@@ -19,24 +19,24 @@ template <typename Real>
 class Circle3
 {
 public:
-    // The plane containing the circle is Dot(N,X-C) = 0, where X is any point
-    // in the plane.  Vectors U, V, and N form an orthonormal right-handed set
-    // (matrix [U V N] is orthonormal and has determinant 1).  The circle
-    // within the plane is parameterized by X = C + R*(cos(t)*U + sin(t)*V),
-    // where t is an angle in [-pi,pi).
+	// The plane containing the circle is Dot(N,X-C) = 0, where X is any point
+	// in the plane.  Vectors U, V, and N form an orthonormal right-handed set
+	// (matrix [U V N] is orthonormal and has determinant 1).  The circle
+	// within the plane is parameterized by X = C + R*(cos(t)*U + sin(t)*V),
+	// where t is an angle in [-pi,pi).
 
-    // Construction and destruction.
-    Circle3 ();  // uninitialized
-    ~Circle3 ();
+	// Construction and destruction.
+	Circle3 ();  // uninitialized
+	~Circle3 ();
 
-    // U is the input 'direction0', V is the input 'direction1, and N is the
-    // input 'normal'.
-    Circle3 (const Vector3<Real>& center, const Vector3<Real>& direction0,
-        const Vector3<Real>& direction1, const Vector3<Real>& normal,
-        const Real radius);
+	// U is the input 'direction0', V is the input 'direction1, and N is the
+	// input 'normal'.
+	Circle3 (const Vector3<Real>& center, const Vector3<Real>& direction0,
+	         const Vector3<Real>& direction1, const Vector3<Real>& normal,
+	         const Real radius);
 
-    Vector3<Real> Center, Direction0, Direction1, Normal;
-    Real Radius;
+	Vector3<Real> Center, Direction0, Direction1, Normal;
+	Real Radius;
 };
 
 #include "Wm5Circle3.inl"

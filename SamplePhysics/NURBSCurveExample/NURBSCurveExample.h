@@ -14,32 +14,32 @@ using namespace Wm5;
 
 class NURBSCurveExample : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    NURBSCurveExample ();
+	NURBSCurveExample ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void DoSimulation1 ();
-    void DoSimulation2 ();
-    void InitialConfiguration ();
-    void NextConfiguration ();
+	void DoSimulation1 ();
+	void DoSimulation2 ();
+	void InitialConfiguration ();
+	void NextConfiguration ();
 
-    NURBSCurve2f* mSpline;
-    NURBSCurve2f* mCircle;
-    Vector2f* mCtrlPoints;
-    Vector2f* mTargets;
-    int mSize;
-    float mH, mD;
-    float mSimTime, mSimDelta;
+	NURBSCurve2f* mSpline;
+	NURBSCurve2f* mCircle;
+	Vector2f* mCtrlPoints;
+	Vector2f* mTargets;
+	int mSize;
+	float mH, mD;
+	float mSimTime, mSimDelta;
 
-    bool mDrawControlPoints;
+	bool mDrawControlPoints;
 };
 
 WM5_REGISTER_INITIALIZE(NURBSCurveExample);

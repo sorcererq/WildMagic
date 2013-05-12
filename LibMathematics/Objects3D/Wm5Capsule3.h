@@ -19,15 +19,15 @@ template <typename Real>
 class Capsule3
 {
 public:
-    // Construction and destruction.  A capsule is the set of points that are
-    // equidistant from a segment, the common distance called the radius.
-    Capsule3 ();  // uninitialized
-    ~Capsule3 ();
+	// Construction and destruction.  A capsule is the set of points that are
+	// equidistant from a segment, the common distance called the radius.
+	Capsule3 ();  // uninitialized
+	~Capsule3 ();
 
-    Capsule3 (const Segment3<Real>& segment, Real radius);
+	Capsule3 (const Segment3<Real>& segment, Real radius);
 
-    Segment3<Real> Segment;
-    Real Radius;
+	Segment3<Real> Segment;
+	Real Radius;
 };
 
 #include "Wm5Capsule3.inl"

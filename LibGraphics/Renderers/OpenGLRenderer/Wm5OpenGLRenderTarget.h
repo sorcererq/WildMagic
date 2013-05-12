@@ -20,25 +20,25 @@ class Renderer;
 class PdrRenderTarget
 {
 public:
-    // Construction and destruction.
-    PdrRenderTarget (Renderer* renderer, const RenderTarget* renderTarget);
-    ~PdrRenderTarget ();
+	// Construction and destruction.
+	PdrRenderTarget (Renderer* renderer, const RenderTarget* renderTarget);
+	~PdrRenderTarget ();
 
-    // Render target operations.
-    void Enable (Renderer* renderer);
-    void Disable (Renderer* renderer);
-    void ReadColor (int i, Renderer* renderer, Texture2D*& texture);
+	// Render target operations.
+	void Enable (Renderer* renderer);
+	void Disable (Renderer* renderer);
+	void ReadColor (int i, Renderer* renderer, Texture2D*& texture);
 
 private:
-    int mNumTargets, mWidth, mHeight;
-    Texture::Format mFormat;
-    bool mHasMipmaps, mHasDepthStencil;
+	int mNumTargets, mWidth, mHeight;
+	Texture::Format mFormat;
+	bool mHasMipmaps, mHasDepthStencil;
 
-    GLuint* mColorTextures;
-    GLuint mDepthStencilTexture, mFrameBuffer;
-    GLenum* mDrawBuffers;
-    int mPrevViewport[4];
-    double mPrevDepthRange[2];
+	GLuint* mColorTextures;
+	GLuint mDepthStencilTexture, mFrameBuffer;
+	GLenum* mDrawBuffers;
+	int mPrevViewport[4];
+	double mPrevDepthRange[2];
 };
 
 }

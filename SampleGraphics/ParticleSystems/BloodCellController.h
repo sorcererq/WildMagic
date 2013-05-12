@@ -16,15 +16,15 @@ namespace Wm5
 
 class BloodCellController : public ParticleController
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(BloodCellController);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(BloodCellController);
 
 public:
-    BloodCellController ();
+	BloodCellController ();
 
 protected:
-    virtual void UpdatePointMotion (float ctrlTime);
+	virtual void UpdatePointMotion (float ctrlTime);
 };
 
 WM5_REGISTER_STREAM(BloodCellController);

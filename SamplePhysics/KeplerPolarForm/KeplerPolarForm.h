@@ -15,19 +15,19 @@ using namespace Wm5;
 
 class KeplerPolarForm : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    KeplerPolarForm ();
+	KeplerPolarForm ();
 
-    virtual bool OnInitialize ();
-    virtual void OnDisplay ();
+	virtual bool OnInitialize ();
+	virtual void OnDisplay ();
 
 protected:
-    PhysicsModule mModule;
-    std::vector<Vector2d> mPositions;
-    int mSize;
+	PhysicsModule mModule;
+	std::vector<Vector2d> mPositions;
+	int mSize;
 };
 
 WM5_REGISTER_INITIALIZE(KeplerPolarForm);

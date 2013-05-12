@@ -9,31 +9,31 @@
 //----------------------------------------------------------------------------
 inline ObjLoader::ErrorCode ObjLoader::GetCode () const
 {
-    return mCode;
+	return mCode;
 }
 //----------------------------------------------------------------------------
 inline const vector<MtlLoader::Material>& ObjLoader::GetMaterials () const
 {
-    return mMaterials;
+	return mMaterials;
 }
 //----------------------------------------------------------------------------
 inline const vector<ObjLoader::Group>& ObjLoader::GetGroups () const
 {
-    return mGroups;
+	return mGroups;
 }
 //----------------------------------------------------------------------------
 inline const vector<ObjLoader::Float3>& ObjLoader::GetPositions () const
 {
-    return mPositions;
+	return mPositions;
 }
 //----------------------------------------------------------------------------
 inline const vector<ObjLoader::Float2>& ObjLoader::GetTCoords () const
 {
-    return mTCoords;
+	return mTCoords;
 }
 //----------------------------------------------------------------------------
 inline const vector<ObjLoader::Float3>& ObjLoader::GetNormals () const
 {
-    return mNormals;
+	return mNormals;
 }
 //----------------------------------------------------------------------------

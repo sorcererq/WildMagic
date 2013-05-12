@@ -14,68 +14,68 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 DistPoint2Ray2<Real>::DistPoint2Ray2 (const Vector2<Real>& point,
-    const Ray2<Real>& ray)
-    :
-    mPoint(&point),
-    mRay(&ray)
+                                      const Ray2<Real>& ray)
+	:
+	mPoint(&point),
+	mRay(&ray)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Vector2<Real>& DistPoint2Ray2<Real>::GetPoint () const
 {
-    return *mPoint;
+	return *mPoint;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Ray2<Real>& DistPoint2Ray2<Real>::GetRay () const
 {
-    return *mRay;
+	return *mRay;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistPoint2Ray2<Real>::Get ()
 {
-    return Math<Real>::Sqrt(GetSquared());
+	return Math<Real>::Sqrt(GetSquared());
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistPoint2Ray2<Real>::GetSquared ()
 {
-    Vector2<Real> diff = *mPoint - mRay->Origin;
-    Real param = mRay->Direction.Dot(diff);
-    if (param > (Real)0)
-    {
-        mClosestPoint1 = mRay->Origin + param*mRay->Direction;
-    }
-    else
-    {
-        mClosestPoint1 = mRay->Origin;
-    }
+	Vector2<Real> diff = *mPoint - mRay->Origin;
+	Real param = mRay->Direction.Dot(diff);
+	if (param > (Real)0)
+	{
+		mClosestPoint1 = mRay->Origin + param*mRay->Direction;
+	}
+	else
+	{
+		mClosestPoint1 = mRay->Origin;
+	}
 
-    mClosestPoint0 = *mPoint;
-    diff = mClosestPoint1 - mClosestPoint0;
-    return diff.SquaredLength();
+	mClosestPoint0 = *mPoint;
+	diff = mClosestPoint1 - mClosestPoint0;
+	return diff.SquaredLength();
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistPoint2Ray2<Real>::Get (Real t, const Vector2<Real>& velocity0,
-    const Vector2<Real>& velocity1)
+                                const Vector2<Real>& velocity1)
 {
-    Vector2<Real> movedPoint = *mPoint + t*velocity0;
-    Vector2<Real> movedOrigin = mRay->Origin + t*velocity1;
-    Ray2<Real> movedRay(movedOrigin, mRay->Direction);
-    return DistPoint2Ray2<Real>(movedPoint, movedRay).Get();
+	Vector2<Real> movedPoint = *mPoint + t*velocity0;
+	Vector2<Real> movedOrigin = mRay->Origin + t*velocity1;
+	Ray2<Real> movedRay(movedOrigin, mRay->Direction);
+	return DistPoint2Ray2<Real>(movedPoint, movedRay).Get();
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistPoint2Ray2<Real>::GetSquared (Real t,
-    const Vector2<Real>& velocity0, const Vector2<Real>& velocity1)
+                                       const Vector2<Real>& velocity0, const Vector2<Real>& velocity1)
 {
-    Vector2<Real> movedPoint = *mPoint + t*velocity0;
-    Vector2<Real> movedOrigin = mRay->Origin + t*velocity1;
-    Ray2<Real> movedRay(movedOrigin, mRay->Direction);
-    return DistPoint2Ray2<Real>(movedPoint, movedRay).GetSquared();
+	Vector2<Real> movedPoint = *mPoint + t*velocity0;
+	Vector2<Real> movedOrigin = mRay->Origin + t*velocity1;
+	Ray2<Real> movedRay(movedOrigin, mRay->Direction);
+	return DistPoint2Ray2<Real>(movedPoint, movedRay).GetSquared();
 }
 //----------------------------------------------------------------------------
 

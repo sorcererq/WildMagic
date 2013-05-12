@@ -14,33 +14,33 @@ using namespace Wm5;
 
 class InverseKinematics : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    InverseKinematics ();
+	InverseKinematics ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
-    virtual bool OnMotion (int button, int x, int y, unsigned int modifiers);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnMotion (int button, int x, int y, unsigned int modifiers);
 
 protected:
-    void CreateScene ();
-    TriMesh* CreateCube ();
-    Polysegment* CreateRod ();
-    TriMesh* CreateGround ();
-    void UpdateRod ();
-    bool Transform (unsigned char key);
+	void CreateScene ();
+	TriMesh* CreateCube ();
+	Polysegment* CreateRod ();
+	TriMesh* CreateGround ();
+	void UpdateRod ();
+	bool Transform (unsigned char key);
 
-    NodePtr mScene, mIKSystem, mGoal, mJoint0, mJoint1;
-    WireStatePtr mWireState;
-    PolysegmentPtr mRod;
-    VertexColor3Effect* mVCEffect;
-    Culler mCuller;
+	NodePtr mScene, mIKSystem, mGoal, mJoint0, mJoint1;
+	WireStatePtr mWireState;
+	PolysegmentPtr mRod;
+	VertexColor3Effect* mVCEffect;
+	Culler mCuller;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(InverseKinematics);

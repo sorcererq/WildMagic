@@ -21,20 +21,20 @@ namespace Wm5
 class WM5_CORE_ITEM Assert
 {
 public:
-    // Construction and destruction.
-    Assert (bool condition, const char* file, int line, const char* format,
-        ...);
+	// Construction and destruction.
+	Assert (bool condition, const char* file, int line, const char* format,
+	        ...);
 
-    ~Assert ();
+	~Assert ();
 
 private:
-    enum { MAX_MESSAGE_BYTES = 1024 };
-    static const char* msDebugPrompt;
-    static const size_t msDebugPromptLength;
-    static const char* msMessagePrefix;
+	enum { MAX_MESSAGE_BYTES = 1024 };
+	static const char* msDebugPrompt;
+	static const size_t msDebugPromptLength;
+	static const char* msMessagePrefix;
 
 #ifdef WM5_USE_ASSERT_WRITE_TO_MESSAGE_BOX
-    static const char* msMessageBoxTitle;
+	static const char* msMessageBoxTitle;
 #endif
 };
 

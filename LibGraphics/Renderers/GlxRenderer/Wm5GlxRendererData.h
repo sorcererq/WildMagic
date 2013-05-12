@@ -21,13 +21,13 @@ class Renderer;
 class GlxRendererData : public RendererData
 {
 public:
-    // Platform-dependent data.
-    Display* mDisplay;
-    XVisualInfo* mVisual;
-    Window mWindow;
-    GLXContext mContext;
+	// Platform-dependent data.
+	Display* mDisplay;
+	XVisualInfo* mVisual;
+	Window mWindow;
+	GLXContext mContext;
 
-    bool FinishConstruction (Window window, Renderer* renderer);
+	bool FinishConstruction (Window window, Renderer* renderer);
 };
 
 }

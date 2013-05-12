@@ -18,23 +18,23 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM Material : public Object
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(Material);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(Material);
 
 public:
-    // Construction and destruction.
-    Material ();
-    virtual ~Material ();
+	// Construction and destruction.
+	Material ();
+	virtual ~Material ();
 
-    Float4 Emissive;  // default: (0,0,0,1)
-    Float4 Ambient;   // default: (0,0,0,1)
+	Float4 Emissive;  // default: (0,0,0,1)
+	Float4 Ambient;   // default: (0,0,0,1)
 
-    // The material alpha is the alpha channel of mDiffuse.
-    Float4 Diffuse;   // default: (0,0,0,1)
+	// The material alpha is the alpha channel of mDiffuse.
+	Float4 Diffuse;   // default: (0,0,0,1)
 
-    // The material specular exponent is in the alpha channel of mSpecular.
-    Float4 Specular;  // default: (0,0,0,0)
+	// The material specular exponent is in the alpha channel of mSpecular.
+	Float4 Specular;  // default: (0,0,0,0)
 };
 
 WM5_REGISTER_STREAM(Material);

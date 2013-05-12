@@ -15,26 +15,26 @@ using namespace Wm5;
 
 class VolumeRenderer : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    VolumeRenderer ();
+	VolumeRenderer ();
 
-    virtual bool OnPrecreate ();
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
-    virtual bool OnMouseClick (int button, int state, int x, int y,
-        unsigned int modifiers);
-    virtual bool OnMotion (int button, int x, int y, unsigned int modifiers);
+	virtual bool OnPrecreate ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnMouseClick (int button, int state, int x, int y,
+	                           unsigned int modifiers);
+	virtual bool OnMotion (int button, int x, int y, unsigned int modifiers);
 
 protected:
-    int mBound;
-    RayTrace* mRT;
-    float mX0, mY0, mX1, mY1, mHBound, mGamma;
-    bool mButtonDown;
+	int mBound;
+	RayTrace* mRT;
+	float mX0, mY0, mX1, mY1, mHBound, mGamma;
+	bool mButtonDown;
 };
 
 WM5_REGISTER_INITIALIZE(VolumeRenderer);

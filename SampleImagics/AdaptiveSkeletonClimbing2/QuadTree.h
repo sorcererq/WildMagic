@@ -12,32 +12,32 @@
 class QuadRectangle
 {
 public:
-    // Construction and destruction.
-    QuadRectangle ();
-    QuadRectangle (int xOrigin, int yOrigin, int xStride, int yStride);
-    ~QuadRectangle ();
+	// Construction and destruction.
+	QuadRectangle ();
+	QuadRectangle (int xOrigin, int yOrigin, int xStride, int yStride);
+	~QuadRectangle ();
 
-    void Initialize (int xOrigin, int yOrigin, int xStride, int yStride);
+	void Initialize (int xOrigin, int yOrigin, int xStride, int yStride);
 
-    int mXOrigin, mYOrigin, mXStride, mYStride;
-    bool mValid;
+	int mXOrigin, mYOrigin, mXStride, mYStride;
+	bool mValid;
 };
 
 class QuadNode
 {
 public:
-    // Construction and destruction.
-    QuadNode ();
-    QuadNode (int xOrigin, int yOrigin, int xNext, int yNext, int stride);
-    ~QuadNode ();
+	// Construction and destruction.
+	QuadNode ();
+	QuadNode (int xOrigin, int yOrigin, int xNext, int yNext, int stride);
+	~QuadNode ();
 
-    void Initialize (int xOrigin, int yOrigin, int xNext, int yNext,
-        int stride);
+	void Initialize (int xOrigin, int yOrigin, int xNext, int yNext,
+	                 int stride);
 
-    bool IsMono () const;
-    int GetQuantity () const;
+	bool IsMono () const;
+	int GetQuantity () const;
 
-    QuadRectangle mR00, mR10, mR01, mR11;
+	QuadRectangle mR00, mR10, mR01, mR11;
 };
 
 #endif

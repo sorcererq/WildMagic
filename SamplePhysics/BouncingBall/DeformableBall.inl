@@ -9,36 +9,36 @@
 //----------------------------------------------------------------------------
 inline TriMesh* DeformableBall::GetMesh () const
 {
-    return mMesh;
+	return mMesh;
 }
 //----------------------------------------------------------------------------
 inline float DeformableBall::GetDuration () const
 {
-    return mDuration;
+	return mDuration;
 }
 //----------------------------------------------------------------------------
 inline float DeformableBall::GetPeriod () const
 {
-    return mPeriod;
+	return mPeriod;
 }
 //----------------------------------------------------------------------------
 inline float DeformableBall::GetMinActive () const
 {
-    return mMinActive;
+	return mMinActive;
 }
 //----------------------------------------------------------------------------
 inline float DeformableBall::GetMaxActive () const
 {
-    return mMaxActive;
+	return mMaxActive;
 }
 //----------------------------------------------------------------------------
 inline float DeformableBall::GetAmplitude (float time)
 {
-    return mDeformMult*(time - mMinActive)*(mMaxActive - time);
+	return mDeformMult*(time - mMinActive)*(mMaxActive - time);
 }
 //----------------------------------------------------------------------------
 inline bool& DeformableBall::DoAffine ()
 {
-    return mDoAffine;
+	return mDoAffine;
 }
 //----------------------------------------------------------------------------

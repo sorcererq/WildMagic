@@ -14,25 +14,25 @@ using namespace Wm5;
 
 class ExtractLevelCurves : public ConsoleApplication
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    ExtractLevelCurves ();
+	ExtractLevelCurves ();
 
-    virtual int Main (int numArguments, char** arguments);
+	virtual int Main (int numArguments, char** arguments);
 
 protected:
-    enum { MAGNIFY = 8, SIZE = 32, XPOS = 100, YPOS = 100 };
+	enum { MAGNIFY = 8, SIZE = 32, XPOS = 100, YPOS = 100 };
 
-    bool Extract ();
-    float Lerp (const ImageInt2D& image, float fx, float fy) const;
-    float Bilerp (const ImageInt2D& image, float fx, float fy) const;
+	bool Extract ();
+	float Lerp (const ImageInt2D& image, float fx, float fy) const;
+	float Bilerp (const ImageInt2D& image, float fx, float fy) const;
 
-    static void DrawPixel (int x, int y);
-    static ImageRGB82D* msColor;
-    static unsigned int msSelectedColor;
-    static float msMultiply;
+	static void DrawPixel (int x, int y);
+	static ImageRGB82D* msColor;
+	static unsigned int msSelectedColor;
+	static float msMultiply;
 };
 
 WM5_REGISTER_INITIALIZE(ExtractLevelCurves);

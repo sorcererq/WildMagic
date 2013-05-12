@@ -19,10 +19,10 @@ Line2<Real>::~Line2 ()
 //----------------------------------------------------------------------------
 template <typename Real>
 Line2<Real>::Line2 (const Vector2<Real>& origin,
-    const Vector2<Real>& direction)
-    :
-    Origin(origin),
-    Direction(direction)
+                    const Vector2<Real>& direction)
+	:
+	Origin(origin),
+	Direction(direction)
 {
 }
 //----------------------------------------------------------------------------

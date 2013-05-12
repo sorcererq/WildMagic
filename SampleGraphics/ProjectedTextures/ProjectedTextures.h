@@ -14,23 +14,23 @@ using namespace Wm5;
 
 class ProjectedTextures : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    ProjectedTextures ();
+	ProjectedTextures ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
 
 protected:
-    void CreateScene ();
+	void CreateScene ();
 
-    NodePtr mScene, mTrnNode;
-    Culler mCuller;
+	NodePtr mScene, mTrnNode;
+	Culler mCuller;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(ProjectedTextures);

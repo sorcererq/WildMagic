@@ -14,30 +14,30 @@ using namespace Wm5;
 
 class TriStripsFans : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    TriStripsFans ();
+	TriStripsFans ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
+	void CreateScene ();
 
-    NodePtr mScene;
-    WireStatePtr mWireState;
-    TriStripPtr mStrip;
-    TriMeshPtr mStripMesh;
-    TriFanPtr mFan;
-    TriMeshPtr mFanMesh;
-    Triangles* mActive;
-    Culler mCuller;
+	NodePtr mScene;
+	WireStatePtr mWireState;
+	TriStripPtr mStrip;
+	TriMeshPtr mStripMesh;
+	TriFanPtr mFan;
+	TriMeshPtr mFanMesh;
+	Triangles* mActive;
+	Culler mCuller;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(TriStripsFans);

@@ -20,10 +20,10 @@ WM5_IMPLEMENT_DEFAULT_STREAM(ShaderFloat, WMatrixConstant);
 
 //----------------------------------------------------------------------------
 WMatrixConstant::WMatrixConstant ()
-    :
-    ShaderFloat(4)
+	:
+	ShaderFloat(4)
 {
-    mAllowUpdater = true;
+	mAllowUpdater = true;
 }
 //----------------------------------------------------------------------------
 WMatrixConstant::~WMatrixConstant ()
@@ -32,13 +32,13 @@ WMatrixConstant::~WMatrixConstant ()
 //----------------------------------------------------------------------------
 void WMatrixConstant::Update (const Visual* visual, const Camera*)
 {
-    const HMatrix& worldMatrix = visual->WorldTransform.Matrix();
+	const HMatrix& worldMatrix = visual->WorldTransform.Matrix();
 
-    const float* source = (const float*)worldMatrix;
-    float* target = mData;
-    for (int i = 0; i < 16; ++i)
-    {
-        *target++ = *source++;
-    }
+	const float* source = (const float*)worldMatrix;
+	float* target = mData;
+	for (int i = 0; i < 16; ++i)
+	{
+		*target++ = *source++;
+	}
 }
 //----------------------------------------------------------------------------

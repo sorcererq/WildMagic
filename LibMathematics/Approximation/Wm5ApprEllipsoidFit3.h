@@ -32,26 +32,26 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM EllipsoidFit3
 {
 public:
-    EllipsoidFit3 (int numPoints, const Vector3<Real>* points,
-        Vector3<Real>& center, Matrix3<Real>& rotate, Real diag[3]);
+	EllipsoidFit3 (int numPoints, const Vector3<Real>* points,
+	               Vector3<Real>& center, Matrix3<Real>& rotate, Real diag[3]);
 
-    // Return the error value.
-    operator Real ();
+	// Return the error value.
+	operator Real ();
 
 private:
-    static void InitialGuess (int numPoints, const Vector3<Real>* points,
-        Vector3<Real>& center, Matrix3<Real>& rotate, Real diag[3]);
+	static void InitialGuess (int numPoints, const Vector3<Real>* points,
+	                          Vector3<Real>& center, Matrix3<Real>& rotate, Real diag[3]);
 
-    static Real Energy (const Real* input, void* userData);
+	static Real Energy (const Real* input, void* userData);
 
-    static void MatrixToAngles (const Matrix3<Real>& rotate, Real* angle);
-    static void AnglesToMatrix (const Real* angle, Matrix3<Real>& rotate);
+	static void MatrixToAngles (const Matrix3<Real>& rotate, Real* angle);
+	static void AnglesToMatrix (const Real* angle, Matrix3<Real>& rotate);
 
-    int mNumPoints;
-    const Vector3<Real>* mPoints;
-    Vector3<Real>* mTemp;
+	int mNumPoints;
+	const Vector3<Real>* mPoints;
+	Vector3<Real>* mTemp;
 
-    Real mError;
+	Real mError;
 };
 
 typedef EllipsoidFit3<float> EllipsoidFit3f;

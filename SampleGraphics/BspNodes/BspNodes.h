@@ -14,25 +14,25 @@ using namespace Wm5;
 
 class BspNodes : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BspNodes ();
+	BspNodes ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
 
 protected:
-    void CreateScene ();
-    BspNode* CreateNode (const Vector2f& v0, const Vector2f& v1,
-        VertexColor3Effect* effect, const Float3& color);
+	void CreateScene ();
+	BspNode* CreateNode (const Vector2f& v0, const Vector2f& v1,
+	                     VertexColor3Effect* effect, const Float3& color);
 
-    NodePtr mScene;
-    Culler mCuller;
+	NodePtr mScene;
+	Culler mCuller;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(BspNodes);

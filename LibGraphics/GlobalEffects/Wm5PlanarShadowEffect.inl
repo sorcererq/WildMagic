@@ -9,41 +9,41 @@
 //----------------------------------------------------------------------------
 inline int PlanarShadowEffect::GetNumPlanes () const
 {
-    return mNumPlanes;
+	return mNumPlanes;
 }
 //----------------------------------------------------------------------------
 inline void PlanarShadowEffect::SetPlane (int i, TriMesh* plane)
 {
-    // The culling flag is set to "always" because this effect is responsible
-    // for drawing the TriMesh.  This prevents drawing attempts by another
-    // scene graph for which 'plane' is a leaf node.
-    mPlanes[i] = plane;
-    mPlanes[i]->Culling = Spatial::CULL_ALWAYS;
+	// The culling flag is set to "always" because this effect is responsible
+	// for drawing the TriMesh.  This prevents drawing attempts by another
+	// scene graph for which 'plane' is a leaf node.
+	mPlanes[i] = plane;
+	mPlanes[i]->Culling = Spatial::CULL_ALWAYS;
 }
 //----------------------------------------------------------------------------
 inline TriMesh* PlanarShadowEffect::GetPlane (int i) const
 {
-    return mPlanes[i];
+	return mPlanes[i];
 }
 //----------------------------------------------------------------------------
 inline void PlanarShadowEffect::SetProjector (int i, Light* projector)
 {
-    mProjectors[i] = projector;
+	mProjectors[i] = projector;
 }
 //----------------------------------------------------------------------------
 inline Light* PlanarShadowEffect::GetProjector (int i) const
 {
-    return mProjectors[i];
+	return mProjectors[i];
 }
 //----------------------------------------------------------------------------
 inline void PlanarShadowEffect::SetShadowColor (int i,
-    const Float4& shadowColor)
+        const Float4& shadowColor)
 {
-    mShadowColors[i] = shadowColor;
+	mShadowColors[i] = shadowColor;
 }
 //----------------------------------------------------------------------------
 inline const Float4& PlanarShadowEffect::GetShadowColor (int i) const
 {
-    return mShadowColors[i];
+	return mShadowColors[i];
 }
 //----------------------------------------------------------------------------

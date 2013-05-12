@@ -17,12 +17,12 @@ namespace Wm5
 class WM5_MATHEMATICS_ITEM TriangleKey
 {
 public:
-    TriangleKey (int v0 = -1, int v1 = -1, int v2 = -1);
+	TriangleKey (int v0 = -1, int v1 = -1, int v2 = -1);
 
-    bool operator< (const TriangleKey& key) const;
-    operator size_t () const;
+	bool operator< (const TriangleKey& key) const;
+	operator size_t () const;
 
-    int V[3];
+	int V[3];
 };
 
 #include "Wm5TriangleKey.inl"

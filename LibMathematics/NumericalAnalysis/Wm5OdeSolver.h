@@ -18,32 +18,32 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM OdeSolver
 {
 public:
-    // The system is dx/dt = F(t,x).  The dimension of x is passed to the
-    // constructor of OdeSolver.
-    typedef void (*Function)(
-        Real,         // t
-        const Real*,  // x
-        void*,        // user-specified data
-        Real*);       // F(t,x)
+	// The system is dx/dt = F(t,x).  The dimension of x is passed to the
+	// constructor of OdeSolver.
+	typedef void (*Function)(
+	    Real,         // t
+	    const Real*,  // x
+	    void*,        // user-specified data
+	    Real*);       // F(t,x)
 
-    // Abstract base class.
+	// Abstract base class.
 protected:
-    OdeSolver (int dim, Real step, Function function, void* userData = 0);
+	OdeSolver (int dim, Real step, Function function, void* userData = 0);
 public:
-    virtual ~OdeSolver ();
+	virtual ~OdeSolver ();
 
-    virtual void Update (Real tIn, Real* xIn, Real& tOut, Real* xOut) = 0;
-    virtual void SetStepSize (Real step) = 0;
-    Real GetStepSize () const;
-    void SetUserData (void* UserData);
-    void* GetUserData () const;
+	virtual void Update (Real tIn, Real* xIn, Real& tOut, Real* xOut) = 0;
+	virtual void SetStepSize (Real step) = 0;
+	Real GetStepSize () const;
+	void SetUserData (void* UserData);
+	void* GetUserData () const;
 
 protected:
-    int mDim;
-    Real mStep;
-    Function mFunction;
-    void* mUserData;
-    Real* mFValue;
+	int mDim;
+	Real mStep;
+	Function mFunction;
+	void* mUserData;
+	Real* mFValue;
 };
 
 typedef OdeSolver<float> OdeSolverf;

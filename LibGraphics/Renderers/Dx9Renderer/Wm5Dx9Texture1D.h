@@ -20,18 +20,18 @@ class Renderer;
 class PdrTexture1D
 {
 public:
-    // Construction and destruction.
-    PdrTexture1D (Renderer* renderer, const Texture1D* texture);
-    ~PdrTexture1D ();
+	// Construction and destruction.
+	PdrTexture1D (Renderer* renderer, const Texture1D* texture);
+	~PdrTexture1D ();
 
-    // Texture operations.
-    void Enable (Renderer* renderer, int textureUnit);
-    void Disable (Renderer* renderer, int textureUnit);
-    void* Lock (int level, Buffer::Locking mode);
-    void Unlock (int level);
+	// Texture operations.
+	void Enable (Renderer* renderer, int textureUnit);
+	void Disable (Renderer* renderer, int textureUnit);
+	void* Lock (int level, Buffer::Locking mode);
+	void Unlock (int level);
 
 private:
-    IDirect3DTexture9* mTexture;
+	IDirect3DTexture9* mTexture;
 };
 
 }

@@ -19,17 +19,17 @@ template <typename Real>
 class Ray2
 {
 public:
-    // The ray is represented as P+t*D, where P is the ray origin, D is a
-    // unit-length direction vector, and t >= 0.  The user must ensure that D
-    // is indeed unit length.
+	// The ray is represented as P+t*D, where P is the ray origin, D is a
+	// unit-length direction vector, and t >= 0.  The user must ensure that D
+	// is indeed unit length.
 
-    // Construction and destruction.
-    Ray2 ();  // uninitialized
-    ~Ray2 ();
+	// Construction and destruction.
+	Ray2 ();  // uninitialized
+	~Ray2 ();
 
-    Ray2 (const Vector2<Real>& origin, const Vector2<Real>& direction);
+	Ray2 (const Vector2<Real>& origin, const Vector2<Real>& direction);
 
-    Vector2<Real> Origin, Direction;
+	Vector2<Real> Origin, Direction;
 };
 
 #include "Wm5Ray2.inl"

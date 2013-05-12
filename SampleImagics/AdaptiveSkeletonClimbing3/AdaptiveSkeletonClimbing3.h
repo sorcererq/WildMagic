@@ -14,17 +14,17 @@ using namespace Wm5;
 
 class AdaptiveSkeletonClimbing3 : public ConsoleApplication
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    AdaptiveSkeletonClimbing3 ();
-    virtual ~AdaptiveSkeletonClimbing3 ();
+	AdaptiveSkeletonClimbing3 ();
+	virtual ~AdaptiveSkeletonClimbing3 ();
 
-    void CreateImage (ImageInt3D& image);
-    void Test ();
+	void CreateImage (ImageInt3D& image);
+	void Test ();
 
-    virtual int Main (int numArguments, char** arguments);
+	virtual int Main (int numArguments, char** arguments);
 };
 
 WM5_REGISTER_INITIALIZE(AdaptiveSkeletonClimbing3);

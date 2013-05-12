@@ -19,10 +19,10 @@ namespace Wm5
 class WglRendererData : public RendererData
 {
 public:
-    // Platform-dependent data.
-    HWND mWindowHandle;
-    HDC mWindowDC;
-    HGLRC mWindowRC;
+	// Platform-dependent data.
+	HWND mWindowHandle;
+	HDC mWindowDC;
+	HGLRC mWindowRC;
 };
 
 }

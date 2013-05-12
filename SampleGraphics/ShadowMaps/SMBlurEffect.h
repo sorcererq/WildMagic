@@ -20,18 +20,18 @@ namespace Wm5
 class SMBlurEffect : public VisualEffect
 {
 public:
-    // Construction and destruction.
-    SMBlurEffect (const std::string& effectFile);
-    virtual ~SMBlurEffect ();
+	// Construction and destruction.
+	SMBlurEffect (const std::string& effectFile);
+	virtual ~SMBlurEffect ();
 
-    // Create an instance of the effect with unique parameters.  The 'weights'
-    // input is a ShaderFloat(11), an array of 11 float[4] values.  Only the
-    // first three components of each float[4] are used by the shader.  The
-    // 'offsets' input is a ShaderFloat(11), also an array of 11 float[4]
-    // values.  Only the first two components of each float[4] are used by the
-    // shader.
-    VisualEffectInstance* CreateInstance (ShaderFloat* weights,
-        ShaderFloat* offsets, Texture2D* baseTexture) const;
+	// Create an instance of the effect with unique parameters.  The 'weights'
+	// input is a ShaderFloat(11), an array of 11 float[4] values.  Only the
+	// first three components of each float[4] are used by the shader.  The
+	// 'offsets' input is a ShaderFloat(11), also an array of 11 float[4]
+	// values.  Only the first two components of each float[4] are used by the
+	// shader.
+	VisualEffectInstance* CreateInstance (ShaderFloat* weights,
+	                                      ShaderFloat* offsets, Texture2D* baseTexture) const;
 };
 
 }

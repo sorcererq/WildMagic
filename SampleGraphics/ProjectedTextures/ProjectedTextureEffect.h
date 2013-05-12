@@ -20,18 +20,18 @@ namespace Wm5
 
 class ProjectedTextureEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(ProjectedTextureEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(ProjectedTextureEffect);
 
 public:
-    // Construction and destruction.
-    ProjectedTextureEffect (const std::string& effectFile);
-    virtual ~ProjectedTextureEffect ();
+	// Construction and destruction.
+	ProjectedTextureEffect (const std::string& effectFile);
+	virtual ~ProjectedTextureEffect ();
 
-    // Create an instance of the effect with unique parameters.
-    VisualEffectInstance* CreateInstance (Projector* projector, Light* light,
-        Material* material, Texture2D* projectedTexture);
+	// Create an instance of the effect with unique parameters.
+	VisualEffectInstance* CreateInstance (Projector* projector, Light* light,
+	                                      Material* material, Texture2D* projectedTexture);
 };
 
 WM5_REGISTER_STREAM(ProjectedTextureEffect);

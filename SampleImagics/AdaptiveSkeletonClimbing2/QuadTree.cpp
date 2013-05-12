@@ -12,20 +12,20 @@
 // QuadRectangle
 //----------------------------------------------------------------------------
 QuadRectangle::QuadRectangle ()
-    :
-    mXOrigin(0),
-    mYOrigin(0),
-    mXStride(0),
-    mYStride(0),
-    mValid(false)
+	:
+	mXOrigin(0),
+	mYOrigin(0),
+	mXStride(0),
+	mYStride(0),
+	mValid(false)
 {
-    mValid = false;
+	mValid = false;
 }
 //----------------------------------------------------------------------------
 QuadRectangle::QuadRectangle (int xOrigin, int yOrigin, int xStride,
-    int yStride)
+                              int yStride)
 {
-    Initialize(xOrigin, yOrigin, xStride, yStride);
+	Initialize(xOrigin, yOrigin, xStride, yStride);
 }
 //----------------------------------------------------------------------------
 QuadRectangle::~QuadRectangle ()
@@ -33,13 +33,13 @@ QuadRectangle::~QuadRectangle ()
 }
 //----------------------------------------------------------------------------
 void QuadRectangle::Initialize (int xOrigin, int yOrigin, int xStride,
-    int yStride)
+                                int yStride)
 {
-    mXOrigin = xOrigin;
-    mYOrigin = yOrigin;
-    mXStride = xStride;
-    mYStride = yStride;
-    mValid = true;
+	mXOrigin = xOrigin;
+	mYOrigin = yOrigin;
+	mXStride = xStride;
+	mYStride = yStride;
+	mValid = true;
 }
 //----------------------------------------------------------------------------
 
@@ -51,12 +51,12 @@ QuadNode::QuadNode ()
 }
 //----------------------------------------------------------------------------
 QuadNode::QuadNode (int xOrigin, int yOrigin, int xNext, int yNext,
-    int stride)
-    :
-    mR00(xOrigin, yOrigin, stride, stride),
-    mR10(xNext, yOrigin, stride, stride),
-    mR01(xOrigin, yNext, stride, stride),
-    mR11(xNext, yNext, stride, stride)
+                    int stride)
+	:
+	mR00(xOrigin, yOrigin, stride, stride),
+	mR10(xNext, yOrigin, stride, stride),
+	mR01(xOrigin, yNext, stride, stride),
+	mR11(xNext, yNext, stride, stride)
 {
 }
 //----------------------------------------------------------------------------
@@ -65,44 +65,44 @@ QuadNode::~QuadNode ()
 }
 //----------------------------------------------------------------------------
 void QuadNode::Initialize (int xOrigin, int yOrigin, int xNext, int yNext,
-    int stride)
+                           int stride)
 {
-    mR00.Initialize(xOrigin, yOrigin, stride, stride);
-    mR10.Initialize(xNext, yOrigin, stride, stride);
-    mR01.Initialize(xOrigin, yNext, stride, stride);
-    mR11.Initialize(xNext, yNext, stride, stride);
+	mR00.Initialize(xOrigin, yOrigin, stride, stride);
+	mR10.Initialize(xNext, yOrigin, stride, stride);
+	mR01.Initialize(xOrigin, yNext, stride, stride);
+	mR11.Initialize(xNext, yNext, stride, stride);
 }
 //----------------------------------------------------------------------------
 bool QuadNode::IsMono () const
 {
-    return !mR10.mValid && !mR01.mValid && !mR11.mValid;
+	return !mR10.mValid && !mR01.mValid && !mR11.mValid;
 }
 //----------------------------------------------------------------------------
 int QuadNode::GetQuantity () const
 {
-    int quantity = 0;
+	int quantity = 0;
 
-    if (mR00.mValid)
-    {
-        ++quantity;
-    }
+	if (mR00.mValid)
+	{
+		++quantity;
+	}
 
-    if (mR10.mValid)
-    {
-        ++quantity;
-    }
+	if (mR10.mValid)
+	{
+		++quantity;
+	}
 
-    if (mR01.mValid)
-    {
-        ++quantity;
-    }
+	if (mR01.mValid)
+	{
+		++quantity;
+	}
 
-    if (mR11.mValid)
-    {
-        ++quantity;
-    }
+	if (mR11.mValid)
+	{
+		++quantity;
+	}
 
-    return quantity;
+	return quantity;
 }
 //----------------------------------------------------------------------------
 

@@ -19,39 +19,39 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrSegment3Capsule3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrSegment3Capsule3 (const Segment3<Real>& segment,
-        const Capsule3<Real>& capsule);
+	IntrSegment3Capsule3 (const Segment3<Real>& segment,
+	                      const Capsule3<Real>& capsule);
 
-    // Object access.
-    const Segment3<Real>& GetSegment () const;
-    const Capsule3<Real>& GetCapsule () const;
+	// Object access.
+	const Segment3<Real>& GetSegment () const;
+	const Capsule3<Real>& GetCapsule () const;
 
-    // Static intersection queries.
-    virtual bool Test ();
-    virtual bool Find ();
+	// Static intersection queries.
+	virtual bool Test ();
+	virtual bool Find ();
 
-    // The intersection set.
-    int GetQuantity () const;
-    const Vector3<Real>& GetPoint (int i) const;
-    Real GetParameter (int i) const;  // segment parameters for points
+	// The intersection set.
+	int GetQuantity () const;
+	const Vector3<Real>& GetPoint (int i) const;
+	Real GetParameter (int i) const;  // segment parameters for points
 
 private:
-    using Intersector<Real,Vector3<Real> >::IT_EMPTY;
-    using Intersector<Real,Vector3<Real> >::IT_POINT;
-    using Intersector<Real,Vector3<Real> >::IT_SEGMENT;
-    using Intersector<Real,Vector3<Real> >::mIntersectionType;
+	using Intersector<Real,Vector3<Real> >::IT_EMPTY;
+	using Intersector<Real,Vector3<Real> >::IT_POINT;
+	using Intersector<Real,Vector3<Real> >::IT_SEGMENT;
+	using Intersector<Real,Vector3<Real> >::mIntersectionType;
 
-    // The objects to intersect.
-    const Segment3<Real>* mSegment;
-    const Capsule3<Real>* mCapsule;
+	// The objects to intersect.
+	const Segment3<Real>* mSegment;
+	const Capsule3<Real>* mCapsule;
 
-    // Information about the intersection set.
-    int mQuantity;
-    Vector3<Real> mPoint[2];
-    Real mParameter[2];
+	// Information about the intersection set.
+	int mQuantity;
+	Vector3<Real> mPoint[2];
+	Real mParameter[2];
 };
 
 typedef IntrSegment3Capsule3<float> IntrSegment3Capsule3f;

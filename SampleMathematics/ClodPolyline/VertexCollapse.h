@@ -16,27 +16,27 @@ using namespace Wm5;
 class VertexCollapse
 {
 public:
-    // Construction and destruction.
-    VertexCollapse (int numVertices, Vector3f*& vertices, bool closed,
-        int*& indexMap, int& numEdges, int*& edges);
+	// Construction and destruction.
+	VertexCollapse (int numVertices, Vector3f*& vertices, bool closed,
+	                int*& indexMap, int& numEdges, int*& edges);
 
-    ~VertexCollapse ();
+	~VertexCollapse ();
 
 protected:
-    // Weight calculation for vertex triple <V[m],V[z],V[p]>.
-    float GetWeight (int m, int z, int p, Vector3f* vertices);
+	// Weight calculation for vertex triple <V[m],V[z],V[p]>.
+	float GetWeight (int m, int z, int p, Vector3f* vertices);
 
-    // Create data structures for the polyline.
-    void CollapseVertices (int numVertices, int* collapses);
+	// Create data structures for the polyline.
+	void CollapseVertices (int numVertices, int* collapses);
 
-    void ComputeEdges (int numVertices, bool closed, int* collapses,
-        int* indexMap, int numEdges, int* edges);
+	void ComputeEdges (int numVertices, bool closed, int* collapses,
+	                   int* indexMap, int numEdges, int* edges);
 
-    void ReorderVertices (int numVertices, Vector3f*& vertices,
-        int* collapses, int numEdges, int* edges);
+	void ReorderVertices (int numVertices, Vector3f*& vertices,
+	                      int* collapses, int numEdges, int* edges);
 
-    // The heap of edge weights.
-    MinHeap<int, float>* mHeap;
+	// The heap of edge weights.
+	MinHeap<int, float>* mHeap;
 };
 
 #endif

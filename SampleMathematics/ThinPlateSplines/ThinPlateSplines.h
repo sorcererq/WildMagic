@@ -14,14 +14,14 @@ using namespace Wm5;
 
 class ThinPlateSplines : public ConsoleApplication
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    ThinPlateSplines ();
-    virtual ~ThinPlateSplines ();
+	ThinPlateSplines ();
+	virtual ~ThinPlateSplines ();
 
-    virtual int Main (int numArguments, char** arguments);
+	virtual int Main (int numArguments, char** arguments);
 
 protected:
 };

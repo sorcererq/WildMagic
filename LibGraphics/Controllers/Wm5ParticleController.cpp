@@ -18,115 +18,115 @@ WM5_IMPLEMENT_DEFAULT_NAMES(Controller, ParticleController);
 
 //----------------------------------------------------------------------------
 ParticleController::ParticleController ()
-    :
-    SystemLinearSpeed(0.0f),
-    SystemAngularSpeed(0.0f),
-    SystemLinearAxis(AVector::UNIT_Z),
-    SystemAngularAxis(AVector::UNIT_Z),
-    SystemSizeChange(0.0f),
-    mNumParticles(0),
-    mParticleLinearSpeed(0),
-    mParticleLinearAxis(0),
-    mParticleSizeChange(0)
+	:
+	SystemLinearSpeed(0.0f),
+	SystemAngularSpeed(0.0f),
+	SystemLinearAxis(AVector::UNIT_Z),
+	SystemAngularAxis(AVector::UNIT_Z),
+	SystemSizeChange(0.0f),
+	mNumParticles(0),
+	mParticleLinearSpeed(0),
+	mParticleLinearAxis(0),
+	mParticleSizeChange(0)
 {
 }
 //----------------------------------------------------------------------------
 ParticleController::~ParticleController ()
 {
-    delete1(mParticleLinearSpeed);
-    delete1(mParticleLinearAxis);
-    delete1(mParticleSizeChange);
+	delete1(mParticleLinearSpeed);
+	delete1(mParticleLinearAxis);
+	delete1(mParticleSizeChange);
 }
 //----------------------------------------------------------------------------
 bool ParticleController::Update (double applicationTime)
 {
-    if (!Controller::Update(applicationTime))
-    {
-        return false;
-    }
+	if (!Controller::Update(applicationTime))
+	{
+		return false;
+	}
 
-    float ctrlTime = (float)GetControlTime(applicationTime);
+	float ctrlTime = (float)GetControlTime(applicationTime);
 
-    UpdateSystemMotion(ctrlTime);
-    UpdatePointMotion(ctrlTime);
-    return true;
+	UpdateSystemMotion(ctrlTime);
+	UpdatePointMotion(ctrlTime);
+	return true;
 }
 //----------------------------------------------------------------------------
 void ParticleController::Reallocate (int numParticles)
 {
-    delete1(mParticleLinearSpeed);
-    delete1(mParticleLinearAxis);
-    delete1(mParticleSizeChange);
+	delete1(mParticleLinearSpeed);
+	delete1(mParticleLinearAxis);
+	delete1(mParticleSizeChange);
 
-    mNumParticles = numParticles;
-    if (mNumParticles > 0)
-    {
-        mParticleLinearSpeed = new1<float>(mNumParticles);
-        mParticleLinearAxis = new1<AVector>(mNumParticles);
-        mParticleSizeChange = new1<float>(mNumParticles);
-        for (int i = 0; i < mNumParticles; ++i)
-        {
-            mParticleLinearSpeed[i] = 0.0f;
-            mParticleLinearAxis[i] = AVector::UNIT_Z;
-            mParticleSizeChange[i] = 0.0f;
-        }
-    }
+	mNumParticles = numParticles;
+	if (mNumParticles > 0)
+	{
+		mParticleLinearSpeed = new1<float>(mNumParticles);
+		mParticleLinearAxis = new1<AVector>(mNumParticles);
+		mParticleSizeChange = new1<float>(mNumParticles);
+		for (int i = 0; i < mNumParticles; ++i)
+		{
+			mParticleLinearSpeed[i] = 0.0f;
+			mParticleLinearAxis[i] = AVector::UNIT_Z;
+			mParticleSizeChange[i] = 0.0f;
+		}
+	}
 }
 //----------------------------------------------------------------------------
 void ParticleController::SetObject (ControlledObject* object)
 {
-    Controller::SetObject(object);
+	Controller::SetObject(object);
 
-    if (object)
-    {
-        assertion(object->IsDerived(Particles::TYPE), "Invalid class.\n");
-        Particles* particles = StaticCast<Particles>(object);
-        Reallocate(particles->GetNumParticles());
-    }
-    else
-    {
-        Reallocate(0);
-    }
+	if (object)
+	{
+		assertion(object->IsDerived(Particles::TYPE), "Invalid class.\n");
+		Particles* particles = StaticCast<Particles>(object);
+		Reallocate(particles->GetNumParticles());
+	}
+	else
+	{
+		Reallocate(0);
+	}
 }
 //----------------------------------------------------------------------------
 void ParticleController::UpdateSystemMotion (float ctrlTime)
 {
-    Particles* particles = StaticCast<Particles>(mObject);
+	Particles* particles = StaticCast<Particles>(mObject);
 
-    float dSize = ctrlTime*SystemSizeChange;
-    particles->SetSizeAdjust(particles->GetSizeAdjust() + dSize);
-    if (particles->GetSizeAdjust() < 0.0f)
-    {
-        particles->SetSizeAdjust(0.0f);
-    }
+	float dSize = ctrlTime*SystemSizeChange;
+	particles->SetSizeAdjust(particles->GetSizeAdjust() + dSize);
+	if (particles->GetSizeAdjust() < 0.0f)
+	{
+		particles->SetSizeAdjust(0.0f);
+	}
 
-    float distance = ctrlTime*SystemLinearSpeed;
-    AVector deltaTrn = distance*SystemLinearAxis;
-    particles->LocalTransform.SetTranslate(
-        particles->LocalTransform.GetTranslate() + deltaTrn);
+	float distance = ctrlTime*SystemLinearSpeed;
+	AVector deltaTrn = distance*SystemLinearAxis;
+	particles->LocalTransform.SetTranslate(
+	    particles->LocalTransform.GetTranslate() + deltaTrn);
 
-    float angle = ctrlTime*SystemAngularSpeed;
-    HMatrix deltaRot(SystemAngularAxis, angle);
-    particles->LocalTransform.SetRotate(
-        deltaRot*particles->LocalTransform.GetRotate());
+	float angle = ctrlTime*SystemAngularSpeed;
+	HMatrix deltaRot(SystemAngularAxis, angle);
+	particles->LocalTransform.SetRotate(
+	    deltaRot*particles->LocalTransform.GetRotate());
 }
 //----------------------------------------------------------------------------
 void ParticleController::UpdatePointMotion (float ctrlTime)
 {
-    Particles* particles = StaticCast<Particles>(mObject);
-    Float4* posSizes = particles->GetPositionSizes();
+	Particles* particles = StaticCast<Particles>(mObject);
+	Float4* posSizes = particles->GetPositionSizes();
 
-    int numActive = particles->GetNumActive();
-    for (int i = 0; i < numActive; ++i)
-    {
-        float dSize = ctrlTime*mParticleSizeChange[i];
-        posSizes[i][3] += dSize;
-        float distance = ctrlTime*mParticleLinearSpeed[i];
-        AVector deltaTrn = distance*mParticleLinearAxis[i];
-        posSizes[i][0] += deltaTrn[0];
-        posSizes[i][1] += deltaTrn[1];
-        posSizes[i][2] += deltaTrn[2];
-    }
+	int numActive = particles->GetNumActive();
+	for (int i = 0; i < numActive; ++i)
+	{
+		float dSize = ctrlTime*mParticleSizeChange[i];
+		posSizes[i][3] += dSize;
+		float distance = ctrlTime*mParticleLinearSpeed[i];
+		AVector deltaTrn = distance*mParticleLinearAxis[i];
+		posSizes[i][0] += deltaTrn[0];
+		posSizes[i][1] += deltaTrn[1];
+		posSizes[i][2] += deltaTrn[2];
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -134,88 +134,88 @@ void ParticleController::UpdatePointMotion (float ctrlTime)
 // Streaming support.
 //----------------------------------------------------------------------------
 ParticleController::ParticleController (LoadConstructor value)
-    :
-    Controller(value),
-    SystemLinearSpeed(0.0f),
-    SystemAngularSpeed(0.0f),
-    SystemLinearAxis(AVector::ZERO),
-    SystemAngularAxis(AVector::ZERO),
-    SystemSizeChange(0.0f),
-    mNumParticles(0),
-    mParticleLinearSpeed(0),
-    mParticleLinearAxis(0),
-    mParticleSizeChange(0)
+	:
+	Controller(value),
+	SystemLinearSpeed(0.0f),
+	SystemAngularSpeed(0.0f),
+	SystemLinearAxis(AVector::ZERO),
+	SystemAngularAxis(AVector::ZERO),
+	SystemSizeChange(0.0f),
+	mNumParticles(0),
+	mParticleLinearSpeed(0),
+	mParticleLinearAxis(0),
+	mParticleSizeChange(0)
 {
 }
 //----------------------------------------------------------------------------
 void ParticleController::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    Controller::Load(source);
+	Controller::Load(source);
 
-    source.Read(SystemLinearSpeed);
-    source.Read(SystemAngularSpeed);
-    source.Read(SystemLinearAxis);
-    source.Read(SystemAngularAxis);
-    source.Read(SystemSizeChange);
-    source.ReadRR(mNumParticles, mParticleLinearSpeed);
-    source.ReadVR(mNumParticles, mParticleLinearAxis);
-    source.ReadVR(mNumParticles, mParticleSizeChange);
+	source.Read(SystemLinearSpeed);
+	source.Read(SystemAngularSpeed);
+	source.Read(SystemLinearAxis);
+	source.Read(SystemAngularAxis);
+	source.Read(SystemSizeChange);
+	source.ReadRR(mNumParticles, mParticleLinearSpeed);
+	source.ReadVR(mNumParticles, mParticleLinearAxis);
+	source.ReadVR(mNumParticles, mParticleSizeChange);
 
-    WM5_END_DEBUG_STREAM_LOAD(ParticleController, source);
+	WM5_END_DEBUG_STREAM_LOAD(ParticleController, source);
 }
 //----------------------------------------------------------------------------
 void ParticleController::Link (InStream& source)
 {
-    Controller::Link(source);
+	Controller::Link(source);
 }
 //----------------------------------------------------------------------------
 void ParticleController::PostLink ()
 {
-    Controller::PostLink();
+	Controller::PostLink();
 }
 //----------------------------------------------------------------------------
 bool ParticleController::Register (OutStream& target) const
 {
-    return Controller::Register(target);
+	return Controller::Register(target);
 }
 //----------------------------------------------------------------------------
 void ParticleController::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    Controller::Save(target);
+	Controller::Save(target);
 
-    target.Write(SystemLinearSpeed);
-    target.Write(SystemAngularSpeed);
-    target.Write(SystemLinearAxis);
-    target.Write(SystemAngularAxis);
-    target.Write(SystemSizeChange);
-    target.WriteW(mNumParticles, mParticleLinearSpeed);
-    target.WriteAggregateN(mNumParticles, mParticleLinearAxis);
-    target.WriteN(mNumParticles, mParticleSizeChange);
+	target.Write(SystemLinearSpeed);
+	target.Write(SystemAngularSpeed);
+	target.Write(SystemLinearAxis);
+	target.Write(SystemAngularAxis);
+	target.Write(SystemSizeChange);
+	target.WriteW(mNumParticles, mParticleLinearSpeed);
+	target.WriteAggregateN(mNumParticles, mParticleLinearAxis);
+	target.WriteN(mNumParticles, mParticleSizeChange);
 
-    WM5_END_DEBUG_STREAM_SAVE(ParticleController, target);
+	WM5_END_DEBUG_STREAM_SAVE(ParticleController, target);
 }
 //----------------------------------------------------------------------------
 int ParticleController::GetStreamingSize () const
 {
-    int size = Controller::GetStreamingSize();
-    size += sizeof(SystemLinearSpeed);
-    size += sizeof(SystemAngularSpeed);
-    size += sizeof(SystemLinearAxis);
-    size += sizeof(SystemAngularAxis);
-    size += sizeof(SystemSizeChange);
+	int size = Controller::GetStreamingSize();
+	size += sizeof(SystemLinearSpeed);
+	size += sizeof(SystemAngularSpeed);
+	size += sizeof(SystemLinearAxis);
+	size += sizeof(SystemAngularAxis);
+	size += sizeof(SystemSizeChange);
 
-    size += sizeof(mNumParticles);
-    if (mNumParticles > 0)
-    {
-        size += mNumParticles*sizeof(mParticleLinearSpeed[0]);
-        size += mNumParticles*sizeof(mParticleLinearAxis[0]);
-        size += mNumParticles*sizeof(mParticleSizeChange[0]);
-    }
+	size += sizeof(mNumParticles);
+	if (mNumParticles > 0)
+	{
+		size += mNumParticles*sizeof(mParticleLinearSpeed[0]);
+		size += mNumParticles*sizeof(mParticleLinearAxis[0]);
+		size += mNumParticles*sizeof(mParticleSizeChange[0]);
+	}
 
-    return size;
+	return size;
 }
 //----------------------------------------------------------------------------

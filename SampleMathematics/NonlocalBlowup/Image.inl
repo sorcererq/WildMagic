@@ -9,37 +9,37 @@
 //----------------------------------------------------------------------------
 inline int Image::GetPixelSize () const
 {
-    return mPixelSize;
+	return mPixelSize;
 }
 //----------------------------------------------------------------------------
 inline int Image::GetNumDimensions () const
 {
-    return mNumDimensions;
+	return mNumDimensions;
 }
 //----------------------------------------------------------------------------
 inline const int* Image::GetDimensions () const
 {
-    return mDimensions;
+	return mDimensions;
 }
 //----------------------------------------------------------------------------
 inline const int* Image::GetOffsets () const
 {
-    return mOffsets;
+	return mOffsets;
 }
 //----------------------------------------------------------------------------
 inline int Image::GetNumPixels () const
 {
-    return mNumPixels;
+	return mNumPixels;
 }
 //----------------------------------------------------------------------------
 inline const char* Image::GetRawPixels () const
 {
-    return mRawPixels;
+	return mRawPixels;
 }
 //----------------------------------------------------------------------------
 inline bool Image::IsNullImage () const
 {
-    // There are many tests for a null image, all equivalent.
-    return mRawPixels == 0;
+	// There are many tests for a null image, all equivalent.
+	return mRawPixels == 0;
 }
 //----------------------------------------------------------------------------

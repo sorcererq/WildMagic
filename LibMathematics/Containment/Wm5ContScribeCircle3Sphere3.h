@@ -22,24 +22,24 @@ namespace Wm5
 // Circle containing three 3D points.
 template <typename Real> WM5_MATHEMATICS_ITEM
 bool Circumscribe (const Vector3<Real>& v0, const Vector3<Real>& v1,
-    const Vector3<Real>& v2, Circle3<Real>& circle);
+                   const Vector3<Real>& v2, Circle3<Real>& circle);
 
 // Sphere containing four 3D points.
 template <typename Real> WM5_MATHEMATICS_ITEM
 bool Circumscribe (const Vector3<Real>& v0, const Vector3<Real>& v1,
-    const Vector3<Real>& v2, const Vector3<Real>& v3,
-    Sphere3<Real>& sphere);
+                   const Vector3<Real>& v2, const Vector3<Real>& v3,
+                   Sphere3<Real>& sphere);
 
 // Circle inscribing triangle of three 3D points.
 template <typename Real> WM5_MATHEMATICS_ITEM
 bool Inscribe (const Vector3<Real>& v0, const Vector3<Real>& v1,
-    const Vector3<Real>& v2, Circle3<Real>& circle);
+               const Vector3<Real>& v2, Circle3<Real>& circle);
 
 // Sphere inscribing tetrahedron of four 3D points.
 template <typename Real> WM5_MATHEMATICS_ITEM
 bool Inscribe (const Vector3<Real>& v0, const Vector3<Real>& v1,
-    const Vector3<Real>& v2, const Vector3<Real>& v3,
-    Sphere3<Real>& sphere);
+               const Vector3<Real>& v2, const Vector3<Real>& v3,
+               Sphere3<Real>& sphere);
 
 }
 

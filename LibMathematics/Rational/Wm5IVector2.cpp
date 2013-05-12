@@ -13,53 +13,53 @@ using namespace Wm5;
 //----------------------------------------------------------------------------
 IVector2::IVector2 ()
 {
-    // uninitialized
+	// uninitialized
 }
 //----------------------------------------------------------------------------
 IVector2::IVector2 (const IVector2& vec)
 {
-    mTuple[0] = vec.mTuple[0];
-    mTuple[1] = vec.mTuple[1];
+	mTuple[0] = vec.mTuple[0];
+	mTuple[1] = vec.mTuple[1];
 }
 //----------------------------------------------------------------------------
 IVector2::IVector2 (const IVector<2>& vec)
 {
-    mTuple[0] = vec[0];
-    mTuple[1] = vec[1];
+	mTuple[0] = vec[0];
+	mTuple[1] = vec[1];
 }
 //----------------------------------------------------------------------------
 IVector2::IVector2 (const int64_t& x, const int64_t& y)
 {
-    mTuple[0] = x;
-    mTuple[1] = y;
+	mTuple[0] = x;
+	mTuple[1] = y;
 }
 //----------------------------------------------------------------------------
 IVector2& IVector2::operator= (const IVector2& vec)
 {
-    mTuple[0] = vec.mTuple[0];
-    mTuple[1] = vec.mTuple[1];
-    return *this;
+	mTuple[0] = vec.mTuple[0];
+	mTuple[1] = vec.mTuple[1];
+	return *this;
 }
 //----------------------------------------------------------------------------
 IVector2& IVector2::operator= (const IVector<2>& vec)
 {
-    mTuple[0] = vec[0];
-    mTuple[1] = vec[1];
-    return *this;
+	mTuple[0] = vec[0];
+	mTuple[1] = vec[1];
+	return *this;
 }
 //----------------------------------------------------------------------------
 int64_t IVector2::Dot (const IVector2& vec) const
 {
-    return mTuple[0]*vec.mTuple[0] + mTuple[1]*vec.mTuple[1];
+	return mTuple[0]*vec.mTuple[0] + mTuple[1]*vec.mTuple[1];
 }
 //----------------------------------------------------------------------------
 IVector2 IVector2::Perp () const
 {
-    return IVector2(mTuple[1], -mTuple[0]);
+	return IVector2(mTuple[1], -mTuple[0]);
 }
 //----------------------------------------------------------------------------
 int64_t IVector2::DotPerp (const IVector2& vec) const
 {
-    return mTuple[0]*vec.mTuple[1] - mTuple[1]*vec.mTuple[0];
+	return mTuple[0]*vec.mTuple[1] - mTuple[1]*vec.mTuple[0];
 }
 //----------------------------------------------------------------------------

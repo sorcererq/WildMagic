@@ -27,8 +27,8 @@ namespace Wm5
 
 template <typename Real> WM5_PHYSICS_ITEM
 void ComputeMassProperties (const Vector3<Real>* vertices, int numTriangles,
-    const int* indices, bool bodyCoords, Real& mass,
-    Vector3<Real>& center, Matrix3<Real>& inertia);
+                            const int* indices, bool bodyCoords, Real& mass,
+                            Vector3<Real>& center, Matrix3<Real>& inertia);
 
 }
 

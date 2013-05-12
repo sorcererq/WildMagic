@@ -12,8 +12,8 @@ using namespace Wm5;
 
 //----------------------------------------------------------------------------
 CRMCuller::CRMCuller (const Camera* camera)
-    :
-    Culler(camera)
+	:
+	Culler(camera)
 {
 }
 //----------------------------------------------------------------------------
@@ -23,10 +23,10 @@ CRMCuller::~CRMCuller ()
 //----------------------------------------------------------------------------
 void CRMCuller::Insert (Spatial* visible)
 {
-    if (mUnique.find(visible) == mUnique.end())
-    {
-        // The object was not in the set of unique objects, so insert it.
-        Culler::Insert(visible);
-    }
+	if (mUnique.find(visible) == mUnique.end())
+	{
+		// The object was not in the set of unique objects, so insert it.
+		Culler::Insert(visible);
+	}
 }
 //----------------------------------------------------------------------------

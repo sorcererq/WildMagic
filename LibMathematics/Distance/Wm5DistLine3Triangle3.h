@@ -19,44 +19,44 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM DistLine3Triangle3
-    : public Distance<Real,Vector3<Real> >
+	: public Distance<Real,Vector3<Real> >
 {
 public:
-    DistLine3Triangle3 (const Line3<Real>& line,
-        const Triangle3<Real>& triangle);
+	DistLine3Triangle3 (const Line3<Real>& line,
+	                    const Triangle3<Real>& triangle);
 
-    // Object access.
-    const Line3<Real>& GetLine () const;
-    const Triangle3<Real>& GetTriangle () const;
+	// Object access.
+	const Line3<Real>& GetLine () const;
+	const Triangle3<Real>& GetTriangle () const;
 
-    // Static distance queries.
-    virtual Real Get ();
-    virtual Real GetSquared ();
+	// Static distance queries.
+	virtual Real Get ();
+	virtual Real GetSquared ();
 
-    // Function calculations for dynamic distance queries.
-    virtual Real Get (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
-    virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	// Function calculations for dynamic distance queries.
+	virtual Real Get (Real t, const Vector3<Real>& velocity0,
+	                  const Vector3<Real>& velocity1);
+	virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
+	                         const Vector3<Real>& velocity1);
 
-    // Information about the closest points.
-    Real GetLineParameter () const;
-    Real GetTriangleBary (int i) const;
+	// Information about the closest points.
+	Real GetLineParameter () const;
+	Real GetTriangleBary (int i) const;
 
 private:
-    using Distance<Real,Vector3<Real> >::mClosestPoint0;
-    using Distance<Real,Vector3<Real> >::mClosestPoint1;
+	using Distance<Real,Vector3<Real> >::mClosestPoint0;
+	using Distance<Real,Vector3<Real> >::mClosestPoint1;
 
-    const Line3<Real>* mLine;
-    const Triangle3<Real>* mTriangle;
+	const Line3<Real>* mLine;
+	const Triangle3<Real>* mTriangle;
 
-    // Information about the closest points.
+	// Information about the closest points.
 
-    // closest0 = line.origin + param*line.direction
-    Real mLineParameter;
+	// closest0 = line.origin + param*line.direction
+	Real mLineParameter;
 
-    // closest1 = sum_{i=0}^2 bary[i]*tri.vertex[i]
-    Real mTriangleBary[3];
+	// closest1 = sum_{i=0}^2 bary[i]*tri.vertex[i]
+	Real mTriangleBary[3];
 };
 
 typedef DistLine3Triangle3<float> DistLine3Triangle3f;

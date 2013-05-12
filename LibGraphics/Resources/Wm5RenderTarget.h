@@ -17,34 +17,34 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM RenderTarget : public Object
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(RenderTarget);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(RenderTarget);
 
 public:
-    // Construction and destruction.  The number of supported targets
-    // depends on the graphics hardware and drivers.  'numTargets' must
-    // be at least 1.
-    RenderTarget (int numTargets, Texture::Format tformat, int width,
-        int height, bool hasMipmaps, bool hasDepthStencil);
+	// Construction and destruction.  The number of supported targets
+	// depends on the graphics hardware and drivers.  'numTargets' must
+	// be at least 1.
+	RenderTarget (int numTargets, Texture::Format tformat, int width,
+	              int height, bool hasMipmaps, bool hasDepthStencil);
 
-    virtual ~RenderTarget ();
+	virtual ~RenderTarget ();
 
-    // Member access.
-    inline int GetNumTargets () const;
-    inline Texture::Format GetFormat () const;
-    inline int GetWidth () const;
-    inline int GetHeight () const;
-    inline Texture2D* GetColorTexture (int i) const;
-    inline Texture2D* GetDepthStencilTexture () const;
-    inline bool HasMipmaps () const;
-    inline bool HasDepthStencil () const;
+	// Member access.
+	inline int GetNumTargets () const;
+	inline Texture::Format GetFormat () const;
+	inline int GetWidth () const;
+	inline int GetHeight () const;
+	inline Texture2D* GetColorTexture (int i) const;
+	inline Texture2D* GetDepthStencilTexture () const;
+	inline bool HasMipmaps () const;
+	inline bool HasDepthStencil () const;
 
 protected:
-    int mNumTargets;
-    Texture2DPtr* mColorTextures;
-    Texture2DPtr mDepthStencilTexture;
-    bool mHasMipmaps;
+	int mNumTargets;
+	Texture2DPtr* mColorTextures;
+	Texture2DPtr mDepthStencilTexture;
+	bool mHasMipmaps;
 };
 
 WM5_REGISTER_STREAM(RenderTarget);

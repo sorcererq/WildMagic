@@ -33,13 +33,13 @@ bool InCapsule (const Sphere3<Real>& sphere, const Capsule3<Real>& capsule);
 // Test for containment of a capsule by a capsule.
 template <typename Real> WM5_MATHEMATICS_ITEM
 bool InCapsule (const Capsule3<Real>& testCapsule,
-    const Capsule3<Real>& capsule);
+                const Capsule3<Real>& capsule);
 
 // Compute a capsule that contains the input capsules.  The returned capsule
 // is not necessarily the one of smallest volume that contains the inputs.
 template <typename Real> WM5_MATHEMATICS_ITEM
 Capsule3<Real> MergeCapsules (const Capsule3<Real>& capsule0,
-    const Capsule3<Real>& capsule1);
+                              const Capsule3<Real>& capsule1);
 
 }
 

@@ -9,41 +9,41 @@
 //----------------------------------------------------------------------------
 inline void FastMarch::SetTime (int i, float time)
 {
-    mTimes[i] = time;
+	mTimes[i] = time;
 }
 //----------------------------------------------------------------------------
 inline float FastMarch::GetTime (int i) const
 {
-    return mTimes[i];
+	return mTimes[i];
 }
 //----------------------------------------------------------------------------
 inline int FastMarch::GetQuantity () const
 {
-    return mQuantity;
+	return mQuantity;
 }
 //----------------------------------------------------------------------------
 inline bool FastMarch::IsValid (int i) const
 {
-    return 0.0f <= mTimes[i] && mTimes[i] < Mathf::MAX_REAL;
+	return 0.0f <= mTimes[i] && mTimes[i] < Mathf::MAX_REAL;
 }
 //----------------------------------------------------------------------------
 inline bool FastMarch::IsTrial (int i) const
 {
-    return mTrials[i] != 0;
+	return mTrials[i] != 0;
 }
 //----------------------------------------------------------------------------
 inline bool FastMarch::IsFar (int i) const
 {
-    return mTimes[i] == Mathf::MAX_REAL;
+	return mTimes[i] == Mathf::MAX_REAL;
 }
 //----------------------------------------------------------------------------
 inline bool FastMarch::IsZeroSpeed (int i) const
 {
-    return mTimes[i] == -Mathf::MAX_REAL;
+	return mTimes[i] == -Mathf::MAX_REAL;
 }
 //----------------------------------------------------------------------------
 inline bool FastMarch::IsInterior (int i) const
 {
-    return IsValid(i) && !IsTrial(i);
+	return IsValid(i) && !IsTrial(i);
 }
 //----------------------------------------------------------------------------

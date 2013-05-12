@@ -19,23 +19,23 @@ template <typename Real>
 class Triangle3
 {
 public:
-    // The triangle is represented as an array of three vertices:
-    // V0, V1, and V2.
+	// The triangle is represented as an array of three vertices:
+	// V0, V1, and V2.
 
-    // Construction and destruction.
-    Triangle3 ();  // uninitialized
-    ~Triangle3 ();
+	// Construction and destruction.
+	Triangle3 ();  // uninitialized
+	~Triangle3 ();
 
-    Triangle3 (const Vector3<Real>& v0, const Vector3<Real>& v1,
-        const Vector3<Real>& v2);
+	Triangle3 (const Vector3<Real>& v0, const Vector3<Real>& v1,
+	           const Vector3<Real>& v2);
 
-    Triangle3 (const Vector3<Real> vertex[3]);
+	Triangle3 (const Vector3<Real> vertex[3]);
 
-    // Distance from the point Q to the triangle.  TODO:  Move this
-    // to the physics library distance code.
-    Real DistanceTo (const Vector3<Real>& q) const;
+	// Distance from the point Q to the triangle.  TODO:  Move this
+	// to the physics library distance code.
+	Real DistanceTo (const Vector3<Real>& q) const;
 
-    Vector3<Real> V[3];
+	Vector3<Real> V[3];
 };
 
 #include "Wm5Triangle3.inl"

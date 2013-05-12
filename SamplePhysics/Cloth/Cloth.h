@@ -16,37 +16,37 @@ using namespace Wm5;
 
 class Cloth : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    Cloth ();
+	Cloth ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateSprings ();
-    void CreateCloth ();
-    void CreateScene ();
-    void PhysicsTick ();
-    void GraphicsTick ();
+	void CreateSprings ();
+	void CreateCloth ();
+	void CreateScene ();
+	void PhysicsTick ();
+	void GraphicsTick ();
 
-    // Masses are located at the control points of a spline surface.
-    BSplineRectanglef* mSpline;
+	// Masses are located at the control points of a spline surface.
+	BSplineRectanglef* mSpline;
 
-    // The mass-spring physics system.
-    PhysicsModule* mModule;
+	// The mass-spring physics system.
+	PhysicsModule* mModule;
 
-    // The scene graph.
-    NodePtr mScene, mTrnNode;
-    WireStatePtr mWireState;
-    RectangleSurfacePtr mCloth;
-    Culler mCuller;
+	// The scene graph.
+	NodePtr mScene, mTrnNode;
+	WireStatePtr mWireState;
+	RectangleSurfacePtr mCloth;
+	Culler mCuller;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(Cloth);

@@ -15,29 +15,29 @@ using namespace Wm5;
 
 class CubeMaps : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    CubeMaps ();
+	CubeMaps ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    void CreateCubeTexture ();
+	void CreateScene ();
+	void CreateCubeTexture ();
 
-    NodePtr mScene;
-    WireStatePtr mWireState;
-    CullStatePtr mSphereCullState;
-    TriMeshPtr mSphere;
-    VisualEffectInstancePtr mCubeMapInstance;
-    Culler mCuller;
+	NodePtr mScene;
+	WireStatePtr mWireState;
+	CullStatePtr mSphereCullState;
+	TriMeshPtr mSphere;
+	VisualEffectInstancePtr mCubeMapInstance;
+	Culler mCuller;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(CubeMaps);

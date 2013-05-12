@@ -16,74 +16,74 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 IntrRay3Capsule3<Real>::IntrRay3Capsule3 (const Ray3<Real>& rkRay,
-    const Capsule3<Real>& rkCapsule)
-    :
-    mRay(&rkRay),
-    mCapsule(&rkCapsule)
+        const Capsule3<Real>& rkCapsule)
+	:
+	mRay(&rkRay),
+	mCapsule(&rkCapsule)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Ray3<Real>& IntrRay3Capsule3<Real>::GetRay () const
 {
-    return *mRay;
+	return *mRay;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Capsule3<Real>& IntrRay3Capsule3<Real>::GetCapsule () const
 {
-    return *mCapsule;
+	return *mCapsule;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrRay3Capsule3<Real>::Test ()
 {
-    Real distance = DistRay3Segment3<Real>(*mRay, mCapsule->Segment).Get();
-    return distance <= mCapsule->Radius;
+	Real distance = DistRay3Segment3<Real>(*mRay, mCapsule->Segment).Get();
+	return distance <= mCapsule->Radius;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrRay3Capsule3<Real>::Find ()
 {
-    Real t[2];
-    int quantity = IntrLine3Capsule3<Real>::Find(mRay->Origin,
-        mRay->Direction, *mCapsule, t);
+	Real t[2];
+	int quantity = IntrLine3Capsule3<Real>::Find(mRay->Origin,
+	               mRay->Direction, *mCapsule, t);
 
-    mQuantity = 0;
-    for (int i = 0; i < quantity; ++i)
-    {
-        if (t[i] >= (Real)0)
-        {
-            mPoint[mQuantity++] = mRay->Origin + t[i]*mRay->Direction;
-        }
-    }
+	mQuantity = 0;
+	for (int i = 0; i < quantity; ++i)
+	{
+		if (t[i] >= (Real)0)
+		{
+			mPoint[mQuantity++] = mRay->Origin + t[i]*mRay->Direction;
+		}
+	}
 
-    if (mQuantity == 2)
-    {
-        mIntersectionType = IT_SEGMENT;
-    }
-    else if (mQuantity == 1)
-    {
-        mIntersectionType = IT_POINT;
-    }
-    else
-    {
-        mIntersectionType = IT_EMPTY;
-    }
+	if (mQuantity == 2)
+	{
+		mIntersectionType = IT_SEGMENT;
+	}
+	else if (mQuantity == 1)
+	{
+		mIntersectionType = IT_POINT;
+	}
+	else
+	{
+		mIntersectionType = IT_EMPTY;
+	}
 
-    return mIntersectionType != IT_EMPTY;
+	return mIntersectionType != IT_EMPTY;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 int IntrRay3Capsule3<Real>::GetQuantity () const
 {
-    return mQuantity;
+	return mQuantity;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Vector3<Real>& IntrRay3Capsule3<Real>::GetPoint (int i) const
 {
-    return mPoint[i];
+	return mPoint[i];
 }
 //----------------------------------------------------------------------------
 

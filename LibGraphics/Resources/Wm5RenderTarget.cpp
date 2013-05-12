@@ -17,33 +17,33 @@ WM5_IMPLEMENT_FACTORY(RenderTarget);
 
 //----------------------------------------------------------------------------
 RenderTarget::RenderTarget (int numTargets, Texture::Format tformat,
-    int width, int height, bool hasMipmaps, bool hasDepthStencil)
-    :
-    mNumTargets(numTargets),
-    mHasMipmaps(hasMipmaps)
+                            int width, int height, bool hasMipmaps, bool hasDepthStencil)
+	:
+	mNumTargets(numTargets),
+	mHasMipmaps(hasMipmaps)
 {
-    assertion(mNumTargets > 0, "Number of targets must be at least one.\n");
+	assertion(mNumTargets > 0, "Number of targets must be at least one.\n");
 
-    mColorTextures = new1<Texture2DPtr>(mNumTargets);
-    int i;
-    for (i = 0; i < mNumTargets; ++i)
-    {
-        mColorTextures[i] = new0 Texture2D(tformat, width, height,
-            (hasMipmaps ? 0 : 1), Buffer::BU_RENDERTARGET);
-    }
+	mColorTextures = new1<Texture2DPtr>(mNumTargets);
+	int i;
+	for (i = 0; i < mNumTargets; ++i)
+	{
+		mColorTextures[i] = new0 Texture2D(tformat, width, height,
+		                                   (hasMipmaps ? 0 : 1), Buffer::BU_RENDERTARGET);
+	}
 
-    if (hasDepthStencil)
-    {
-        mDepthStencilTexture = new0 Texture2D(Texture::TF_D24S8,
-            width, height, 1, Buffer::BU_DEPTHSTENCIL);
-    }
+	if (hasDepthStencil)
+	{
+		mDepthStencilTexture = new0 Texture2D(Texture::TF_D24S8,
+		                                      width, height, 1, Buffer::BU_DEPTHSTENCIL);
+	}
 }
 //----------------------------------------------------------------------------
 RenderTarget::~RenderTarget ()
 {
-    Renderer::UnbindAll(this);
+	Renderer::UnbindAll(this);
 
-    delete1(mColorTextures);
+	delete1(mColorTextures);
 }
 //----------------------------------------------------------------------------
 
@@ -52,31 +52,31 @@ RenderTarget::~RenderTarget ()
 //----------------------------------------------------------------------------
 Object* RenderTarget::GetObjectByName (const std::string& name)
 {
-    Object* found = Object::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = Object::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    for (int i = 0; i < mNumTargets; ++i)
-    {
-        WM5_GET_OBJECT_BY_NAME(mColorTextures[i], name, found);
-    }
-    WM5_GET_OBJECT_BY_NAME(mDepthStencilTexture, name, found);
+	for (int i = 0; i < mNumTargets; ++i)
+	{
+		WM5_GET_OBJECT_BY_NAME(mColorTextures[i], name, found);
+	}
+	WM5_GET_OBJECT_BY_NAME(mDepthStencilTexture, name, found);
 
-    return 0;
+	return 0;
 }
 //----------------------------------------------------------------------------
 void RenderTarget::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+                                        std::vector<Object*>& objects)
 {
-    Object::GetAllObjectsByName(name, objects);
+	Object::GetAllObjectsByName(name, objects);
 
-    for (int i = 0; i < mNumTargets; ++i)
-    {
-        WM5_GET_ALL_OBJECTS_BY_NAME(mColorTextures[i], name, objects);
-    }
-    WM5_GET_ALL_OBJECTS_BY_NAME(mDepthStencilTexture, name, objects);
+	for (int i = 0; i < mNumTargets; ++i)
+	{
+		WM5_GET_ALL_OBJECTS_BY_NAME(mColorTextures[i], name, objects);
+	}
+	WM5_GET_ALL_OBJECTS_BY_NAME(mDepthStencilTexture, name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -84,76 +84,76 @@ void RenderTarget::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 RenderTarget::RenderTarget (LoadConstructor value)
-    :
-    Object(value),
-    mNumTargets(0),
-    mColorTextures(0),
-    mHasMipmaps(false)
+	:
+	Object(value),
+	mNumTargets(0),
+	mColorTextures(0),
+	mHasMipmaps(false)
 {
 }
 //----------------------------------------------------------------------------
 void RenderTarget::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    Object::Load(source);
+	Object::Load(source);
 
-    source.ReadPointerRR(mNumTargets, mColorTextures);
-    source.ReadPointer(mDepthStencilTexture);
-    source.ReadBool(mHasMipmaps);
+	source.ReadPointerRR(mNumTargets, mColorTextures);
+	source.ReadPointer(mDepthStencilTexture);
+	source.ReadBool(mHasMipmaps);
 
-    WM5_END_DEBUG_STREAM_LOAD(RenderTarget, source);
+	WM5_END_DEBUG_STREAM_LOAD(RenderTarget, source);
 }
 //----------------------------------------------------------------------------
 void RenderTarget::Link (InStream& source)
 {
-    Object::Link(source);
+	Object::Link(source);
 
-    for (int i = 0; i < mNumTargets; ++i)
-    {
-        source.ResolveLink(mColorTextures[i]);
-    }
-    source.ResolveLink(mDepthStencilTexture);
+	for (int i = 0; i < mNumTargets; ++i)
+	{
+		source.ResolveLink(mColorTextures[i]);
+	}
+	source.ResolveLink(mDepthStencilTexture);
 }
 //----------------------------------------------------------------------------
 void RenderTarget::PostLink ()
 {
-    Object::PostLink();
+	Object::PostLink();
 }
 //----------------------------------------------------------------------------
 bool RenderTarget::Register (OutStream& target) const
 {
-    if (Object::Register(target))
-    {
-        for (int i = 0; i < mNumTargets; ++i)
-        {
-            target.Register(mColorTextures[i]);
-        }
-        target.Register(mDepthStencilTexture);
-        return true;
-    }
-    return false;
+	if (Object::Register(target))
+	{
+		for (int i = 0; i < mNumTargets; ++i)
+		{
+			target.Register(mColorTextures[i]);
+		}
+		target.Register(mDepthStencilTexture);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void RenderTarget::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    Object::Save(target);
+	Object::Save(target);
 
-    target.WritePointerW(mNumTargets, mColorTextures);
-    target.WritePointer(mDepthStencilTexture);
-    target.WriteBool(mHasMipmaps);
+	target.WritePointerW(mNumTargets, mColorTextures);
+	target.WritePointer(mDepthStencilTexture);
+	target.WriteBool(mHasMipmaps);
 
-    WM5_END_DEBUG_STREAM_SAVE(RenderTarget, target);
+	WM5_END_DEBUG_STREAM_SAVE(RenderTarget, target);
 }
 //----------------------------------------------------------------------------
 int RenderTarget::GetStreamingSize () const
 {
-    int size = Object::GetStreamingSize();
-    size += mNumTargets*WM5_POINTERSIZE(mColorTextures[0]);
-    size += WM5_POINTERSIZE(mDepthStencilTexture);
-    size += WM5_BOOLSIZE(mHasMipmaps);
-    return size;
+	int size = Object::GetStreamingSize();
+	size += mNumTargets*WM5_POINTERSIZE(mColorTextures[0]);
+	size += WM5_POINTERSIZE(mDepthStencilTexture);
+	size += WM5_BOOLSIZE(mHasMipmaps);
+	return size;
 }
 //----------------------------------------------------------------------------

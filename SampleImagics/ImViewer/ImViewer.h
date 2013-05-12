@@ -14,37 +14,37 @@ using namespace Wm5;
 
 class ImViewer : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    ImViewer ();
+	ImViewer ();
 
-    virtual bool OnPrecreate ();
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual bool OnSpecialKeyDown (int key, int x, int y);
-    virtual bool OnMouseClick (int button, int state, int x, int y,
-        unsigned int modifiers);
-    virtual bool OnMotion (int button, int x, int y, unsigned int modifiers);
-    virtual void ScreenOverlay ();
+	virtual bool OnPrecreate ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual bool OnSpecialKeyDown (int key, int x, int y);
+	virtual bool OnMouseClick (int button, int state, int x, int y,
+	                           unsigned int modifiers);
+	virtual bool OnMotion (int button, int x, int y, unsigned int modifiers);
+	virtual void ScreenOverlay ();
 
 protected:
-    bool LoadImage ();
-    void CopySliceToScreen ();
-    void ReadPixelValue (int x, int y);
-    void WritePixelString ();
+	bool LoadImage ();
+	void CopySliceToScreen ();
+	void ReadPixelValue (int x, int y);
+	void WritePixelString ();
 
-    int mNumDimensions, mNumPixels, mNumSlicePixels;
-    int* mBound;
-    float* mFloatData;
-    ColorRGB* mColorData;
-    float mMin, mMax, mRange, mInvRange;
-    int mZ;
-    enum { PIXEL_STRING_SIZE = 256 };
-    char mPixelString[PIXEL_STRING_SIZE];
-    bool mMouseDown;
-    Float4 mTextColor;
+	int mNumDimensions, mNumPixels, mNumSlicePixels;
+	int* mBound;
+	float* mFloatData;
+	ColorRGB* mColorData;
+	float mMin, mMax, mRange, mInvRange;
+	int mZ;
+	enum { PIXEL_STRING_SIZE = 256 };
+	char mPixelString[PIXEL_STRING_SIZE];
+	bool mMouseDown;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(ImViewer);

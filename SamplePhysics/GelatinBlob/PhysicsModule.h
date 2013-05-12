@@ -15,18 +15,18 @@ using namespace Wm5;
 class PhysicsModule : public MassSpringArbitrary3f
 {
 public:
-    // Construction and destruction.
-    PhysicsModule (int numParticles, int numSteps, float step,
-        float viscosity);
+	// Construction and destruction.
+	PhysicsModule (int numParticles, int numSteps, float step,
+	               float viscosity);
 
-    virtual ~PhysicsModule ();
+	virtual ~PhysicsModule ();
 
-    // External acceleration is due to viscous forces.
-    virtual Vector3f ExternalAcceleration (int i, float time,
-        const Vector3f* positions, const Vector3f* velocities);
+	// External acceleration is due to viscous forces.
+	virtual Vector3f ExternalAcceleration (int i, float time,
+	                                       const Vector3f* positions, const Vector3f* velocities);
 
 protected:
-    float mViscosity;
+	float mViscosity;
 };
 
 #endif

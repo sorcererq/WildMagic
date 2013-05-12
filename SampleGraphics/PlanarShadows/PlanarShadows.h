@@ -14,32 +14,32 @@ using namespace Wm5;
 
 class PlanarShadows : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    PlanarShadows ();
+	PlanarShadows ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    void LoadBiped ();
-    void CreatePlanes ();
-    void CreatePlanarShadow ();
+	void CreateScene ();
+	void LoadBiped ();
+	void CreatePlanes ();
+	void CreatePlanarShadow ();
 
-    NodePtr mScene, mBiped;
-    TriMeshPtr mPlane0, mPlane1;
-    LightNodePtr mProjectorNode;
-    WireStatePtr mWireState;
-    Culler mSceneCuller, mBipedCuller;
-    PlanarShadowEffectPtr mPSEffect;
+	NodePtr mScene, mBiped;
+	TriMeshPtr mPlane0, mPlane1;
+	LightNodePtr mProjectorNode;
+	WireStatePtr mWireState;
+	Culler mSceneCuller, mBipedCuller;
+	PlanarShadowEffectPtr mPSEffect;
 
-    double mUpdateTime;
-    Float4 mTextColor;
+	double mUpdateTime;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(PlanarShadows);

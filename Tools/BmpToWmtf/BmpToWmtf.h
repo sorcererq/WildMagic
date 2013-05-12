@@ -14,13 +14,13 @@ using namespace Wm5;
 
 class BmpToWmtf : public ConsoleApplication
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BmpToWmtf ();
-    virtual ~BmpToWmtf ();
-    virtual int Main (int iQuantity, char** apcArgument);
+	BmpToWmtf ();
+	virtual ~BmpToWmtf ();
+	virtual int Main (int iQuantity, char** apcArgument);
 };
 
 WM5_REGISTER_INITIALIZE(BmpToWmtf);

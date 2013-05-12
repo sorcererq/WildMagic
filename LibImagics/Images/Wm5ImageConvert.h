@@ -15,7 +15,7 @@ namespace Wm5
 {
 
 WM5_IMAGICS_ITEM void ImageConvert (int quantity, int srcRTTI, void* srcData,
-    int trgRTTI, void* trgData);
+                                    int trgRTTI, void* trgData);
 
 }
 

@@ -18,27 +18,27 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM TransformController : public Controller
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(TransformController);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(TransformController);
 
 public:
-    // Construction and destruction.
-    TransformController (const Transform& localTransform);
-    virtual ~TransformController ();
+	// Construction and destruction.
+	TransformController (const Transform& localTransform);
+	virtual ~TransformController ();
 
-    // Member access.
-    inline void SetTransform (const Transform& localTransform);
-    inline const Transform& GetTransform () const;
+	// Member access.
+	inline void SetTransform (const Transform& localTransform);
+	inline const Transform& GetTransform () const;
 
-    // The animation update.  The application time is in milliseconds.
-    // The update simply copies mLocalTransform to the Spatial mObject's
-    // LocalTransform.  In this sense, TransformController represents a
-    // transform that is constant for all time.
-    virtual bool Update (double applicationTime);
+	// The animation update.  The application time is in milliseconds.
+	// The update simply copies mLocalTransform to the Spatial mObject's
+	// LocalTransform.  In this sense, TransformController represents a
+	// transform that is constant for all time.
+	virtual bool Update (double applicationTime);
 
 protected:
-    Transform mLocalTransform;
+	Transform mLocalTransform;
 };
 
 WM5_REGISTER_STREAM(TransformController);

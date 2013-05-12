@@ -14,29 +14,29 @@ using namespace Wm5;
 
 class GpuGaussianBlur2 : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    GpuGaussianBlur2 ();
+	GpuGaussianBlur2 ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
 
 protected:
-    PixelShader* CreateBlurPixelShader ();
-    void SetBlurInput ();
+	PixelShader* CreateBlurPixelShader ();
+	void SetBlurInput ();
 
-    ImageProcessing2* mIP;
-    Float4 mTextColor;
+	ImageProcessing2* mIP;
+	Float4 mTextColor;
 
-    // The profile information for GaussianBlur2.fx.
-    static int msAllPRegisters[2];
-    static int* msPRegisters[Shader::MAX_PROFILES];
-    static int msAllPTextureUnits[1];
-    static int* msPTextureUnits[Shader::MAX_PROFILES];
-    static std::string msPPrograms[Shader::MAX_PROFILES];
+	// The profile information for GaussianBlur2.fx.
+	static int msAllPRegisters[2];
+	static int* msPRegisters[Shader::MAX_PROFILES];
+	static int msAllPTextureUnits[1];
+	static int* msPTextureUnits[Shader::MAX_PROFILES];
+	static std::string msPPrograms[Shader::MAX_PROFILES];
 };
 
 WM5_REGISTER_INITIALIZE(GpuGaussianBlur2);

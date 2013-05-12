@@ -27,17 +27,17 @@ WM5_IMPLEMENT_DEFAULT_STREAM(VisualEffect, DLitMatTexEffect);
 
 //----------------------------------------------------------------------------
 DLitMatTexEffect::DLitMatTexEffect (const std::string& effectFile)
-    :
-    VisualEffect(effectFile)
+	:
+	VisualEffect(effectFile)
 {
-    // TODO:  Once WmfxCompiler parses the Cg FX files, we will not need to
-    // set the sampler state.
-    PixelShader* pshader = GetPixelShader(0, 0);
+	// TODO:  Once WmfxCompiler parses the Cg FX files, we will not need to
+	// set the sampler state.
+	PixelShader* pshader = GetPixelShader(0, 0);
 
-    // DiffuseSampler
-    pshader->SetFilter(0, Shader::SF_LINEAR_LINEAR);
-    pshader->SetCoordinate(0, 0, Shader::SC_REPEAT);
-    pshader->SetCoordinate(0, 1, Shader::SC_REPEAT);
+	// DiffuseSampler
+	pshader->SetFilter(0, Shader::SF_LINEAR_LINEAR);
+	pshader->SetCoordinate(0, 0, Shader::SC_REPEAT);
+	pshader->SetCoordinate(0, 1, Shader::SC_REPEAT);
 }
 //----------------------------------------------------------------------------
 DLitMatTexEffect::~DLitMatTexEffect ()
@@ -47,20 +47,20 @@ DLitMatTexEffect::~DLitMatTexEffect ()
 VisualEffectInstance* DLitMatTexEffect::CreateInstance (
     Light* directionalLight, Material* material, Texture2D* diffuseTexture)
 {
-    VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
-    instance->SetVertexConstant(0, 0,
-        new0 PVWMatrixConstant());
-    instance->SetPixelConstant(0, 0,
-        new0 CameraModelPositionConstant());
-    instance->SetPixelConstant(0, 1,
-        new0 MaterialAmbientConstant(material));
-    instance->SetPixelConstant(0, 2,
-        new0 MaterialSpecularConstant(material));
-    instance->SetPixelConstant(0, 3,
-        new0 LightModelDVectorConstant(directionalLight));
-    instance->SetPixelConstant(0, 4,
-        new0 LightAmbientConstant(directionalLight));
-    instance->SetPixelTexture(0, 0, diffuseTexture);
-    return instance;
+	VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
+	instance->SetVertexConstant(0, 0,
+	                            new0 PVWMatrixConstant());
+	instance->SetPixelConstant(0, 0,
+	                           new0 CameraModelPositionConstant());
+	instance->SetPixelConstant(0, 1,
+	                           new0 MaterialAmbientConstant(material));
+	instance->SetPixelConstant(0, 2,
+	                           new0 MaterialSpecularConstant(material));
+	instance->SetPixelConstant(0, 3,
+	                           new0 LightModelDVectorConstant(directionalLight));
+	instance->SetPixelConstant(0, 4,
+	                           new0 LightAmbientConstant(directionalLight));
+	instance->SetPixelTexture(0, 0, diffuseTexture);
+	return instance;
 }
 //----------------------------------------------------------------------------

@@ -27,49 +27,49 @@ static bool gsInitializedTime = false;
 int64_t GetTimeInMicroseconds ()
 {
 #ifdef __APPLE__
-    if (!gsInitializedTime)
-    {
-        gsInitializedTime = true;
-        gettimeofday(&gsInitial, 0);
-    }
+	if (!gsInitializedTime)
+	{
+		gsInitializedTime = true;
+		gettimeofday(&gsInitial, 0);
+	}
 
-    struct timeval currentTime;
-    gettimeofday(&currentTime, 0);
-    
-    struct timeval deltaTime;
-    timersub(&currentTime, &gsInitial, &deltaTime);
+	struct timeval currentTime;
+	gettimeofday(&currentTime, 0);
 
-    return 1000000*deltaTime.tv_sec + deltaTime.tv_usec;
+	struct timeval deltaTime;
+	timersub(&currentTime, &gsInitial, &deltaTime);
+
+	return 1000000*deltaTime.tv_sec + deltaTime.tv_usec;
 #else
-    struct timeb currentTime;
+	struct timeb currentTime;
 
-    if (!gsInitializedTime)
-    {
-        gsInitializedTime = true;
-        ftime(&currentTime);
-        gsInitialSec = (long)currentTime.time;
-        gsInitialUSec = 1000*currentTime.millitm;
-    }
+	if (!gsInitializedTime)
+	{
+		gsInitializedTime = true;
+		ftime(&currentTime);
+		gsInitialSec = (long)currentTime.time;
+		gsInitialUSec = 1000*currentTime.millitm;
+	}
 
-    ftime(&currentTime);
-    long currentSec = (long)currentTime.time;
-    long currentUSec = 1000*currentTime.millitm;
-    long deltaSec = currentSec - gsInitialSec;
-    long deltaUSec = currentUSec - gsInitialUSec;
-    if (deltaUSec < 0)
-    {
-        deltaUSec += 1000000;
-        --deltaSec;
-    }
+	ftime(&currentTime);
+	long currentSec = (long)currentTime.time;
+	long currentUSec = 1000*currentTime.millitm;
+	long deltaSec = currentSec - gsInitialSec;
+	long deltaUSec = currentUSec - gsInitialUSec;
+	if (deltaUSec < 0)
+	{
+		deltaUSec += 1000000;
+		--deltaSec;
+	}
 
-    return 1000000*deltaSec + deltaUSec;
+	return 1000000*deltaSec + deltaUSec;
 #endif
 }
 //----------------------------------------------------------------------------
 double GetTimeInSeconds ()
 {
-    int64_t microseconds = GetTimeInMicroseconds();
-    return 1e-06*microseconds;
+	int64_t microseconds = GetTimeInMicroseconds();
+	return 1e-06*microseconds;
 }
 //----------------------------------------------------------------------------
 

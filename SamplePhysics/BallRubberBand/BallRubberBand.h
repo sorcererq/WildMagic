@@ -15,18 +15,18 @@ using namespace Wm5;
 
 class BallRubberBand : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BallRubberBand ();
+	BallRubberBand ();
 
-    virtual bool OnInitialize ();
-    virtual void OnDisplay ();
+	virtual bool OnInitialize ();
+	virtual void OnDisplay ();
 
 protected:
-    PhysicsModule mModule;
-    std::vector<Vector2d> mPosition;
+	PhysicsModule mModule;
+	std::vector<Vector2d> mPosition;
 };
 
 WM5_REGISTER_INITIALIZE(BallRubberBand);

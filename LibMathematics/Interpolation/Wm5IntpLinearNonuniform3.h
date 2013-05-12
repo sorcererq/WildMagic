@@ -22,21 +22,21 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM IntpLinearNonuniform3
 {
 public:
-    // Construction and destruction.  If you want IntpLinearNonuniform3 to
-    // delete the input array during destruction, set owner to 'true'.
-    // Otherwise, you own the array and must delete it yourself.
-    IntpLinearNonuniform3 (const Delaunay3<Real>& DT, Real* F, bool owner);
-    ~IntpLinearNonuniform3 ();
+	// Construction and destruction.  If you want IntpLinearNonuniform3 to
+	// delete the input array during destruction, set owner to 'true'.
+	// Otherwise, you own the array and must delete it yourself.
+	IntpLinearNonuniform3 (const Delaunay3<Real>& DT, Real* F, bool owner);
+	~IntpLinearNonuniform3 ();
 
-    // Linear interpolation.  The return value is 'true' if and only if the
-    // input point is in the convex hull of the input vertices, in which case
-    // the interpolation is valid.
-    bool Evaluate (const Vector3<Real>& P, Real& F);
+	// Linear interpolation.  The return value is 'true' if and only if the
+	// input point is in the convex hull of the input vertices, in which case
+	// the interpolation is valid.
+	bool Evaluate (const Vector3<Real>& P, Real& F);
 
 private:
-    const Delaunay3<Real>* mDT;
-    Real* mF;
-    bool mOwner;
+	const Delaunay3<Real>* mDT;
+	Real* mF;
+	bool mOwner;
 };
 
 typedef IntpLinearNonuniform3<float> IntpLinearNonuniform3f;

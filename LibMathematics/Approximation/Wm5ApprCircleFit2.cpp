@@ -15,64 +15,64 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 bool CircleFit2 (int numPoints, const Vector2<Real>* points,
-    int maxIterations, Circle2<Real>& circle, bool initialCenterIsAverage)
+                 int maxIterations, Circle2<Real>& circle, bool initialCenterIsAverage)
 {
-    // Compute the average of the data points.
-    Vector2<Real> average = points[0];
-    int i0;
-    for (i0 = 1; i0 < numPoints; ++i0)
-    {
-        average += points[i0];
-    }
-    Real invNumPoints = ((Real)1)/(Real)numPoints;
-    average *= invNumPoints;
+	// Compute the average of the data points.
+	Vector2<Real> average = points[0];
+	int i0;
+	for (i0 = 1; i0 < numPoints; ++i0)
+	{
+		average += points[i0];
+	}
+	Real invNumPoints = ((Real)1)/(Real)numPoints;
+	average *= invNumPoints;
 
-    // The initial guess for the center.
-    if (initialCenterIsAverage)
-    {
-        circle.Center = average;
-    }
-    else
-    {
-        QuadraticCircleFit2<Real>(numPoints, points, circle.Center,
-            circle.Radius);
-    }
+	// The initial guess for the center.
+	if (initialCenterIsAverage)
+	{
+		circle.Center = average;
+	}
+	else
+	{
+		QuadraticCircleFit2<Real>(numPoints, points, circle.Center,
+		                          circle.Radius);
+	}
 
-    int i1;
-    for (i1 = 0; i1 < maxIterations; ++i1)
-    {
-        // Update the iterates.
-        Vector2<Real> current = circle.Center;
+	int i1;
+	for (i1 = 0; i1 < maxIterations; ++i1)
+	{
+		// Update the iterates.
+		Vector2<Real> current = circle.Center;
 
-        // Compute average L, dL/da, dL/db.
-        Real lenAverage = (Real)0;
-        Vector2<Real> derLenAverage = Vector2<Real>::ZERO;
-        for (i0 = 0; i0 < numPoints; ++i0)
-        {
-            Vector2<Real> diff = points[i0] - circle.Center;
-            Real length = diff.Length();
-            if (length > Math<Real>::ZERO_TOLERANCE)
-            {
-                lenAverage += length;
-                Real invLength = ((Real)1)/length;
-                derLenAverage -= invLength*diff;
-            }
-        }
-        lenAverage *= invNumPoints;
-        derLenAverage *= invNumPoints;
+		// Compute average L, dL/da, dL/db.
+		Real lenAverage = (Real)0;
+		Vector2<Real> derLenAverage = Vector2<Real>::ZERO;
+		for (i0 = 0; i0 < numPoints; ++i0)
+		{
+			Vector2<Real> diff = points[i0] - circle.Center;
+			Real length = diff.Length();
+			if (length > Math<Real>::ZERO_TOLERANCE)
+			{
+				lenAverage += length;
+				Real invLength = ((Real)1)/length;
+				derLenAverage -= invLength*diff;
+			}
+		}
+		lenAverage *= invNumPoints;
+		derLenAverage *= invNumPoints;
 
-        circle.Center = average + lenAverage*derLenAverage;
-        circle.Radius = lenAverage;
+		circle.Center = average + lenAverage*derLenAverage;
+		circle.Radius = lenAverage;
 
-        Vector2<Real> diff = circle.Center - current;
-        if (Math<Real>::FAbs(diff[0]) <= Math<Real>::ZERO_TOLERANCE
-        &&  Math<Real>::FAbs(diff[1]) <= Math<Real>::ZERO_TOLERANCE)
-        {
-            break;
-        }
-    }
+		Vector2<Real> diff = circle.Center - current;
+		if (Math<Real>::FAbs(diff[0]) <= Math<Real>::ZERO_TOLERANCE
+		        &&  Math<Real>::FAbs(diff[1]) <= Math<Real>::ZERO_TOLERANCE)
+		{
+			break;
+		}
+	}
 
-    return i1 < maxIterations;
+	return i1 < maxIterations;
 }
 //----------------------------------------------------------------------------
 
@@ -81,10 +81,10 @@ bool CircleFit2 (int numPoints, const Vector2<Real>* points,
 //----------------------------------------------------------------------------
 template WM5_MATHEMATICS_ITEM
 bool CircleFit2<float> (int, const Vector2<float>*, int, Circle2<float>&,
-    bool);
+                        bool);
 
 template WM5_MATHEMATICS_ITEM
 bool CircleFit2<double> (int, const Vector2<double>*, int, Circle2<double>&,
-    bool);
+                         bool);
 //----------------------------------------------------------------------------
 }

@@ -14,30 +14,30 @@ using namespace Wm5;
 
 class Delaunay2D : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    Delaunay2D ();
+	Delaunay2D ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
-    virtual bool OnMouseClick (int button, int state, int x, int y,
-        unsigned int modifiers);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
+	virtual bool OnMouseClick (int button, int state, int x, int y,
+	                           unsigned int modifiers);
 
 protected:
-    Delaunay1f* mDelaunay1;
-    Delaunay2f* mDelaunay2;
+	Delaunay1f* mDelaunay1;
+	Delaunay2f* mDelaunay2;
 
-    int mNumVertices;
-    Vector2f* mVertices;
-    int mNumTriangles;
-    int* mIndices;
-    int* mAdjacencies;
+	int mNumVertices;
+	Vector2f* mVertices;
+	int mNumTriangles;
+	int* mIndices;
+	int* mAdjacencies;
 
-    int mCurrentTriX, mCurrentTriY, mCurrentIndex;
-    int mSize;
+	int mCurrentTriX, mCurrentTriY, mCurrentIndex;
+	int mSize;
 };
 
 WM5_REGISTER_INITIALIZE(Delaunay2D);

@@ -23,44 +23,44 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM MinCircle2
 {
 public:
-    // The epsilon value is a floating-point tolerance used for various
-    // computations.
-    MinCircle2 (int numPoints, const Vector2<Real>* points,
-        Circle2<Real>& minimal, Real epsilon = (Real)1e-05);
+	// The epsilon value is a floating-point tolerance used for various
+	// computations.
+	MinCircle2 (int numPoints, const Vector2<Real>* points,
+	            Circle2<Real>& minimal, Real epsilon = (Real)1e-05);
 
 private:
-    // Indices of points that support current minimum area circle.
-    class Support
-    {
-    public:
-        bool Contains (int index, Vector2<Real>** points, Real epsilon);
+	// Indices of points that support current minimum area circle.
+	class Support
+	{
+	public:
+		bool Contains (int index, Vector2<Real>** points, Real epsilon);
 
-        int Quantity;
-        int Index[3];
-    };
+		int Quantity;
+		int Index[3];
+	};
 
-    // Test whether point P is inside circle C.
-    bool Contains (const Vector2<Real>& point, const Circle2<Real>& circle,
-        Real& distDiff);
+	// Test whether point P is inside circle C.
+	bool Contains (const Vector2<Real>& point, const Circle2<Real>& circle,
+	               Real& distDiff);
 
-    Circle2<Real> ExactCircle1 (const Vector2<Real>& P);
-    Circle2<Real> ExactCircle2 (const Vector2<Real>& P0,
-        const Vector2<Real>& P1);
-    Circle2<Real> ExactCircle3 (const Vector2<Real>& P0,
-        const Vector2<Real>& P1, const Vector2<Real>& P2);
+	Circle2<Real> ExactCircle1 (const Vector2<Real>& P);
+	Circle2<Real> ExactCircle2 (const Vector2<Real>& P0,
+	                            const Vector2<Real>& P1);
+	Circle2<Real> ExactCircle3 (const Vector2<Real>& P0,
+	                            const Vector2<Real>& P1, const Vector2<Real>& P2);
 
-    Circle2<Real> UpdateSupport1 (int i, Vector2<Real>** permuted,
-        Support& support);
-    Circle2<Real> UpdateSupport2 (int i, Vector2<Real>** permuted,
-        Support& support);
-    Circle2<Real> UpdateSupport3 (int i, Vector2<Real>** permuted,
-        Support& support);
+	Circle2<Real> UpdateSupport1 (int i, Vector2<Real>** permuted,
+	                              Support& support);
+	Circle2<Real> UpdateSupport2 (int i, Vector2<Real>** permuted,
+	                              Support& support);
+	Circle2<Real> UpdateSupport3 (int i, Vector2<Real>** permuted,
+	                              Support& support);
 
-    typedef Circle2<Real> (MinCircle2<Real>::*UpdateFunction)(
-        int, Vector2<Real>**, Support&);
+	typedef Circle2<Real> (MinCircle2<Real>::*UpdateFunction)(
+	    int, Vector2<Real>**, Support&);
 
-    Real mEpsilon;
-    UpdateFunction mUpdate[4];
+	Real mEpsilon;
+	UpdateFunction mUpdate[4];
 };
 
 typedef MinCircle2<float> MinCircle2f;

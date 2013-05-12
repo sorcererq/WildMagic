@@ -12,17 +12,17 @@
 class MergeBox
 {
 public:
-    MergeBox (int stride)
-        :
-        mXStride(stride),
-        mYStride(stride),
-        mZStride(stride),
-        mValid(true)
-    {
-    }
+	MergeBox (int stride)
+		:
+		mXStride(stride),
+		mYStride(stride),
+		mZStride(stride),
+		mValid(true)
+	{
+	}
 
-    int mXStride, mYStride, mZStride;
-    bool mValid;
+	int mXStride, mYStride, mZStride;
+	bool mValid;
 };
 
 #endif

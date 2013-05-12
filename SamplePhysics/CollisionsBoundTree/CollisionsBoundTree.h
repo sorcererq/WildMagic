@@ -14,39 +14,39 @@ using namespace Wm5;
 
 class CollisionsBoundTree : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    CollisionsBoundTree ();
+	CollisionsBoundTree ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
+	void CreateScene ();
 
-    NodePtr mScene;
-    TriMeshPtr mCylinder0, mCylinder1;
-    WireStatePtr mWireState;
-    CullStatePtr mCullState;
-    Culler mCuller;
+	NodePtr mScene;
+	TriMeshPtr mCylinder0, mCylinder1;
+	WireStatePtr mWireState;
+	CullStatePtr mCullState;
+	Culler mCuller;
 
-    // The collision system.
-    typedef BoundTree<TriMesh,Bound> CTree;
-    typedef CollisionRecord<TriMesh,Bound> CRecord;
-    typedef CollisionGroup<TriMesh,Bound> CGroup;
+	// The collision system.
+	typedef BoundTree<TriMesh,Bound> CTree;
+	typedef CollisionRecord<TriMesh,Bound> CRecord;
+	typedef CollisionGroup<TriMesh,Bound> CGroup;
 
-    CGroup* mGroup;
-    bool Transform (unsigned char key);
-    void ResetColors ();
-    static void Response (CRecord& record0, int t0, CRecord& record1, int t1,
-        Intersector<float,Vector3f>* intersector);
-    Float2 mBlueUV, mRedUV, mCyanUV, mYellowUV;
+	CGroup* mGroup;
+	bool Transform (unsigned char key);
+	void ResetColors ();
+	static void Response (CRecord& record0, int t0, CRecord& record1, int t1,
+	                      Intersector<float,Vector3f>* intersector);
+	Float2 mBlueUV, mRedUV, mCyanUV, mYellowUV;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(CollisionsBoundTree);

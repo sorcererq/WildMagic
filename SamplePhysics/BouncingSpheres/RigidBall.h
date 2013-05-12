@@ -16,16 +16,16 @@ using namespace Wm5;
 class RigidBall : public RigidBodyf
 {
 public:
-    RigidBall (float radius = 1.0f);
+	RigidBall (float radius = 1.0f);
 
-    TriMeshPtr& Mesh ();
-    float GetRadius () const;
+	TriMeshPtr& Mesh ();
+	float GetRadius () const;
 
-    bool Moved;
+	bool Moved;
 
 private:
-    TriMeshPtr mMesh;
-    float mRadius;
+	TriMeshPtr mMesh;
+	float mRadius;
 };
 
 #endif

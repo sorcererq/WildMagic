@@ -16,17 +16,17 @@ namespace Wm5
 
 class SkinningEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(SkinningEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(SkinningEffect);
 
 public:
-    // Construction and destruction.
-    SkinningEffect (const std::string& effectFile);
-    virtual ~SkinningEffect ();
+	// Construction and destruction.
+	SkinningEffect (const std::string& effectFile);
+	virtual ~SkinningEffect ();
 
-    // Create an instance of the effect with unique parameters.
-    VisualEffectInstance* CreateInstance (ShaderFloat* skinningMatrix[4]);
+	// Create an instance of the effect with unique parameters.
+	VisualEffectInstance* CreateInstance (ShaderFloat* skinningMatrix[4]);
 };
 
 WM5_REGISTER_STREAM(SkinningEffect);

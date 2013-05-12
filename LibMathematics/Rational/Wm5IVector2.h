@@ -18,33 +18,33 @@ namespace Wm5
 class WM5_MATHEMATICS_ITEM IVector2 : public IVector<2>
 {
 public:
-    // Construction.
-    IVector2 ();
-    IVector2 (const IVector2& vec);
-    IVector2 (const IVector<2>& vec);
-    IVector2 (const int64_t& x, const int64_t& y);
+	// Construction.
+	IVector2 ();
+	IVector2 (const IVector2& vec);
+	IVector2 (const IVector<2>& vec);
+	IVector2 (const int64_t& x, const int64_t& y);
 
-    // Member access.
-    inline int64_t X () const;
-    inline int64_t& X ();
-    inline int64_t Y () const;
-    inline int64_t& Y ();
+	// Member access.
+	inline int64_t X () const;
+	inline int64_t& X ();
+	inline int64_t Y () const;
+	inline int64_t& Y ();
 
-    // Assignment,
-    IVector2& operator= (const IVector2& vec);
-    IVector2& operator= (const IVector<2>& vec);
+	// Assignment,
+	IVector2& operator= (const IVector2& vec);
+	IVector2& operator= (const IVector<2>& vec);
 
-    // Returns Dot(this,V).
-    int64_t Dot (const IVector2& vec) const;
+	// Returns Dot(this,V).
+	int64_t Dot (const IVector2& vec) const;
 
-    // Returns (y,-x).
-    IVector2 Perp () const;
+	// Returns (y,-x).
+	IVector2 Perp () const;
 
-    // Returns Cross((x,y,0),(V.x,V.y,0)) = x*V.y - y*V.x.
-    int64_t DotPerp (const IVector2& vec) const;
+	// Returns Cross((x,y,0),(V.x,V.y,0)) = x*V.y - y*V.x.
+	int64_t DotPerp (const IVector2& vec) const;
 
 protected:
-    using IVector<2>::mTuple;
+	using IVector<2>::mTuple;
 };
 
 #include "Wm5IVector2.inl"

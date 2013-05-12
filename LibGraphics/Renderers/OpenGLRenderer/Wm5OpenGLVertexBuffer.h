@@ -20,19 +20,19 @@ class Renderer;
 class PdrVertexBuffer
 {
 public:
-    // Construction and destruction.
-    PdrVertexBuffer (Renderer* renderer, const VertexBuffer* vbuffer);
-    ~PdrVertexBuffer ();
+	// Construction and destruction.
+	PdrVertexBuffer (Renderer* renderer, const VertexBuffer* vbuffer);
+	~PdrVertexBuffer ();
 
-    // Vertex buffer operations.
-    void Enable (Renderer* renderer, unsigned int vertexSize,
-        unsigned int streamIndex, unsigned int offset);
-    void Disable (Renderer* renderer, unsigned int streamIndex);
-    void* Lock (Buffer::Locking mode);
-    void Unlock ();
+	// Vertex buffer operations.
+	void Enable (Renderer* renderer, unsigned int vertexSize,
+	             unsigned int streamIndex, unsigned int offset);
+	void Disable (Renderer* renderer, unsigned int streamIndex);
+	void* Lock (Buffer::Locking mode);
+	void Unlock ();
 
 private:
-    GLuint mBuffer;
+	GLuint mBuffer;
 };
 
 }

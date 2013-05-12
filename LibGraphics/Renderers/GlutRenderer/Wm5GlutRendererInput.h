@@ -30,8 +30,8 @@ namespace Wm5
 class RendererInput
 {
 public:
-    int mWindowID;
-    bool mDisableVerticalSync;
+	int mWindowID;
+	bool mDisableVerticalSync;
 };
 
 }

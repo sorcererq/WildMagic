@@ -9,71 +9,71 @@
 //----------------------------------------------------------------------------
 inline Node* BipedManager::GetRoot ()
 {
-    return mRoot;
+	return mRoot;
 }
 //----------------------------------------------------------------------------
 inline void BipedManager::GetIdle (double& minTime, double& maxTime) const
 {
-    GetAnimation(mIdleArray, minTime, maxTime);
+	GetAnimation(mIdleArray, minTime, maxTime);
 }
 //----------------------------------------------------------------------------
 inline void BipedManager::GetWalk (double& minTime, double& maxTime) const
 {
-    GetAnimation(mWalkArray, minTime, maxTime);
+	GetAnimation(mWalkArray, minTime, maxTime);
 }
 //----------------------------------------------------------------------------
 inline void BipedManager::GetRun (double& minTime, double& maxTime) const
 {
-    GetAnimation(mRunArray, minTime, maxTime);
+	GetAnimation(mRunArray, minTime, maxTime);
 }
 //----------------------------------------------------------------------------
 inline void BipedManager::SetIdle (double frequency, double phase)
 {
-    SetAnimation(mIdleArray, frequency, phase);
+	SetAnimation(mIdleArray, frequency, phase);
 }
 //----------------------------------------------------------------------------
 inline void BipedManager::SetWalk (double frequency, double phase)
 {
-    SetAnimation(mWalkArray, frequency, phase);
+	SetAnimation(mWalkArray, frequency, phase);
 }
 //----------------------------------------------------------------------------
 inline void BipedManager::SetRun (double frequency, double phase)
 {
-    SetAnimation(mRunArray, frequency, phase);
+	SetAnimation(mRunArray, frequency, phase);
 }
 //----------------------------------------------------------------------------
 inline void BipedManager::DoIdle ()
 {
-    DoAnimation(mIdleArray);
+	DoAnimation(mIdleArray);
 }
 //----------------------------------------------------------------------------
 inline void BipedManager::DoWalk ()
 {
-    DoAnimation(mWalkArray);
+	DoAnimation(mWalkArray);
 }
 //----------------------------------------------------------------------------
 inline void BipedManager::DoRun ()
 {
-    DoAnimation(mRunArray);
+	DoAnimation(mRunArray);
 }
 //----------------------------------------------------------------------------
 inline void BipedManager::DoIdleWalk ()
 {
-    DoAnimation(mIdleWalkArray);
+	DoAnimation(mIdleWalkArray);
 }
 //----------------------------------------------------------------------------
 inline void BipedManager::DoWalkRun ()
 {
-    DoAnimation(mWalkRunArray);
+	DoAnimation(mWalkRunArray);
 }
 //----------------------------------------------------------------------------
 inline void BipedManager::SetIdleWalk (float weight)
 {
-    SetBlendAnimation(mIdleWalkArray, weight);
+	SetBlendAnimation(mIdleWalkArray, weight);
 }
 //----------------------------------------------------------------------------
 inline void BipedManager::SetWalkRun (float weight)
 {
-    SetBlendAnimation(mWalkRunArray, weight);
+	SetBlendAnimation(mWalkRunArray, weight);
 }
 //----------------------------------------------------------------------------

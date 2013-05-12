@@ -9,51 +9,51 @@
 //----------------------------------------------------------------------------
 inline int MTVertex::GetLabel () const
 {
-    return mLabel;
+	return mLabel;
 }
 //----------------------------------------------------------------------------
 inline int MTVertex::GetNumEdges () const
 {
-    return mESet.GetNumElements();
+	return mESet.GetNumElements();
 }
 //----------------------------------------------------------------------------
 inline int MTVertex::GetEdge (int e) const
 {
-    return mESet.Get(e);
+	return mESet.Get(e);
 }
 //----------------------------------------------------------------------------
 inline bool MTVertex::InsertEdge (int e)
 {
-    return mESet.Insert(e);
+	return mESet.Insert(e);
 }
 //----------------------------------------------------------------------------
 inline bool MTVertex::RemoveEdge (int e)
 {
-    return mESet.Remove(e);
+	return mESet.Remove(e);
 }
 //----------------------------------------------------------------------------
 inline int MTVertex::GetNumTriangles () const
 {
-    return mTSet.GetNumElements();
+	return mTSet.GetNumElements();
 }
 //----------------------------------------------------------------------------
 inline int MTVertex::GetTriangle (int i) const
 {
-    return mTSet.Get(i);
+	return mTSet.Get(i);
 }
 //----------------------------------------------------------------------------
 inline bool MTVertex::InsertTriangle (int t)
 {
-    return mTSet.Insert(t);
+	return mTSet.Insert(t);
 }
 //----------------------------------------------------------------------------
 inline bool MTVertex::RemoveTriangle (int t)
 {
-    return mTSet.Remove(t);
+	return mTSet.Remove(t);
 }
 //----------------------------------------------------------------------------
 inline bool MTVertex::operator== (const MTVertex& vertex) const
 {
-    return mLabel == vertex.mLabel;
+	return mLabel == vertex.mLabel;
 }
 //----------------------------------------------------------------------------

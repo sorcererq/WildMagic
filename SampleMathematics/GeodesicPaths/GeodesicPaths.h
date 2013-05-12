@@ -14,44 +14,44 @@ using namespace Wm5;
 
 class GeodesicPaths : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    GeodesicPaths ();
-    virtual ~GeodesicPaths ();
+	GeodesicPaths ();
+	virtual ~GeodesicPaths ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
-    virtual void ScreenOverlay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
+	virtual void ScreenOverlay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void ComputeTruePath ();
-    void ComputeApprPath (bool subdivide);
-    void ComputeApprLength ();
-    void ParamToXY (const GVectorf& param, int& x, int& y);
-    void XYToParam (int x, int y, GVectorf& param);
-    static void RefineCallback ();
+	void ComputeTruePath ();
+	void ComputeApprPath (bool subdivide);
+	void ComputeApprLength ();
+	void ParamToXY (const GVectorf& param, int& x, int& y);
+	void XYToParam (int x, int y, GVectorf& param);
+	static void RefineCallback ();
 
-    EllipsoidGeodesicf mGeodesic;
-    GVectorf mParam0, mParam1;
-    float mXMin, mXMax, mXDelta;
-    float mYMin, mYMax, mYDelta;
+	EllipsoidGeodesicf mGeodesic;
+	GVectorf mParam0, mParam1;
+	float mXMin, mXMax, mXDelta;
+	float mYMin, mYMax, mYDelta;
 
-    int mNumTruePoints;
-    GVectorf* mTruePoints;
-    float mTrueDistance;
+	int mNumTruePoints;
+	GVectorf* mTruePoints;
+	float mTrueDistance;
 
-    int mNumApprPoints;
-    int mCurrNumApprPoints;
-    GVectorf* mApprPoints;
-    float mApprDistance;
-    float mApprCurvature;
+	int mNumApprPoints;
+	int mCurrNumApprPoints;
+	GVectorf* mApprPoints;
+	float mApprDistance;
+	float mApprCurvature;
 
-    int mSize;
-    Float4 mTextColor;
+	int mSize;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(GeodesicPaths);

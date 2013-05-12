@@ -17,40 +17,40 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM Texture3D : public Texture
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(Texture3D);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(Texture3D);
 
 public:
-    // Construction and destruction.
-    Texture3D (Format tformat, int dimension0, int dimension1, int dimension2,
-        int numLevels, Buffer::Usage usage = Buffer::BU_TEXTURE);
+	// Construction and destruction.
+	Texture3D (Format tformat, int dimension0, int dimension1, int dimension2,
+	           int numLevels, Buffer::Usage usage = Buffer::BU_TEXTURE);
 
-    virtual ~Texture3D ();
+	virtual ~Texture3D ();
 
-    // Get the dimensions of the zero-th level mipmap.
-    inline int GetWidth () const;
-    inline int GetHeight () const;
-    inline int GetThickness () const;
+	// Get the dimensions of the zero-th level mipmap.
+	inline int GetWidth () const;
+	inline int GetHeight () const;
+	inline int GetThickness () const;
 
-    // Support for mipmap generation.
-    void GenerateMipmaps ();
-    bool HasMipmaps () const;
+	// Support for mipmap generation.
+	void GenerateMipmaps ();
+	bool HasMipmaps () const;
 
-    // Access the texture data.
-    char* GetData (int level) const;
+	// Access the texture data.
+	char* GetData (int level) const;
 
 protected:
-    // Support for mipmap generation.
-    void ComputeNumLevelBytes ();
-    void GenerateNextMipmap (int width, int height, int thickness,
-        const char* texels, int widthNext, int heightNext, int thicknessNext,
-        char* texelsNext, Float4* rgba);
+	// Support for mipmap generation.
+	void ComputeNumLevelBytes ();
+	void GenerateNextMipmap (int width, int height, int thickness,
+	                         const char* texels, int widthNext, int heightNext, int thicknessNext,
+	                         char* texelsNext, Float4* rgba);
 
 // Support for the raw load of Texture3D.  Raw save is in Texture.
 public:
-    static Texture3D* LoadWMTF (const std::string& name,
-        int mode = FileIO::FM_DEFAULT_READ);
+	static Texture3D* LoadWMTF (const std::string& name,
+	                            int mode = FileIO::FM_DEFAULT_READ);
 // End support for raw load.
 };
 

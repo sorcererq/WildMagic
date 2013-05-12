@@ -38,80 +38,80 @@ namespace Wm5
 class WM5_GRAPHICS_ITEM ImageProcessing3 : public ImageProcessing
 {
 public:
-    // Construction and destruction.  The constructors are for a rectangular
-    // cube with bound2 = factor0*factor1.  Objects of this class should not
-    // be instantiated until the shader profile is known.  Thus, do not create
-    // such an object in an application constructor, but do so in OnInitialize
-    // or later.
+	// Construction and destruction.  The constructors are for a rectangular
+	// cube with bound2 = factor0*factor1.  Objects of this class should not
+	// be instantiated until the shader profile is known.  Thus, do not create
+	// such an object in an application constructor, but do so in OnInitialize
+	// or later.
 
-    // Use this constructor for the standard image processing pipeline.
-    ImageProcessing3 (int bound0, int bound1, int factor0, int factor1,
-        Float4* imageData, PixelShader* mainPShader,
-        const Float4& boundaryColor, bool useDirichlet);
+	// Use this constructor for the standard image processing pipeline.
+	ImageProcessing3 (int bound0, int bound1, int factor0, int factor1,
+	                  Float4* imageData, PixelShader* mainPShader,
+	                  const Float4& boundaryColor, bool useDirichlet);
 
-    // Use this constructor when you want to set up your own pipeline for
-    // processing the image.
-    ImageProcessing3 (int bound0, int bound1, int factor0, int factor1,
-        int numTargets);
+	// Use this constructor when you want to set up your own pipeline for
+	// processing the image.
+	ImageProcessing3 (int bound0, int bound1, int factor0, int factor1,
+	                  int numTargets);
 
-    virtual ~ImageProcessing3 ();
+	virtual ~ImageProcessing3 ();
 
-    // Member access.
-    inline int GetBound0 () const;
-    inline int GetBound1 () const;
-    inline int GetBound2 () const;
-    inline int GetFactor0 () const;
-    inline int GetFactor1 () const;
-    inline float GetDx () const;
-    inline float GetDy () const;
-    inline float GetDz () const;
+	// Member access.
+	inline int GetBound0 () const;
+	inline int GetBound1 () const;
+	inline int GetBound2 () const;
+	inline int GetFactor0 () const;
+	inline int GetFactor1 () const;
+	inline float GetDx () const;
+	inline float GetDy () const;
+	inline float GetDz () const;
 
-    // The mapping from 2D pixel to 3D voxel.
-    void Map2Dto3D (int u, int v, int& x, int& y, int& z) const;
+	// The mapping from 2D pixel to 3D voxel.
+	void Map2Dto3D (int u, int v, int& x, int& y, int& z) const;
 
-    // The mapping from 3D voxel to 2D pixel.
-    void Map3Dto2D (int x, int y, int z, int& u, int& v) const;
+	// The mapping from 3D voxel to 2D pixel.
+	void Map3Dto2D (int x, int y, int z, int& u, int& v) const;
 
-    // The mapping from 3D voxel to 1D memory.
-    int Map3Dto1D (int x, int y, int z);
+	// The mapping from 3D voxel to 1D memory.
+	int Map3Dto1D (int x, int y, int z);
 
-    // Create a tiled image corresponding to the 3D image data.
-    Texture2D* CreateTiledImage (Float4* imageData);
+	// Create a tiled image corresponding to the 3D image data.
+	Texture2D* CreateTiledImage (Float4* imageData);
 
-    // Set boundary pixels to (0,0,0,0).
-    void CreateBoundaryDirichletEffect (VisualEffect*& effect,
-        VisualEffectInstance*& instance);
+	// Set boundary pixels to (0,0,0,0).
+	void CreateBoundaryDirichletEffect (VisualEffect*& effect,
+	                                    VisualEffectInstance*& instance);
 
-    // Set boundary pixels so that boundary derivatives are zero.
-    void CreateBoundaryNeumannEffect (VisualEffect*& effect,
-        VisualEffectInstance*& instance);
+	// Set boundary pixels so that boundary derivatives are zero.
+	void CreateBoundaryNeumannEffect (VisualEffect*& effect,
+	                                  VisualEffectInstance*& instance);
 
-    // Draw the tiled image using the boundary color for boundary voxels.
-    void CreateDrawEffect (VisualEffect*& effect,
-        VisualEffectInstance*& instance, const Float4& boundaryColor);
+	// Draw the tiled image using the boundary color for boundary voxels.
+	void CreateDrawEffect (VisualEffect*& effect,
+	                       VisualEffectInstance*& instance, const Float4& boundaryColor);
 
 private:
-    int mBound0, mBound1, mBound2, mBound0M1, mBound1M1, mBound2M1;
-    int mFactor0, mFactor1;
-    float mDx, mDy, mDz;
+	int mBound0, mBound1, mBound2, mBound0M1, mBound1M1, mBound2M1;
+	int mFactor0, mFactor1;
+	float mDx, mDy, mDz;
 
-    // Profile information for BoundaryDirichlet.fx.
-    static int msAllDirichletPTextureUnits[2];
-    static int* msDirichletPTextureUnits[Shader::MAX_PROFILES];
-    static std::string msDirichletPPrograms[Shader::MAX_PROFILES];
+	// Profile information for BoundaryDirichlet.fx.
+	static int msAllDirichletPTextureUnits[2];
+	static int* msDirichletPTextureUnits[Shader::MAX_PROFILES];
+	static std::string msDirichletPPrograms[Shader::MAX_PROFILES];
 
-    // Profile information for BoundaryNeumann.fx.
-    static int msAllNeumannPTextureUnits[2];
-    static int* msNeumannPTextureUnits[Shader::MAX_PROFILES];
-    static std::string msNeumannPPrograms[Shader::MAX_PROFILES];
+	// Profile information for BoundaryNeumann.fx.
+	static int msAllNeumannPTextureUnits[2];
+	static int* msNeumannPTextureUnits[Shader::MAX_PROFILES];
+	static std::string msNeumannPPrograms[Shader::MAX_PROFILES];
 
-    // Profile information for ScreenShader.fx, function v_ScreenShader and
-    // p_ScreenShader3.
-    static int msAllDrawPRegisters[1];
-    static int* msDrawPRegisters[Shader::MAX_PROFILES];
-    static int msAllDrawPTextureUnits[2];
-    static int* msDrawPTextureUnits[Shader::MAX_PROFILES];
-    static std::string msDrawPPrograms[Shader::MAX_PROFILES];
+	// Profile information for ScreenShader.fx, function v_ScreenShader and
+	// p_ScreenShader3.
+	static int msAllDrawPRegisters[1];
+	static int* msDrawPRegisters[Shader::MAX_PROFILES];
+	static int msAllDrawPTextureUnits[2];
+	static int* msDrawPTextureUnits[Shader::MAX_PROFILES];
+	static std::string msDrawPPrograms[Shader::MAX_PROFILES];
 };
 
 #include "Wm5ImageProcessing3.inl"

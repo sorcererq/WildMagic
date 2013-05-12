@@ -15,36 +15,36 @@ using namespace Wm5;
 class PhysicsModule
 {
 public:
-    // Construction and destruction.
-    PhysicsModule ();
-    ~PhysicsModule ();
+	// Construction and destruction.
+	PhysicsModule ();
+	~PhysicsModule ();
 
-    // Initialize the differential equation solver.
-    void Initialize (double time, double deltaTime, double theta,
-        double thetaDot);
+	// Initialize the differential equation solver.
+	void Initialize (double time, double deltaTime, double theta,
+	                 double thetaDot);
 
-    // Apply a single step of the solver.
-    void Update ();
+	// Apply a single step of the solver.
+	void Update ();
 
-    // Access the current state.
-    inline double GetTime () const;
-    inline double GetDeltaTime () const;
-    inline double GetTheta () const;
-    inline double GetThetaDot () const;
+	// Access the current state.
+	inline double GetTime () const;
+	inline double GetDeltaTime () const;
+	inline double GetTheta () const;
+	inline double GetThetaDot () const;
 
-    // pendulum parameters
-    double CDivM;  // friction_coefficient / mass
-    double GDivL;  // gravity_constant / pendulum_length
+	// pendulum parameters
+	double CDivM;  // friction_coefficient / mass
+	double GDivL;  // gravity_constant / pendulum_length
 
 private:
-    // state and auxiliary variables
-    double mTime, mDeltaTime;
-    double mState[2], mAux[2];
+	// state and auxiliary variables
+	double mTime, mDeltaTime;
+	double mState[2], mAux[2];
 
-    // ODE solver (specific solver assigned in the cpp file)
-    OdeSolverd* mSolver;
-    static void OdeFunction (double time, const double* state, void* data,
-        double* output);
+	// ODE solver (specific solver assigned in the cpp file)
+	OdeSolverd* mSolver;
+	static void OdeFunction (double time, const double* state, void* data,
+	                         double* output);
 };
 
 #include "PhysicsModule.inl"

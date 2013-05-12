@@ -9,11 +9,11 @@
 //----------------------------------------------------------------------------
 inline int Polysegment::GetNumSegments () const
 {
-    return mNumSegments;
+	return mNumSegments;
 }
 //----------------------------------------------------------------------------
 inline bool Polysegment::GetContiguous () const
 {
-    return mContiguous;
+	return mContiguous;
 }
 //----------------------------------------------------------------------------

@@ -18,32 +18,32 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM DistCircle3Circle3
-    : public Distance<Real,Vector3<Real> >
+	: public Distance<Real,Vector3<Real> >
 {
 public:
-    DistCircle3Circle3 (const Circle3<Real>& circle0,
-        const Circle3<Real>& circle1);
+	DistCircle3Circle3 (const Circle3<Real>& circle0,
+	                    const Circle3<Real>& circle1);
 
-    // Object access.
-    const Circle3<Real>& GetCircle0 () const;
-    const Circle3<Real>& GetCircle1 () const;
+	// Object access.
+	const Circle3<Real>& GetCircle0 () const;
+	const Circle3<Real>& GetCircle1 () const;
 
-    // Static distance queries.
-    virtual Real Get ();
-    virtual Real GetSquared ();
+	// Static distance queries.
+	virtual Real Get ();
+	virtual Real GetSquared ();
 
-    // Function calculations for dynamic distance queries.
-    virtual Real Get (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
-    virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	// Function calculations for dynamic distance queries.
+	virtual Real Get (Real t, const Vector3<Real>& velocity0,
+	                  const Vector3<Real>& velocity1);
+	virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
+	                         const Vector3<Real>& velocity1);
 
 private:
-    using Distance<Real,Vector3<Real> >::mClosestPoint0;
-    using Distance<Real,Vector3<Real> >::mClosestPoint1;
+	using Distance<Real,Vector3<Real> >::mClosestPoint0;
+	using Distance<Real,Vector3<Real> >::mClosestPoint1;
 
-    const Circle3<Real>* mCircle0;
-    const Circle3<Real>* mCircle1;
+	const Circle3<Real>* mCircle0;
+	const Circle3<Real>* mCircle1;
 };
 
 typedef DistCircle3Circle3<float> DistCircle3Circle3f;

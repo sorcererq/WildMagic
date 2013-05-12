@@ -14,87 +14,87 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 DistPoint3Segment3<Real>::DistPoint3Segment3 (const Vector3<Real>& point,
-    const Segment3<Real>& segment)
-    :
-    mPoint(&point),
-    mSegment(&segment)
+        const Segment3<Real>& segment)
+	:
+	mPoint(&point),
+	mSegment(&segment)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Vector3<Real>& DistPoint3Segment3<Real>::GetPoint () const
 {
-    return *mPoint;
+	return *mPoint;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Segment3<Real>& DistPoint3Segment3<Real>::GetSegment () const
 {
-    return *mSegment;
+	return *mSegment;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistPoint3Segment3<Real>::Get ()
 {
-    return Math<Real>::Sqrt(GetSquared());
+	return Math<Real>::Sqrt(GetSquared());
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistPoint3Segment3<Real>::GetSquared ()
 {
-    Vector3<Real> diff = *mPoint - mSegment->Center;
-    mSegmentParameter = mSegment->Direction.Dot(diff);
+	Vector3<Real> diff = *mPoint - mSegment->Center;
+	mSegmentParameter = mSegment->Direction.Dot(diff);
 
-    if (-mSegment->Extent < mSegmentParameter)
-    {
-        if (mSegmentParameter < mSegment->Extent)
-        {
-            mClosestPoint1 = mSegment->Center +
-                mSegmentParameter*mSegment->Direction;
-        }
-        else
-        {
-            mClosestPoint1 = mSegment->P1;
-            mSegmentParameter = mSegment->Extent;
-        }
-    }
-    else
-    {
-        mClosestPoint1 = mSegment->P0;
-        mSegmentParameter = -mSegment->Extent;
-    }
+	if (-mSegment->Extent < mSegmentParameter)
+	{
+		if (mSegmentParameter < mSegment->Extent)
+		{
+			mClosestPoint1 = mSegment->Center +
+			                 mSegmentParameter*mSegment->Direction;
+		}
+		else
+		{
+			mClosestPoint1 = mSegment->P1;
+			mSegmentParameter = mSegment->Extent;
+		}
+	}
+	else
+	{
+		mClosestPoint1 = mSegment->P0;
+		mSegmentParameter = -mSegment->Extent;
+	}
 
-    mClosestPoint0 = *mPoint;
-    diff = mClosestPoint1 - mClosestPoint0;
-    return diff.SquaredLength();
+	mClosestPoint0 = *mPoint;
+	diff = mClosestPoint1 - mClosestPoint0;
+	return diff.SquaredLength();
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistPoint3Segment3<Real>::Get (Real t,
-    const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
+                                    const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
 {
-    Vector3<Real> movedPoint = *mPoint + t*velocity0;
-    Vector3<Real> movedCenter = mSegment->Center + t*velocity1;
-    Segment3<Real> movedSegment(movedCenter, mSegment->Direction,
-        mSegment->Extent);
-    return DistPoint3Segment3<Real>(movedPoint, movedSegment).Get();
+	Vector3<Real> movedPoint = *mPoint + t*velocity0;
+	Vector3<Real> movedCenter = mSegment->Center + t*velocity1;
+	Segment3<Real> movedSegment(movedCenter, mSegment->Direction,
+	                            mSegment->Extent);
+	return DistPoint3Segment3<Real>(movedPoint, movedSegment).Get();
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistPoint3Segment3<Real>::GetSquared (Real t,
-    const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
+        const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
 {
-    Vector3<Real> movedPoint = *mPoint + t*velocity0;
-    Vector3<Real> movedCenter = mSegment->Center + t*velocity1;
-    Segment3<Real> movedSegment(movedCenter, mSegment->Direction,
-        mSegment->Extent);
-    return DistPoint3Segment3<Real>(movedPoint, movedSegment).GetSquared();
+	Vector3<Real> movedPoint = *mPoint + t*velocity0;
+	Vector3<Real> movedCenter = mSegment->Center + t*velocity1;
+	Segment3<Real> movedSegment(movedCenter, mSegment->Direction,
+	                            mSegment->Extent);
+	return DistPoint3Segment3<Real>(movedPoint, movedSegment).GetSquared();
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistPoint3Segment3<Real>::GetSegmentParameter () const
 {
-    return mSegmentParameter;
+	return mSegmentParameter;
 }
 //----------------------------------------------------------------------------
 

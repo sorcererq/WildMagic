@@ -15,38 +15,38 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 OdeSolver<Real>::OdeSolver (int dim, Real step, Function function,
-    void* userData)
-    :
-    mDim(dim),
-    mStep(step),
-    mFunction(function),
-    mUserData(userData)
+                            void* userData)
+	:
+	mDim(dim),
+	mStep(step),
+	mFunction(function),
+	mUserData(userData)
 {
-    mFValue = new1<Real>(mDim);
+	mFValue = new1<Real>(mDim);
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 OdeSolver<Real>::~OdeSolver ()
 {
-    delete1(mFValue);
+	delete1(mFValue);
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real OdeSolver<Real>::GetStepSize () const
 {
-    return mStep;
+	return mStep;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 void OdeSolver<Real>::SetUserData (void* userData)
 {
-    mUserData = userData;
+	mUserData = userData;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 void* OdeSolver<Real>::GetUserData () const
 {
-    return mUserData;
+	return mUserData;
 }
 //----------------------------------------------------------------------------
 

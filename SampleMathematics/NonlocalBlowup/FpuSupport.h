@@ -13,14 +13,17 @@
 #include <cfloat>
 inline bool IsFinite (float x)
 {
-    return _finite(x) != 0;
+	return _finite(x) != 0;
 }
 #else
 inline bool IsFinite (float x)
 {
-    union { uint32_t encoding; float x; } value;
-    value.x = x;
-    return ((value.encoding & 0x7F800000u) >> 23) < 255;
+	union {
+		uint32_t encoding;
+		float x;
+	} value;
+	value.x = x;
+	return ((value.encoding & 0x7F800000u) >> 23) < 255;
 }
 #endif
 

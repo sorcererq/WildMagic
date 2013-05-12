@@ -18,22 +18,22 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM LightAttenuationConstant : public ShaderFloat
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(LightAttenuationConstant);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(LightAttenuationConstant);
 
 public:
-    // Construction and destruction.
-    LightAttenuationConstant (Light* light);
-    virtual ~LightAttenuationConstant ();
+	// Construction and destruction.
+	LightAttenuationConstant (Light* light);
+	virtual ~LightAttenuationConstant ();
 
-    // Member access.
-    Light* GetLight ();
+	// Member access.
+	Light* GetLight ();
 
-    virtual void Update (const Visual* visual, const Camera* camera);
+	virtual void Update (const Visual* visual, const Camera* camera);
 
 protected:
-    LightPtr mLight;
+	LightPtr mLight;
 };
 
 WM5_REGISTER_STREAM(LightAttenuationConstant);

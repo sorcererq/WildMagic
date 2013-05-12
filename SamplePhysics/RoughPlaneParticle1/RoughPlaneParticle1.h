@@ -15,36 +15,36 @@ using namespace Wm5;
 
 class RoughPlaneParticle1 : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    RoughPlaneParticle1 ();
+	RoughPlaneParticle1 ();
 
-    virtual bool OnInitialize ();
-    virtual void OnIdle ();
-    virtual void OnDisplay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnIdle ();
+	virtual void OnDisplay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    PhysicsModule mModule;
-    std::vector<Vector2d> mSFPositions;  // path with static friction
-    bool mContinueSolving;
+	PhysicsModule mModule;
+	std::vector<Vector2d> mSFPositions;  // path with static friction
+	bool mContinueSolving;
 
-    // viscous solution:
-    //   x(t) = a0*exp(-r*t)+a1
-    //   w(t) = b0*exp(-r*t)+b1*t+b2
-    //   r = c/m
-    //   a0 = -xdot(0)/r
-    //   a1 = x(0)-a0
-    //   b1 = -g*sin(phi)/r
-    //   b2 = (wdot(0)+r*w(0)-b1)/r
-    //   b0 = w(0)-b2
-    Vector2d GetVFPosition (double dTime);
-    double mR, mA0, mA1, mB0, mB1, mB2;
-    std::vector<Vector2d> mVFPositions;  // path with viscous friction
+	// viscous solution:
+	//   x(t) = a0*exp(-r*t)+a1
+	//   w(t) = b0*exp(-r*t)+b1*t+b2
+	//   r = c/m
+	//   a0 = -xdot(0)/r
+	//   a1 = x(0)-a0
+	//   b1 = -g*sin(phi)/r
+	//   b2 = (wdot(0)+r*w(0)-b1)/r
+	//   b0 = w(0)-b2
+	Vector2d GetVFPosition (double dTime);
+	double mR, mA0, mA1, mB0, mB1, mB2;
+	std::vector<Vector2d> mVFPositions;  // path with viscous friction
 
-    int mSize;
+	int mSize;
 };
 
 WM5_REGISTER_INITIALIZE(RoughPlaneParticle1);

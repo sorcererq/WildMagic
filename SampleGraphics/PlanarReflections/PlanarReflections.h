@@ -14,31 +14,31 @@ using namespace Wm5;
 
 class PlanarReflections : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    PlanarReflections ();
+	PlanarReflections ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    void LoadBiped ();
-    void CreatePlanes ();
-    void CreatePlanarReflection ();
+	void CreateScene ();
+	void LoadBiped ();
+	void CreatePlanes ();
+	void CreatePlanarReflection ();
 
-    NodePtr mScene, mBiped;
-    TriMeshPtr mPlane0, mPlane1;
-    WireStatePtr mWireState;
-    Culler mSceneCuller, mBipedCuller;
-    PlanarReflectionEffectPtr mPREffect;
+	NodePtr mScene, mBiped;
+	TriMeshPtr mPlane0, mPlane1;
+	WireStatePtr mWireState;
+	Culler mSceneCuller, mBipedCuller;
+	PlanarReflectionEffectPtr mPREffect;
 
-    double mUpdateTime;
-    Float4 mTextColor;
+	double mUpdateTime;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(PlanarReflections);

@@ -19,13 +19,13 @@ WM5_IMPLEMENT_DEFAULT_STREAM(Buffer, VertexBuffer);
 
 //----------------------------------------------------------------------------
 VertexBuffer::VertexBuffer (int numVertices, int vertexSize, Usage usage)
-    :
-    Buffer(numVertices, vertexSize, usage)
+	:
+	Buffer(numVertices, vertexSize, usage)
 {
 }
 //----------------------------------------------------------------------------
 VertexBuffer::~VertexBuffer ()
 {
-    Renderer::UnbindAll(this);
+	Renderer::UnbindAll(this);
 }
 //----------------------------------------------------------------------------

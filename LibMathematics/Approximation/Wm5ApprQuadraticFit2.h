@@ -23,7 +23,7 @@ namespace Wm5
 // and M = (sum_i V_i)(sum_i V_i)^t where
 //
 //   V = (1, X, Y, X^2, Y^2, X*Y)
-//         
+//
 // The minimum value is the smallest eigenvalue of M and C is a corresponding
 // unit length eigenvector.
 //
@@ -49,7 +49,7 @@ namespace Wm5
 // The characterization depends on the signs of the d_i.
 template <typename Real> WM5_MATHEMATICS_ITEM
 Real QuadraticFit2 (int numPoints, const Vector2<Real>* points,
-    Real coeff[6]);
+                    Real coeff[6]);
 
 // If you think your points are nearly circular, use this.  The circle is of
 // the form C'[0]+C'[1]*X+C'[2]*Y+C'[3]*(X^2+Y^2), where Length(C') = 1.  The
@@ -58,7 +58,7 @@ Real QuadraticFit2 (int numPoints, const Vector2<Real>* points,
 // -0.5*(C[1],C[2]) and the radius is r = sqrt(xc*xc+yc*yc-C[0]).
 template <typename Real> WM5_MATHEMATICS_ITEM
 Real QuadraticCircleFit2 (int numPoints, const Vector2<Real>* points,
-    Vector2<Real>& center, Real& radius);
+                          Vector2<Real>& center, Real& radius);
 
 }
 

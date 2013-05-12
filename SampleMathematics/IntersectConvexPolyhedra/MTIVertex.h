@@ -12,16 +12,16 @@
 class MTIVertex
 {
 public:
-    MTIVertex (int label);
+	MTIVertex (int label);
 
-    bool operator< (const MTIVertex& vertex) const;
-    bool operator== (const MTIVertex& vertex) const;
-    bool operator!= (const MTIVertex& vertex) const;
+	bool operator< (const MTIVertex& vertex) const;
+	bool operator== (const MTIVertex& vertex) const;
+	bool operator!= (const MTIVertex& vertex) const;
 
-    int GetLabel () const;
+	int GetLabel () const;
 
 protected:
-    int mLabel;
+	int mLabel;
 };
 
 #endif

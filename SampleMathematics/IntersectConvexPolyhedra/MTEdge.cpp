@@ -10,25 +10,25 @@
 
 //----------------------------------------------------------------------------
 MTEdge::MTEdge (int label)
-    :
-    mLabel(label)
+	:
+	mLabel(label)
 {
-    for (int i = 0; i < 2; ++i)
-    {
-        mVertex[i] = -1;
-        mTriangle[i] = -1;
-    }
+	for (int i = 0; i < 2; ++i)
+	{
+		mVertex[i] = -1;
+		mTriangle[i] = -1;
+	}
 }
 //----------------------------------------------------------------------------
 MTEdge::MTEdge (const MTEdge& edge)
-    :
-    mLabel(edge.mLabel)
+	:
+	mLabel(edge.mLabel)
 {
-    for (int i = 0; i < 2; ++i)
-    {
-        mVertex[i] = edge.mVertex[i];
-        mTriangle[i] = edge.mTriangle[i];
-    }
+	for (int i = 0; i < 2; ++i)
+	{
+		mVertex[i] = edge.mVertex[i];
+		mTriangle[i] = edge.mTriangle[i];
+	}
 }
 //----------------------------------------------------------------------------
 MTEdge::~MTEdge ()
@@ -37,49 +37,49 @@ MTEdge::~MTEdge ()
 //----------------------------------------------------------------------------
 MTEdge& MTEdge::operator= (const MTEdge& edge)
 {
-    mLabel = edge.mLabel;
-    for (int i = 0; i < 2; ++i)
-    {
-        mVertex[i] = edge.mVertex[i];
-        mTriangle[i] = edge.mTriangle[i];
-    }
-    return *this;
+	mLabel = edge.mLabel;
+	for (int i = 0; i < 2; ++i)
+	{
+		mVertex[i] = edge.mVertex[i];
+		mTriangle[i] = edge.mTriangle[i];
+	}
+	return *this;
 }
 //----------------------------------------------------------------------------
 bool MTEdge::ReplaceVertex (int vOld, int vNew)
 {
-    for (int i = 0; i < 2; ++i)
-    {
-        if (mVertex[i] == vOld)
-        {
-            mVertex[i] = vNew;
-            return true;
-        }
-    }
+	for (int i = 0; i < 2; ++i)
+	{
+		if (mVertex[i] == vOld)
+		{
+			mVertex[i] = vNew;
+			return true;
+		}
+	}
 
-    return false;
+	return false;
 }
 //----------------------------------------------------------------------------
 bool MTEdge::ReplaceTriangle (int tOld, int tNew)
 {
-    for (int i = 0; i < 2; ++i)
-    {
-        if (mTriangle[i] == tOld)
-        {
-            mTriangle[i] = tNew;
-            return true;
-        }
-    }
+	for (int i = 0; i < 2; ++i)
+	{
+		if (mTriangle[i] == tOld)
+		{
+			mTriangle[i] = tNew;
+			return true;
+		}
+	}
 
-    return false;
+	return false;
 }
 //----------------------------------------------------------------------------
 bool MTEdge::operator== (const MTEdge& edge) const
 {
-    return
-        (mVertex[0] == edge.mVertex[0] &&
-         mVertex[1] == edge.mVertex[1]) ||
-        (mVertex[0] == edge.mVertex[1] &&
-         mVertex[1] == edge.mVertex[0]);
+	return
+	    (mVertex[0] == edge.mVertex[0] &&
+	     mVertex[1] == edge.mVertex[1]) ||
+	    (mVertex[0] == edge.mVertex[1] &&
+	     mVertex[1] == edge.mVertex[0]);
 }
 //----------------------------------------------------------------------------

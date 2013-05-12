@@ -18,16 +18,16 @@ namespace Wm5
 class WM5_CORE_ITEM Mutex
 {
 public:
-    // Construction and destruction.
-    Mutex ();
-    ~Mutex ();
+	// Construction and destruction.
+	Mutex ();
+	~Mutex ();
 
-    // Markers for critical sections.
-    void Enter ();
-    void Leave ();
+	// Markers for critical sections.
+	void Enter ();
+	void Leave ();
 
 private:
-    MutexType mMutex;
+	MutexType mMutex;
 };
 
 }

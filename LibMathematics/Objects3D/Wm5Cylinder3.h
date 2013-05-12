@@ -19,18 +19,18 @@ template <typename Real>
 class Cylinder3
 {
 public:
-    // Construction and destruction.  The cylinder axis is a line.  The origin
-    // of the cylinder is chosen to be the line origin.  The cylinder wall is
-    // at a distance R units from the axis.  An infinite cylinder has infinite
-    // height.  A finite cylinder has center C at the line origin and has a
-    // finite height H.  The segment for the finite cylinder has endpoints
-    // C-(H/2)*D and C+(H/2)*D where D is a unit-length direction of the line.
-    Cylinder3 ();  // uninitialized
-    ~Cylinder3 ();
-    Cylinder3 (const Line3<Real>& axis, Real radius, Real height);
+	// Construction and destruction.  The cylinder axis is a line.  The origin
+	// of the cylinder is chosen to be the line origin.  The cylinder wall is
+	// at a distance R units from the axis.  An infinite cylinder has infinite
+	// height.  A finite cylinder has center C at the line origin and has a
+	// finite height H.  The segment for the finite cylinder has endpoints
+	// C-(H/2)*D and C+(H/2)*D where D is a unit-length direction of the line.
+	Cylinder3 ();  // uninitialized
+	~Cylinder3 ();
+	Cylinder3 (const Line3<Real>& axis, Real radius, Real height);
 
-    Line3<Real> Axis;
-    Real Radius, Height;
+	Line3<Real> Axis;
+	Real Radius, Height;
 };
 
 #include "Wm5Cylinder3.inl"

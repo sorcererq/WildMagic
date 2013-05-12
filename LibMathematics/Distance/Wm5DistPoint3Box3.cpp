@@ -14,87 +14,87 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 DistPoint3Box3<Real>::DistPoint3Box3 (const Vector3<Real>& point,
-    const Box3<Real>& box)
-    :
-    mPoint(&point),
-    mBox(&box)
+                                      const Box3<Real>& box)
+	:
+	mPoint(&point),
+	mBox(&box)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Vector3<Real>& DistPoint3Box3<Real>::GetPoint () const
 {
-    return *mPoint;
+	return *mPoint;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Box3<Real>& DistPoint3Box3<Real>::GetBox () const
 {
-    return *mBox;
+	return *mBox;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistPoint3Box3<Real>::Get ()
 {
-    return Math<Real>::Sqrt(GetSquared());
+	return Math<Real>::Sqrt(GetSquared());
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistPoint3Box3<Real>::GetSquared ()
 {
-    // Work in the box's coordinate system.
-    Vector3<Real> diff = *mPoint - mBox->Center;
+	// Work in the box's coordinate system.
+	Vector3<Real> diff = *mPoint - mBox->Center;
 
-    // Compute squared distance and closest point on box.
-    Real sqrDistance = (Real)0;
-    Real delta;
-    Vector3<Real> closest;
-    int i;
-    for (i = 0; i < 3; ++i)
-    {
-        closest[i] = diff.Dot(mBox->Axis[i]);
-        if (closest[i] < -mBox->Extent[i])
-        {
-            delta = closest[i] + mBox->Extent[i];
-            sqrDistance += delta*delta;
-            closest[i] = -mBox->Extent[i];
-        }
-        else if (closest[i] > mBox->Extent[i])
-        {
-            delta = closest[i] - mBox->Extent[i];
-            sqrDistance += delta*delta;
-            closest[i] = mBox->Extent[i];
-        }
-    }
+	// Compute squared distance and closest point on box.
+	Real sqrDistance = (Real)0;
+	Real delta;
+	Vector3<Real> closest;
+	int i;
+	for (i = 0; i < 3; ++i)
+	{
+		closest[i] = diff.Dot(mBox->Axis[i]);
+		if (closest[i] < -mBox->Extent[i])
+		{
+			delta = closest[i] + mBox->Extent[i];
+			sqrDistance += delta*delta;
+			closest[i] = -mBox->Extent[i];
+		}
+		else if (closest[i] > mBox->Extent[i])
+		{
+			delta = closest[i] - mBox->Extent[i];
+			sqrDistance += delta*delta;
+			closest[i] = mBox->Extent[i];
+		}
+	}
 
-    mClosestPoint0 = *mPoint;
-    mClosestPoint1 = mBox->Center;
-    for (i = 0; i < 3; ++i)
-    {
-        mClosestPoint1 += closest[i]*mBox->Axis[i];
-    }
+	mClosestPoint0 = *mPoint;
+	mClosestPoint1 = mBox->Center;
+	for (i = 0; i < 3; ++i)
+	{
+		mClosestPoint1 += closest[i]*mBox->Axis[i];
+	}
 
-    return sqrDistance;
+	return sqrDistance;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistPoint3Box3<Real>::Get (Real t, const Vector3<Real>& velocity0,
-    const Vector3<Real>& velocity1)
+                                const Vector3<Real>& velocity1)
 {
-    Vector3<Real> movedPoint = *mPoint + t*velocity0;
-    Vector3<Real> movedCenter = mBox->Center + t*velocity1;
-    Box3<Real> movedBox(movedCenter, mBox->Axis, mBox->Extent);
-    return DistPoint3Box3<Real>(movedPoint, movedBox).Get();
+	Vector3<Real> movedPoint = *mPoint + t*velocity0;
+	Vector3<Real> movedCenter = mBox->Center + t*velocity1;
+	Box3<Real> movedBox(movedCenter, mBox->Axis, mBox->Extent);
+	return DistPoint3Box3<Real>(movedPoint, movedBox).Get();
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistPoint3Box3<Real>::GetSquared (Real t,
-    const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
+                                       const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
 {
-    Vector3<Real> movedPoint = *mPoint + t*velocity0;
-    Vector3<Real> movedCenter = mBox->Center + t*velocity1;
-    Box3<Real> movedBox(movedCenter, mBox->Axis, mBox->Extent);
-    return DistPoint3Box3<Real>(movedPoint, movedBox).GetSquared();
+	Vector3<Real> movedPoint = *mPoint + t*velocity0;
+	Vector3<Real> movedCenter = mBox->Center + t*velocity1;
+	Box3<Real> movedBox(movedCenter, mBox->Axis, mBox->Extent);
+	return DistPoint3Box3<Real>(movedPoint, movedBox).GetSquared();
 }
 //----------------------------------------------------------------------------
 

@@ -9,56 +9,56 @@
 //----------------------------------------------------------------------------
 inline int KeyframeController::GetNumCommonTimes () const
 {
-    return mNumCommonTimes;
+	return mNumCommonTimes;
 }
 //----------------------------------------------------------------------------
 inline float* KeyframeController::GetCommonTimes () const
 {
-    return mCommonTimes;
+	return mCommonTimes;
 }
 //----------------------------------------------------------------------------
 inline int KeyframeController::GetNumTranslations () const
 {
-    return mNumTranslations;
+	return mNumTranslations;
 }
 //----------------------------------------------------------------------------
 inline float* KeyframeController::GetTranslationTimes () const
 {
-    return mTranslationTimes;
+	return mTranslationTimes;
 }
 //----------------------------------------------------------------------------
 inline APoint* KeyframeController::GetTranslations () const
 {
-    return mTranslations;
+	return mTranslations;
 }
 //----------------------------------------------------------------------------
 inline int KeyframeController::GetNumRotations () const
 {
-    return mNumRotations;
+	return mNumRotations;
 }
 //----------------------------------------------------------------------------
 inline float* KeyframeController::GetRotationTimes () const
 {
-    return mRotationTimes;
+	return mRotationTimes;
 }
 //----------------------------------------------------------------------------
 inline HQuaternion* KeyframeController::GetRotations () const
 {
-    return mRotations;
+	return mRotations;
 }
 //----------------------------------------------------------------------------
 inline int KeyframeController::GetNumScales () const
 {
-    return mNumScales;
+	return mNumScales;
 }
 //----------------------------------------------------------------------------
 inline float* KeyframeController::GetScaleTimes () const
 {
-    return mScaleTimes;
+	return mScaleTimes;
 }
 //----------------------------------------------------------------------------
 inline float* KeyframeController::GetScales () const
 {
-    return mScales;
+	return mScales;
 }
 //----------------------------------------------------------------------------

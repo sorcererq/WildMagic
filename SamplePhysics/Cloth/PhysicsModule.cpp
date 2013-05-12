@@ -11,42 +11,42 @@
 
 //----------------------------------------------------------------------------
 PhysicsModule::PhysicsModule (int numRows, int numCols, float step,
-    const Vector3f& gravity, const Vector3f& wind, float viscosity,
-    float amplitude)
-    :
-    MassSpringSurface3f(numRows, numCols, step),
-    mGravity(gravity),
-    mWind(wind),
-    mViscosity(viscosity),
-    mAmplitude(amplitude)
+                              const Vector3f& gravity, const Vector3f& wind, float viscosity,
+                              float amplitude)
+	:
+	MassSpringSurface3f(numRows, numCols, step),
+	mGravity(gravity),
+	mWind(wind),
+	mViscosity(viscosity),
+	mAmplitude(amplitude)
 {
-    mDirection = mGravity.UnitCross(mWind);
+	mDirection = mGravity.UnitCross(mWind);
 
-    mPhases = new1<float>(mNumParticles);
-    for (int row = 0; row < mNumRows; ++row)
-    {
-        for (int col = 0; col < mNumCols; ++col)
-        {
-            mPhases[GetIndex(row, col)] = Mathf::UnitRandom()*Mathf::PI;
-        }
-    }
+	mPhases = new1<float>(mNumParticles);
+	for (int row = 0; row < mNumRows; ++row)
+	{
+		for (int col = 0; col < mNumCols; ++col)
+		{
+			mPhases[GetIndex(row, col)] = Mathf::UnitRandom()*Mathf::PI;
+		}
+	}
 }
 //----------------------------------------------------------------------------
 PhysicsModule::~PhysicsModule ()
 {
-    delete1(mPhases);
+	delete1(mPhases);
 }
 //----------------------------------------------------------------------------
 Vector3f PhysicsModule::ExternalAcceleration (int i, float time,
-    const Vector3f*, const Vector3f* velocities)
+        const Vector3f*, const Vector3f* velocities)
 {
-    // Acceleration due to gravity, wind, and viscosity.
-    Vector3f acceleration = mGravity + mWind - mViscosity*velocities[i];
+	// Acceleration due to gravity, wind, and viscosity.
+	Vector3f acceleration = mGravity + mWind - mViscosity*velocities[i];
 
-    // Add a sinusoidal perturbation.
-    float amplitude = mAmplitude*Mathf::Sin(2.0f*time + mPhases[i]);
-    acceleration += amplitude*mDirection;
+	// Add a sinusoidal perturbation.
+	float amplitude = mAmplitude*Mathf::Sin(2.0f*time + mPhases[i]);
+	acceleration += amplitude*mDirection;
 
-    return acceleration;
+	return acceleration;
 }
 //----------------------------------------------------------------------------

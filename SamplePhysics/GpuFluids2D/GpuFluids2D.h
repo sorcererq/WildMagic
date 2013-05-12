@@ -15,23 +15,23 @@ using namespace Wm5;
 
 class GpuFluids2D : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    GpuFluids2D ();
+	GpuFluids2D ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnPreidle ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnPreidle ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    Smoke2D* mSmoke;
-    bool mDrawColored;
-    bool mDrawVortices;
-    Float4 mTextColor;
+	Smoke2D* mSmoke;
+	bool mDrawColored;
+	bool mDrawVortices;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(GpuFluids2D);

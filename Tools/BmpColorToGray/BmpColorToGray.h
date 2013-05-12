@@ -14,13 +14,13 @@ using namespace Wm5;
 
 class BmpColorToGray : public ConsoleApplication
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BmpColorToGray ();
-    virtual ~BmpColorToGray ();
-    virtual int Main (int quantity, char** argument);
+	BmpColorToGray ();
+	virtual ~BmpColorToGray ();
+	virtual int Main (int quantity, char** argument);
 };
 
 WM5_REGISTER_INITIALIZE(BmpColorToGray);

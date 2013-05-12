@@ -18,17 +18,17 @@ namespace Wm5
 
 class VolumeTextureEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(VolumeTextureEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(VolumeTextureEffect);
 
 public:
-    // Construction and destruction.
-    VolumeTextureEffect (const std::string& effectFile);
-    virtual ~VolumeTextureEffect ();
+	// Construction and destruction.
+	VolumeTextureEffect (const std::string& effectFile);
+	virtual ~VolumeTextureEffect ();
 
-    // Create an instance of the effect with unique parameters.
-    VisualEffectInstance* CreateInstance (Texture3D* texture);
+	// Create an instance of the effect with unique parameters.
+	VisualEffectInstance* CreateInstance (Texture3D* texture);
 };
 
 WM5_REGISTER_STREAM(VolumeTextureEffect);

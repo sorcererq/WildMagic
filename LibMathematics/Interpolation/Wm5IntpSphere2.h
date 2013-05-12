@@ -24,35 +24,35 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM IntpSphere2
 {
 public:
-    // Construction and destruction.  If you want IntpSphere2 to delete the
-    // input arrays during destruction, set owner to 'true'.  Otherwise, you
-    // own the arrays and must delete them yourself.
-    //
-    // For complete spherical coverage, include the two antipodal (theta,phi)
-    // points (-PI,0,F(-PI,0)) and (-PI,PI,F(-PI,PI)) in the input data.
-    // These correspond to the sphere poles x = 0, y = 0, and |z| = 1.
-    //
-    // The computation type is for the Delaunay triangulation and should be
-    // one of Query::{QT_INT64,QT_INTEGER,QT_RATIONAL,QT_REAL}.
-    IntpSphere2 (int quantity, Real* theta, Real* phi, Real* F,
-        bool owner, Query::Type queryType);
+	// Construction and destruction.  If you want IntpSphere2 to delete the
+	// input arrays during destruction, set owner to 'true'.  Otherwise, you
+	// own the arrays and must delete them yourself.
+	//
+	// For complete spherical coverage, include the two antipodal (theta,phi)
+	// points (-PI,0,F(-PI,0)) and (-PI,PI,F(-PI,PI)) in the input data.
+	// These correspond to the sphere poles x = 0, y = 0, and |z| = 1.
+	//
+	// The computation type is for the Delaunay triangulation and should be
+	// one of Query::{QT_INT64,QT_INTEGER,QT_RATIONAL,QT_REAL}.
+	IntpSphere2 (int quantity, Real* theta, Real* phi, Real* F,
+	             bool owner, Query::Type queryType);
 
-    ~IntpSphere2 ();
+	~IntpSphere2 ();
 
-    // Spherical coordinates are
-    //   x = cos(theta)*sin(phi)
-    //   y = sin(theta)*sin(phi)
-    //   z = cos(phi)
-    // for -PI <= theta <= PI, 0 <= phi <= PI.  The application can use this
-    // function to convert unit length vectors (x,y,z) to (theta,phi).
-    static void GetSphericalCoords (Real x, Real y, Real z,
-        Real& theta, Real& phi);
+	// Spherical coordinates are
+	//   x = cos(theta)*sin(phi)
+	//   y = sin(theta)*sin(phi)
+	//   z = cos(phi)
+	// for -PI <= theta <= PI, 0 <= phi <= PI.  The application can use this
+	// function to convert unit length vectors (x,y,z) to (theta,phi).
+	static void GetSphericalCoords (Real x, Real y, Real z,
+	                                Real& theta, Real& phi);
 
-    bool Evaluate (Real theta, Real phi, Real& F);
+	bool Evaluate (Real theta, Real phi, Real& F);
 
 private:
-    Delaunay2<Real>* mDT;
-    IntpQdrNonuniform2<Real>* mInterp;
+	Delaunay2<Real>* mDT;
+	IntpQdrNonuniform2<Real>* mInterp;
 };
 
 typedef IntpSphere2<float> IntpSphere2f;

@@ -15,32 +15,32 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 IntrSphere3Frustum3<Real>::IntrSphere3Frustum3 (const Sphere3<Real>& sphere,
-    const Frustum3<Real>& frustum)
-    :
-    mSphere(&sphere),
-    mFrustum(&frustum)
+        const Frustum3<Real>& frustum)
+	:
+	mSphere(&sphere),
+	mFrustum(&frustum)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Sphere3<Real>& IntrSphere3Frustum3<Real>::GetSphere () const
 {
-    return *mSphere;
+	return *mSphere;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Frustum3<Real>& IntrSphere3Frustum3<Real>::GetFrustum () const
 {
-    return *mFrustum;
+	return *mFrustum;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrSphere3Frustum3<Real>::Test ()
 {
-    Real distance = DistPoint3Frustum3<Real>(mSphere->Center,
-        *mFrustum).Get();
+	Real distance = DistPoint3Frustum3<Real>(mSphere->Center,
+	                *mFrustum).Get();
 
-    return distance <= mSphere->Radius;
+	return distance <= mSphere->Radius;
 }
 //----------------------------------------------------------------------------
 

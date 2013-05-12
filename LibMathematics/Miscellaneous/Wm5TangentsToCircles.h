@@ -91,7 +91,7 @@ namespace Wm5
 
 template <typename Real> WM5_MATHEMATICS_ITEM
 bool GetTangentsToCircles (const Circle2<Real>& circle0,
-    const Circle2<Real>& circle1, Line2<Real> line[4]);
+                           const Circle2<Real>& circle1, Line2<Real> line[4]);
 
 }
 

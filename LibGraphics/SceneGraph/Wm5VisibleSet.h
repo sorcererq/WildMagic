@@ -20,24 +20,24 @@ class Spatial;
 class WM5_GRAPHICS_ITEM VisibleSet
 {
 public:
-    // Construction and destruction.
-    VisibleSet ();
-    ~VisibleSet ();
+	// Construction and destruction.
+	VisibleSet ();
+	~VisibleSet ();
 
-    // Access to the elements of the visible set.
-    inline int GetNumVisible () const;
-    inline const std::vector<Spatial*>& GetAllVisible () const;
-    inline Spatial* GetVisible (int i) const;
+	// Access to the elements of the visible set.
+	inline int GetNumVisible () const;
+	inline const std::vector<Spatial*>& GetAllVisible () const;
+	inline Spatial* GetVisible (int i) const;
 
-    // Insert a visible object into the set.
-    void Insert (Spatial* visible);
+	// Insert a visible object into the set.
+	void Insert (Spatial* visible);
 
-    // Set the number of elements to zero.
-    inline void Clear ();
+	// Set the number of elements to zero.
+	inline void Clear ();
 
 private:
-    int mNumVisible;
-    std::vector<Spatial*> mVisible;
+	int mNumVisible;
+	std::vector<Spatial*> mVisible;
 };
 
 #include "Wm5VisibleSet.inl"

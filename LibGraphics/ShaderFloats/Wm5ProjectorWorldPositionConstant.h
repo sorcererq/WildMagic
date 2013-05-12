@@ -18,27 +18,27 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM ProjectorWorldPositionConstant : public ShaderFloat
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(ProjectorWorldPositionConstant);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(ProjectorWorldPositionConstant);
 
 public:
-    // Construction and destruction.
-    ProjectorWorldPositionConstant (Projector* projector);
-    virtual ~ProjectorWorldPositionConstant ();
+	// Construction and destruction.
+	ProjectorWorldPositionConstant (Projector* projector);
+	virtual ~ProjectorWorldPositionConstant ();
 
-    // Member access.
-    Projector* GetProjector ();
+	// Member access.
+	Projector* GetProjector ();
 
-    virtual void Update (const Visual* visual, const Camera* camera);
+	virtual void Update (const Visual* visual, const Camera* camera);
 
 protected:
-    ProjectorPtr mProjector;
+	ProjectorPtr mProjector;
 };
 
 WM5_REGISTER_STREAM(ProjectorWorldPositionConstant);
 typedef Pointer0<ProjectorWorldPositionConstant>
-    ProjectorWorldPositionConstantPtr;
+ProjectorWorldPositionConstantPtr;
 
 }
 

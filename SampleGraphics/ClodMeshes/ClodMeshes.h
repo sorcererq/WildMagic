@@ -18,33 +18,33 @@ using namespace Wm5;
 
 class ClodMeshes : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    ClodMeshes ();
+	ClodMeshes ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
+	void CreateScene ();
 
-    NodePtr mScene, mTrnNode;
-    WireStatePtr mWireState;
-    Culler mCuller;
+	NodePtr mScene, mTrnNode;
+	WireStatePtr mWireState;
+	Culler mCuller;
 
 #ifdef USE_CLOD_MESH
-    virtual void MoveForward ();
-    virtual void MoveBackward ();
-    void UpdateClods ();
-    
-    ClodMeshPtr mClod[2], mActive;
+	virtual void MoveForward ();
+	virtual void MoveBackward ();
+	void UpdateClods ();
+
+	ClodMeshPtr mClod[2], mActive;
 #endif
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(ClodMeshes);

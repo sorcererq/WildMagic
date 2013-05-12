@@ -19,46 +19,46 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM MeshSmoother
 {
 public:
-    // The caller is responsible for deleting the input arrays.
-    MeshSmoother (int numVertices, Vector3<Real>* vertices, int numTriangles,
-        const int* indices);
+	// The caller is responsible for deleting the input arrays.
+	MeshSmoother (int numVertices, Vector3<Real>* vertices, int numTriangles,
+	              const int* indices);
 
-    virtual ~MeshSmoother ();
+	virtual ~MeshSmoother ();
 
-    // For deferred construction and destruction.  The caller is responsible
-    // for deleting the input arrays.
-    MeshSmoother ();
-    void Create (int numVertices, Vector3<Real>* vertices, int numTriangles,
-        const int* indices);
-    void Destroy ();
+	// For deferred construction and destruction.  The caller is responsible
+	// for deleting the input arrays.
+	MeshSmoother ();
+	void Create (int numVertices, Vector3<Real>* vertices, int numTriangles,
+	             const int* indices);
+	void Destroy ();
 
-    // Input values from the constructor.
-    int GetNumVertices () const;
-    const Vector3<Real>* GetVertices () const;
-    int GetNumTriangles () const;
-    const int* GetIndices () const;
+	// Input values from the constructor.
+	int GetNumVertices () const;
+	const Vector3<Real>* GetVertices () const;
+	int GetNumTriangles () const;
+	const int* GetIndices () const;
 
-    // Derived quantites from the input mesh.
-    const Vector3<Real>* GetNormals () const;
-    const Vector3<Real>* GetMeans () const;
+	// Derived quantites from the input mesh.
+	const Vector3<Real>* GetNormals () const;
+	const Vector3<Real>* GetMeans () const;
 
-    // Apply one iteration of the smoother.  The input time is supported for
-    // applications where the surface evolution is time-dependent.
-    void Update (Real t = (Real)0);
+	// Apply one iteration of the smoother.  The input time is supported for
+	// applications where the surface evolution is time-dependent.
+	void Update (Real t = (Real)0);
 
 protected:
-    virtual bool VertexInfluenced (int i, Real t);
-    virtual Real GetTangentWeight (int i, Real t);
-    virtual Real GetNormalWeight (int i, Real t);
+	virtual bool VertexInfluenced (int i, Real t);
+	virtual Real GetTangentWeight (int i, Real t);
+	virtual Real GetNormalWeight (int i, Real t);
 
-    int mNumVertices;
-    Vector3<Real>* mVertices;
-    int mNumTriangles;
-    const int* mIndices;
+	int mNumVertices;
+	Vector3<Real>* mVertices;
+	int mNumTriangles;
+	const int* mIndices;
 
-    Vector3<Real>* mNormals;
-    Vector3<Real>* mMeans;
-    int* mNeighborCounts;
+	Vector3<Real>* mNormals;
+	Vector3<Real>* mMeans;
+	int* mNeighborCounts;
 };
 
 typedef MeshSmoother<float> MeshSmootherf;

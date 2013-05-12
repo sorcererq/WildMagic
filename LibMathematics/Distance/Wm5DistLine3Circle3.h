@@ -19,36 +19,36 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM DistLine3Circle3
-    : public Distance<Real,Vector3<Real> >
+	: public Distance<Real,Vector3<Real> >
 {
 public:
-    DistLine3Circle3 (const Line3<Real>& line,
-        const Circle3<Real>& circle);
+	DistLine3Circle3 (const Line3<Real>& line,
+	                  const Circle3<Real>& circle);
 
-    // Object access.
-    const Line3<Real>& GetLine () const;
-    const Circle3<Real>& GetCircle () const;
+	// Object access.
+	const Line3<Real>& GetLine () const;
+	const Circle3<Real>& GetCircle () const;
 
-    // Static distance queries.  Compute the distance from the point P to the
-    // circle.  When P is on the normal line C+t*N where C is the circle
-    // center and N is the normal to the plane containing the circle, then
-    // all circle points are equidistant from P.  In this case the returned
-    // point is (infinity,infinity,infinity).
-    virtual Real Get ();
-    virtual Real GetSquared ();
+	// Static distance queries.  Compute the distance from the point P to the
+	// circle.  When P is on the normal line C+t*N where C is the circle
+	// center and N is the normal to the plane containing the circle, then
+	// all circle points are equidistant from P.  In this case the returned
+	// point is (infinity,infinity,infinity).
+	virtual Real Get ();
+	virtual Real GetSquared ();
 
-    // Function calculations for dynamic distance queries.
-    virtual Real Get (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
-    virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	// Function calculations for dynamic distance queries.
+	virtual Real Get (Real t, const Vector3<Real>& velocity0,
+	                  const Vector3<Real>& velocity1);
+	virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
+	                         const Vector3<Real>& velocity1);
 
 private:
-    using Distance<Real,Vector3<Real> >::mClosestPoint0;
-    using Distance<Real,Vector3<Real> >::mClosestPoint1;
+	using Distance<Real,Vector3<Real> >::mClosestPoint0;
+	using Distance<Real,Vector3<Real> >::mClosestPoint1;
 
-    const Line3<Real>* mLine;
-    const Circle3<Real>* mCircle;
+	const Line3<Real>* mLine;
+	const Circle3<Real>* mCircle;
 };
 
 typedef DistLine3Circle3<float> DistLine3Circle3f;

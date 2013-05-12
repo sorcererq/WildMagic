@@ -9,51 +9,51 @@
 //----------------------------------------------------------------------------
 inline SpatialPtr BspNode::AttachPositiveChild (Spatial* child)
 {
-    return SetChild(0, child);
+	return SetChild(0, child);
 }
 //----------------------------------------------------------------------------
 inline SpatialPtr BspNode::AttachCoplanarChild (Spatial* child)
 {
-    return SetChild(1, child);
+	return SetChild(1, child);
 }
 //----------------------------------------------------------------------------
 inline SpatialPtr BspNode::AttachNegativeChild (Spatial* child)
 {
-    return SetChild(2, child);
+	return SetChild(2, child);
 }
 //----------------------------------------------------------------------------
 inline SpatialPtr BspNode::DetachPositiveChild ()
 {
-    return DetachChildAt(0);
+	return DetachChildAt(0);
 }
 //----------------------------------------------------------------------------
 inline SpatialPtr BspNode::DetachCoplanarChild ()
 {
-    return DetachChildAt(1);
+	return DetachChildAt(1);
 }
 //----------------------------------------------------------------------------
 inline SpatialPtr BspNode::DetachNegativeChild ()
 {
-    return DetachChildAt(2);
+	return DetachChildAt(2);
 }
 //----------------------------------------------------------------------------
 inline SpatialPtr BspNode::GetPositiveChild ()
 {
-    return GetChild(0);
+	return GetChild(0);
 }
 //----------------------------------------------------------------------------
 inline SpatialPtr BspNode::GetCoplanarChild ()
 {
-    return GetChild(1);
+	return GetChild(1);
 }
 //----------------------------------------------------------------------------
 inline SpatialPtr BspNode::GetNegativeChild ()
 {
-    return GetChild(2);
+	return GetChild(2);
 }
 //----------------------------------------------------------------------------
 inline const HPlane& BspNode::GetWorldPlane () const
 {
-    return mWorldPlane;
+	return mWorldPlane;
 }
 //----------------------------------------------------------------------------

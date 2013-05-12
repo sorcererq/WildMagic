@@ -9,43 +9,43 @@
 //----------------------------------------------------------------------------
 inline int ShaderFloat::GetNumRegisters () const
 {
-    return mNumElements/4;
+	return mNumElements/4;
 }
 //----------------------------------------------------------------------------
 inline const float* ShaderFloat::GetData () const
 {
-    return mData;
+	return mData;
 }
 //----------------------------------------------------------------------------
 inline float* ShaderFloat::GetData ()
 {
-    return mData;
+	return mData;
 }
 //----------------------------------------------------------------------------
 inline float ShaderFloat::operator[] (int i) const
 {
-    assertion(0 <= i && i < mNumElements, "Invalid index\n");
-    return mData[i];
+	assertion(0 <= i && i < mNumElements, "Invalid index\n");
+	return mData[i];
 }
 //----------------------------------------------------------------------------
 inline float& ShaderFloat::operator[] (int i)
 {
-    assertion(0 <= i && i < mNumElements, "Invalid index\n");
-    return mData[i];
+	assertion(0 <= i && i < mNumElements, "Invalid index\n");
+	return mData[i];
 }
 //----------------------------------------------------------------------------
 inline void ShaderFloat::EnableUpdater ()
 {
-    mAllowUpdater = true;
+	mAllowUpdater = true;
 }
 //----------------------------------------------------------------------------
 inline void ShaderFloat::DisableUpdater ()
 {
-    mAllowUpdater = false;
+	mAllowUpdater = false;
 }
 //----------------------------------------------------------------------------
 inline bool ShaderFloat::AllowUpdater () const
 {
-    return mAllowUpdater;
+	return mAllowUpdater;
 }
 //----------------------------------------------------------------------------

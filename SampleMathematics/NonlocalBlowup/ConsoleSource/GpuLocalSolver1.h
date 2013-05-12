@@ -14,21 +14,21 @@
 class GpuLocalSolver1 : public GpuPdeSolver1
 {
 public:
-    GpuLocalSolver1 (int dimension, const Image1<float>* initial,
-        const Image1<unsigned char>* domain, float dt, float dx,
-        const std::string& folder, bool& success);
+	GpuLocalSolver1 (int dimension, const Image1<float>* initial,
+	                 const Image1<unsigned char>* domain, float dt, float dx,
+	                 const std::string& folder, bool& success);
 
-    virtual ~GpuLocalSolver1 ();
+	virtual ~GpuLocalSolver1 ();
 
 private:
-    virtual bool OnPreIteration (uint64_t iteration);
-    virtual bool OnPostIteration (uint64_t iteration);
+	virtual bool OnPreIteration (uint64_t iteration);
+	virtual bool OnPostIteration (uint64_t iteration);
 
-    float* mReadBack;
-    std::string mFolder;
+	float* mReadBack;
+	std::string mFolder;
 
-    static const GLchar* msDeclarations;
-    static const GLchar* msEquation;
+	static const GLchar* msDeclarations;
+	static const GLchar* msEquation;
 };
 
 #endif

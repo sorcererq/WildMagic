@@ -9,21 +9,21 @@
 //----------------------------------------------------------------------------
 inline const BSplineVolumef* BoxSurface::GetVolume () const
 {
-    return mVolume;
+	return mVolume;
 }
 //----------------------------------------------------------------------------
 inline int BoxSurface::GetNumUSamples () const
 {
-    return mNumUSamples;
+	return mNumUSamples;
 }
 //----------------------------------------------------------------------------
 inline int BoxSurface::GetNumVSamples () const
 {
-    return mNumVSamples;
+	return mNumVSamples;
 }
 //----------------------------------------------------------------------------
 inline int BoxSurface::GetNumWSamples () const
 {
-    return mNumWSamples;
+	return mNumWSamples;
 }
 //----------------------------------------------------------------------------

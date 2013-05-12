@@ -20,18 +20,18 @@ class Renderer;
 class PdrTextureCube
 {
 public:
-    // Construction and destruction.
-    PdrTextureCube (Renderer* renderer, const TextureCube* texture);
-    ~PdrTextureCube ();
+	// Construction and destruction.
+	PdrTextureCube (Renderer* renderer, const TextureCube* texture);
+	~PdrTextureCube ();
 
-    // Texture operations.
-    void Enable (Renderer* renderer, int textureUnit);
-    void Disable (Renderer* renderer, int textureUnit);
-    void* Lock (int face, int level, Buffer::Locking mode);
-    void Unlock (int face, int level);
+	// Texture operations.
+	void Enable (Renderer* renderer, int textureUnit);
+	void Disable (Renderer* renderer, int textureUnit);
+	void* Lock (int face, int level, Buffer::Locking mode);
+	void Unlock (int face, int level);
 
 private:
-    IDirect3DCubeTexture9* mTexture;
+	IDirect3DCubeTexture9* mTexture;
 };
 
 }

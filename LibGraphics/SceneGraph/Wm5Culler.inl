@@ -9,60 +9,60 @@
 //----------------------------------------------------------------------------
 inline void Culler::SetCamera (const Camera* camera)
 {
-    mCamera = camera;
+	mCamera = camera;
 }
 //----------------------------------------------------------------------------
 inline const Camera* Culler::GetCamera () const
 {
-    return mCamera;
+	return mCamera;
 }
 //----------------------------------------------------------------------------
 inline const float* Culler::GetFrustum () const
 {
-    return mFrustum;
+	return mFrustum;
 }
 //----------------------------------------------------------------------------
 inline VisibleSet& Culler::GetVisibleSet ()
 {
-    return mVisibleSet;
+	return mVisibleSet;
 }
 //----------------------------------------------------------------------------
 inline int Culler::GetPlaneQuantity () const
 {
-    return mPlaneQuantity;
+	return mPlaneQuantity;
 }
 //----------------------------------------------------------------------------
 inline const HPlane* Culler::GetPlanes () const
 {
-    return mPlane;
+	return mPlane;
 }
 //----------------------------------------------------------------------------
 inline void Culler::SetPlaneState (unsigned int planeState)
 {
-    mPlaneState = planeState;
+	mPlaneState = planeState;
 }
 //----------------------------------------------------------------------------
 inline unsigned int Culler::GetPlaneState () const
 {
-    return mPlaneState;
+	return mPlaneState;
 }
 //----------------------------------------------------------------------------
 inline void Culler::PushPlane (const HPlane& plane)
 {
-    if (mPlaneQuantity < MAX_PLANE_QUANTITY)
-    {
-        // The number of user-defined planes is limited.
-        mPlane[mPlaneQuantity] = plane;
-        ++mPlaneQuantity;
-    }
+	if (mPlaneQuantity < MAX_PLANE_QUANTITY)
+	{
+		// The number of user-defined planes is limited.
+		mPlane[mPlaneQuantity] = plane;
+		++mPlaneQuantity;
+	}
 }
 //----------------------------------------------------------------------------
 inline void Culler::PopPlane ()
 {
-    if (mPlaneQuantity > Camera::VF_QUANTITY)
-    {
-        // Frustum planes may not be removed from the stack.
-        --mPlaneQuantity;
-    }
+	if (mPlaneQuantity > Camera::VF_QUANTITY)
+	{
+		// Frustum planes may not be removed from the stack.
+		--mPlaneQuantity;
+	}
 }
 //----------------------------------------------------------------------------

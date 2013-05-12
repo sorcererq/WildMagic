@@ -16,67 +16,67 @@ using namespace Wm5;
 #include <windows.h>
 //----------------------------------------------------------------------------
 Thread::Thread (void* function, void* userData, unsigned int processorNumber,
-    unsigned int stackSize)
-    :
-    mFunction(function),
-    mUserData(userData),
-    mProcessorNumber(processorNumber),
-    mStackSize(stackSize)
+                unsigned int stackSize)
+	:
+	mFunction(function),
+	mUserData(userData),
+	mProcessorNumber(processorNumber),
+	mStackSize(stackSize)
 {
-    mThread = CreateThread(NULL, (SIZE_T)stackSize,
-        (LPTHREAD_START_ROUTINE)function, (LPVOID)userData, CREATE_SUSPENDED,
-        (LPDWORD)&mThreadID);
+	mThread = CreateThread(NULL, (SIZE_T)stackSize,
+	                       (LPTHREAD_START_ROUTINE)function, (LPVOID)userData, CREATE_SUSPENDED,
+	                       (LPDWORD)&mThreadID);
 }
 //----------------------------------------------------------------------------
 Thread::~Thread ()
 {
-    // TODO:  Write the threading system to allow graceful termination of
-    // each thread.  The destructor is not the place to terminate.  In C++,
-    // the thread function should exit (in C, ExitThread is the function to
-    // call).  When it is time to exit, you can give the thread information
-    // to do so (via the userData). 
+	// TODO:  Write the threading system to allow graceful termination of
+	// each thread.  The destructor is not the place to terminate.  In C++,
+	// the thread function should exit (in C, ExitThread is the function to
+	// call).  When it is time to exit, you can give the thread information
+	// to do so (via the userData).
 }
 //----------------------------------------------------------------------------
 void Thread::Resume ()
 {
-    DWORD result = ResumeThread((HANDLE)mThread);
-    assertion(result != (DWORD)-1, "Failed to resume thread\n");
-    WM5_UNUSED(result);
+	DWORD result = ResumeThread((HANDLE)mThread);
+	assertion(result != (DWORD)-1, "Failed to resume thread\n");
+	WM5_UNUSED(result);
 }
 //----------------------------------------------------------------------------
 void Thread::Suspend ()
 {
-    DWORD result = SuspendThread((HANDLE)mThread);
-    assertion(result != (DWORD)-1, "Failed to suspend thread\n");
-    WM5_UNUSED(result);
+	DWORD result = SuspendThread((HANDLE)mThread);
+	assertion(result != (DWORD)-1, "Failed to suspend thread\n");
+	WM5_UNUSED(result);
 }
 //----------------------------------------------------------------------------
 #elif defined(__LINUX__) || defined(__APPLE__)
 //----------------------------------------------------------------------------
 Thread::Thread (void* function, void* userData, unsigned int processorNumber,
-    unsigned int stackSize)
-    :
-    mFunction(function),
-    mUserData(userData),
-    mProcessorNumber(processorNumber),
-    mStackSize(stackSize)
+                unsigned int stackSize)
+	:
+	mFunction(function),
+	mUserData(userData),
+	mProcessorNumber(processorNumber),
+	mStackSize(stackSize)
 {
-    // TODO.
+	// TODO.
 }
 //----------------------------------------------------------------------------
 Thread::~Thread ()
 {
-    // TODO. 
+	// TODO.
 }
 //----------------------------------------------------------------------------
 void Thread::Resume ()
 {
-    // TODO.
+	// TODO.
 }
 //----------------------------------------------------------------------------
 void Thread::Suspend ()
 {
-    // TODO.
+	// TODO.
 }
 //----------------------------------------------------------------------------
 #else

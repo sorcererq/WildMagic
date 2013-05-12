@@ -17,28 +17,28 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM VertexColor3Effect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(VertexColor3Effect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(VertexColor3Effect);
 
 public:
-    // Construction and destruction.
-    VertexColor3Effect ();
-    virtual ~VertexColor3Effect ();
+	// Construction and destruction.
+	VertexColor3Effect ();
+	virtual ~VertexColor3Effect ();
 
-    // Create an instance of the effect with unique parameters.
-    VisualEffectInstance* CreateInstance () const;
+	// Create an instance of the effect with unique parameters.
+	VisualEffectInstance* CreateInstance () const;
 
-    // Convenience for creating an instance.  The application does not have to
-    // create the effect explicitly in order to create an instance from it.
-    static VisualEffectInstance* CreateUniqueInstance ();
+	// Convenience for creating an instance.  The application does not have to
+	// create the effect explicitly in order to create an instance from it.
+	static VisualEffectInstance* CreateUniqueInstance ();
 
 private:
-    static int msDx9VRegisters[1];
-    static int msOglVRegisters[1];
-    static int* msVRegisters[Shader::MAX_PROFILES];
-    static std::string msVPrograms[Shader::MAX_PROFILES];
-    static std::string msPPrograms[Shader::MAX_PROFILES];
+	static int msDx9VRegisters[1];
+	static int msOglVRegisters[1];
+	static int* msVRegisters[Shader::MAX_PROFILES];
+	static std::string msVPrograms[Shader::MAX_PROFILES];
+	static std::string msPPrograms[Shader::MAX_PROFILES];
 };
 
 WM5_REGISTER_STREAM(VertexColor3Effect);

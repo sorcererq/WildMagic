@@ -23,28 +23,28 @@ namespace Wm5
 class Application
 {
 protected:
-    // Abstract base class.
-    Application ();
+	// Abstract base class.
+	Application ();
 public:
-    virtual ~Application ();
+	virtual ~Application ();
 
-    // The unique application object.
-    static Application* TheApplication;
+	// The unique application object.
+	static Application* TheApplication;
 
-    // The unique command-line arguments object.
-    static Command* TheCommand;
+	// The unique command-line arguments object.
+	static Command* TheCommand;
 
-    // The installation directory of Wild Magic 5.
-    static std::string WM5Path;
+	// The installation directory of Wild Magic 5.
+	static std::string WM5Path;
 
-    // The path to the application project directory.
-    static std::string ThePath;
+	// The path to the application project directory.
+	static std::string ThePath;
 
-    // Derived classes must set this function pointer.  The int parameter is
-    // the number of command line arguments.  The char** parameter is the
-    // array of argument strings.
-    typedef int (*EntryPoint)(int, char**);
-    static EntryPoint Run;
+	// Derived classes must set this function pointer.  The int parameter is
+	// the number of command line arguments.  The char** parameter is the
+	// array of argument strings.
+	typedef int (*EntryPoint)(int, char**);
+	static EntryPoint Run;
 };
 
 }

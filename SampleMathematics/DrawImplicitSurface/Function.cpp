@@ -16,14 +16,14 @@
 //----------------------------------------------------------------------------
 float F (const Vector3f& position)
 {
-    // F(x,y,z) = x^2 + y^2 + z^2 - 1 (level surface is a sphere)
-    return position.SquaredLength() - 1.0f;
+	// F(x,y,z) = x^2 + y^2 + z^2 - 1 (level surface is a sphere)
+	return position.SquaredLength() - 1.0f;
 }
 //----------------------------------------------------------------------------
 Vector3f DF (const Vector3f& position)
 {
-    // DF(x,y,z) = (2x,2y,2z)
-    return 2.0f*position;
+	// DF(x,y,z) = (2x,2y,2z)
+	return 2.0f*position;
 }
 //----------------------------------------------------------------------------
 #endif
@@ -43,21 +43,21 @@ const float gDiffSqr = gDiff*gDiff;
 //----------------------------------------------------------------------------
 float F (const Vector3f& position)
 {
-    float sqrLength = position.SquaredLength();
-    return sqrLength*(sqrLength - 2.0f*gSum) +
-        4.0f*gROSqr*position.Z()*position.Z() + gDiffSqr;
+	float sqrLength = position.SquaredLength();
+	return sqrLength*(sqrLength - 2.0f*gSum) +
+	       4.0f*gROSqr*position.Z()*position.Z() + gDiffSqr;
 }
 //----------------------------------------------------------------------------
 Vector3f DF (const Vector3f& position)
 {
-    Vector3f gradient;
+	Vector3f gradient;
 
-    float temp = position.SquaredLength() - gSum;
-    gradient.X() = 4.0f*position.X()*temp; 
-    gradient.Y() = 4.0f*position.Y()*temp; 
-    gradient.Z() = 4.0f*position.Z()*(temp + 2.0f*gROSqr);
+	float temp = position.SquaredLength() - gSum;
+	gradient.X() = 4.0f*position.X()*temp;
+	gradient.Y() = 4.0f*position.Y()*temp;
+	gradient.Z() = 4.0f*position.Z()*(temp + 2.0f*gROSqr);
 
-    return gradient;
+	return gradient;
 }
 //----------------------------------------------------------------------------
 #endif

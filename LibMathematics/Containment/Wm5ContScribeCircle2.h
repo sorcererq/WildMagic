@@ -22,12 +22,12 @@ namespace Wm5
 // Circle containing three 2D points.
 template <typename Real> WM5_MATHEMATICS_ITEM
 bool Circumscribe (const Vector2<Real>& v0, const Vector2<Real>& v1,
-    const Vector2<Real>& v2, Circle2<Real>& circle);
+                   const Vector2<Real>& v2, Circle2<Real>& circle);
 
 // Circle inscribing triangle of three 2D points.
 template <typename Real> WM5_MATHEMATICS_ITEM
 bool Inscribe (const Vector2<Real>& v0, const Vector2<Real>& v1,
-    const Vector2<Real>& v2, Circle2<Real>& circle);
+               const Vector2<Real>& v2, Circle2<Real>& circle);
 
 }
 

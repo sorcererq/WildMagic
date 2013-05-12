@@ -18,47 +18,47 @@ namespace Wm5
 class WM5_IMAGICS_ITEM FastMarch3 : public FastMarch
 {
 public:
-    // Construction and destruction.
-    FastMarch3 (int xBound, int yBound, int zBound, float xSpacing,
-        float ySpacing, float zSpacing, const float* speeds,
-        const std::vector<int>& seeds);
+	// Construction and destruction.
+	FastMarch3 (int xBound, int yBound, int zBound, float xSpacing,
+	            float ySpacing, float zSpacing, const float* speeds,
+	            const std::vector<int>& seeds);
 
-    FastMarch3 (int xBound, int yBound, int zBound, float xSpacing,
-        float ySpacing, float zSpacing, const float speed,
-        const std::vector<int>& seeds);
+	FastMarch3 (int xBound, int yBound, int zBound, float xSpacing,
+	            float ySpacing, float zSpacing, const float speed,
+	            const std::vector<int>& seeds);
 
-    virtual ~FastMarch3 ();
+	virtual ~FastMarch3 ();
 
-    // Member access.
-    inline int GetXBound () const;
-    inline int GetYBound () const;
-    inline int GetZBound () const;
-    inline float GetXSpacing () const;
-    inline float GetYSpacing () const;
-    inline float GetZSpacing () const;
-    inline int Index (int x, int y, int z) const;
+	// Member access.
+	inline int GetXBound () const;
+	inline int GetYBound () const;
+	inline int GetZBound () const;
+	inline float GetXSpacing () const;
+	inline float GetYSpacing () const;
+	inline float GetZSpacing () const;
+	inline int Index (int x, int y, int z) const;
 
-    // Voxel classification.
-    virtual void GetBoundary (std::vector<int>& rkBoundary) const;
-    virtual bool IsBoundary (int i) const;
+	// Voxel classification.
+	virtual void GetBoundary (std::vector<int>& rkBoundary) const;
+	virtual bool IsBoundary (int i) const;
 
-    // Run one step of the fast marching algorithm.
-    virtual void Iterate ();
+	// Run one step of the fast marching algorithm.
+	virtual void Iterate ();
 
 protected:
-    // Called by the constructors.
-    void Initialize (int xBound, int yBound, int zBound, float xSpacing,
-        float ySpacing, float zSpacing);
+	// Called by the constructors.
+	void Initialize (int xBound, int yBound, int zBound, float xSpacing,
+	                 float ySpacing, float zSpacing);
 
-    // Called by Iterate().
-    void ComputeTime (int i);
+	// Called by Iterate().
+	void ComputeTime (int i);
 
-    int mXBound, mYBound, mZBound, mXYBound;
-    int mXBm1, mYBm1, mZBm1;
-    float mXSpacing, mYSpacing, mZSpacing;
-    float mInvXSpacing, mInvYSpacing, mInvZSpacing;
+	int mXBound, mYBound, mZBound, mXYBound;
+	int mXBm1, mYBm1, mZBm1;
+	float mXSpacing, mYSpacing, mZSpacing;
+	float mInvXSpacing, mInvYSpacing, mInvZSpacing;
 
-    static const float msOneThird;
+	static const float msOneThird;
 };
 
 #include "Wm5FastMarch3.inl"

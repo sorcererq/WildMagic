@@ -12,13 +12,13 @@ using namespace Wm5;
 
 //----------------------------------------------------------------------------
 GaussianBlur3::GaussianBlur3 (int xBound, int yBound, int zBound,
-    float xSpacing, float ySpacing, float zSpacing, const float* data,
-    const bool* mask, float borderValue, ScaleType scaleType)
-    :
-    PdeFilter3(xBound, yBound, zBound, xSpacing, ySpacing, zSpacing, data,
-        mask, borderValue, scaleType)
+                              float xSpacing, float ySpacing, float zSpacing, const float* data,
+                              const bool* mask, float borderValue, ScaleType scaleType)
+	:
+	PdeFilter3(xBound, yBound, zBound, xSpacing, ySpacing, zSpacing, data,
+	           mask, borderValue, scaleType)
 {
-    mMaximumTimeStep = 0.5f/(mInvDxDx + mInvDyDy + mInvDzDz);
+	mMaximumTimeStep = 0.5f/(mInvDxDx + mInvDyDy + mInvDzDz);
 }
 //----------------------------------------------------------------------------
 GaussianBlur3::~GaussianBlur3 ()
@@ -27,17 +27,17 @@ GaussianBlur3::~GaussianBlur3 ()
 //----------------------------------------------------------------------------
 float GaussianBlur3::GetMaximumTimeStep () const
 {
-    return mMaximumTimeStep;
+	return mMaximumTimeStep;
 }
 //----------------------------------------------------------------------------
 void GaussianBlur3::OnUpdate (int x, int y, int z)
 {
-    LookUp7(x, y, z);
+	LookUp7(x, y, z);
 
-    float uxx = mInvDxDx*(mUpzz - 2.0f*mUzzz + mUmzz);
-    float uyy = mInvDyDy*(mUzpz - 2.0f*mUzzz + mUzmz);
-    float uzz = mInvDzDz*(mUzzp - 2.0f*mUzzz + mUzzm);
+	float uxx = mInvDxDx*(mUpzz - 2.0f*mUzzz + mUmzz);
+	float uyy = mInvDyDy*(mUzpz - 2.0f*mUzzz + mUzmz);
+	float uzz = mInvDzDz*(mUzzp - 2.0f*mUzzz + mUzzm);
 
-    mDst[z][y][x] = mUzzz + mTimeStep*(uxx + uyy + uzz);
+	mDst[z][y][x] = mUzzz + mTimeStep*(uxx + uyy + uzz);
 }
 //----------------------------------------------------------------------------

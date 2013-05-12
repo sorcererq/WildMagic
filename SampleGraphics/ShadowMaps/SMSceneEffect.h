@@ -21,20 +21,20 @@ namespace Wm5
 class SMSceneEffect : public VisualEffect
 {
 public:
-    // Construction and destruction.
-    SMSceneEffect (const std::string& effectFile);
-    virtual ~SMSceneEffect ();
+	// Construction and destruction.
+	SMSceneEffect (const std::string& effectFile);
+	virtual ~SMSceneEffect ();
 
-    // Create an instance of the effect with unique parameters.  The
-    // 'lightPVMatrix' and 'lightBSPVMatrix' inputs are ShaderFloat(4)
-    // objects.  The 'lightWorldPosition' and 'lightColor' inputs are
-    // ShaderFloat(1) objects.
-    VisualEffectInstance* CreateInstance (
-        ProjectorWorldPositionConstant* lightWorldPosition,
-        ProjectorMatrixConstant* lightPVMatrix, ShaderFloat* lightBSMatrix,
-        ShaderFloat* screenBSMatrix, ShaderFloat* lightColor,
-        Texture2D* baseTexture, Texture2D* blurTexture,
-        Texture2D* projectedTexture) const;
+	// Create an instance of the effect with unique parameters.  The
+	// 'lightPVMatrix' and 'lightBSPVMatrix' inputs are ShaderFloat(4)
+	// objects.  The 'lightWorldPosition' and 'lightColor' inputs are
+	// ShaderFloat(1) objects.
+	VisualEffectInstance* CreateInstance (
+	    ProjectorWorldPositionConstant* lightWorldPosition,
+	    ProjectorMatrixConstant* lightPVMatrix, ShaderFloat* lightBSMatrix,
+	    ShaderFloat* screenBSMatrix, ShaderFloat* lightColor,
+	    Texture2D* baseTexture, Texture2D* blurTexture,
+	    Texture2D* projectedTexture) const;
 };
 
 }

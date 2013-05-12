@@ -14,25 +14,25 @@
 class GpuNonlocalSolver1 : public GpuPdeSolver1
 {
 public:
-    GpuNonlocalSolver1 (int dimension, const Image1<float>* initial,
-        const Image1<unsigned char>* domain, float dt, float dx, float p,
-        const std::string& folder, bool& success);
+	GpuNonlocalSolver1 (int dimension, const Image1<float>* initial,
+	                    const Image1<unsigned char>* domain, float dt, float dx, float p,
+	                    const std::string& folder, bool& success);
 
-    virtual ~GpuNonlocalSolver1 ();
+	virtual ~GpuNonlocalSolver1 ();
 
 private:
-    void GetIntegral (float& umax, float& integral);
-    virtual bool OnPreIteration (uint64_t iteration);
-    virtual bool OnPostIteration (uint64_t iteration);
+	void GetIntegral (float& umax, float& integral);
+	virtual bool OnPreIteration (uint64_t iteration);
+	virtual bool OnPostIteration (uint64_t iteration);
 
-    float mPower;
-    float* mReadBack;
-    float mNonlinear0, mNonlinear1;
-    GLint mNonlinearLocation;
-    std::string mFolder;
+	float mPower;
+	float* mReadBack;
+	float mNonlinear0, mNonlinear1;
+	GLint mNonlinearLocation;
+	std::string mFolder;
 
-    static const GLchar* msDeclarations;
-    static const GLchar* msEquation;
+	static const GLchar* msDeclarations;
+	static const GLchar* msEquation;
 };
 
 #endif

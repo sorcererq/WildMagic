@@ -30,14 +30,14 @@ namespace Wm5
 class PointerBase
 {
 protected:
-    // The map key (void*) is the address of the shared object.  The map
-    // value (int) is the number of references.
-    typedef std::map<void*,int> ReferenceMap;
-    typedef ReferenceMap::iterator RMIterator;
-    typedef ReferenceMap::const_iterator RMCIterator;
+	// The map key (void*) is the address of the shared object.  The map
+	// value (int) is the number of references.
+	typedef std::map<void*,int> ReferenceMap;
+	typedef ReferenceMap::iterator RMIterator;
+	typedef ReferenceMap::const_iterator RMCIterator;
 
-    WM5_CORE_ITEM static ReferenceMap msMap;
-    WM5_CORE_ITEM static Mutex msMutex;
+	WM5_CORE_ITEM static ReferenceMap msMap;
+	WM5_CORE_ITEM static Mutex msMutex;
 };
 
 //----------------------------------------------------------------------------
@@ -45,28 +45,28 @@ template <typename T>
 class Pointer0 : public PointerBase
 {
 public:
-    // Construction and destruction.
-    Pointer0 (T* data = 0);
-    Pointer0 (const Pointer0& pointer);
-    ~Pointer0 ();
+	// Construction and destruction.
+	Pointer0 (T* data = 0);
+	Pointer0 (const Pointer0& pointer);
+	~Pointer0 ();
 
-    // Implicit conversions.
-    inline operator T* () const;
-    inline T& operator* () const;
-    inline T* operator-> () const;
+	// Implicit conversions.
+	inline operator T* () const;
+	inline T& operator* () const;
+	inline T* operator-> () const;
 
-    // Assignment.
-    Pointer0& operator= (T* data);
-    Pointer0& operator= (const Pointer0& pointer);
+	// Assignment.
+	Pointer0& operator= (T* data);
+	Pointer0& operator= (const Pointer0& pointer);
 
-    // Comparisons.
-    inline bool operator== (T* data) const;
-    inline bool operator!= (T* data) const;
-    inline bool operator== (const Pointer0& pointer) const;
-    inline bool operator!= (const Pointer0& pointer) const;
+	// Comparisons.
+	inline bool operator== (T* data) const;
+	inline bool operator!= (T* data) const;
+	inline bool operator== (const Pointer0& pointer) const;
+	inline bool operator!= (const Pointer0& pointer) const;
 
 protected:
-    T* mData;
+	T* mData;
 };
 
 //----------------------------------------------------------------------------
@@ -74,28 +74,28 @@ template <typename T>
 class Pointer1 : public PointerBase
 {
 public:
-    // Construction and destruction.
-    Pointer1 (T* data = 0);
-    Pointer1 (const Pointer1& pointer);
-    ~Pointer1 ();
+	// Construction and destruction.
+	Pointer1 (T* data = 0);
+	Pointer1 (const Pointer1& pointer);
+	~Pointer1 ();
 
-    // Implicit conversions.
-    inline operator T* () const;
-    inline T& operator* () const;
-    inline T* operator-> () const;
+	// Implicit conversions.
+	inline operator T* () const;
+	inline T& operator* () const;
+	inline T* operator-> () const;
 
-    // Assignment.
-    Pointer1& operator= (T* data);
-    Pointer1& operator= (const Pointer1& pointer);
+	// Assignment.
+	Pointer1& operator= (T* data);
+	Pointer1& operator= (const Pointer1& pointer);
 
-    // Comparisons.
-    inline bool operator== (T* data) const;
-    inline bool operator!= (T* data) const;
-    inline bool operator== (const Pointer1& pointer) const;
-    inline bool operator!= (const Pointer1& pointer) const;
+	// Comparisons.
+	inline bool operator== (T* data) const;
+	inline bool operator!= (T* data) const;
+	inline bool operator== (const Pointer1& pointer) const;
+	inline bool operator!= (const Pointer1& pointer) const;
 
 protected:
-    T* mData;
+	T* mData;
 };
 
 //----------------------------------------------------------------------------
@@ -103,27 +103,27 @@ template <typename T>
 class Pointer2 : public PointerBase
 {
 public:
-    // Construction and destruction.
-    Pointer2 (T** data = 0);
-    Pointer2 (const Pointer2& pointer);
-    ~Pointer2 ();
+	// Construction and destruction.
+	Pointer2 (T** data = 0);
+	Pointer2 (const Pointer2& pointer);
+	~Pointer2 ();
 
-    // Implicit conversions.
-    inline operator T** () const;
-    inline T*& operator* () const;
+	// Implicit conversions.
+	inline operator T** () const;
+	inline T*& operator* () const;
 
-    // Assignment.
-    Pointer2& operator= (T** data);
-    Pointer2& operator= (const Pointer2& pointer);
+	// Assignment.
+	Pointer2& operator= (T** data);
+	Pointer2& operator= (const Pointer2& pointer);
 
-    // Comparisons.
-    inline bool operator== (T** data) const;
-    inline bool operator!= (T** data) const;
-    inline bool operator== (const Pointer2& pointer) const;
-    inline bool operator!= (const Pointer2& pointer) const;
+	// Comparisons.
+	inline bool operator== (T** data) const;
+	inline bool operator!= (T** data) const;
+	inline bool operator== (const Pointer2& pointer) const;
+	inline bool operator!= (const Pointer2& pointer) const;
 
 protected:
-    T** mData;
+	T** mData;
 };
 
 //----------------------------------------------------------------------------
@@ -131,27 +131,27 @@ template <typename T>
 class Pointer3 : public PointerBase
 {
 public:
-    // Construction and destruction.
-    Pointer3 (T*** data = 0);
-    Pointer3 (const Pointer3& pointer);
-    ~Pointer3 ();
+	// Construction and destruction.
+	Pointer3 (T*** data = 0);
+	Pointer3 (const Pointer3& pointer);
+	~Pointer3 ();
 
-    // Implicit conversions.
-    inline operator T*** () const;
-    inline T**& operator* () const;
+	// Implicit conversions.
+	inline operator T*** () const;
+	inline T**& operator* () const;
 
-    // Assignment.
-    Pointer3& operator= (T*** data);
-    Pointer3& operator= (const Pointer3& pointer);
+	// Assignment.
+	Pointer3& operator= (T*** data);
+	Pointer3& operator= (const Pointer3& pointer);
 
-    // Comparisons.
-    inline bool operator== (T*** data) const;
-    inline bool operator!= (T*** data) const;
-    inline bool operator== (const Pointer3& pointer) const;
-    inline bool operator!= (const Pointer3& pointer) const;
+	// Comparisons.
+	inline bool operator== (T*** data) const;
+	inline bool operator!= (T*** data) const;
+	inline bool operator== (const Pointer3& pointer) const;
+	inline bool operator!= (const Pointer3& pointer) const;
 
 protected:
-    T*** mData;
+	T*** mData;
 };
 
 //----------------------------------------------------------------------------
@@ -159,27 +159,27 @@ template <typename T>
 class Pointer4 : public PointerBase
 {
 public:
-    // Construction and destruction.
-    Pointer4 (T**** data = 0);
-    Pointer4 (const Pointer4& pointer);
-    ~Pointer4 ();
+	// Construction and destruction.
+	Pointer4 (T**** data = 0);
+	Pointer4 (const Pointer4& pointer);
+	~Pointer4 ();
 
-    // Implicit conversions.
-    inline operator T**** () const;
-    inline T***& operator* () const;
+	// Implicit conversions.
+	inline operator T**** () const;
+	inline T***& operator* () const;
 
-    // Assignment.
-    Pointer4& operator= (T**** data);
-    Pointer4& operator= (const Pointer4& pointer);
+	// Assignment.
+	Pointer4& operator= (T**** data);
+	Pointer4& operator= (const Pointer4& pointer);
 
-    // Comparisons.
-    inline bool operator== (T**** data) const;
-    inline bool operator!= (T**** data) const;
-    inline bool operator== (const Pointer4& pointer) const;
-    inline bool operator!= (const Pointer4& pointer) const;
+	// Comparisons.
+	inline bool operator== (T**** data) const;
+	inline bool operator!= (T**** data) const;
+	inline bool operator== (const Pointer4& pointer) const;
+	inline bool operator!= (const Pointer4& pointer) const;
 
 protected:
-    T**** mData;
+	T**** mData;
 };
 
 //----------------------------------------------------------------------------

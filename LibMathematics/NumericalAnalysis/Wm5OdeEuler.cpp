@@ -14,9 +14,9 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 OdeEuler<Real>::OdeEuler (int dim, Real step,
-    typename OdeSolver<Real>::Function function, void* userData)
-    :
-    OdeSolver<Real>(dim, step, function, userData)
+                          typename OdeSolver<Real>::Function function, void* userData)
+	:
+	OdeSolver<Real>(dim, step, function, userData)
 {
 }
 //----------------------------------------------------------------------------
@@ -28,19 +28,19 @@ OdeEuler<Real>::~OdeEuler ()
 template <typename Real>
 void OdeEuler<Real>::Update (Real tIn, Real* xIn, Real& tOut, Real* xOut)
 {
-    mFunction(tIn, xIn, mUserData, mFValue);
-    for (int i = 0; i < mDim; ++i)
-    {
-        xOut[i] = xIn[i] + mStep*mFValue[i];
-    }
+	mFunction(tIn, xIn, mUserData, mFValue);
+	for (int i = 0; i < mDim; ++i)
+	{
+		xOut[i] = xIn[i] + mStep*mFValue[i];
+	}
 
-    tOut = tIn + mStep;
+	tOut = tIn + mStep;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 void OdeEuler<Real>::SetStepSize (Real step)
 {
-    mStep = step;
+	mStep = step;
 }
 //----------------------------------------------------------------------------
 

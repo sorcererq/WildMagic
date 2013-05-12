@@ -19,56 +19,56 @@ namespace Wm5
 class WM5_IMAGICS_ITEM Lattice
 {
 public:
-    // Abstract base class for TImage.
-    virtual ~Lattice ();
+	// Abstract base class for TImage.
+	virtual ~Lattice ();
 
-    // Data access.
-    inline int GetDimensions () const;
-    inline const int* GetBounds () const;
-    inline int GetBound (int i) const;
-    inline int GetQuantity () const;
-    inline const int* GetOffsets () const;
-    inline int GetOffset (int i) const;
+	// Data access.
+	inline int GetDimensions () const;
+	inline const int* GetBounds () const;
+	inline int GetBound (int i) const;
+	inline int GetQuantity () const;
+	inline const int* GetOffsets () const;
+	inline int GetOffset (int i) const;
 
-    // Assignment.
-    Lattice& operator= (const Lattice& lattice);
+	// Assignment.
+	Lattice& operator= (const Lattice& lattice);
 
-    // Comparisons.
-    bool operator== (const Lattice& lattice) const;
-    bool operator!= (const Lattice& lattice) const;
+	// Comparisons.
+	bool operator== (const Lattice& lattice) const;
+	bool operator!= (const Lattice& lattice) const;
 
-    // Conversions between n-dim and 1-dim structures.  The coordinate arrays
-    // must have the same number of elements as the dimensions of the lattice.
-    int GetIndex (const int* coord) const;
-    void GetCoordinates (int index, int* coord) const;
+	// Conversions between n-dim and 1-dim structures.  The coordinate arrays
+	// must have the same number of elements as the dimensions of the lattice.
+	int GetIndex (const int* coord) const;
+	void GetCoordinates (int index, int* coord) const;
 
-    // Streaming.
-    bool Load (FileIO& inFile);
-    bool Save (FileIO& outFile) const;
+	// Streaming.
+	bool Load (FileIO& inFile);
+	bool Save (FileIO& outFile) const;
 
-    static bool LoadRaw (const char* filename, int& numDimensions,
-        int*& bounds, int& quantity, int& rtti, int& sizeOf, char*& data);
+	static bool LoadRaw (const char* filename, int& numDimensions,
+	                     int*& bounds, int& quantity, int& rtti, int& sizeOf, char*& data);
 
 protected:
-    // Construction.  Lattice accepts responsibility for deleting the
-    // bound array.
-    Lattice (int numDimensions, int* bounds);
-    Lattice (const Lattice& lattice);
-    Lattice ();
+	// Construction.  Lattice accepts responsibility for deleting the
+	// bound array.
+	Lattice (int numDimensions, int* bounds);
+	Lattice (const Lattice& lattice);
+	Lattice ();
 
-    // For deferred creation of bounds.  Lattice accepts responsibility
-    // for deleting the bound array.
-    Lattice (int numDimensions);
-    void SetBounds (int* bounds);
-    void ComputeQuantityAndOffsets ();
+	// For deferred creation of bounds.  Lattice accepts responsibility
+	// for deleting the bound array.
+	Lattice (int numDimensions);
+	void SetBounds (int* bounds);
+	void ComputeQuantityAndOffsets ();
 
-    int mNumDimensions;
-    int* mBounds;
-    int mQuantity;
-    int* mOffsets;
+	int mNumDimensions;
+	int* mBounds;
+	int mQuantity;
+	int* mOffsets;
 
-    // Streaming.
-    static const char* msHeader;
+	// Streaming.
+	static const char* msHeader;
 };
 
 #include "Wm5Lattice.inl"

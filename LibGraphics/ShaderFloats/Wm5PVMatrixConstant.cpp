@@ -20,10 +20,10 @@ WM5_IMPLEMENT_DEFAULT_STREAM(ShaderFloat, PVMatrixConstant);
 
 //----------------------------------------------------------------------------
 PVMatrixConstant::PVMatrixConstant ()
-    :
-    ShaderFloat(4)
+	:
+	ShaderFloat(4)
 {
-    mAllowUpdater = true;
+	mAllowUpdater = true;
 }
 //----------------------------------------------------------------------------
 PVMatrixConstant::~PVMatrixConstant ()
@@ -32,13 +32,13 @@ PVMatrixConstant::~PVMatrixConstant ()
 //----------------------------------------------------------------------------
 void PVMatrixConstant::Update (const Visual*, const Camera* camera)
 {
-    const HMatrix& projViewMatrix = camera->GetProjectionViewMatrix();
+	const HMatrix& projViewMatrix = camera->GetProjectionViewMatrix();
 
-    const float* source = (const float*)projViewMatrix;
-    float* target = mData;
-    for (int i = 0; i < 16; ++i)
-    {
-        *target++ = *source++;
-    }
+	const float* source = (const float*)projViewMatrix;
+	float* target = mData;
+	for (int i = 0; i < 16; ++i)
+	{
+		*target++ = *source++;
+	}
 }
 //----------------------------------------------------------------------------

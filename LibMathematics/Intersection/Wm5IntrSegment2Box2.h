@@ -19,35 +19,35 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrSegment2Box2
-    : public Intersector<Real,Vector2<Real> >
+	: public Intersector<Real,Vector2<Real> >
 {
 public:
-    IntrSegment2Box2 (const Segment2<Real>& segment,
-        const Box2<Real>& box, bool solid);
+	IntrSegment2Box2 (const Segment2<Real>& segment,
+	                  const Box2<Real>& box, bool solid);
 
-    // Object access.
-    const Segment2<Real>& GetSegment () const;
-    const Box2<Real>& GetBox () const;
+	// Object access.
+	const Segment2<Real>& GetSegment () const;
+	const Box2<Real>& GetBox () const;
 
-    // Static intersection queries.
-    virtual bool Test ();
-    virtual bool Find ();
+	// Static intersection queries.
+	virtual bool Test ();
+	virtual bool Find ();
 
-    // The intersection set.
-    int GetQuantity () const;
-    const Vector2<Real>& GetPoint (int i) const;
+	// The intersection set.
+	int GetQuantity () const;
+	const Vector2<Real>& GetPoint (int i) const;
 
 private:
-    using Intersector<Real,Vector2<Real> >::mIntersectionType;
+	using Intersector<Real,Vector2<Real> >::mIntersectionType;
 
-    // The objects to intersect.
-    const Segment2<Real>* mSegment;
-    const Box2<Real>* mBox;
-    bool mSolid;
+	// The objects to intersect.
+	const Segment2<Real>* mSegment;
+	const Box2<Real>* mBox;
+	bool mSolid;
 
-    // Information about the intersection set.
-    int mQuantity;
-    Vector2<Real> mPoint[2];
+	// Information about the intersection set.
+	int mQuantity;
+	Vector2<Real> mPoint[2];
 };
 
 typedef IntrSegment2Box2<float> IntrSegment2Box2f;

@@ -9,31 +9,31 @@
 //----------------------------------------------------------------------------
 inline int FloatArray::GetNumElements () const
 {
-    return mNumElements;
+	return mNumElements;
 }
 //----------------------------------------------------------------------------
 inline float* FloatArray::GetData () const
 {
-    return mElements;
+	return mElements;
 }
 //----------------------------------------------------------------------------
 inline FloatArray::operator const float* () const
 {
-    return mElements;
+	return mElements;
 }
 //----------------------------------------------------------------------------
 inline FloatArray::operator float* ()
 {
-    return mElements;
+	return mElements;
 }
 //----------------------------------------------------------------------------
 inline const float& FloatArray::operator[] (int i) const
 {
-    return mElements[i];
+	return mElements[i];
 }
 //----------------------------------------------------------------------------
 inline float& FloatArray::operator[] (int i)
 {
-    return mElements[i];
+	return mElements[i];
 }
 //----------------------------------------------------------------------------

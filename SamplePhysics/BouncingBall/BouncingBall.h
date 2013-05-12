@@ -15,40 +15,40 @@ using namespace Wm5;
 
 class BouncingBall : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BouncingBall ();
+	BouncingBall ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    void CreateBall ();
-    void CreateFloor ();
-    void CreateWall ();
+	void CreateScene ();
+	void CreateBall ();
+	void CreateFloor ();
+	void CreateWall ();
 
-    void PhysicsTick ();
-    void GraphicsTick ();
+	void PhysicsTick ();
+	void GraphicsTick ();
 
-    // Representation of body
-    DeformableBall* mBall;
-    PlanarReflectionEffectPtr mPREffect;
+	// Representation of body
+	DeformableBall* mBall;
+	PlanarReflectionEffectPtr mPREffect;
 
-    // Simulated clock.
-    float mSimTime, mSimDelta;
+	// Simulated clock.
+	float mSimTime, mSimDelta;
 
-    // The scene graph.
-    NodePtr mScene, mBallNode;
-    TriMeshPtr mFloor, mWall;
-    WireStatePtr mWireState;
-    VisibleSet mSceneVisibleSet, mBallNodeVisibleSet;
+	// The scene graph.
+	NodePtr mScene, mBallNode;
+	TriMeshPtr mFloor, mWall;
+	WireStatePtr mWireState;
+	VisibleSet mSceneVisibleSet, mBallNodeVisibleSet;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(BouncingBall);

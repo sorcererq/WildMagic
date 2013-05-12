@@ -16,123 +16,123 @@ WM5_IMPLEMENT_FACTORY(IKController);
 
 //----------------------------------------------------------------------------
 IKController::IKController (int numJoints, IKJointPtr* joints, int numGoals,
-    IKGoalPtr* goals)
-    :
-    Iterations(128),
-    OrderEndToRoot(true),
-    mNumJoints(numJoints),
-    mJoints(joints),
-    mNumGoals(numGoals),
-    mGoals(goals)
+                            IKGoalPtr* goals)
+	:
+	Iterations(128),
+	OrderEndToRoot(true),
+	mNumJoints(numJoints),
+	mJoints(joints),
+	mNumGoals(numGoals),
+	mGoals(goals)
 {
 }
 //----------------------------------------------------------------------------
 IKController::~IKController ()
 {
-    delete1(mJoints);
-    delete1(mGoals);
+	delete1(mJoints);
+	delete1(mGoals);
 }
 //----------------------------------------------------------------------------
 bool IKController::Update (double applicationTime)
 {
-    if (!Controller::Update(applicationTime))
-    {
-        return false;
-    }
+	if (!Controller::Update(applicationTime))
+	{
+		return false;
+	}
 
-    // Make sure effectors are all current in world space.  It is assumed
-    // that the joints form a chain, so the world transforms of joint I
-    // are the parent transforms for the joint I+1.
-    int k;
-    for (k = 0; k < mNumJoints; ++k)
-    {
-        mJoints[k]->UpdateWorldSRT();
-    }
+	// Make sure effectors are all current in world space.  It is assumed
+	// that the joints form a chain, so the world transforms of joint I
+	// are the parent transforms for the joint I+1.
+	int k;
+	for (k = 0; k < mNumJoints; ++k)
+	{
+		mJoints[k]->UpdateWorldSRT();
+	}
 
-    // Update joints one-at-a-time to meet goals.  As each joint is updated,
-    // the nodes occurring in the chain after that joint must be made current
-    // in world space.
-    int iter, i, j;
-    IKJoint* joint;
-    if (OrderEndToRoot)
-    {
-        for (iter = 0; iter < Iterations; ++iter)
-        {
-            for (k = 0; k < mNumJoints; ++k)
-            {
-                int r = mNumJoints - 1 - k;
-                joint = mJoints[r];
+	// Update joints one-at-a-time to meet goals.  As each joint is updated,
+	// the nodes occurring in the chain after that joint must be made current
+	// in world space.
+	int iter, i, j;
+	IKJoint* joint;
+	if (OrderEndToRoot)
+	{
+		for (iter = 0; iter < Iterations; ++iter)
+		{
+			for (k = 0; k < mNumJoints; ++k)
+			{
+				int r = mNumJoints - 1 - k;
+				joint = mJoints[r];
 
-                for (i = 0; i < 3; ++i)
-                {
-                    if (joint->AllowTranslation[i])
-                    {
-                        if (joint->UpdateLocalT(i))
-                        {
-                            for (j = r; j < mNumJoints; ++j)
-                            {
-                                mJoints[j]->UpdateWorldRT();
-                            }
-                        }
-                    }
-                }
+				for (i = 0; i < 3; ++i)
+				{
+					if (joint->AllowTranslation[i])
+					{
+						if (joint->UpdateLocalT(i))
+						{
+							for (j = r; j < mNumJoints; ++j)
+							{
+								mJoints[j]->UpdateWorldRT();
+							}
+						}
+					}
+				}
 
-                for (i = 0; i < 3; ++i)
-                {
-                    if (joint->AllowRotation[i])
-                    {
-                        if (joint->UpdateLocalR(i))
-                        {
-                            for (j = r; j < mNumJoints; ++j)
-                            {
-                                mJoints[j]->UpdateWorldRT();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    else  // order root to end
-    {
-        for (iter = 0; iter < Iterations; ++iter)
-        {
-            for (k = 0; k < mNumJoints; ++k)
-            {
-                joint = mJoints[k];
+				for (i = 0; i < 3; ++i)
+				{
+					if (joint->AllowRotation[i])
+					{
+						if (joint->UpdateLocalR(i))
+						{
+							for (j = r; j < mNumJoints; ++j)
+							{
+								mJoints[j]->UpdateWorldRT();
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	else  // order root to end
+	{
+		for (iter = 0; iter < Iterations; ++iter)
+		{
+			for (k = 0; k < mNumJoints; ++k)
+			{
+				joint = mJoints[k];
 
-                for (i = 0; i < 3; ++i)
-                {
-                    if (joint->AllowTranslation[i])
-                    {
-                        if (joint->UpdateLocalT(i))
-                        {
-                            for (j = k; j < mNumJoints; ++j)
-                            {
-                                mJoints[j]->UpdateWorldRT();
-                            }
-                        }
-                    }
-                }
+				for (i = 0; i < 3; ++i)
+				{
+					if (joint->AllowTranslation[i])
+					{
+						if (joint->UpdateLocalT(i))
+						{
+							for (j = k; j < mNumJoints; ++j)
+							{
+								mJoints[j]->UpdateWorldRT();
+							}
+						}
+					}
+				}
 
-                for (i = 0; i < 3; ++i)
-                {
-                    if (joint->AllowRotation[i])
-                    {
-                        if (joint->UpdateLocalR(i))
-                        {
-                            for (j = k; j < mNumJoints; ++j)
-                            {
-                                mJoints[j]->UpdateWorldRT();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+				for (i = 0; i < 3; ++i)
+				{
+					if (joint->AllowRotation[i])
+					{
+						if (joint->UpdateLocalR(i))
+						{
+							for (j = k; j < mNumJoints; ++j)
+							{
+								mJoints[j]->UpdateWorldRT();
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
-    return true;
+	return true;
 }
 //----------------------------------------------------------------------------
 
@@ -141,41 +141,41 @@ bool IKController::Update (double applicationTime)
 //----------------------------------------------------------------------------
 Object* IKController::GetObjectByName (const std::string& name)
 {
-    Object* found = Controller::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = Controller::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    int i;
-    for (i = 0; i < mNumJoints; ++i)
-    {
-        WM5_GET_OBJECT_BY_NAME(mJoints[i], name, found);
-    }
+	int i;
+	for (i = 0; i < mNumJoints; ++i)
+	{
+		WM5_GET_OBJECT_BY_NAME(mJoints[i], name, found);
+	}
 
-    for (i = 0; i < mNumGoals; ++i)
-    {
-        WM5_GET_OBJECT_BY_NAME(mGoals[i], name, found);
-    }
+	for (i = 0; i < mNumGoals; ++i)
+	{
+		WM5_GET_OBJECT_BY_NAME(mGoals[i], name, found);
+	}
 
-    return 0;
+	return 0;
 }
 //----------------------------------------------------------------------------
 void IKController::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+                                        std::vector<Object*>& objects)
 {
-    Controller::GetAllObjectsByName(name,objects);
+	Controller::GetAllObjectsByName(name,objects);
 
-    int i;
-    for (i = 0; i < mNumJoints; ++i)
-    {
-        WM5_GET_ALL_OBJECTS_BY_NAME(mJoints[i], name, objects);
-    }
+	int i;
+	for (i = 0; i < mNumJoints; ++i)
+	{
+		WM5_GET_ALL_OBJECTS_BY_NAME(mJoints[i], name, objects);
+	}
 
-    for (i = 0; i < mNumGoals; ++i)
-    {
-        WM5_GET_ALL_OBJECTS_BY_NAME(mGoals[i], name, objects);
-    }
+	for (i = 0; i < mNumGoals; ++i)
+	{
+		WM5_GET_ALL_OBJECTS_BY_NAME(mGoals[i], name, objects);
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -183,77 +183,77 @@ void IKController::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 IKController::IKController (LoadConstructor value)
-    :
-    Controller(value),
-    Iterations(0),
-    OrderEndToRoot(false),
-    mNumJoints(0),
-    mNumGoals(0),
-    mGoals(0)
+	:
+	Controller(value),
+	Iterations(0),
+	OrderEndToRoot(false),
+	mNumJoints(0),
+	mNumGoals(0),
+	mGoals(0)
 {
 }
 //----------------------------------------------------------------------------
 void IKController::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    Controller::Load(source);
+	Controller::Load(source);
 
-    source.Read(Iterations);
-    source.ReadBool(OrderEndToRoot);
-    source.ReadPointerRR(mNumJoints, mJoints);
-    source.ReadPointerRR(mNumGoals, mGoals);
+	source.Read(Iterations);
+	source.ReadBool(OrderEndToRoot);
+	source.ReadPointerRR(mNumJoints, mJoints);
+	source.ReadPointerRR(mNumGoals, mGoals);
 
-    WM5_END_DEBUG_STREAM_LOAD(IKController, source);
+	WM5_END_DEBUG_STREAM_LOAD(IKController, source);
 }
 //----------------------------------------------------------------------------
 void IKController::Link (InStream& source)
 {
-    Controller::Link(source);
+	Controller::Link(source);
 
-    source.ResolveLink(mNumJoints, mJoints);
-    source.ResolveLink(mNumGoals, mGoals);
+	source.ResolveLink(mNumJoints, mJoints);
+	source.ResolveLink(mNumGoals, mGoals);
 }
 //----------------------------------------------------------------------------
 void IKController::PostLink ()
 {
-    Controller::PostLink();
+	Controller::PostLink();
 }
 //----------------------------------------------------------------------------
 bool IKController::Register (OutStream& target) const
 {
-    if (Controller::Register(target))
-    {
-        target.Register(mNumJoints, mJoints);
-        target.Register(mNumGoals, mGoals);
-        return true;
-    }
-    return false;
+	if (Controller::Register(target))
+	{
+		target.Register(mNumJoints, mJoints);
+		target.Register(mNumGoals, mGoals);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void IKController::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    Controller::Save(target);
+	Controller::Save(target);
 
-    target.Write(Iterations);
-    target.WriteBool(OrderEndToRoot);
-    target.WritePointerW(mNumJoints, mJoints);
-    target.WritePointerW(mNumGoals, mGoals);
+	target.Write(Iterations);
+	target.WriteBool(OrderEndToRoot);
+	target.WritePointerW(mNumJoints, mJoints);
+	target.WritePointerW(mNumGoals, mGoals);
 
-    WM5_END_DEBUG_STREAM_SAVE(IKController, target);
+	WM5_END_DEBUG_STREAM_SAVE(IKController, target);
 }
 //----------------------------------------------------------------------------
 int IKController::GetStreamingSize () const
 {
-    int size = Controller::GetStreamingSize();
-    size += sizeof(Iterations);
-    size += WM5_BOOLSIZE(OrderEndToRoot);
-    size += sizeof(mNumJoints);
-    size += mNumJoints*WM5_POINTERSIZE(mJoints[0]);
-    size += sizeof(mNumGoals);
-    size += mNumGoals*WM5_POINTERSIZE(mGoals[0]);
-    return size;
+	int size = Controller::GetStreamingSize();
+	size += sizeof(Iterations);
+	size += WM5_BOOLSIZE(OrderEndToRoot);
+	size += sizeof(mNumJoints);
+	size += mNumJoints*WM5_POINTERSIZE(mJoints[0]);
+	size += sizeof(mNumGoals);
+	size += mNumGoals*WM5_POINTERSIZE(mGoals[0]);
+	return size;
 }
 //----------------------------------------------------------------------------

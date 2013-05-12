@@ -17,20 +17,20 @@ namespace Wm5
 class ConsoleApplication : public Application
 {
 public:
-    // Construction and destruction.
-    ConsoleApplication (const char* consoleTitle);
-    virtual ~ConsoleApplication ();
+	// Construction and destruction.
+	ConsoleApplication (const char* consoleTitle);
+	virtual ~ConsoleApplication ();
 
-    // Entry point to be implemented by the application.  The return value
-    // is an exit code, if desired.
-    virtual int Main (int numArguments, char** arguments) = 0;
+	// Entry point to be implemented by the application.  The return value
+	// is an exit code, if desired.
+	virtual int Main (int numArguments, char** arguments) = 0;
 
 protected:
-    // The hookup to the 'main' entry point into the executable.
-    static int Run (int numArguments, char** arguments);
+	// The hookup to the 'main' entry point into the executable.
+	static int Run (int numArguments, char** arguments);
 
-    // Console parameters (from the constructor).
-    std::string mConsoleTitle;
+	// Console parameters (from the constructor).
+	std::string mConsoleTitle;
 };
 
 //----------------------------------------------------------------------------

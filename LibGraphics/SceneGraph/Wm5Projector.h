@@ -17,21 +17,21 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM Projector : public Camera
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(Projector);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(Projector);
 
 public:
-    // Construction and destruction.  The only difference between this
-    // class and the Camera class is that you may specify the depth type
-    // explicitly.  The Camera class is forced to use the default depth
-    // type (that is consistent with the currently enabled graphics API).
-    Projector (DepthType depthType, bool isPerspective = true);
-    virtual ~Projector ();
+	// Construction and destruction.  The only difference between this
+	// class and the Camera class is that you may specify the depth type
+	// explicitly.  The Camera class is forced to use the default depth
+	// type (that is consistent with the currently enabled graphics API).
+	Projector (DepthType depthType, bool isPerspective = true);
+	virtual ~Projector ();
 
-    // The 0-index matrix maps x' = (1+x)/2 and y' = (1-y)/2.  The
-    // 1-index matrix maps x' = (1+x)/2 and y' = (1+y)/2.
-    static const HMatrix BiasScaleMatrix[2];
+	// The 0-index matrix maps x' = (1+x)/2 and y' = (1-y)/2.  The
+	// 1-index matrix maps x' = (1+x)/2 and y' = (1+y)/2.
+	static const HMatrix BiasScaleMatrix[2];
 };
 
 WM5_REGISTER_STREAM(Projector);

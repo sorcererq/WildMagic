@@ -51,7 +51,7 @@ namespace Wm5
 
 template <typename Real> WM5_MATHEMATICS_ITEM
 bool ParaboloidFit3 (int numPoints, const Vector3<Real>* points,
-    Real coeff[6]);
+                     Real coeff[6]);
 
 }
 

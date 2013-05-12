@@ -18,20 +18,20 @@ namespace Wm5
 
 class TerrainEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(TerrainEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(TerrainEffect);
 
 public:
-    // Construction and destruction.
-    TerrainEffect (const std::string& effectFile);
-    virtual ~TerrainEffect ();
+	// Construction and destruction.
+	TerrainEffect (const std::string& effectFile);
+	virtual ~TerrainEffect ();
 
-    // Create an instance of the effect with unique parameters.  The input
-    // 'fogColorDensity' is a ShaderFloat(1) and stores the fog color in the
-    // first three slots and the fog density in the last slot.
-    VisualEffectInstance* CreateInstance (Texture2D* baseTexture,
-        Texture2D* detailTexture, ShaderFloat* fogColorDensity);
+	// Create an instance of the effect with unique parameters.  The input
+	// 'fogColorDensity' is a ShaderFloat(1) and stores the fog color in the
+	// first three slots and the fog density in the last slot.
+	VisualEffectInstance* CreateInstance (Texture2D* baseTexture,
+	                                      Texture2D* detailTexture, ShaderFloat* fogColorDensity);
 };
 
 WM5_REGISTER_STREAM(TerrainEffect);

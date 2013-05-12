@@ -30,7 +30,7 @@ namespace Wm5
 
 template <typename Real> WM5_MATHEMATICS_ITEM
 bool SphereFit3 (int numPoints, const Vector3<Real>* points,
-    int maxIterations, Sphere3<Real>& sphere, bool initialCenterIsAverage);
+                 int maxIterations, Sphere3<Real>& sphere, bool initialCenterIsAverage);
 
 }
 

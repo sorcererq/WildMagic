@@ -19,23 +19,23 @@ namespace Wm5
 
 class SMUnlitEffect : public GlobalEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(SMUnlitEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(SMUnlitEffect);
 
 public:
-    // Construction and destruction.
-    SMUnlitEffect (const std::string& effectName,
-        ProjectorMatrixConstant* lightPVMatrix, ShaderFloat* lightBSMatrix,
-        ShaderFloat* depthBias, ShaderFloat* texelSize,
-        Texture2D* shadowTexture);
+	// Construction and destruction.
+	SMUnlitEffect (const std::string& effectName,
+	               ProjectorMatrixConstant* lightPVMatrix, ShaderFloat* lightBSMatrix,
+	               ShaderFloat* depthBias, ShaderFloat* texelSize,
+	               Texture2D* shadowTexture);
 
-    virtual ~SMUnlitEffect ();
+	virtual ~SMUnlitEffect ();
 
-    virtual void Draw (Renderer* renderer, const VisibleSet& visibleSet);
+	virtual void Draw (Renderer* renderer, const VisibleSet& visibleSet);
 
 private:
-    VisualEffectInstancePtr mInstance;
+	VisualEffectInstancePtr mInstance;
 };
 
 WM5_REGISTER_STREAM(SMUnlitEffect);

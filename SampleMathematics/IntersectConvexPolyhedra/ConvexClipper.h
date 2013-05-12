@@ -18,78 +18,78 @@ template <class Real>
 class ConvexClipper
 {
 public:
-    class Vertex
-    {
-    public:
-        Vertex ();
+	class Vertex
+	{
+	public:
+		Vertex ();
 
-        Vector3<Real> Point;
-        Real Distance;
-        int Occurs;
-        bool Visible;
-    };
+		Vector3<Real> Point;
+		Real Distance;
+		int Occurs;
+		bool Visible;
+	};
 
-    class Edge
-    {
-    public:
-        Edge ();
+	class Edge
+	{
+	public:
+		Edge ();
 
-        int Vertex[2];
-        int Face[2];
-        bool Visible;
-    };
+		int Vertex[2];
+		int Face[2];
+		bool Visible;
+	};
 
-    class Face
-    {
-    public:
-        Face ();
+	class Face
+	{
+	public:
+		Face ();
 
-        Plane3<Real> Plane;
-        std::set<int> Edges;
-        bool Visible;
-    };
+		Plane3<Real> Plane;
+		std::set<int> Edges;
+		bool Visible;
+	};
 
-    // Construction.
-    ConvexClipper (const ConvexPolyhedron<Real>& polyhedron,
-        Real epsilon = (Real)0);
+	// Construction.
+	ConvexClipper (const ConvexPolyhedron<Real>& polyhedron,
+	               Real epsilon = (Real)0);
 
-    // Discard the portion of the mesh on the negative side of the plane.
-    // This function is valid for any manifold triangle mesh (at most two
-    // triangles shared per edge).
-    int Clip (const Plane3<Real>& plane);
+	// Discard the portion of the mesh on the negative side of the plane.
+	// This function is valid for any manifold triangle mesh (at most two
+	// triangles shared per edge).
+	int Clip (const Plane3<Real>& plane);
 
-    // Convert back to a convex polyhedron.
-    void Convert (ConvexPolyhedron<Real>& polyhedron);
+	// Convert back to a convex polyhedron.
+	void Convert (ConvexPolyhedron<Real>& polyhedron);
 
-    // For debugging.
-    bool Print (const char* filename) const;
+	// For debugging.
+	bool Print (const char* filename) const;
 
 protected:
-    // Support for postprocessing faces.
-    class EdgePlus
-    {
-    public:
-        EdgePlus ();
-        EdgePlus (int e, const Edge& edge);
+	// Support for postprocessing faces.
+	class EdgePlus
+	{
+	public:
+		EdgePlus ();
+		EdgePlus (int e, const Edge& edge);
 
-        bool operator< (const EdgePlus& edge) const;
-        bool operator== (const EdgePlus& edge) const;
-        bool operator!= (const EdgePlus& edge) const;
+		bool operator< (const EdgePlus& edge) const;
+		bool operator== (const EdgePlus& edge) const;
+		bool operator!= (const EdgePlus& edge) const;
 
-        int E, V0, V1, F0, F1;
-    };
+		int E, V0, V1, F0, F1;
+	};
 
-    void Postprocess (int f, Face& face);
+	void Postprocess (int f, Face& face);
 
-    bool GetOpenPolyline (Face& face, int& vStart, int& vFinal);
-    void OrderVertices (Face& face, std::vector<int>& vOrdered);
-    void GetTriangles (std::vector<int>& indices,
-        std::vector<Plane3<Real> >& plane);
+	bool GetOpenPolyline (Face& face, int& vStart, int& vFinal);
+	void OrderVertices (Face& face, std::vector<int>& vOrdered);
+	void GetTriangles (std::vector<int>& indices,
+	                   std::vector<Plane3<Real> >& plane);
 
-    std::vector<Vertex> mVertices;
-    std::vector<Edge> mEdges;
-    std::vector<Face> mFaces;
-    Real mEpsilon;
+	std::vector<Vertex> mVertices;
+	std::vector<Edge> mEdges;
+	std::vector<Face> mFaces;
+	Real mEpsilon;
 };
 
 typedef ConvexClipper<float> ConvexClipperf;

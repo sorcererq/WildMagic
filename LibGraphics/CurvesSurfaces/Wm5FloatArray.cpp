@@ -17,15 +17,15 @@ WM5_IMPLEMENT_DEFAULT_NAMES(Object, FloatArray);
 
 //----------------------------------------------------------------------------
 FloatArray::FloatArray (int numElements, float* elements)
-    :
-    mNumElements(numElements),
-    mElements(elements)
+	:
+	mNumElements(numElements),
+	mElements(elements)
 {
 }
 //----------------------------------------------------------------------------
 FloatArray::~FloatArray ()
 {
-    delete1(mElements);
+	delete1(mElements);
 }
 //----------------------------------------------------------------------------
 
@@ -33,55 +33,55 @@ FloatArray::~FloatArray ()
 // Streaming support.
 //----------------------------------------------------------------------------
 FloatArray::FloatArray (LoadConstructor value)
-    :
-    Object(value),
-    mNumElements(0),
-    mElements(0)
+	:
+	Object(value),
+	mNumElements(0),
+	mElements(0)
 {
 }
 //----------------------------------------------------------------------------
 void FloatArray::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    Object::Load(source);
+	Object::Load(source);
 
-    source.ReadRR(mNumElements, mElements);
+	source.ReadRR(mNumElements, mElements);
 
-    WM5_END_DEBUG_STREAM_LOAD(FloatArray, source);
+	WM5_END_DEBUG_STREAM_LOAD(FloatArray, source);
 }
 //----------------------------------------------------------------------------
 void FloatArray::Link (InStream& source)
 {
-    Object::Link(source);
+	Object::Link(source);
 }
 //----------------------------------------------------------------------------
 void FloatArray::PostLink ()
 {
-    Object::PostLink();
+	Object::PostLink();
 }
 //----------------------------------------------------------------------------
 bool FloatArray::Register (OutStream& target) const
 {
-    return Object::Register(target);
+	return Object::Register(target);
 }
 //----------------------------------------------------------------------------
 void FloatArray::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    Object::Save(target);
+	Object::Save(target);
 
-    target.WriteW(mNumElements, mElements);
+	target.WriteW(mNumElements, mElements);
 
-    WM5_END_DEBUG_STREAM_SAVE(FloatArray, target);
+	WM5_END_DEBUG_STREAM_SAVE(FloatArray, target);
 }
 //----------------------------------------------------------------------------
 int FloatArray::GetStreamingSize () const
 {
-    int size = Object::GetStreamingSize();
-    size += sizeof(mNumElements);
-    size += mNumElements*sizeof(mElements[0]);
-    return size;
+	int size = Object::GetStreamingSize();
+	size += sizeof(mNumElements);
+	size += mNumElements*sizeof(mElements[0]);
+	return size;
 }
 //----------------------------------------------------------------------------

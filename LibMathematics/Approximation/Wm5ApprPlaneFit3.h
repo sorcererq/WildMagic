@@ -22,13 +22,13 @@ namespace Wm5
 // In this case, A, B, and C are returned as MAX_REAL.
 template <typename Real> WM5_MATHEMATICS_ITEM
 bool HeightPlaneFit3 (int numPoints, const Vector3<Real>* points,
-    Real& a, Real& b, Real& c);
+                      Real& a, Real& b, Real& c);
 
 // Least-squares fit of a plane to (x,y,z) data by using distance measurements
 // orthogonal to the proposed plane.
 template <typename Real> WM5_MATHEMATICS_ITEM
 Plane3<Real> OrthogonalPlaneFit3 (int numPoints,
-    const Vector3<Real>* points);
+                                  const Vector3<Real>* points);
 
 }
 

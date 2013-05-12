@@ -18,10 +18,10 @@ namespace Wm5
 class RendererInput
 {
 public:
-    HWND mWindowHandle;
-    HDC mRendererDC;
-    int mPixelFormat;
-    bool mDisableVerticalSync;
+	HWND mWindowHandle;
+	HDC mRendererDC;
+	int mPixelFormat;
+	bool mDisableVerticalSync;
 };
 
 }

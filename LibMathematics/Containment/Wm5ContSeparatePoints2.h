@@ -29,24 +29,24 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM SeparatePoints2
 {
 public:
-    SeparatePoints2 (int numPoints0, const Vector2<Real>* points0,
-        int numPoints1, const Vector2<Real>* points1,
-        Line2<Real>& separatingLine);
+	SeparatePoints2 (int numPoints0, const Vector2<Real>* points0,
+	                 int numPoints1, const Vector2<Real>* points1,
+	                 Line2<Real>& separatingLine);
 
-    // Return the result of the constructor call.  If 'true', the output
-    // line 'separatingLine' is valid.
-    operator bool ();
+	// Return the result of the constructor call.  If 'true', the output
+	// line 'separatingLine' is valid.
+	operator bool ();
 
 private:
-    static int OnSameSide (const Vector2<Real>& lineNormal,
-        Real lineConstant, int numEdges, const int* edges,
-        const Vector2<Real>* points);
+	static int OnSameSide (const Vector2<Real>& lineNormal,
+	                       Real lineConstant, int numEdges, const int* edges,
+	                       const Vector2<Real>* points);
 
-    static int WhichSide (const Vector2<Real>& lineNormal,
-        Real lineConstant, int numEdges, const int* edges,
-        const Vector2<Real>* points);
+	static int WhichSide (const Vector2<Real>& lineNormal,
+	                      Real lineConstant, int numEdges, const int* edges,
+	                      const Vector2<Real>* points);
 
-    bool mSeparated;
+	bool mSeparated;
 };
 
 typedef SeparatePoints2<float> SeparatePoints2f;

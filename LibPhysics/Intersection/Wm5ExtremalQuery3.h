@@ -19,23 +19,23 @@ template <typename Real>
 class WM5_PHYSICS_ITEM ExtremalQuery3
 {
 public:
-    // Abstract base class.
-    virtual ~ExtremalQuery3 ();
+	// Abstract base class.
+	virtual ~ExtremalQuery3 ();
 
-    // Member access.
-    const ConvexPolyhedron3<Real>* GetPolytope () const;
-    const Vector3<Real>* GetFaceNormals () const;
+	// Member access.
+	const ConvexPolyhedron3<Real>* GetPolytope () const;
+	const Vector3<Real>* GetFaceNormals () const;
 
-    // Compute the extreme vertices in the specified direction and return the
-    // indices of the vertices in the polyhedron vertex array.
-    virtual void GetExtremeVertices (const Vector3<Real>& direction,
-        int& positiveDirection, int& negativeDirection) = 0;
+	// Compute the extreme vertices in the specified direction and return the
+	// indices of the vertices in the polyhedron vertex array.
+	virtual void GetExtremeVertices (const Vector3<Real>& direction,
+	                                 int& positiveDirection, int& negativeDirection) = 0;
 
 protected:
-    ExtremalQuery3 (const ConvexPolyhedron3<Real>* polytope);
+	ExtremalQuery3 (const ConvexPolyhedron3<Real>* polytope);
 
-    const ConvexPolyhedron3<Real>* mPolytope;
-    Vector3<Real>* mFaceNormals;
+	const ConvexPolyhedron3<Real>* mPolytope;
+	Vector3<Real>* mFaceNormals;
 };
 
 typedef ExtremalQuery3<float> ExtremalQuery3f;

@@ -14,26 +14,26 @@
 class GpuMaxPyramid2 : public GpuPyramid2
 {
 public:
-    // Construction and destruction.  The return 'success' is 'true' iff the
-    // solver is successfully created.
-    GpuMaxPyramid2 (int dimension0, int dimension1,
-        const Image2<float>& initial, bool& success);
+	// Construction and destruction.  The return 'success' is 'true' iff the
+	// solver is successfully created.
+	GpuMaxPyramid2 (int dimension0, int dimension1,
+	                const Image2<float>& initial, bool& success);
 
-    GpuMaxPyramid2 (int dimension0, int dimension1, GLuint texture0,
-        GLuint texture1, GLuint frameBuffer0, GLuint frameBuffer1,
-        bool& success);
+	GpuMaxPyramid2 (int dimension0, int dimension1, GLuint texture0,
+	                GLuint texture1, GLuint frameBuffer0, GLuint frameBuffer1,
+	                bool& success);
 
-    virtual ~GpuMaxPyramid2 ();
+	virtual ~GpuMaxPyramid2 ();
 
-    // Member access.
-    float GetMaximum () const;
+	// Member access.
+	float GetMaximum () const;
 
 protected:
-    // Read back the texel from the largest level.
-    virtual bool OnPostDraw (int level, int texture, int frameBuffer);
+	// Read back the texel from the largest level.
+	virtual bool OnPostDraw (int level, int texture, int frameBuffer);
 
-    float mMaximum;
-    static const GLchar* msQuadMaximum;
+	float mMaximum;
+	static const GLchar* msQuadMaximum;
 };
 
 #endif

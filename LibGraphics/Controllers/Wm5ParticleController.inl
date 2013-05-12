@@ -9,21 +9,21 @@
 //----------------------------------------------------------------------------
 inline int ParticleController::GetNumParticles () const
 {
-    return mNumParticles;
+	return mNumParticles;
 }
 //----------------------------------------------------------------------------
 inline float* ParticleController::GetParticleLinearSpeed () const
 {
-    return mParticleLinearSpeed;
+	return mParticleLinearSpeed;
 }
 //----------------------------------------------------------------------------
 inline AVector* ParticleController::GetParticleLinearAxis () const
 {
-    return mParticleLinearAxis;
+	return mParticleLinearAxis;
 }
 //----------------------------------------------------------------------------
 inline float* ParticleController::GetParticleSizeChange () const
 {
-    return mParticleSizeChange;
+	return mParticleSizeChange;
 }
 //----------------------------------------------------------------------------

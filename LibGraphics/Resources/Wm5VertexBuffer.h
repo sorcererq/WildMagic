@@ -17,17 +17,17 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM VertexBuffer : public Buffer
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(VertexBuffer);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(VertexBuffer);
 
 public:
-    // Construction and destruction.
-    VertexBuffer (int numVertices, int vertexSize, Usage usage = BU_STATIC);
-    virtual ~VertexBuffer ();
+	// Construction and destruction.
+	VertexBuffer (int numVertices, int vertexSize, Usage usage = BU_STATIC);
+	virtual ~VertexBuffer ();
 
-    // Access the buffer data.
-    inline char* GetData () const;
+	// Access the buffer data.
+	inline char* GetData () const;
 };
 
 WM5_REGISTER_STREAM(VertexBuffer);

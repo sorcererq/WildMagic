@@ -14,30 +14,30 @@ using namespace Wm5;
 
 class BSplineFitContinuous : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BSplineFitContinuous ();
+	BSplineFitContinuous ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
 
 protected:
-    void CreateScene ();
+	void CreateScene ();
 
-    Polysegment* OriginalPolysegment (int numCtrlPoints,
-        Vector3d* ctrlPoints);
+	Polysegment* OriginalPolysegment (int numCtrlPoints,
+	                                  Vector3d* ctrlPoints);
 
-    Polysegment* ReducedPolysegment (int numCtrlPoints, Vector3d* ctrlPoints,
-        double fraction);
+	Polysegment* ReducedPolysegment (int numCtrlPoints, Vector3d* ctrlPoints,
+	                                 double fraction);
 
-    NodePtr mScene, mTrnNode;
-    Culler mCuller;
-    int mDegree;
+	NodePtr mScene, mTrnNode;
+	Culler mCuller;
+	int mDegree;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(BSplineFitContinuous);

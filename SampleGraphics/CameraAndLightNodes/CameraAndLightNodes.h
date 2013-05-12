@@ -14,41 +14,41 @@ using namespace Wm5;
 
 class CameraAndLightNodes : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    CameraAndLightNodes ();
+	CameraAndLightNodes ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
-    virtual void MoveForward ();
-    virtual void MoveBackward ();
-    virtual void TurnLeft ();
-    virtual void TurnRight ();
-    virtual void MoveUp ();
-    virtual void MoveDown ();
-    virtual void LookUp ();
-    virtual void LookDown ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual void MoveForward ();
+	virtual void MoveBackward ();
+	virtual void TurnLeft ();
+	virtual void TurnRight ();
+	virtual void MoveUp ();
+	virtual void MoveDown ();
+	virtual void LookUp ();
+	virtual void LookDown ();
 
 protected:
-    void CreateScene ();
-    TriMesh* CreateGround ();
-    TriMesh* CreateLightTarget (Light* light);
-    Node* CreateLightFixture (LightPtr& adjustableLight);
-    void CreateScreenPolygon ();
+	void CreateScene ();
+	TriMesh* CreateGround ();
+	TriMesh* CreateLightTarget (Light* light);
+	Node* CreateLightFixture (LightPtr& adjustableLight);
+	void CreateScreenPolygon ();
 
-    NodePtr mScene;
-    WireStatePtr mWireState;
-    CameraNodePtr mCNode;
-    CameraPtr mScreenCamera;
-    TriMeshPtr mSky;
-    LightPtr mAdjustableLight0, mAdjustableLight1;
-    Culler mCuller;
+	NodePtr mScene;
+	WireStatePtr mWireState;
+	CameraNodePtr mCNode;
+	CameraPtr mScreenCamera;
+	TriMeshPtr mSky;
+	LightPtr mAdjustableLight0, mAdjustableLight1;
+	Culler mCuller;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(CameraAndLightNodes);

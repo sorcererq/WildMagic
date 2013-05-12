@@ -18,42 +18,42 @@ using namespace Wm5;
 
 class MapTextureToQuad : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    MapTextureToQuad ();
+	MapTextureToQuad ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
 
-    // Allows user to drag vertices of convex quadrilateral.
-    virtual bool OnMouseClick (int button, int state, int x, int y,
-        unsigned int modifiers);
-    virtual bool OnMotion (int button, int x, int y,
-        unsigned int modifiers);
+	// Allows user to drag vertices of convex quadrilateral.
+	virtual bool OnMouseClick (int button, int state, int x, int y,
+	                           unsigned int modifiers);
+	virtual bool OnMotion (int button, int x, int y,
+	                       unsigned int modifiers);
 
 protected:
-    void CreateMapping ();
-    void SelectVertex (const Vector2f& position);
-    void UpdateQuadrilateral (const Vector2f& position);
+	void CreateMapping ();
+	void SelectVertex (const Vector2f& position);
+	void UpdateQuadrilateral (const Vector2f& position);
 
-    // The image to perspectively draw onto the convex quadrilateral.
-    Texture2D* mTexture;
+	// The image to perspectively draw onto the convex quadrilateral.
+	Texture2D* mTexture;
 
-    // The four vertices of the convex quadrilateral in counterclockwise
-    // order:  Q00 = V[0], Q10 = V[1], Q11 = V[2], Q01 = V[3].
-    Vector2f mVertex[4];
+	// The four vertices of the convex quadrilateral in counterclockwise
+	// order:  Q00 = V[0], Q10 = V[1], Q11 = V[2], Q01 = V[3].
+	Vector2f mVertex[4];
 
 #ifdef USE_HM_QUAD_TO_SQR
-    HmQuadToSqrf* mMapping;
+	HmQuadToSqrf* mMapping;
 #else
-    BiQuadToSqrf* mMapping;
+	BiQuadToSqrf* mMapping;
 #endif
 
-    // For dragging the quadrilateral vertices.
-    bool mMouseDown;
-    int mSelected;
+	// For dragging the quadrilateral vertices.
+	bool mMouseDown;
+	int mSelected;
 };
 
 WM5_REGISTER_INITIALIZE(MapTextureToQuad);

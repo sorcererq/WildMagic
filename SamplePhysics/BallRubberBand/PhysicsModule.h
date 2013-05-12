@@ -15,39 +15,39 @@ using namespace Wm5;
 class PhysicsModule
 {
 public:
-    // Construction and destruction.
-    PhysicsModule ();
-    ~PhysicsModule ();
+	// Construction and destruction.
+	PhysicsModule ();
+	~PhysicsModule ();
 
-    // Initialize the system.
-    void Initialize (double time, double deltaTime,
-        const Vector2d& initialPosition, const Vector2d& initialVelocity);
+	// Initialize the system.
+	void Initialize (double time, double deltaTime,
+	                 const Vector2d& initialPosition, const Vector2d& initialVelocity);
 
-    // Apply a single step of the simulation.
-    void Update ();
+	// Apply a single step of the simulation.
+	void Update ();
 
-    // Access the current state.
-    inline double GetTime () const;
-    inline double GetDeltaTime () const;
-    inline const Vector2d& GetPosition () const;
-    inline const Vector2d& GetVelocity () const;
-    inline double GetFrequency () const;
+	// Access the current state.
+	inline double GetTime () const;
+	inline double GetDeltaTime () const;
+	inline const Vector2d& GetPosition () const;
+	inline const Vector2d& GetVelocity () const;
+	inline double GetFrequency () const;
 
-    // Physical constants.
-    double SpringConstant;  // c
-    double Mass;  // m
+	// Physical constants.
+	double SpringConstant;  // c
+	double Mass;  // m
 
 private:
-    void Evaluate ();
+	void Evaluate ();
 
-    // State variables.
-    double mTime, mDeltaTime;
-    Vector2d mPosition, mVelocity;
+	// State variables.
+	double mTime, mDeltaTime;
+	Vector2d mPosition, mVelocity;
 
-    // Auxiliary variables.
-    Vector2d mInitialPosition;
-    double mFrequency;  // sqrt(c/m)
-    Vector2d mVelDivFreq;  // initialVelocity/frequency
+	// Auxiliary variables.
+	Vector2d mInitialPosition;
+	double mFrequency;  // sqrt(c/m)
+	Vector2d mVelDivFreq;  // initialVelocity/frequency
 };
 
 #include "PhysicsModule.inl"

@@ -25,7 +25,7 @@ namespace Wm5
 
 template <typename Real> WM5_MATHEMATICS_ITEM
 void ApproximateEllipseByArcs (Real a, Real b, int numArcs,
-    Vector2<Real>*& points, Vector2<Real>*& centers, Real*& radii);
+                               Vector2<Real>*& points, Vector2<Real>*& centers, Real*& radii);
 
 }
 

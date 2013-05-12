@@ -18,11 +18,11 @@ WM5_IMPLEMENT_FACTORY(LightModelDVectorConstant);
 
 //----------------------------------------------------------------------------
 LightModelDVectorConstant::LightModelDVectorConstant (Light* light)
-    :
-    ShaderFloat(1),
-    mLight(light)
+	:
+	ShaderFloat(1),
+	mLight(light)
 {
-    EnableUpdater();
+	EnableUpdater();
 }
 //----------------------------------------------------------------------------
 LightModelDVectorConstant::~LightModelDVectorConstant ()
@@ -31,15 +31,15 @@ LightModelDVectorConstant::~LightModelDVectorConstant ()
 //----------------------------------------------------------------------------
 void LightModelDVectorConstant::Update (const Visual* visual, const Camera*)
 {
-    const HMatrix& worldInvMatrix = visual->WorldTransform.Inverse();
-    AVector modelDVector = worldInvMatrix*mLight->DVector;
+	const HMatrix& worldInvMatrix = visual->WorldTransform.Inverse();
+	AVector modelDVector = worldInvMatrix*mLight->DVector;
 
-    const float* source = (const float*)modelDVector;
-    float* target = mData;
-    for (int i = 0; i < 4; ++i)
-    {
-        *target++ = *source++;
-    }
+	const float* source = (const float*)modelDVector;
+	float* target = mData;
+	for (int i = 0; i < 4; ++i)
+	{
+		*target++ = *source++;
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -48,22 +48,22 @@ void LightModelDVectorConstant::Update (const Visual* visual, const Camera*)
 //----------------------------------------------------------------------------
 Object* LightModelDVectorConstant::GetObjectByName (const std::string& name)
 {
-    Object* found = ShaderFloat::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = ShaderFloat::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    WM5_GET_OBJECT_BY_NAME(mLight, name, found);
-    return 0;
+	WM5_GET_OBJECT_BY_NAME(mLight, name, found);
+	return 0;
 }
 //----------------------------------------------------------------------------
 void LightModelDVectorConstant::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+        std::vector<Object*>& objects)
 {
-    ShaderFloat::GetAllObjectsByName(name, objects);
+	ShaderFloat::GetAllObjectsByName(name, objects);
 
-    WM5_GET_ALL_OBJECTS_BY_NAME(mLight, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mLight, name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -71,59 +71,59 @@ void LightModelDVectorConstant::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 LightModelDVectorConstant::LightModelDVectorConstant (LoadConstructor value)
-    :
-    ShaderFloat(value)
+	:
+	ShaderFloat(value)
 {
 }
 //----------------------------------------------------------------------------
 void LightModelDVectorConstant::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    ShaderFloat::Load(source);
+	ShaderFloat::Load(source);
 
-    source.ReadPointer(mLight);
+	source.ReadPointer(mLight);
 
-    WM5_END_DEBUG_STREAM_LOAD(LightModelDVectorConstant, source);
+	WM5_END_DEBUG_STREAM_LOAD(LightModelDVectorConstant, source);
 }
 //----------------------------------------------------------------------------
 void LightModelDVectorConstant::Link (InStream& source)
 {
-    ShaderFloat::Link(source);
+	ShaderFloat::Link(source);
 
-    source.ResolveLink(mLight);
+	source.ResolveLink(mLight);
 }
 //----------------------------------------------------------------------------
 void LightModelDVectorConstant::PostLink ()
 {
-    ShaderFloat::PostLink();
+	ShaderFloat::PostLink();
 }
 //----------------------------------------------------------------------------
 bool LightModelDVectorConstant::Register (OutStream& target) const
 {
-    if (ShaderFloat::Register(target))
-    {
-        target.Register(mLight);
-        return true;
-    }
-    return false;
+	if (ShaderFloat::Register(target))
+	{
+		target.Register(mLight);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void LightModelDVectorConstant::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    ShaderFloat::Save(target);
+	ShaderFloat::Save(target);
 
-    target.WritePointer(mLight);
+	target.WritePointer(mLight);
 
-    WM5_END_DEBUG_STREAM_SAVE(LightModelDVectorConstant, target);
+	WM5_END_DEBUG_STREAM_SAVE(LightModelDVectorConstant, target);
 }
 //----------------------------------------------------------------------------
 int LightModelDVectorConstant::GetStreamingSize () const
 {
-    int size = ShaderFloat::GetStreamingSize();
-    size += WM5_POINTERSIZE(mLight);
-    return size;
+	int size = ShaderFloat::GetStreamingSize();
+	size += WM5_POINTERSIZE(mLight);
+	return size;
 }
 //----------------------------------------------------------------------------

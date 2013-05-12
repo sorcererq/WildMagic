@@ -14,36 +14,36 @@ using namespace Wm5;
 
 class Triangulation : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    Triangulation ();
+	Triangulation ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void ClearAll ();
+	void ClearAll ();
 
-    void DoExample0 ();
-    void DoExample1 ();
-    void DoExample2 ();
-    void DoExample3 ();
-    void DoExample4 ();
+	void DoExample0 ();
+	void DoExample1 ();
+	void DoExample2 ();
+	void DoExample3 ();
+	void DoExample4 ();
 
-    std::vector<Vector2f> mPositions;
-    std::vector<int> mOuter, mInner0, mInner1;
-    std::vector<std::vector<int>*> mInners;
-    TriangulateEC<float>::Tree* mRoot;
-    std::vector<Vector2f> mFillSeeds;
-    std::vector<int> mTriangles;
+	std::vector<Vector2f> mPositions;
+	std::vector<int> mOuter, mInner0, mInner1;
+	std::vector<std::vector<int>*> mInners;
+	TriangulateEC<float>::Tree* mRoot;
+	std::vector<Vector2f> mFillSeeds;
+	std::vector<int> mTriangles;
 
-    Query::Type mType;
-    float mEpsilon;
-    int mExample;
+	Query::Type mType;
+	float mEpsilon;
+	int mExample;
 };
 
 WM5_REGISTER_INITIALIZE(Triangulation);

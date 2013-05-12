@@ -15,24 +15,24 @@ using namespace Wm5;
 
 class BinaryOperations : public ConsoleApplication
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BinaryOperations ();
+	BinaryOperations ();
 
-    virtual int Main (int numArguments, char** arguments);
+	virtual int Main (int numArguments, char** arguments);
 
 protected:
-    void Get2DBoundaries ();
-    void Get2DComponents8 ();
-    void Get2DComponents4 ();
-    void Get2DL1Distance ();
-    void Get2DL2Distance ();
-    void Get2DSkeleton ();
-    void Get3DComponents26 ();
-    void Get3DComponents18 ();
-    void Get3DComponents6 ();
+	void Get2DBoundaries ();
+	void Get2DComponents8 ();
+	void Get2DComponents4 ();
+	void Get2DL1Distance ();
+	void Get2DL2Distance ();
+	void Get2DSkeleton ();
+	void Get3DComponents26 ();
+	void Get3DComponents18 ();
+	void Get3DComponents6 ();
 };
 
 WM5_REGISTER_INITIALIZE(BinaryOperations);

@@ -28,53 +28,53 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM IntpQdrNonuniform2
 {
 public:
-    // Construction and destruction.  If you want IntpQdrNonuniform2 to
-    // delete the input array during destruction, set owner to 'true'.
-    // Otherwise, you own the array and must delete it yourself.
-    //
-    // The first constructor requires you to specify function values F and
-    // first-order partial derivative values Fx and Fy.  The second
-    // constructor requires only F, but the Fx and Fy values are estimated
-    // at the sample points.
+	// Construction and destruction.  If you want IntpQdrNonuniform2 to
+	// delete the input array during destruction, set owner to 'true'.
+	// Otherwise, you own the array and must delete it yourself.
+	//
+	// The first constructor requires you to specify function values F and
+	// first-order partial derivative values Fx and Fy.  The second
+	// constructor requires only F, but the Fx and Fy values are estimated
+	// at the sample points.
 
-    IntpQdrNonuniform2 (const Delaunay2<Real>& DT, Real* F, Real* FX,
-        Real* FY, bool owner);
+	IntpQdrNonuniform2 (const Delaunay2<Real>& DT, Real* F, Real* FX,
+	                    Real* FY, bool owner);
 
-    IntpQdrNonuniform2 (const Delaunay2<Real>& DT, Real* F, bool owner);
+	IntpQdrNonuniform2 (const Delaunay2<Real>& DT, Real* F, bool owner);
 
-    ~IntpQdrNonuniform2 ();
+	~IntpQdrNonuniform2 ();
 
-    // Quadratic interpolation.  The return value is 'true' if and only if the
-    // input point is in the convex hull of the input vertices, in which case
-    // the interpolation is valid.
-    bool Evaluate (const Vector2<Real>& P, Real& F, Real& FX, Real& FY);
+	// Quadratic interpolation.  The return value is 'true' if and only if the
+	// input point is in the convex hull of the input vertices, in which case
+	// the interpolation is valid.
+	bool Evaluate (const Vector2<Real>& P, Real& F, Real& FX, Real& FY);
 
 private:
-    class TriangleData
-    {
-    public:
-        Vector2<Real> Center;
-        Vector2<Real> Intersect[3];
-        Real Coeff[19];
-    };
+	class TriangleData
+	{
+	public:
+		Vector2<Real> Center;
+		Vector2<Real> Intersect[3];
+		Real Coeff[19];
+	};
 
-    class Jet
-    {
-    public:
-        Real F, FX, FY;
-    };
+	class Jet
+	{
+	public:
+		Real F, FX, FY;
+	};
 
-    const Delaunay2<Real>* mDT;
-    Real* mF;
-    Real* mFX;
-    Real* mFY;
-    TriangleData* mTData;  // triangle data
-    bool mFOwner, mFXFYOwner;
+	const Delaunay2<Real>* mDT;
+	Real* mF;
+	Real* mFX;
+	Real* mFY;
+	TriangleData* mTData;  // triangle data
+	bool mFOwner, mFXFYOwner;
 
-    void EstimateDerivatives ();
-    void ProcessTriangles ();
-    void ComputeCrossEdgeIntersections (int t);
-    void ComputeCoefficients (int t);
+	void EstimateDerivatives ();
+	void ProcessTriangles ();
+	void ComputeCrossEdgeIntersections (int t);
+	void ComputeCoefficients (int t);
 };
 
 typedef IntpQdrNonuniform2<float> IntpQdrNonuniform2f;

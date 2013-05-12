@@ -12,29 +12,29 @@
 class MTEdge
 {
 public:
-    MTEdge (int label = -1);
-    MTEdge (const MTEdge& edge);
-    virtual ~MTEdge ();
+	MTEdge (int label = -1);
+	MTEdge (const MTEdge& edge);
+	virtual ~MTEdge ();
 
-    MTEdge& operator= (const MTEdge& edge);
+	MTEdge& operator= (const MTEdge& edge);
 
-    inline int GetLabel () const;
-    inline int& Label ();
+	inline int GetLabel () const;
+	inline int& Label ();
 
-    inline int GetVertex (int i) const;
-    inline int& Vertex (int i);
-    bool ReplaceVertex (int vOld, int vNew);
+	inline int GetVertex (int i) const;
+	inline int& Vertex (int i);
+	bool ReplaceVertex (int vOld, int vNew);
 
-    inline int GetTriangle (int i) const;
-    inline int& Triangle (int i);
-    bool ReplaceTriangle (int tOld, int tNew);
+	inline int GetTriangle (int i) const;
+	inline int& Triangle (int i);
+	bool ReplaceTriangle (int tOld, int tNew);
 
-    bool operator== (const MTEdge& edge) const;
+	bool operator== (const MTEdge& edge) const;
 
 protected:
-    int mLabel;
-    int mVertex[2];
-    int mTriangle[2];
+	int mLabel;
+	int mVertex[2];
+	int mTriangle[2];
 };
 
 #include "MTEdge.inl"

@@ -17,26 +17,26 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM FloatArray : public Object
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(FloatArray);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(FloatArray);
 
 public:
-    // Construction and destruction.
-    FloatArray (int numElements = 0, float* elements = 0);
-    virtual ~FloatArray ();
+	// Construction and destruction.
+	FloatArray (int numElements = 0, float* elements = 0);
+	virtual ~FloatArray ();
 
-    // Member access.
-    inline int GetNumElements () const;
-    inline float* GetData () const;
-    inline operator const float* () const;
-    inline operator float* ();
-    inline const float& operator[] (int i) const;
-    inline float& operator[] (int i);
+	// Member access.
+	inline int GetNumElements () const;
+	inline float* GetData () const;
+	inline operator const float* () const;
+	inline operator float* ();
+	inline const float& operator[] (int i) const;
+	inline float& operator[] (int i);
 
 protected:
-    int mNumElements;
-    float* mElements;
+	int mNumElements;
+	float* mElements;
 };
 
 WM5_REGISTER_STREAM(FloatArray);

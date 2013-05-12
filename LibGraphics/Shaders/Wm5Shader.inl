@@ -9,21 +9,21 @@
 //----------------------------------------------------------------------------
 inline int Shader::GetNumInputs () const
 {
-    return mNumInputs;
+	return mNumInputs;
 }
 //----------------------------------------------------------------------------
 inline int Shader::GetNumOutputs () const
 {
-    return mNumOutputs;
+	return mNumOutputs;
 }
 //----------------------------------------------------------------------------
 inline int Shader::GetNumConstants () const
 {
-    return mNumConstants;
+	return mNumConstants;
 }
 //----------------------------------------------------------------------------
 inline int Shader::GetNumSamplers () const
 {
-    return mNumSamplers;
+	return mNumSamplers;
 }
 //----------------------------------------------------------------------------

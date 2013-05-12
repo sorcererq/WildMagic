@@ -19,34 +19,34 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrLine3Torus3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrLine3Torus3 (const Line3<Real>& line, const Torus3<Real>& torus);
+	IntrLine3Torus3 (const Line3<Real>& line, const Torus3<Real>& torus);
 
-    // Object access.
-    const Line3<Real>& GetLine () const;
-    const Torus3<Real>& GetTorus () const;
+	// Object access.
+	const Line3<Real>& GetLine () const;
+	const Torus3<Real>& GetTorus () const;
 
-    // Static intersection query.
-    virtual bool Find ();
+	// Static intersection query.
+	virtual bool Find ();
 
-    // The intersection set (quantity is at most 4).
-    int GetQuantity () const;
-    const Vector3<Real>& GetPoint (int i) const;
+	// The intersection set (quantity is at most 4).
+	int GetQuantity () const;
+	const Vector3<Real>& GetPoint (int i) const;
 
 private:
-    using Intersector<Real,Vector3<Real> >::IT_EMPTY;
-    using Intersector<Real,Vector3<Real> >::IT_POINT;
-    using Intersector<Real,Vector3<Real> >::mIntersectionType;
+	using Intersector<Real,Vector3<Real> >::IT_EMPTY;
+	using Intersector<Real,Vector3<Real> >::IT_POINT;
+	using Intersector<Real,Vector3<Real> >::mIntersectionType;
 
-    // The objects to intersect.
-    const Line3<Real>* mLine;
-    const Torus3<Real>* mTorus;
+	// The objects to intersect.
+	const Line3<Real>* mLine;
+	const Torus3<Real>* mTorus;
 
-    // Information about the intersection set.
-    int mQuantity;
-    Vector3<Real> mPoint[4];
+	// Information about the intersection set.
+	int mQuantity;
+	Vector3<Real> mPoint[4];
 };
 
 typedef IntrLine3Torus3<float> IntrLine3Torus3f;

@@ -15,36 +15,36 @@ using namespace Wm5;
 
 class GelatinCube : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    GelatinCube ();
+	GelatinCube ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    void CreateSprings ();
-    void CreateBox ();
-    void PhysicsTick ();
-    void GraphicsTick ();
+	void CreateScene ();
+	void CreateSprings ();
+	void CreateBox ();
+	void PhysicsTick ();
+	void GraphicsTick ();
 
-    // The scene graph
-    NodePtr mScene, mTrnNode;
-    WireStatePtr mWireState;
-    BoxSurfacePtr mBox;
-    Culler mCuller;
+	// The scene graph
+	NodePtr mScene, mTrnNode;
+	WireStatePtr mWireState;
+	BoxSurfacePtr mBox;
+	Culler mCuller;
 
-    // The masses are located at the control points of a spline surface.
-    // The control points are connected in a mass-spring system.
-    BSplineVolumef* mSpline;
-    PhysicsModule* mModule;
+	// The masses are located at the control points of a spline surface.
+	// The control points are connected in a mass-spring system.
+	BSplineVolumef* mSpline;
+	PhysicsModule* mModule;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(GelatinCube);

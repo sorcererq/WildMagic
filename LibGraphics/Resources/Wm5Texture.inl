@@ -9,81 +9,81 @@
 //----------------------------------------------------------------------------
 inline Texture::Format Texture::GetFormat () const
 {
-    return mFormat;
+	return mFormat;
 }
 //----------------------------------------------------------------------------
 inline Texture::Type Texture::GetTextureType () const
 {
-    return mType;
+	return mType;
 }
 //----------------------------------------------------------------------------
 inline Buffer::Usage Texture::GetUsage () const
 {
-    return mUsage;
+	return mUsage;
 }
 //----------------------------------------------------------------------------
 inline int Texture::GetNumLevels () const
 {
-    return mNumLevels;
+	return mNumLevels;
 }
 //----------------------------------------------------------------------------
 inline int Texture::GetNumDimensions () const
 {
-    return msNumDimensions[mType];
+	return msNumDimensions[mType];
 }
 //----------------------------------------------------------------------------
 inline int Texture::GetDimension (int i, int level) const
 {
-    return mDimension[i][level];
+	return mDimension[i][level];
 }
 //----------------------------------------------------------------------------
 inline int Texture::GetNumLevelBytes (int level) const
 {
-    return mNumLevelBytes[level];
+	return mNumLevelBytes[level];
 }
 //----------------------------------------------------------------------------
 inline int Texture::GetNumTotalBytes () const
 {
-    return mNumTotalBytes;
+	return mNumTotalBytes;
 }
 //----------------------------------------------------------------------------
 inline int Texture::GetLevelOffset (int level) const
 {
-    return mLevelOffsets[level];
+	return mLevelOffsets[level];
 }
 //----------------------------------------------------------------------------
 inline int Texture::GetPixelSize () const
 {
-    return msPixelSize[mFormat];
+	return msPixelSize[mFormat];
 }
 //----------------------------------------------------------------------------
 inline int Texture::GetPixelSize (Format tformat)
 {
-    return msPixelSize[tformat];
+	return msPixelSize[tformat];
 }
 //----------------------------------------------------------------------------
 inline bool Texture::IsCompressed () const
 {
-    return mFormat == TF_DXT1 || mFormat == TF_DXT3 || mFormat == TF_DXT5;
+	return mFormat == TF_DXT1 || mFormat == TF_DXT3 || mFormat == TF_DXT5;
 }
 //----------------------------------------------------------------------------
 inline bool Texture::IsMipmapable () const
 {
-    return msMipmapable[mFormat];
+	return msMipmapable[mFormat];
 }
 //----------------------------------------------------------------------------
 inline const char* Texture::GetData () const
 {
-    return mData;
+	return mData;
 }
 //----------------------------------------------------------------------------
 inline void Texture::SetUserField (int i, int userField)
 {
-    mUserField[i] = userField;
+	mUserField[i] = userField;
 }
 //----------------------------------------------------------------------------
 inline int Texture::GetUserField (int i) const
 {
-    return mUserField[i];
+	return mUserField[i];
 }
 //----------------------------------------------------------------------------

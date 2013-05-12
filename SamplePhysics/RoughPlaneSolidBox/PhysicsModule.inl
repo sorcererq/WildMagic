@@ -9,41 +9,41 @@
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetTime () const
 {
-    return mTime;
+	return mTime;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetDeltaTime () const
 {
-    return mDeltaTime;
+	return mDeltaTime;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetX () const
 {
-    return mState[0];
+	return mState[0];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetXDer () const
 {
-    return mState[1];
+	return mState[1];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetW () const
 {
-    return mState[2];
+	return mState[2];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetWDer () const
 {
-    return mState[3];
+	return mState[3];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetTheta () const
 {
-    return mState[4];
+	return mState[4];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetThetaDer () const
 {
-    return mState[5];
+	return mState[5];
 }
 //----------------------------------------------------------------------------

@@ -18,11 +18,11 @@ WM5_IMPLEMENT_FACTORY(LightSpecularConstant);
 
 //----------------------------------------------------------------------------
 LightSpecularConstant::LightSpecularConstant (Light* light)
-    :
-    ShaderFloat(1),
-    mLight(light)
+	:
+	ShaderFloat(1),
+	mLight(light)
 {
-    EnableUpdater();
+	EnableUpdater();
 }
 //----------------------------------------------------------------------------
 LightSpecularConstant::~LightSpecularConstant ()
@@ -31,17 +31,17 @@ LightSpecularConstant::~LightSpecularConstant ()
 //----------------------------------------------------------------------------
 Light* LightSpecularConstant::GetLight ()
 {
-    return mLight;
+	return mLight;
 }
 //----------------------------------------------------------------------------
 void LightSpecularConstant::Update (const Visual*, const Camera*)
 {
-    const float* source = (const float*)mLight->Specular;
-    float* target = mData;
-    for (int i = 0; i < 4; ++i)
-    {
-        *target++ = *source++;
-    }
+	const float* source = (const float*)mLight->Specular;
+	float* target = mData;
+	for (int i = 0; i < 4; ++i)
+	{
+		*target++ = *source++;
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -50,22 +50,22 @@ void LightSpecularConstant::Update (const Visual*, const Camera*)
 //----------------------------------------------------------------------------
 Object* LightSpecularConstant::GetObjectByName (const std::string& name)
 {
-    Object* found = ShaderFloat::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = ShaderFloat::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    WM5_GET_OBJECT_BY_NAME(mLight, name, found);
-    return 0;
+	WM5_GET_OBJECT_BY_NAME(mLight, name, found);
+	return 0;
 }
 //----------------------------------------------------------------------------
 void LightSpecularConstant::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+        std::vector<Object*>& objects)
 {
-    ShaderFloat::GetAllObjectsByName(name, objects);
+	ShaderFloat::GetAllObjectsByName(name, objects);
 
-    WM5_GET_ALL_OBJECTS_BY_NAME(mLight, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mLight, name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -73,59 +73,59 @@ void LightSpecularConstant::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 LightSpecularConstant::LightSpecularConstant (LoadConstructor value)
-    :
-    ShaderFloat(value)
+	:
+	ShaderFloat(value)
 {
 }
 //----------------------------------------------------------------------------
 void LightSpecularConstant::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    ShaderFloat::Load(source);
+	ShaderFloat::Load(source);
 
-    source.ReadPointer(mLight);
+	source.ReadPointer(mLight);
 
-    WM5_END_DEBUG_STREAM_LOAD(LightSpecularConstant, source);
+	WM5_END_DEBUG_STREAM_LOAD(LightSpecularConstant, source);
 }
 //----------------------------------------------------------------------------
 void LightSpecularConstant::Link (InStream& source)
 {
-    ShaderFloat::Link(source);
+	ShaderFloat::Link(source);
 
-    source.ResolveLink(mLight);
+	source.ResolveLink(mLight);
 }
 //----------------------------------------------------------------------------
 void LightSpecularConstant::PostLink ()
 {
-    ShaderFloat::PostLink();
+	ShaderFloat::PostLink();
 }
 //----------------------------------------------------------------------------
 bool LightSpecularConstant::Register (OutStream& target) const
 {
-    if (ShaderFloat::Register(target))
-    {
-        target.Register(mLight);
-        return true;
-    }
-    return false;
+	if (ShaderFloat::Register(target))
+	{
+		target.Register(mLight);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void LightSpecularConstant::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    ShaderFloat::Save(target);
+	ShaderFloat::Save(target);
 
-    target.WritePointer(mLight);
+	target.WritePointer(mLight);
 
-    WM5_END_DEBUG_STREAM_SAVE(LightSpecularConstant, target);
+	WM5_END_DEBUG_STREAM_SAVE(LightSpecularConstant, target);
 }
 //----------------------------------------------------------------------------
 int LightSpecularConstant::GetStreamingSize () const
 {
-    int size = ShaderFloat::GetStreamingSize();
-    size += WM5_POINTERSIZE(mLight);
-    return size;
+	int size = ShaderFloat::GetStreamingSize();
+	size += WM5_POINTERSIZE(mLight);
+	return size;
 }
 //----------------------------------------------------------------------------

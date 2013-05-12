@@ -18,12 +18,12 @@ namespace Wm5
 class RendererInput
 {
 public:
-    // Input parameter.
-    Display* mDisplay;
+	// Input parameter.
+	Display* mDisplay;
 
-    // Output parameter.
-    XVisualInfo* mVisual;
-    GLXContext mContext;
+	// Output parameter.
+	XVisualInfo* mVisual;
+	GLXContext mContext;
 };
 
 }

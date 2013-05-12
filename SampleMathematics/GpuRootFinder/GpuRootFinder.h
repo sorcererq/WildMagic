@@ -15,29 +15,29 @@ using namespace Wm5;
 
 class GpuRootFinder : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    GpuRootFinder ();
+	GpuRootFinder ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
 
 protected:
-    // In this example, the function is f(x) = (x-1.1)*(x+2.2).  You may
-    // replace it by another function, in which case you also need to
-    // modify "MyFunction" in RootFinder.fx and recompile via Compile.bat.
-    // The assembly code in RootFinder.ps_3_0.txt and RootFinder.arbfp1.txt
-    // must be copied and stringified in RootFinderEffect::msPPrograms.
-    static float MyFunction (float x);
+	// In this example, the function is f(x) = (x-1.1)*(x+2.2).  You may
+	// replace it by another function, in which case you also need to
+	// modify "MyFunction" in RootFinder.fx and recompile via Compile.bat.
+	// The assembly code in RootFinder.ps_3_0.txt and RootFinder.arbfp1.txt
+	// must be copied and stringified in RootFinderEffect::msPPrograms.
+	static float MyFunction (float x);
 
-    CameraPtr mScreenCamera;
-    RenderTargetPtr mRenderTarget;
-    TriMeshPtr mScreenPolygon;
-    Texture2D* mResults;
-    Float4 mTextColor;
-    std::set<float> mRoots;
+	CameraPtr mScreenCamera;
+	RenderTargetPtr mRenderTarget;
+	TriMeshPtr mScreenPolygon;
+	Texture2D* mResults;
+	Float4 mTextColor;
+	std::set<float> mRoots;
 };
 
 WM5_REGISTER_INITIALIZE(GpuRootFinder);

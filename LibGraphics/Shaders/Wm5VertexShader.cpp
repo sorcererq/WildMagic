@@ -21,25 +21,25 @@ VertexShader::Profile VertexShader::msProfile = VertexShader::VP_NONE;
 
 //----------------------------------------------------------------------------
 VertexShader::VertexShader (const std::string& programName, int numInputs,
-    int numOutputs, int numConstants, int numSamplers, bool profileOwner)
-    :
-    Shader(programName, numInputs, numOutputs, numConstants, numSamplers,
-        profileOwner)
+                            int numOutputs, int numConstants, int numSamplers, bool profileOwner)
+	:
+	Shader(programName, numInputs, numOutputs, numConstants, numSamplers,
+	       profileOwner)
 {
 }
 //----------------------------------------------------------------------------
 VertexShader::~VertexShader ()
 {
-    Renderer::UnbindAll(this);
+	Renderer::UnbindAll(this);
 }
 //----------------------------------------------------------------------------
 void VertexShader::SetProfile (Profile profile)
 {
-    msProfile = profile;
+	msProfile = profile;
 }
 //----------------------------------------------------------------------------
 VertexShader::Profile VertexShader::GetProfile ()
 {
-    return msProfile;
+	return msProfile;
 }
 //----------------------------------------------------------------------------

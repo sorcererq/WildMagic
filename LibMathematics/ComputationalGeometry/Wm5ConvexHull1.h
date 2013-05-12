@@ -25,45 +25,45 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM ConvexHull1 : public ConvexHull<Real>
 {
 public:
-    // The input to the constructor is the array of vertices you want to sort.
-    // If you want ConvexHull1 to delete the array during destruction, set
-    // 'owner' to 'true'.  Otherwise, you own the array and must delete it
-    // yourself.  TO DO:  The computation type is currently ignored by this
-    // class.  Add support for the various types later.
-    ConvexHull1 (int numVertices, Real* vertices, Real epsilon,
-        bool owner, Query::Type queryType);
-    virtual ~ConvexHull1 ();
+	// The input to the constructor is the array of vertices you want to sort.
+	// If you want ConvexHull1 to delete the array during destruction, set
+	// 'owner' to 'true'.  Otherwise, you own the array and must delete it
+	// yourself.  TO DO:  The computation type is currently ignored by this
+	// class.  Add support for the various types later.
+	ConvexHull1 (int numVertices, Real* vertices, Real epsilon,
+	             bool owner, Query::Type queryType);
+	virtual ~ConvexHull1 ();
 
-    // The input vertex array.
-    const Real* GetVertices () const;
+	// The input vertex array.
+	const Real* GetVertices () const;
 
-    // Support for streaming to/from disk.
-    ConvexHull1 (const char* filename, int mode = FileIO::FM_DEFAULT_READ);
-    bool Load (const char* filename, int mode = FileIO::FM_DEFAULT_READ);
-    bool Save (const char* filename, int mode = FileIO::FM_DEFAULT_WRITE)
-        const;
+	// Support for streaming to/from disk.
+	ConvexHull1 (const char* filename, int mode = FileIO::FM_DEFAULT_READ);
+	bool Load (const char* filename, int mode = FileIO::FM_DEFAULT_READ);
+	bool Save (const char* filename, int mode = FileIO::FM_DEFAULT_WRITE)
+	const;
 
 private:
-    using ConvexHull<Real>::mNumVertices;
-    using ConvexHull<Real>::mDimension;
-    using ConvexHull<Real>::mNumSimplices;
-    using ConvexHull<Real>::mIndices;
-    using ConvexHull<Real>::mEpsilon;
-    using ConvexHull<Real>::mOwner;
+	using ConvexHull<Real>::mNumVertices;
+	using ConvexHull<Real>::mDimension;
+	using ConvexHull<Real>::mNumSimplices;
+	using ConvexHull<Real>::mIndices;
+	using ConvexHull<Real>::mEpsilon;
+	using ConvexHull<Real>::mOwner;
 
-    Real* mVertices;
+	Real* mVertices;
 
-    class SortedVertex
-    {
-    public:
-        Real Value;
-        int Index;
+	class SortedVertex
+	{
+	public:
+		Real Value;
+		int Index;
 
-        bool operator< (const SortedVertex& proj) const
-        {
-            return Value < proj.Value;
-        }
-    };
+		bool operator< (const SortedVertex& proj) const
+		{
+			return Value < proj.Value;
+		}
+	};
 };
 
 typedef ConvexHull1<float> ConvexHull1f;

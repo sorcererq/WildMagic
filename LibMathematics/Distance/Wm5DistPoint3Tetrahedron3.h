@@ -18,32 +18,32 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM DistPoint3Tetrahedron3
-    : public Distance<Real,Vector3<Real> >
+	: public Distance<Real,Vector3<Real> >
 {
 public:
-    DistPoint3Tetrahedron3 (const Vector3<Real>& point,
-        const Tetrahedron3<Real>& tetrahedron);
+	DistPoint3Tetrahedron3 (const Vector3<Real>& point,
+	                        const Tetrahedron3<Real>& tetrahedron);
 
-    // Object access.
-    const Vector3<Real>& GetPoint () const;
-    const Tetrahedron3<Real>& GetTetrahedron () const;
+	// Object access.
+	const Vector3<Real>& GetPoint () const;
+	const Tetrahedron3<Real>& GetTetrahedron () const;
 
-    // Static distance queries.
-    virtual Real Get ();
-    virtual Real GetSquared ();
+	// Static distance queries.
+	virtual Real Get ();
+	virtual Real GetSquared ();
 
-    // Function calculations for dynamic distance queries.
-    virtual Real Get (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
-    virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	// Function calculations for dynamic distance queries.
+	virtual Real Get (Real t, const Vector3<Real>& velocity0,
+	                  const Vector3<Real>& velocity1);
+	virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
+	                         const Vector3<Real>& velocity1);
 
 private:
-    using Distance<Real,Vector3<Real> >::mClosestPoint0;
-    using Distance<Real,Vector3<Real> >::mClosestPoint1;
+	using Distance<Real,Vector3<Real> >::mClosestPoint0;
+	using Distance<Real,Vector3<Real> >::mClosestPoint1;
 
-    const Vector3<Real>* mPoint;
-    const Tetrahedron3<Real>* mTetrahedron;
+	const Vector3<Real>* mPoint;
+	const Tetrahedron3<Real>* mTetrahedron;
 };
 
 typedef DistPoint3Tetrahedron3<float> DistPoint3Tetrahedron3f;

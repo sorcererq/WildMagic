@@ -15,38 +15,38 @@ using namespace Wm5;
 
 class FreeTopFixedTip : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    FreeTopFixedTip ();
+	FreeTopFixedTip ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void InitializeModule ();
-    void CreateScene ();
-    TriMesh* CreateFloor ();
-    TriMesh* CreateTop ();
-    Polysegment* CreateAxisTop ();
-    Polysegment* CreateAxisVertical ();
-    void PhysicsTick ();
-    void GraphicsTick ();
+	void InitializeModule ();
+	void CreateScene ();
+	TriMesh* CreateFloor ();
+	TriMesh* CreateTop ();
+	Polysegment* CreateAxisTop ();
+	Polysegment* CreateAxisVertical ();
+	void PhysicsTick ();
+	void GraphicsTick ();
 
-    // The scene graph.
-    NodePtr mScene, mTopRoot;
-    WireStatePtr mWireState;
-    Culler mCuller;
-    float mMaxPhi;
+	// The scene graph.
+	NodePtr mScene, mTopRoot;
+	WireStatePtr mWireState;
+	Culler mCuller;
+	float mMaxPhi;
 
-    // The physics system.
-    PhysicsModule mModule;
+	// The physics system.
+	PhysicsModule mModule;
 
-    // Support for clamping the frame rate.
-    float mLastIdle;
+	// Support for clamping the frame rate.
+	float mLastIdle;
 };
 
 WM5_REGISTER_INITIALIZE(FreeTopFixedTip);

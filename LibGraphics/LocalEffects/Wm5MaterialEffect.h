@@ -18,28 +18,28 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM MaterialEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(MaterialEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(MaterialEffect);
 
 public:
-    // Construction and destruction.
-    MaterialEffect ();
-    virtual ~MaterialEffect ();
+	// Construction and destruction.
+	MaterialEffect ();
+	virtual ~MaterialEffect ();
 
-    // Create an instance of the effect with unique parameters.
-    VisualEffectInstance* CreateInstance (Material* material) const;
+	// Create an instance of the effect with unique parameters.
+	VisualEffectInstance* CreateInstance (Material* material) const;
 
-    // Convenience for creating an instance.  The application does not have to
-    // create the effect explicitly in order to create an instance from it.
-    static VisualEffectInstance* CreateUniqueInstance (Material* material);
+	// Convenience for creating an instance.  The application does not have to
+	// create the effect explicitly in order to create an instance from it.
+	static VisualEffectInstance* CreateUniqueInstance (Material* material);
 
 private:
-    static int msDx9VRegisters[2];
-    static int msOglVRegisters[2];
-    static int* msVRegisters[Shader::MAX_PROFILES];
-    static std::string msVPrograms[Shader::MAX_PROFILES];
-    static std::string msPPrograms[Shader::MAX_PROFILES];
+	static int msDx9VRegisters[2];
+	static int msOglVRegisters[2];
+	static int* msVRegisters[Shader::MAX_PROFILES];
+	static std::string msVPrograms[Shader::MAX_PROFILES];
+	static std::string msPPrograms[Shader::MAX_PROFILES];
 };
 
 WM5_REGISTER_STREAM(MaterialEffect);

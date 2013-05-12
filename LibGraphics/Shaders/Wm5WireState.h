@@ -17,16 +17,16 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM WireState : public Object
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(WireState);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(WireState);
 
 public:
-    // Construction and destruction.
-    WireState ();
-    virtual ~WireState ();
+	// Construction and destruction.
+	WireState ();
+	virtual ~WireState ();
 
-    bool Enabled;  // default: false
+	bool Enabled;  // default: false
 };
 
 WM5_REGISTER_STREAM(WireState);

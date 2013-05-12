@@ -17,12 +17,12 @@ namespace Wm5
 class WM5_MATHEMATICS_ITEM EdgeKey
 {
 public:
-    EdgeKey (int v0 = -1, int v1 = -1);
+	EdgeKey (int v0 = -1, int v1 = -1);
 
-    bool operator< (const EdgeKey& key) const;
-    operator size_t () const;
+	bool operator< (const EdgeKey& key) const;
+	operator size_t () const;
 
-    int V[2];
+	int V[2];
 };
 
 #include "Wm5EdgeKey.inl"

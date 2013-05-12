@@ -20,17 +20,17 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM BSplineGeodesic : public RiemannianGeodesic<Real>
 {
 public:
-    BSplineGeodesic (const BSplineRectangle<Real>& spline);
-    virtual ~BSplineGeodesic ();
+	BSplineGeodesic (const BSplineRectangle<Real>& spline);
+	virtual ~BSplineGeodesic ();
 
-    virtual void ComputeMetric (const GVector<Real>& point);
-    virtual void ComputeChristoffel1 (const GVector<Real>& point);
+	virtual void ComputeMetric (const GVector<Real>& point);
+	virtual void ComputeChristoffel1 (const GVector<Real>& point);
 
 private:
-    using RiemannianGeodesic<Real>::mMetric;
-    using RiemannianGeodesic<Real>::mChristoffel1;
+	using RiemannianGeodesic<Real>::mMetric;
+	using RiemannianGeodesic<Real>::mChristoffel1;
 
-    const BSplineRectangle<Real>* mSpline;
+	const BSplineRectangle<Real>* mSpline;
 };
 
 typedef BSplineGeodesic<float> BSplineGeodesicf;

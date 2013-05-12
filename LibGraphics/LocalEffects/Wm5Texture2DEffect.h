@@ -18,41 +18,41 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM Texture2DEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(Texture2DEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(Texture2DEffect);
 
 public:
-    // Construction and destruction.
-    Texture2DEffect (
-        Shader::SamplerFilter filter = Shader::SF_NEAREST,
-        Shader::SamplerCoordinate coordinate0 = Shader::SC_CLAMP_EDGE,
-        Shader::SamplerCoordinate coordinate1 = Shader::SC_CLAMP_EDGE);
+	// Construction and destruction.
+	Texture2DEffect (
+	    Shader::SamplerFilter filter = Shader::SF_NEAREST,
+	    Shader::SamplerCoordinate coordinate0 = Shader::SC_CLAMP_EDGE,
+	    Shader::SamplerCoordinate coordinate1 = Shader::SC_CLAMP_EDGE);
 
-    virtual ~Texture2DEffect ();
+	virtual ~Texture2DEffect ();
 
-    // Any change in sampler state is made via the pixel shader.
-    PixelShader* GetPixelShader () const;
+	// Any change in sampler state is made via the pixel shader.
+	PixelShader* GetPixelShader () const;
 
-    // Create an instance of the effect with unique parameters.  If the
-    // sampler filter mode is set to a value corresponding to mipmapping,
-    // then the mipmaps will be generated if necessary.
-    VisualEffectInstance* CreateInstance (Texture2D* texture) const;
+	// Create an instance of the effect with unique parameters.  If the
+	// sampler filter mode is set to a value corresponding to mipmapping,
+	// then the mipmaps will be generated if necessary.
+	VisualEffectInstance* CreateInstance (Texture2D* texture) const;
 
-    // Convenience for creating an instance.  The application does not have to
-    // create the effect explicitly in order to create an instance from it.
-    static VisualEffectInstance* CreateUniqueInstance (Texture2D* texture,
-        Shader::SamplerFilter filter, Shader::SamplerCoordinate coordinate0,
-        Shader::SamplerCoordinate coordinate1);
+	// Convenience for creating an instance.  The application does not have to
+	// create the effect explicitly in order to create an instance from it.
+	static VisualEffectInstance* CreateUniqueInstance (Texture2D* texture,
+	        Shader::SamplerFilter filter, Shader::SamplerCoordinate coordinate0,
+	        Shader::SamplerCoordinate coordinate1);
 
 private:
-    static int msDx9VRegisters[1];
-    static int msOglVRegisters[1];
-    static int* msVRegisters[Shader::MAX_PROFILES];
-    static std::string msVPrograms[Shader::MAX_PROFILES];
-    static int msAllPTextureUnits[1];
-    static int* msPTextureUnits[Shader::MAX_PROFILES];
-    static std::string msPPrograms[Shader::MAX_PROFILES];
+	static int msDx9VRegisters[1];
+	static int msOglVRegisters[1];
+	static int* msVRegisters[Shader::MAX_PROFILES];
+	static std::string msVPrograms[Shader::MAX_PROFILES];
+	static int msAllPTextureUnits[1];
+	static int* msPTextureUnits[Shader::MAX_PROFILES];
+	static std::string msPPrograms[Shader::MAX_PROFILES];
 };
 
 WM5_REGISTER_STREAM(Texture2DEffect);

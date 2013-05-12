@@ -21,18 +21,18 @@ class Renderer;
 class PdrPixelShader : public PdrShader
 {
 public:
-    // Construction and destruction.
-    PdrPixelShader (Renderer* renderer, const PixelShader* pshader);
-    ~PdrPixelShader ();
+	// Construction and destruction.
+	PdrPixelShader (Renderer* renderer, const PixelShader* pshader);
+	~PdrPixelShader ();
 
-    // Pixel shader operations.
-    void Enable (Renderer* renderer, const PixelShader* pshader,
-        const ShaderParameters* parameters);
-    void Disable (Renderer* renderer, const PixelShader* pshader,
-        const ShaderParameters* parameters);
+	// Pixel shader operations.
+	void Enable (Renderer* renderer, const PixelShader* pshader,
+	             const ShaderParameters* parameters);
+	void Disable (Renderer* renderer, const PixelShader* pshader,
+	              const ShaderParameters* parameters);
 
 private:
-    IDirect3DPixelShader9* mShader;
+	IDirect3DPixelShader9* mShader;
 };
 
 }

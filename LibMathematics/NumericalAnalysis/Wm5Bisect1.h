@@ -18,17 +18,17 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM Bisect1
 {
 public:
-    typedef Real (*Function)(Real);
+	typedef Real (*Function)(Real);
 
-    Bisect1 (Function function, int maxLevel, Real tolerance);
+	Bisect1 (Function function, int maxLevel, Real tolerance);
 
-    bool Bisect (Real x0, Real x1, Real& root);
+	bool Bisect (Real x0, Real x1, Real& root);
 
 private:
-    // Input data and functions.
-    Function mFunction;
-    int mMaxLevel;
-    Real mTolerance;
+	// Input data and functions.
+	Function mFunction;
+	int mMaxLevel;
+	Real mTolerance;
 };
 
 typedef Bisect1<float> Bisect1f;

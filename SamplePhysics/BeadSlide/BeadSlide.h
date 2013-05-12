@@ -14,16 +14,16 @@ using namespace Wm5;
 
 class BeadSlide : public ConsoleApplication
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BeadSlide ();
+	BeadSlide ();
 
-    virtual int Main (int numArguments, char** arguments);
+	virtual int Main (int numArguments, char** arguments);
 
 protected:
-    void Simulation ();
+	void Simulation ();
 };
 
 WM5_REGISTER_INITIALIZE(BeadSlide);

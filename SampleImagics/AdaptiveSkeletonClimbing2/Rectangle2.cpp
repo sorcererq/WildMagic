@@ -10,16 +10,16 @@
 
 //----------------------------------------------------------------------------
 Rectangle2::Rectangle2 (int xOrigin, int yOrigin, int xStride, int yStride)
-    :
-    mXOrigin(xOrigin),
-    mYOrigin(yOrigin),
-    mXStride(xStride),
-    mYStride(yStride),
-    mYofXMin(-1),
-    mYofXMax(-1),
-    mXofYMin(-1),
-    mXofYMax(-1),
-    mType(0)
+	:
+	mXOrigin(xOrigin),
+	mYOrigin(yOrigin),
+	mXStride(xStride),
+	mYStride(yStride),
+	mYofXMin(-1),
+	mYofXMax(-1),
+	mXofYMin(-1),
+	mXofYMax(-1),
+	mType(0)
 {
 }
 //----------------------------------------------------------------------------

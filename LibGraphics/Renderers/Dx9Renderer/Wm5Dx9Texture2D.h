@@ -21,24 +21,24 @@ class Renderer;
 class PdrTexture2D
 {
 public:
-    // Construction and destruction.
-    PdrTexture2D (Renderer* renderer, const Texture2D* texture);
-    ~PdrTexture2D ();
+	// Construction and destruction.
+	PdrTexture2D (Renderer* renderer, const Texture2D* texture);
+	~PdrTexture2D ();
 
-    // Texture operations.
-    void Enable (Renderer* renderer, int textureUnit);
-    void Disable (Renderer* renderer, int textureUnit);
-    void* Lock (int level, Buffer::Locking mode);
-    void Unlock (int level);
+	// Texture operations.
+	void Enable (Renderer* renderer, int textureUnit);
+	void Disable (Renderer* renderer, int textureUnit);
+	void* Lock (int level, Buffer::Locking mode);
+	void Unlock (int level);
 
 private:
-    // Constructor for creating the color/depth textures for a render target.
-    friend class Memory;
-    friend class PdrRenderTarget;
-    PdrTexture2D (Renderer* renderer, bool isColortexture,
-        const Texture2D* texture, bool autoGenMipMap);
+	// Constructor for creating the color/depth textures for a render target.
+	friend class Memory;
+	friend class PdrRenderTarget;
+	PdrTexture2D (Renderer* renderer, bool isColortexture,
+	              const Texture2D* texture, bool autoGenMipMap);
 
-    IDirect3DTexture9* mTexture;
+	IDirect3DTexture9* mTexture;
 };
 
 }

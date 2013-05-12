@@ -11,16 +11,16 @@
 
 //----------------------------------------------------------------------------
 PhysicsModule::PhysicsModule ()
-    :
-    SpringConstant(0.0),
-    Mass(0.0),
-    mTime(0.0),
-    mDeltaTime(0.0),
-    mPosition(Vector2d::ZERO),
-    mVelocity(Vector2d::ZERO),
-    mInitialPosition(Vector2d::ZERO),
-    mFrequency(0),
-    mVelDivFreq(Vector2d::ZERO)
+	:
+	SpringConstant(0.0),
+	Mass(0.0),
+	mTime(0.0),
+	mDeltaTime(0.0),
+	mPosition(Vector2d::ZERO),
+	mVelocity(Vector2d::ZERO),
+	mInitialPosition(Vector2d::ZERO),
+	mFrequency(0),
+	mVelDivFreq(Vector2d::ZERO)
 {
 }
 //----------------------------------------------------------------------------
@@ -30,28 +30,28 @@ PhysicsModule::~PhysicsModule ()
 //----------------------------------------------------------------------------
 void PhysicsModule::Evaluate ()
 {
-    double angle = mFrequency*mTime;
-    double sn = Mathd::Sin(angle);
-    double cs = Mathd::Cos(angle);
-    mPosition = cs*mInitialPosition + sn*mVelDivFreq;
-    mVelocity = (mVelDivFreq*cs - mInitialPosition*sn)*mFrequency;
+	double angle = mFrequency*mTime;
+	double sn = Mathd::Sin(angle);
+	double cs = Mathd::Cos(angle);
+	mPosition = cs*mInitialPosition + sn*mVelDivFreq;
+	mVelocity = (mVelDivFreq*cs - mInitialPosition*sn)*mFrequency;
 }
 //----------------------------------------------------------------------------
 void PhysicsModule::Initialize (double time, double deltaTime,
-    const Vector2d& initialPosition, const Vector2d& initialVelocity)
+                                const Vector2d& initialPosition, const Vector2d& initialVelocity)
 {
-    mTime = time;
-    mDeltaTime = deltaTime;
-    mInitialPosition = initialPosition;
-    mFrequency = Mathd::Sqrt(SpringConstant/Mass);
-    mVelDivFreq = initialVelocity/mFrequency;
+	mTime = time;
+	mDeltaTime = deltaTime;
+	mInitialPosition = initialPosition;
+	mFrequency = Mathd::Sqrt(SpringConstant/Mass);
+	mVelDivFreq = initialVelocity/mFrequency;
 
-    Evaluate();
+	Evaluate();
 }
 //----------------------------------------------------------------------------
 void PhysicsModule::Update ()
 {
-    mTime += mDeltaTime;
-    Evaluate();
+	mTime += mDeltaTime;
+	Evaluate();
 }
 //----------------------------------------------------------------------------

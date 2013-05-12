@@ -9,11 +9,11 @@
 //----------------------------------------------------------------------------
 inline int TextureCube::GetWidth () const
 {
-    return GetDimension(0, 0);
+	return GetDimension(0, 0);
 }
 //----------------------------------------------------------------------------
 inline int TextureCube::GetHeight () const
 {
-    return GetDimension(1, 0);
+	return GetDimension(1, 0);
 }
 //----------------------------------------------------------------------------

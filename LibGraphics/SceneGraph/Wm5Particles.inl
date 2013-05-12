@@ -9,26 +9,26 @@
 //----------------------------------------------------------------------------
 inline int Particles::GetNumParticles () const
 {
-    return mNumParticles;
+	return mNumParticles;
 }
 //----------------------------------------------------------------------------
 inline const Float4* Particles::GetPositionSizes () const
 {
-    return mPositionSizes;
+	return mPositionSizes;
 }
 //----------------------------------------------------------------------------
 inline Float4* Particles::GetPositionSizes ()
 {
-    return mPositionSizes;
+	return mPositionSizes;
 }
 //----------------------------------------------------------------------------
 inline float Particles::GetSizeAdjust () const
 {
-    return mSizeAdjust;
+	return mSizeAdjust;
 }
 //----------------------------------------------------------------------------
 inline int Particles::GetNumActive () const
 {
-    return mNumActive;
+	return mNumActive;
 }
 //----------------------------------------------------------------------------

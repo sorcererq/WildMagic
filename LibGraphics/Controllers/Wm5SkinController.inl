@@ -9,26 +9,26 @@
 //----------------------------------------------------------------------------
 inline int SkinController::GetNumVertices () const
 {
-    return mNumVertices;
+	return mNumVertices;
 }
 //----------------------------------------------------------------------------
 inline int SkinController::GetNumBones () const
 {
-    return mNumBones;
+	return mNumBones;
 }
 //----------------------------------------------------------------------------
 inline Node** SkinController::GetBones () const
 {
-    return mBones;
+	return mBones;
 }
 //----------------------------------------------------------------------------
 inline float** SkinController::GetWeights () const
 {
-    return mWeights;
+	return mWeights;
 }
 //----------------------------------------------------------------------------
 inline APoint** SkinController::GetOffsets () const
 {
-    return mOffsets;
+	return mOffsets;
 }
 //----------------------------------------------------------------------------

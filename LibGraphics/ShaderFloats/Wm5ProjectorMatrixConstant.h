@@ -18,27 +18,27 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM ProjectorMatrixConstant : public ShaderFloat
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(ProjectorMatrixConstant);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(ProjectorMatrixConstant);
 
 public:
-    // Construction and destruction.  Set bsMatrix to 0 for the
-    // bias-scale matrix that maps y' = (1-y)/2.  Set bsMatrix to 1 for the
-    // bias-scale matrix that maps y' = (1-y)/2.
-    ProjectorMatrixConstant (Projector* projector, bool biased,
-        int bsMatrix);
-    virtual ~ProjectorMatrixConstant ();
+	// Construction and destruction.  Set bsMatrix to 0 for the
+	// bias-scale matrix that maps y' = (1-y)/2.  Set bsMatrix to 1 for the
+	// bias-scale matrix that maps y' = (1-y)/2.
+	ProjectorMatrixConstant (Projector* projector, bool biased,
+	                         int bsMatrix);
+	virtual ~ProjectorMatrixConstant ();
 
-    // Member access.
-    Projector* GetProjector ();
+	// Member access.
+	Projector* GetProjector ();
 
-    virtual void Update (const Visual* visual, const Camera* camera);
+	virtual void Update (const Visual* visual, const Camera* camera);
 
 protected:
-    ProjectorPtr mProjector;
-    bool mBiased;
-    int mBSMatrix;
+	ProjectorPtr mProjector;
+	bool mBiased;
+	int mBSMatrix;
 };
 
 WM5_REGISTER_STREAM(ProjectorMatrixConstant);

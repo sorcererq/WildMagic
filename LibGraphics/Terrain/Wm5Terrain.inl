@@ -9,31 +9,31 @@
 //----------------------------------------------------------------------------
 inline int Terrain::GetRowQuantity () const
 {
-    return mNumRows;
+	return mNumRows;
 }
 //----------------------------------------------------------------------------
 inline int Terrain::GetColQuantity () const
 {
-    return mNumCols;
+	return mNumCols;
 }
 //----------------------------------------------------------------------------
 inline int Terrain::GetSize () const
 {
-    return mSize;
+	return mSize;
 }
 //----------------------------------------------------------------------------
 inline float Terrain::GetMinElevation () const
 {
-    return mMinElevation;
+	return mMinElevation;
 }
 //----------------------------------------------------------------------------
 inline float Terrain::GetMaxElevation () const
 {
-    return mMaxElevation;
+	return mMaxElevation;
 }
 //----------------------------------------------------------------------------
 inline float Terrain::GetSpacing () const
 {
-    return mSpacing;
+	return mSpacing;
 }
 //----------------------------------------------------------------------------

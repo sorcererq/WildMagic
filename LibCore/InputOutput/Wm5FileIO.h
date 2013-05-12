@@ -40,62 +40,62 @@ namespace Wm5
 class WM5_CORE_ITEM FileIO
 {
 public:
-    enum
-    {
-        FM_NONE,
-        FM_READ,
-        FM_WRITE,
-        FM_READ_AND_SWAP,
-        FM_WRITE_AND_SWAP,
+	enum
+	{
+		FM_NONE,
+		FM_READ,
+		FM_WRITE,
+		FM_READ_AND_SWAP,
+		FM_WRITE_AND_SWAP,
 
-        // All data files are in little endian format, because most platforms
-        // these days are little endian.
+		// All data files are in little endian format, because most platforms
+		// these days are little endian.
 #ifdef WM5_LITTLE_ENDIAN
-        FM_DEFAULT_READ = FM_READ,
-        FM_DEFAULT_WRITE = FM_WRITE
+		FM_DEFAULT_READ = FM_READ,
+		FM_DEFAULT_WRITE = FM_WRITE
 #else
-        FM_DEFAULT_READ = FM_READ_AND_SWAP,
-        FM_DEFAULT_WRITE = FM_WRITE_AND_SWAP
+		FM_DEFAULT_READ = FM_READ_AND_SWAP,
+		FM_DEFAULT_WRITE = FM_WRITE_AND_SWAP
 #endif
-    };
+	};
 
-    // Construction and destruction.
-    FileIO ();
-    FileIO (const std::string& filename, int mode);
-    ~FileIO ();
+	// Construction and destruction.
+	FileIO ();
+	FileIO (const std::string& filename, int mode);
+	~FileIO ();
 
-    bool Open (const std::string& filename, int mode);
-    bool Close ();
+	bool Open (const std::string& filename, int mode);
+	bool Close ();
 
-    // Implicit conversion to allow testing for successful file open.
-    operator bool () const;
+	// Implicit conversion to allow testing for successful file open.
+	operator bool () const;
 
-    // Member access.
-    inline int GetMode () const;
+	// Member access.
+	inline int GetMode () const;
 
-    // The return value is 'true' if and only if the operation was
-    // successful, in which case the number of bytes read or written is
-    // the item size times number of items.
-    bool Read (size_t itemSize, void* datum);
-    bool Read (size_t itemSize, int numItems, void* data);
-    bool Write (size_t itemSize, const void* datum);
-    bool Write (size_t itemSize, int numItems, const void* data);
+	// The return value is 'true' if and only if the operation was
+	// successful, in which case the number of bytes read or written is
+	// the item size times number of items.
+	bool Read (size_t itemSize, void* datum);
+	bool Read (size_t itemSize, int numItems, void* data);
+	bool Write (size_t itemSize, const void* datum);
+	bool Write (size_t itemSize, int numItems, const void* data);
 
-    // Load the entire file into a buffer.
-    static bool Load (const std::string& filename, bool binaryFile,
-        int& bufferSize, char*& buffer);
+	// Load the entire file into a buffer.
+	static bool Load (const std::string& filename, bool binaryFile,
+	                  int& bufferSize, char*& buffer);
 
-    // Save a buffer into a file.
-    static bool Save (const std::string& filename, bool binaryFile,
-        int bufferSize, const char* buffer);
+	// Save a buffer into a file.
+	static bool Save (const std::string& filename, bool binaryFile,
+	                  int bufferSize, const char* buffer);
 
-    // Append the buffer to a file.
-    static bool Append (const std::string& filename, bool binaryFile,
-        int bufferSize, const char* buffer);
+	// Append the buffer to a file.
+	static bool Append (const std::string& filename, bool binaryFile,
+	                    int bufferSize, const char* buffer);
 
 private:
-    FILE* mFile;
-    int mMode;
+	FILE* mFile;
+	int mMode;
 };
 
 #include "Wm5FileIO.inl"

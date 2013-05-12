@@ -24,13 +24,13 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM MinBox3
 {
 public:
-    MinBox3 (int numPoints, const Vector3<Real>* points, Real epsilon,
-        Query::Type queryType);
+	MinBox3 (int numPoints, const Vector3<Real>* points, Real epsilon,
+	         Query::Type queryType);
 
-    operator Box3<Real> () const;
+	operator Box3<Real> () const;
 
 private:
-    Box3<Real> mMinBox;
+	Box3<Real> mMinBox;
 };
 
 }

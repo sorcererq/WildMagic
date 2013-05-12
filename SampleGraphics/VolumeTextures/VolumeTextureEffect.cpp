@@ -18,18 +18,18 @@ WM5_IMPLEMENT_DEFAULT_STREAM(VisualEffect, VolumeTextureEffect);
 
 //----------------------------------------------------------------------------
 VolumeTextureEffect::VolumeTextureEffect (const std::string& effectFile)
-    :
-    VisualEffect(effectFile)
+	:
+	VisualEffect(effectFile)
 {
-    // TODO:  Once WmfxCompiler parses the Cg FX files, we will not need to
-    // set the sampler state.
-    PixelShader* pshader = GetPixelShader(0, 0);
+	// TODO:  Once WmfxCompiler parses the Cg FX files, we will not need to
+	// set the sampler state.
+	PixelShader* pshader = GetPixelShader(0, 0);
 
-    // BaseSampler
-    pshader->SetFilter(0, Shader::SF_NEAREST);
-    pshader->SetCoordinate(0, 0, Shader::SC_REPEAT);
-    pshader->SetCoordinate(0, 1, Shader::SC_REPEAT);
-    pshader->SetCoordinate(0, 2, Shader::SC_REPEAT);
+	// BaseSampler
+	pshader->SetFilter(0, Shader::SF_NEAREST);
+	pshader->SetCoordinate(0, 0, Shader::SC_REPEAT);
+	pshader->SetCoordinate(0, 1, Shader::SC_REPEAT);
+	pshader->SetCoordinate(0, 2, Shader::SC_REPEAT);
 }
 //----------------------------------------------------------------------------
 VolumeTextureEffect::~VolumeTextureEffect ()
@@ -38,9 +38,9 @@ VolumeTextureEffect::~VolumeTextureEffect ()
 //----------------------------------------------------------------------------
 VisualEffectInstance* VolumeTextureEffect::CreateInstance (Texture3D* texture)
 {
-    VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
-    instance->SetVertexConstant(0, 0, new0 PVWMatrixConstant());
-    instance->SetPixelTexture(0, 0, texture);
-    return instance;
+	VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
+	instance->SetVertexConstant(0, 0, new0 PVWMatrixConstant());
+	instance->SetPixelTexture(0, 0, texture);
+	return instance;
 }
 //----------------------------------------------------------------------------

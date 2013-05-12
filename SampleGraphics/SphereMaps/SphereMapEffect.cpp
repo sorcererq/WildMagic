@@ -19,17 +19,17 @@ WM5_IMPLEMENT_DEFAULT_STREAM(VisualEffect, SphereMapEffect);
 
 //----------------------------------------------------------------------------
 SphereMapEffect::SphereMapEffect (const std::string& effectFile)
-    :
-    VisualEffect(effectFile)
+	:
+	VisualEffect(effectFile)
 {
-    // TODO:  Once WmfxCompiler parses the Cg FX files, we will not need to
-    // set the sampler state.
-    PixelShader* pshader = GetPixelShader(0, 0);
+	// TODO:  Once WmfxCompiler parses the Cg FX files, we will not need to
+	// set the sampler state.
+	PixelShader* pshader = GetPixelShader(0, 0);
 
-    // BaseSampler
-    pshader->SetFilter(0, Shader::SF_LINEAR);
-    pshader->SetCoordinate(0, 0, Shader::SC_CLAMP_EDGE);
-    pshader->SetCoordinate(0, 1, Shader::SC_CLAMP_EDGE);
+	// BaseSampler
+	pshader->SetFilter(0, Shader::SF_LINEAR);
+	pshader->SetCoordinate(0, 0, Shader::SC_CLAMP_EDGE);
+	pshader->SetCoordinate(0, 1, Shader::SC_CLAMP_EDGE);
 }
 //----------------------------------------------------------------------------
 SphereMapEffect::~SphereMapEffect ()
@@ -39,10 +39,10 @@ SphereMapEffect::~SphereMapEffect ()
 VisualEffectInstance* SphereMapEffect::CreateInstance (
     Texture2D* environmentTexture)
 {
-    VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
-    instance->SetVertexConstant(0, 0, new0 PVWMatrixConstant());
-    instance->SetVertexConstant(0, 1, new0 VWMatrixConstant());
-    instance->SetPixelTexture(0, 0, environmentTexture);
-    return instance;
+	VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
+	instance->SetVertexConstant(0, 0, new0 PVWMatrixConstant());
+	instance->SetVertexConstant(0, 1, new0 VWMatrixConstant());
+	instance->SetPixelTexture(0, 0, environmentTexture);
+	return instance;
 }
 //----------------------------------------------------------------------------

@@ -17,36 +17,36 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntpBSplineUniform1
-    : public IntpBSplineUniform<Real>
+	: public IntpBSplineUniform<Real>
 {
 public:
-    // Construction.  IntpBSplineUniform1 accepts responsibility for
-    // deleting the input array data.
-    IntpBSplineUniform1 (int degree, int dim, Real* data);
+	// Construction.  IntpBSplineUniform1 accepts responsibility for
+	// deleting the input array data.
+	IntpBSplineUniform1 (int degree, int dim, Real* data);
 
-    // Spline evaluation for function interpolation (no derivatives).
-    Real operator() (Real x);
-    virtual Real operator() (Real* X);
+	// Spline evaluation for function interpolation (no derivatives).
+	Real operator() (Real x);
+	virtual Real operator() (Real* X);
 
-    // Spline evaluation, derivative count given in dx and dx[].
-    Real operator() (int dx, Real x);
-    virtual Real operator() (int* dx, Real* X);
+	// Spline evaluation, derivative count given in dx and dx[].
+	Real operator() (int dx, Real x);
+	virtual Real operator() (int* dx, Real* X);
 
 private:
-    using IntpBSplineUniform<Real>::mDegree;
-    using IntpBSplineUniform<Real>::mData;
-    using IntpBSplineUniform<Real>::mGridMin;
-    using IntpBSplineUniform<Real>::mGridMax;
-    using IntpBSplineUniform<Real>::mBase;
-    using IntpBSplineUniform<Real>::mOldBase;
-    using IntpBSplineUniform<Real>::mMatrix;
-    using IntpBSplineUniform<Real>::mInter;
-    using IntpBSplineUniform<Real>::mPoly;
-    using IntpBSplineUniform<Real>::mEvaluateCallback;
-    using IntpBSplineUniform<Real>::SetPolynomial;
+	using IntpBSplineUniform<Real>::mDegree;
+	using IntpBSplineUniform<Real>::mData;
+	using IntpBSplineUniform<Real>::mGridMin;
+	using IntpBSplineUniform<Real>::mGridMax;
+	using IntpBSplineUniform<Real>::mBase;
+	using IntpBSplineUniform<Real>::mOldBase;
+	using IntpBSplineUniform<Real>::mMatrix;
+	using IntpBSplineUniform<Real>::mInter;
+	using IntpBSplineUniform<Real>::mPoly;
+	using IntpBSplineUniform<Real>::mEvaluateCallback;
+	using IntpBSplineUniform<Real>::SetPolynomial;
 
-    void EvaluateUnknownData ();
-    void ComputeIntermediate ();
+	void EvaluateUnknownData ();
+	void ComputeIntermediate ();
 };
 
 typedef IntpBSplineUniform1<float> IntpBSplineUniform1f;

@@ -15,21 +15,21 @@ using namespace Wm5;
 
 class MinimalCycleBasis : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    MinimalCycleBasis ();
+	MinimalCycleBasis ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
 
 protected:
-    typedef PlanarGraph<IVector2> Graph;
-    Graph mGraph;
-    std::vector<Graph::Primitive*> mPrimitives;
-    ColorRGB* mColors;
+	typedef PlanarGraph<IVector2> Graph;
+	Graph mGraph;
+	std::vector<Graph::Primitive*> mPrimitives;
+	ColorRGB* mColors;
 };
 
 WM5_REGISTER_INITIALIZE(MinimalCycleBasis);

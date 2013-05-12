@@ -18,11 +18,11 @@ WM5_IMPLEMENT_FACTORY(LightWorldPositionConstant);
 
 //----------------------------------------------------------------------------
 LightWorldPositionConstant::LightWorldPositionConstant (Light* light)
-    :
-    ShaderFloat(1),
-    mLight(light)
+	:
+	ShaderFloat(1),
+	mLight(light)
 {
-    EnableUpdater();
+	EnableUpdater();
 }
 //----------------------------------------------------------------------------
 LightWorldPositionConstant::~LightWorldPositionConstant ()
@@ -31,19 +31,19 @@ LightWorldPositionConstant::~LightWorldPositionConstant ()
 //----------------------------------------------------------------------------
 Light* LightWorldPositionConstant::GetLight ()
 {
-    return mLight;
+	return mLight;
 }
 //----------------------------------------------------------------------------
 void LightWorldPositionConstant::Update (const Visual*, const Camera*)
 {
-    const APoint& worldPosition = mLight->Position;
+	const APoint& worldPosition = mLight->Position;
 
-    const float* source = (const float*)worldPosition;
-    float* target = mData;
-    for (int i = 0; i < 4; ++i)
-    {
-        *target++ = *source++;
-    }
+	const float* source = (const float*)worldPosition;
+	float* target = mData;
+	for (int i = 0; i < 4; ++i)
+	{
+		*target++ = *source++;
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -52,13 +52,13 @@ void LightWorldPositionConstant::Update (const Visual*, const Camera*)
 //----------------------------------------------------------------------------
 Object* LightWorldPositionConstant::GetObjectByName (const std::string& name)
 {
-    return ShaderFloat::GetObjectByName(name);
+	return ShaderFloat::GetObjectByName(name);
 }
 //----------------------------------------------------------------------------
 void LightWorldPositionConstant::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+        std::vector<Object*>& objects)
 {
-    ShaderFloat::GetAllObjectsByName(name, objects);
+	ShaderFloat::GetAllObjectsByName(name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -66,59 +66,59 @@ void LightWorldPositionConstant::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 LightWorldPositionConstant::LightWorldPositionConstant (LoadConstructor value)
-    :
-    ShaderFloat(value)
+	:
+	ShaderFloat(value)
 {
 }
 //----------------------------------------------------------------------------
 void LightWorldPositionConstant::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    ShaderFloat::Load(source);
+	ShaderFloat::Load(source);
 
-    source.ReadPointer(mLight);
+	source.ReadPointer(mLight);
 
-    WM5_END_DEBUG_STREAM_LOAD(LightWorldPositionConstant, source);
+	WM5_END_DEBUG_STREAM_LOAD(LightWorldPositionConstant, source);
 }
 //----------------------------------------------------------------------------
 void LightWorldPositionConstant::Link (InStream& source)
 {
-    ShaderFloat::Link(source);
+	ShaderFloat::Link(source);
 
-    source.ResolveLink(mLight);
+	source.ResolveLink(mLight);
 }
 //----------------------------------------------------------------------------
 void LightWorldPositionConstant::PostLink ()
 {
-    ShaderFloat::PostLink();
+	ShaderFloat::PostLink();
 }
 //----------------------------------------------------------------------------
 bool LightWorldPositionConstant::Register (OutStream& target) const
 {
-    if (ShaderFloat::Register(target))
-    {
-        target.Register(mLight);
-        return true;
-    }
-    return false;
+	if (ShaderFloat::Register(target))
+	{
+		target.Register(mLight);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void LightWorldPositionConstant::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    ShaderFloat::Save(target);
+	ShaderFloat::Save(target);
 
-    target.WritePointer(mLight);
+	target.WritePointer(mLight);
 
-    WM5_END_DEBUG_STREAM_SAVE(LightWorldPositionConstant, target);
+	WM5_END_DEBUG_STREAM_SAVE(LightWorldPositionConstant, target);
 }
 //----------------------------------------------------------------------------
 int LightWorldPositionConstant::GetStreamingSize () const
 {
-    int size = ShaderFloat::GetStreamingSize();
-    size += WM5_POINTERSIZE(mLight);
-    return size;
+	int size = ShaderFloat::GetStreamingSize();
+	size += WM5_POINTERSIZE(mLight);
+	return size;
 }
 //----------------------------------------------------------------------------

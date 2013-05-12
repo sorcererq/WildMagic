@@ -9,11 +9,11 @@
 //----------------------------------------------------------------------------
 inline const char* Rtti::GetName () const
 {
-    return mName;
+	return mName;
 }
 //----------------------------------------------------------------------------
 inline bool Rtti::IsExactly (const Rtti& type) const
 {
-    return (&type == this);
+	return (&type == this);
 }
 //----------------------------------------------------------------------------

@@ -9,46 +9,46 @@
 //----------------------------------------------------------------------------
 inline void TubeSurface::SetMedial (Curve3f* medial)
 {
-    mMedial = medial;
+	mMedial = medial;
 }
 //----------------------------------------------------------------------------
 inline const Curve3f* TubeSurface::GetMedial () const
 {
-    return mMedial;
+	return mMedial;
 }
 //----------------------------------------------------------------------------
 inline void TubeSurface::SetRadial (RadialFunction radial)
 {
-    mRadial = radial;
+	mRadial = radial;
 }
 //----------------------------------------------------------------------------
 inline TubeSurface::RadialFunction TubeSurface::GetRadial () const
 {
-    return mRadial;
+	return mRadial;
 }
 //----------------------------------------------------------------------------
 inline void TubeSurface::SetUpVector (const Vector3f& upVector)
 {
-    mUpVector = upVector;
+	mUpVector = upVector;
 }
 //----------------------------------------------------------------------------
 inline const Vector3f& TubeSurface::GetUpVector () const
 {
-    return mUpVector;
+	return mUpVector;
 }
 //----------------------------------------------------------------------------
 inline int TubeSurface::GetNumMedialSamples () const
 {
-    return mNumMedialSamples;
+	return mNumMedialSamples;
 }
 //----------------------------------------------------------------------------
 inline int TubeSurface::GetNumSliceSamples () const
 {
-    return mNumSliceSamples;
+	return mNumSliceSamples;
 }
 //----------------------------------------------------------------------------
 inline int TubeSurface::Index (int s, int m)
 {
-    return s + (mNumSliceSamples + 1)*m;
+	return s + (mNumSliceSamples + 1)*m;
 }
 //----------------------------------------------------------------------------

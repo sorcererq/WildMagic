@@ -16,67 +16,67 @@ namespace Wm5
 template <typename Real>
 IntrSegment3Cylinder3<Real>::IntrSegment3Cylinder3 (
     const Segment3<Real>& segment, const Cylinder3<Real>& cylinder)
-    :
-    mSegment(&segment),
-    mCylinder(&cylinder)
+	:
+	mSegment(&segment),
+	mCylinder(&cylinder)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Segment3<Real>& IntrSegment3Cylinder3<Real>::GetSegment () const
 {
-    return *mSegment;
+	return *mSegment;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Cylinder3<Real>& IntrSegment3Cylinder3<Real>::GetCylinder () const
 {
-    return *mCylinder;
+	return *mCylinder;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrSegment3Cylinder3<Real>::Find ()
 {
-    Real t[2];
-    int quantity = IntrLine3Cylinder3<Real>::Find(mSegment->Center,
-        mSegment->Direction, *mCylinder, t);
+	Real t[2];
+	int quantity = IntrLine3Cylinder3<Real>::Find(mSegment->Center,
+	               mSegment->Direction, *mCylinder, t);
 
-    mQuantity = 0;
-    for (int i = 0; i < quantity; ++i)
-    {
-        if (Math<Real>::FAbs(t[i]) <= mSegment->Extent)
-        {
-            mPoint[mQuantity++] = mSegment->Center +
-                t[i]*mSegment->Direction;
-        }
-    }
+	mQuantity = 0;
+	for (int i = 0; i < quantity; ++i)
+	{
+		if (Math<Real>::FAbs(t[i]) <= mSegment->Extent)
+		{
+			mPoint[mQuantity++] = mSegment->Center +
+			                      t[i]*mSegment->Direction;
+		}
+	}
 
-    if (mQuantity == 2)
-    {
-        mIntersectionType = IT_SEGMENT;
-    }
-    else if (mQuantity == 1)
-    {
-        mIntersectionType = IT_POINT;
-    }
-    else
-    {
-        mIntersectionType = IT_EMPTY;
-    }
+	if (mQuantity == 2)
+	{
+		mIntersectionType = IT_SEGMENT;
+	}
+	else if (mQuantity == 1)
+	{
+		mIntersectionType = IT_POINT;
+	}
+	else
+	{
+		mIntersectionType = IT_EMPTY;
+	}
 
-    return mIntersectionType != IT_EMPTY;
+	return mIntersectionType != IT_EMPTY;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 int IntrSegment3Cylinder3<Real>::GetQuantity () const
 {
-    return mQuantity;
+	return mQuantity;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Vector3<Real>& IntrSegment3Cylinder3<Real>::GetPoint (int i) const
 {
-    return mPoint[i];
+	return mPoint[i];
 }
 //----------------------------------------------------------------------------
 

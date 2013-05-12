@@ -20,30 +20,30 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM PolynomialCurve3 : public SingleCurve3<Real>
 {
 public:
-    // Construction and destruction.  PolynomialCurve3 accepts responsibility
-    // for deleting the input polynomials.
-    PolynomialCurve3 (Polynomial1<Real>* xPoly, Polynomial1<Real>* yPoly,
-        Polynomial1<Real>* zPoly);
+	// Construction and destruction.  PolynomialCurve3 accepts responsibility
+	// for deleting the input polynomials.
+	PolynomialCurve3 (Polynomial1<Real>* xPoly, Polynomial1<Real>* yPoly,
+	                  Polynomial1<Real>* zPoly);
 
-    virtual ~PolynomialCurve3 ();
+	virtual ~PolynomialCurve3 ();
 
-    int GetDegree () const;
-    const Polynomial1<Real>* GetXPolynomial () const;
-    const Polynomial1<Real>* GetYPolynomial () const;
-    const Polynomial1<Real>* GetZPolynomial () const;
+	int GetDegree () const;
+	const Polynomial1<Real>* GetXPolynomial () const;
+	const Polynomial1<Real>* GetYPolynomial () const;
+	const Polynomial1<Real>* GetZPolynomial () const;
 
-    virtual Vector3<Real> GetPosition (Real t) const;
-    virtual Vector3<Real> GetFirstDerivative (Real t) const;
-    virtual Vector3<Real> GetSecondDerivative (Real t) const;
-    virtual Vector3<Real> GetThirdDerivative (Real t) const;
+	virtual Vector3<Real> GetPosition (Real t) const;
+	virtual Vector3<Real> GetFirstDerivative (Real t) const;
+	virtual Vector3<Real> GetSecondDerivative (Real t) const;
+	virtual Vector3<Real> GetThirdDerivative (Real t) const;
 
 protected:
-    Polynomial1<Real>* mXPoly;
-    Polynomial1<Real>* mYPoly;
-    Polynomial1<Real>* mZPoly;
-    Polynomial1<Real> mXDer1, mYDer1, mZDer1;
-    Polynomial1<Real> mXDer2, mYDer2, mZDer2;
-    Polynomial1<Real> mXDer3, mYDer3, mZDer3;
+	Polynomial1<Real>* mXPoly;
+	Polynomial1<Real>* mYPoly;
+	Polynomial1<Real>* mZPoly;
+	Polynomial1<Real> mXDer1, mYDer1, mZDer1;
+	Polynomial1<Real> mXDer2, mYDer2, mZDer2;
+	Polynomial1<Real> mXDer3, mYDer3, mZDer3;
 };
 
 typedef PolynomialCurve3<float> PolynomialCurve3f;

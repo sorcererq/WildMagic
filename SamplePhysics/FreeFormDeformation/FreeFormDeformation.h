@@ -15,66 +15,66 @@ using namespace Wm5;
 
 class FreeFormDeformation : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    FreeFormDeformation ();
+	FreeFormDeformation ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
-    virtual bool OnMouseClick (int button, int state, int x, int y,
-        unsigned int modifiers);
-    virtual bool OnMotion (int button, int x, int y, unsigned int modifiers);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnMouseClick (int button, int state, int x, int y,
+	                           unsigned int modifiers);
+	virtual bool OnMotion (int button, int x, int y, unsigned int modifiers);
 
 protected:
-    void CreateScene ();
-    void CreateBSplineVolume ();
-    void CreatePolylines ();
-    void CreateControlBoxes ();
+	void CreateScene ();
+	void CreateBSplineVolume ();
+	void CreatePolylines ();
+	void CreateControlBoxes ();
 
-    void UpdateMesh ();
-    void UpdatePolysegments ();
-    void UpdateControlBoxes ();
+	void UpdateMesh ();
+	void UpdatePolysegments ();
+	void UpdateControlBoxes ();
 
-    void DoRandomControlPoints ();
-    void OnMouseDown (int x, int y);
-    void OnMouseMove (int x, int y);
+	void DoRandomControlPoints ();
+	void OnMouseDown (int x, int y);
+	void OnMouseMove (int x, int y);
 
-    // The scene graph.
-    NodePtr mScene, mTrnNode;
-    WireStatePtr mWireState;
-    TriMeshPtr mMesh;
-    Culler mCuller;
-    Picker mPicker;
+	// The scene graph.
+	NodePtr mScene, mTrnNode;
+	WireStatePtr mWireState;
+	TriMeshPtr mMesh;
+	Culler mCuller;
+	Picker mPicker;
 
-    // The control volume for deformation.
-    int mQuantity, mDegree;
-    BSplineVolumef* mVolume;
-    float mXMin, mYMin, mZMin, mDX, mDY, mDZ;
-    Vector3f* mParameters;  // (u,v,w) for mesh vertices
+	// The control volume for deformation.
+	int mQuantity, mDegree;
+	BSplineVolumef* mVolume;
+	float mXMin, mYMin, mZMin, mDX, mDY, mDZ;
+	Vector3f* mParameters;  // (u,v,w) for mesh vertices
 
-    // Q control points per dimension, 3*Q^2*(Q-1) polysegments to connect
-    // them.
-    NodePtr mPolysegmentRoot;
+	// Q control points per dimension, 3*Q^2*(Q-1) polysegments to connect
+	// them.
+	NodePtr mPolysegmentRoot;
 
-    // Toggle between automated random motion and user-adjusted controls.
-    bool mDoRandom;
+	// Toggle between automated random motion and user-adjusted controls.
+	bool mDoRandom;
 
-    // Random motion parameters.
-    float mAmplitude, mRadius, mLastUpdateTime;
+	// Random motion parameters.
+	float mAmplitude, mRadius, mLastUpdateTime;
 
-    // User-adjusted controls.
-    NodePtr mControlRoot;
-    TriMeshPtr mSelected;
-    VisualEffectInstancePtr mControlActive;
-    VisualEffectInstancePtr mControlInactive;
-    APoint mOldWorldPos;
-    bool mMouseDown;
+	// User-adjusted controls.
+	NodePtr mControlRoot;
+	TriMeshPtr mSelected;
+	VisualEffectInstancePtr mControlActive;
+	VisualEffectInstancePtr mControlInactive;
+	APoint mOldWorldPos;
+	bool mMouseDown;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(FreeFormDeformation);

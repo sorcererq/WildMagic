@@ -9,16 +9,16 @@
 //----------------------------------------------------------------------------
 inline const VisualEffect* VisualEffectInstance::GetEffect () const
 {
-    return mEffect;
+	return mEffect;
 }
 //----------------------------------------------------------------------------
 inline int VisualEffectInstance::GetTechniqueIndex () const
 {
-    return mTechniqueIndex;
+	return mTechniqueIndex;
 }
 //----------------------------------------------------------------------------
 inline int VisualEffectInstance::GetNumPasses () const
 {
-    return mEffect->GetTechnique(mTechniqueIndex)->GetNumPasses();
+	return mEffect->GetTechnique(mTechniqueIndex)->GetNumPasses();
 }
 //----------------------------------------------------------------------------

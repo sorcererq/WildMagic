@@ -17,37 +17,37 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM Texture1D : public Texture
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(Texture1D);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(Texture1D);
 
 public:
-    // Construction and destruction.
-    Texture1D (Format tformat, int dimension0, int numLevels,
-        Buffer::Usage usage = Buffer::BU_TEXTURE);
+	// Construction and destruction.
+	Texture1D (Format tformat, int dimension0, int numLevels,
+	           Buffer::Usage usage = Buffer::BU_TEXTURE);
 
-    virtual ~Texture1D ();
+	virtual ~Texture1D ();
 
-    // Get the dimension of the zero-th level mipmap.
-    inline int GetLength () const;
+	// Get the dimension of the zero-th level mipmap.
+	inline int GetLength () const;
 
-    // Support for mipmap generation.
-    void GenerateMipmaps ();
-    bool HasMipmaps () const;
+	// Support for mipmap generation.
+	void GenerateMipmaps ();
+	bool HasMipmaps () const;
 
-    // Access the texture data.
-    char* GetData (int level) const;
+	// Access the texture data.
+	char* GetData (int level) const;
 
 protected:
-    // Support for mipmap generation.
-    void ComputeNumLevelBytes ();
-    void GenerateNextMipmap (int length, const char* texels, int lengthNext,
-        char* texelsNext, Float4* rgba);
+	// Support for mipmap generation.
+	void ComputeNumLevelBytes ();
+	void GenerateNextMipmap (int length, const char* texels, int lengthNext,
+	                         char* texelsNext, Float4* rgba);
 
 // Support for the raw load of Texture1D.  Raw save is in Texture.
 public:
-    static Texture1D* LoadWMTF (const std::string& name,
-        int mode = FileIO::FM_DEFAULT_READ);
+	static Texture1D* LoadWMTF (const std::string& name,
+	                            int mode = FileIO::FM_DEFAULT_READ);
 // End support for raw load.
 };
 

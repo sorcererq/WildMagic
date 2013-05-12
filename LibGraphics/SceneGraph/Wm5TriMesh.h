@@ -17,23 +17,23 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM TriMesh : public Triangles
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(TriMesh);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(TriMesh);
 
 protected:
-    // Default construction for derived classes.
-    TriMesh ();
+	// Default construction for derived classes.
+	TriMesh ();
 public:
-    // Construction and destruction.
-    TriMesh (VertexFormat* vformat, VertexBuffer* vbuffer,
-        IndexBuffer* ibuffer);
+	// Construction and destruction.
+	TriMesh (VertexFormat* vformat, VertexBuffer* vbuffer,
+	         IndexBuffer* ibuffer);
 
-    virtual ~TriMesh ();
+	virtual ~TriMesh ();
 
-    // Interpretation of the index buffer data.
-    virtual int GetNumTriangles () const;
-    virtual bool GetTriangle (int i, int& v0, int& v1, int& v2) const;
+	// Interpretation of the index buffer data.
+	virtual int GetNumTriangles () const;
+	virtual bool GetTriangle (int i, int& v0, int& v1, int& v2) const;
 };
 
 WM5_REGISTER_STREAM(TriMesh);

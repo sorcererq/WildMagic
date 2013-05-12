@@ -16,41 +16,41 @@ using namespace Wm5;
 class PhysicsModule
 {
 public:
-    // Construction and destruction.
-    PhysicsModule ();
-    ~PhysicsModule ();
+	// Construction and destruction.
+	PhysicsModule ();
+	~PhysicsModule ();
 
-    // Initialize the differential equation solver.
-    void Initialize (double time, double deltaTime, double theta,
-        double phi, double thetaDot, double phiDot);
+	// Initialize the differential equation solver.
+	void Initialize (double time, double deltaTime, double theta,
+	                 double phi, double thetaDot, double phiDot);
 
-    // Access the current state.
-    inline double GetTime () const;
-    inline double GetDeltaTime () const;
-    inline double GetTheta () const;
-    inline double GetThetaDot () const;
-    inline double GetPhi () const;
-    inline double GetPhiDot () const;
+	// Access the current state.
+	inline double GetTime () const;
+	inline double GetDeltaTime () const;
+	inline double GetTheta () const;
+	inline double GetThetaDot () const;
+	inline double GetPhi () const;
+	inline double GetPhiDot () const;
 
-    // The orientation of the pendulum.
-    HMatrix GetOrientation () const;
+	// The orientation of the pendulum.
+	HMatrix GetOrientation () const;
 
-    // Apply a single step of the solver.
-    void Update ();
+	// Apply a single step of the solver.
+	void Update ();
 
-    // The pendulum parameters.
-    double AngularSpeed;  // w
-    double Latitude;  // lat
-    double GDivL;  // g/L
+	// The pendulum parameters.
+	double AngularSpeed;  // w
+	double Latitude;  // lat
+	double GDivL;  // g/L
 
 private:
-    // State and auxiliary variables.
-    double mTime, mDeltaTime, mState[4], mAux[3];
+	// State and auxiliary variables.
+	double mTime, mDeltaTime, mState[4], mAux[3];
 
-    // ODE solver (specific solver assigned in the cpp file).
-    OdeSolverd* mSolver;
-    static void OdeFunction (double time, const double* state, void* data,
-        double* output);
+	// ODE solver (specific solver assigned in the cpp file).
+	OdeSolverd* mSolver;
+	static void OdeFunction (double time, const double* state, void* data,
+	                         double* output);
 };
 
 #include "PhysicsModule.inl"

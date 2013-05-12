@@ -24,7 +24,7 @@ namespace Wm5
 // and M = (sum_i V_i)(sum_i V_i)^t where
 //
 //   V = (1, X, Y, Z, X^2, Y^2, Z^2, X*Y, X*Z, Y*Z)
-//         
+//
 // The minimum value is the smallest eigenvalue of M and C is a corresponding
 // unit length eigenvector.
 //
@@ -50,7 +50,7 @@ namespace Wm5
 // The characterization depends on the signs of the d_i.
 template <typename Real> WM5_MATHEMATICS_ITEM
 Real QuadraticFit3 (int numPoints, const Vector3<Real>* points,
-    Real coeff[10]);
+                    Real coeff[10]);
 
 // If you think your points are nearly spherical, use this.  Sphere is of form
 // C'[0]+C'[1]*X+C'[2]*Y+C'[3]*Z+C'[4]*(X^2+Y^2+Z^2) where Length(C') = 1.
@@ -60,7 +60,7 @@ Real QuadraticFit3 (int numPoints, const Vector3<Real>* points,
 // sqrt(xc*xc+yc*yc+zc*zc-C[0]).
 template <typename Real> WM5_MATHEMATICS_ITEM
 Real QuadraticSphereFit3 (int numPoints, const Vector3<Real>* points,
-    Vector3<Real>& center, Real& radius);
+                          Vector3<Real>& center, Real& radius);
 
 }
 

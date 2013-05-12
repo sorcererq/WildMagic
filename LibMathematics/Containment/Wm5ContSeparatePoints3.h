@@ -30,22 +30,22 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM SeparatePoints3
 {
 public:
-    SeparatePoints3 (int numPoints0, const Vector3<Real>* points0,
-        int numPoints1, const Vector3<Real>* points1,
-        Plane3<Real>& separatingPlane);
+	SeparatePoints3 (int numPoints0, const Vector3<Real>* points0,
+	                 int numPoints1, const Vector3<Real>* points1,
+	                 Plane3<Real>& separatingPlane);
 
-    // Return the result of the constructor call.  If 'true', the output
-    // plane 'separatingPlane' is valid.
-    operator bool ();
+	// Return the result of the constructor call.  If 'true', the output
+	// plane 'separatingPlane' is valid.
+	operator bool ();
 
 private:
-    static int OnSameSide (const Plane3<Real>& plane, int numTriangles,
-        const int* indices, const Vector3<Real>* points);
+	static int OnSameSide (const Plane3<Real>& plane, int numTriangles,
+	                       const int* indices, const Vector3<Real>* points);
 
-    static int WhichSide (const Plane3<Real>& plane, int numTriangles,
-        const int* indices, const Vector3<Real>* points);
+	static int WhichSide (const Plane3<Real>& plane, int numTriangles,
+	                      const int* indices, const Vector3<Real>* points);
 
-    bool mSeparated;
+	bool mSeparated;
 };
 
 typedef SeparatePoints3<float> SeparatePoints3f;

@@ -17,24 +17,24 @@ namespace Wm5
 class WM5_GRAPHICS_ITEM CollapseRecord
 {
 public:
-    // Construction and destruction.
-    CollapseRecord (int vKeep = -1, int vThrow = -1, int numVertices = 0,
-        int numTriangles = 0);
+	// Construction and destruction.
+	CollapseRecord (int vKeep = -1, int vThrow = -1, int numVertices = 0,
+	                int numTriangles = 0);
 
-    ~CollapseRecord ();
+	~CollapseRecord ();
 
-    // Edge <VKeep,VThrow> collapses so that VThrow is replaced by VKeep.
-    int VKeep, VThrow;
+	// Edge <VKeep,VThrow> collapses so that VThrow is replaced by VKeep.
+	int VKeep, VThrow;
 
-    // The number of vertices after the edge collapse.
-    int NumVertices;
+	// The number of vertices after the edge collapse.
+	int NumVertices;
 
-    // The number of triangles after the edge collapse.
-    int NumTriangles;
+	// The number of triangles after the edge collapse.
+	int NumTriangles;
 
-    // The array of indices in [0..NumTriangles-1] that contain VThrow.
-    int NumIndices;
-    int* Indices;
+	// The array of indices in [0..NumTriangles-1] that contain VThrow.
+	int NumIndices;
+	int* Indices;
 };
 
 }

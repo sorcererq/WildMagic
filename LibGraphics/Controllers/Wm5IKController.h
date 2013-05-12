@@ -19,31 +19,31 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM IKController : public Controller
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(IKController);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(IKController);
 
 public:
-    // Construction and destruction.  IKController assumes responsibility for
-    // the input arrays and will delete them.  They should be dynamically
-    // allocated.
-    IKController (int numJoints, IKJointPtr* joints, int numGoals,
-        IKGoalPtr* goals);
+	// Construction and destruction.  IKController assumes responsibility for
+	// the input arrays and will delete them.  They should be dynamically
+	// allocated.
+	IKController (int numJoints, IKJointPtr* joints, int numGoals,
+	              IKGoalPtr* goals);
 
-    virtual ~IKController ();
+	virtual ~IKController ();
 
-    // Member access.
-    int Iterations;       // default = 128
-    bool OrderEndToRoot;  // default = true
+	// Member access.
+	int Iterations;       // default = 128
+	bool OrderEndToRoot;  // default = true
 
-    // The animation update.  The application time is in milliseconds.
-    virtual bool Update (double applicationTime);
+	// The animation update.  The application time is in milliseconds.
+	virtual bool Update (double applicationTime);
 
 protected:
-    int mNumJoints;
-    IKJointPtr* mJoints;
-    int mNumGoals;
-    IKGoalPtr* mGoals;
+	int mNumJoints;
+	IKJointPtr* mJoints;
+	int mNumGoals;
+	IKGoalPtr* mGoals;
 };
 
 WM5_REGISTER_STREAM(IKController);

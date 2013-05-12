@@ -9,26 +9,26 @@
 //----------------------------------------------------------------------------
 inline BufferIO::operator bool () const
 {
-    return mMode != BM_NONE;
+	return mMode != BM_NONE;
 }
 //----------------------------------------------------------------------------
 inline const char* BufferIO::GetBuffer () const
 {
-    return mBuffer;
+	return mBuffer;
 }
 //----------------------------------------------------------------------------
 inline int BufferIO::GetNumBytesTotal () const
 {
-    return mNumBytesTotal;
+	return mNumBytesTotal;
 }
 //----------------------------------------------------------------------------
 inline int BufferIO::GetNumBytesProcessed () const
 {
-    return mNumBytesProcessed;
+	return mNumBytesProcessed;
 }
 //----------------------------------------------------------------------------
 inline int BufferIO::GetMode () const
 {
-    return mMode;
+	return mMode;
 }
 //----------------------------------------------------------------------------

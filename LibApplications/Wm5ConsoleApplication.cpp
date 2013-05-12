@@ -12,10 +12,10 @@ using namespace Wm5;
 
 //----------------------------------------------------------------------------
 ConsoleApplication::ConsoleApplication (const char* consoleTitle)
-    :
-    mConsoleTitle(consoleTitle)
+	:
+	mConsoleTitle(consoleTitle)
 {
-    ThePath = WM5Path + mConsoleTitle + "/";
+	ThePath = WM5Path + mConsoleTitle + "/";
 }
 //----------------------------------------------------------------------------
 ConsoleApplication::~ConsoleApplication ()
@@ -24,7 +24,7 @@ ConsoleApplication::~ConsoleApplication ()
 //----------------------------------------------------------------------------
 int ConsoleApplication::Run (int numArguments, char** arguments)
 {
-    ConsoleApplication* theApp = (ConsoleApplication*)TheApplication;
-    return theApp->Main(numArguments, arguments);
+	ConsoleApplication* theApp = (ConsoleApplication*)TheApplication;
+	return theApp->Main(numArguments, arguments);
 }
 //----------------------------------------------------------------------------

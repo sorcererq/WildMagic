@@ -16,13 +16,13 @@ WM5_IMPLEMENT_FACTORY(SMShadowEffect);
 
 //----------------------------------------------------------------------------
 SMShadowEffect::SMShadowEffect (const std::string& effectName,
-    ShaderFloat* lightPVMatrix)
+                                ShaderFloat* lightPVMatrix)
 {
-    VisualEffect* effect = VisualEffect::LoadWMFX(effectName);
+	VisualEffect* effect = VisualEffect::LoadWMFX(effectName);
 
-    mInstance = new0 VisualEffectInstance(effect, 0);
-    mInstance->SetVertexConstant(0, 0, new0 WMatrixConstant());
-    mInstance->SetVertexConstant(0, 1, lightPVMatrix);
+	mInstance = new0 VisualEffectInstance(effect, 0);
+	mInstance->SetVertexConstant(0, 0, new0 WMatrixConstant());
+	mInstance->SetVertexConstant(0, 1, lightPVMatrix);
 }
 //----------------------------------------------------------------------------
 SMShadowEffect::~SMShadowEffect ()
@@ -31,20 +31,20 @@ SMShadowEffect::~SMShadowEffect ()
 //----------------------------------------------------------------------------
 void SMShadowEffect::Draw (Renderer* renderer, const VisibleSet& visibleSet)
 {
-    const int numVisible = visibleSet.GetNumVisible();
-    for (int j = 0; j < numVisible; ++j)
-    {
-        // Replace the object's effect instance by the shadow-effect instance.
-        Visual* visual = (Visual*)visibleSet.GetVisible(j);
-        VisualEffectInstancePtr save = visual->GetEffectInstance();
-        visual->SetEffectInstance(mInstance);
+	const int numVisible = visibleSet.GetNumVisible();
+	for (int j = 0; j < numVisible; ++j)
+	{
+		// Replace the object's effect instance by the shadow-effect instance.
+		Visual* visual = (Visual*)visibleSet.GetVisible(j);
+		VisualEffectInstancePtr save = visual->GetEffectInstance();
+		visual->SetEffectInstance(mInstance);
 
-        // Draw the object using the shadow effect.
-        renderer->Draw(visual);
+		// Draw the object using the shadow effect.
+		renderer->Draw(visual);
 
-        // Restore the object's effect instance.
-        visual->SetEffectInstance(save);
-    }
+		// Restore the object's effect instance.
+		visual->SetEffectInstance(save);
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -53,22 +53,22 @@ void SMShadowEffect::Draw (Renderer* renderer, const VisibleSet& visibleSet)
 //----------------------------------------------------------------------------
 Object* SMShadowEffect::GetObjectByName (const std::string& name)
 {
-    Object* found = GlobalEffect::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = GlobalEffect::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    WM5_GET_OBJECT_BY_NAME(mInstance, name, found);
-    return 0;
+	WM5_GET_OBJECT_BY_NAME(mInstance, name, found);
+	return 0;
 }
 //----------------------------------------------------------------------------
 void SMShadowEffect::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+        std::vector<Object*>& objects)
 {
-    GlobalEffect::GetAllObjectsByName(name, objects);
+	GlobalEffect::GetAllObjectsByName(name, objects);
 
-    WM5_GET_ALL_OBJECTS_BY_NAME(mInstance, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mInstance, name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -76,59 +76,59 @@ void SMShadowEffect::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 SMShadowEffect::SMShadowEffect (LoadConstructor value)
-    :
-    GlobalEffect(value)
+	:
+	GlobalEffect(value)
 {
 }
 //----------------------------------------------------------------------------
 void SMShadowEffect::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    GlobalEffect::Load(source);
+	GlobalEffect::Load(source);
 
-    source.ReadPointer(mInstance);
+	source.ReadPointer(mInstance);
 
-    WM5_END_DEBUG_STREAM_LOAD(SMShadowEffect, source);
+	WM5_END_DEBUG_STREAM_LOAD(SMShadowEffect, source);
 }
 //----------------------------------------------------------------------------
 void SMShadowEffect::Link (InStream& source)
 {
-    GlobalEffect::Link(source);
+	GlobalEffect::Link(source);
 
-    source.ResolveLink(mInstance);
+	source.ResolveLink(mInstance);
 }
 //----------------------------------------------------------------------------
 void SMShadowEffect::PostLink ()
 {
-    GlobalEffect::PostLink();
+	GlobalEffect::PostLink();
 }
 //----------------------------------------------------------------------------
 bool SMShadowEffect::Register (OutStream& target) const
 {
-    if (GlobalEffect::Register(target))
-    {
-        target.Register(mInstance);
-        return true;
-    }
-    return false;
+	if (GlobalEffect::Register(target))
+	{
+		target.Register(mInstance);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void SMShadowEffect::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    GlobalEffect::Save(target);
+	GlobalEffect::Save(target);
 
-    target.WritePointer(mInstance);
+	target.WritePointer(mInstance);
 
-    WM5_END_DEBUG_STREAM_SAVE(SMShadowEffect, target);
+	WM5_END_DEBUG_STREAM_SAVE(SMShadowEffect, target);
 }
 //----------------------------------------------------------------------------
 int SMShadowEffect::GetStreamingSize () const
 {
-    int size = GlobalEffect::GetStreamingSize();
-    size += WM5_POINTERSIZE(mInstance);
-    return size;
+	int size = GlobalEffect::GetStreamingSize();
+	size += WM5_POINTERSIZE(mInstance);
+	return size;
 }
 //----------------------------------------------------------------------------

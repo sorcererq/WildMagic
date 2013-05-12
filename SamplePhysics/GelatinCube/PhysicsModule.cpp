@@ -10,10 +10,10 @@
 
 //----------------------------------------------------------------------------
 PhysicsModule::PhysicsModule (int numSlices, int numRows, int numCols,
-    float step, float viscosity)
-    :
-    MassSpringVolume3f(numSlices, numRows, numCols, step),
-    mViscosity(viscosity)
+                              float step, float viscosity)
+	:
+	MassSpringVolume3f(numSlices, numRows, numCols, step),
+	mViscosity(viscosity)
 {
 }
 //----------------------------------------------------------------------------
@@ -23,13 +23,13 @@ PhysicsModule::~PhysicsModule ()
 //----------------------------------------------------------------------------
 float& PhysicsModule::Viscosity ()
 {
-    return mViscosity;
+	return mViscosity;
 }
 //----------------------------------------------------------------------------
 Vector3f PhysicsModule::ExternalAcceleration (int i, float, const Vector3f*,
-    const Vector3f* velocities)
+        const Vector3f* velocities)
 {
-    Vector3f acceleration = -mViscosity*velocities[i];
-    return acceleration;
+	Vector3f acceleration = -mViscosity*velocities[i];
+	return acceleration;
 }
 //----------------------------------------------------------------------------

@@ -14,55 +14,55 @@
 class SegmentGraph
 {
 public:
-    SegmentGraph ();
-    ~SegmentGraph ();
+	SegmentGraph ();
+	~SegmentGraph ();
 
-    class Vertex
-    {
-    public:
-        Vertex ();
-        ~Vertex ();
+	class Vertex
+	{
+	public:
+		Vertex ();
+		~Vertex ();
 
-        void InsertAdjacent (Vertex* adjacent);
-        void RemoveAdjacent (Vertex* adjacent);
+		void InsertAdjacent (Vertex* adjacent);
+		void RemoveAdjacent (Vertex* adjacent);
 
-        enum { VG_CHUNK = 16 };
-        RPoint2 Position;
-        int NumVertices;
-        Vertex** V;
-    };
+		enum { VG_CHUNK = 16 };
+		RPoint2 Position;
+		int NumVertices;
+		Vertex** V;
+	};
 
-    class Edge
-    {
-    public:
-        Edge ();
-        Edge (Vertex* v0, Vertex* v1);
+	class Edge
+	{
+	public:
+		Edge ();
+		Edge (Vertex* v0, Vertex* v1);
 
-        void SetVertices (Vertex* v0, Vertex* v1);
-        Vertex* GetVertex (int i) const;
-        bool operator== (const Edge& edge) const;
-        bool operator< (const Edge& edge) const;
+		void SetVertices (Vertex* v0, Vertex* v1);
+		Vertex* GetVertex (int i) const;
+		bool operator== (const Edge& edge) const;
+		bool operator< (const Edge& edge) const;
 
-    private:
-        Vertex* mV[2];
-    };
+	private:
+		Vertex* mV[2];
+	};
 
-    typedef std::map<RPoint2,Vertex*> VMap;
-    typedef std::set<Edge> ESet;
+	typedef std::map<RPoint2,Vertex*> VMap;
+	typedef std::set<Edge> ESet;
 
-    VMap& GetVertices ();
-    ESet& GetEdges ();
+	VMap& GetVertices ();
+	ESet& GetEdges ();
 
-    void InsertEdge (const RPoint2& point0, const RPoint2& point1);
-    bool RemoveEdge (const RPoint2& point0, const RPoint2& point1);
-    void ExtractEnvelope (std::vector<RPoint2>& envelope);
+	void InsertEdge (const RPoint2& point0, const RPoint2& point1);
+	bool RemoveEdge (const RPoint2& point0, const RPoint2& point1);
+	void ExtractEnvelope (std::vector<RPoint2>& envelope);
 
 private:
-    Vertex* GetVertex (const RPoint2& point);
-    Vertex* InsertVertex (const RPoint2& point);
+	Vertex* GetVertex (const RPoint2& point);
+	Vertex* InsertVertex (const RPoint2& point);
 
-    VMap mVertexMap;
-    ESet mEdgeSet;
+	VMap mVertexMap;
+	ESet mEdgeSet;
 };
 
 #endif

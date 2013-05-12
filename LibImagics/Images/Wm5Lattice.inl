@@ -9,31 +9,31 @@
 //----------------------------------------------------------------------------
 inline int Lattice::GetDimensions () const
 {
-    return mNumDimensions;
+	return mNumDimensions;
 }
 //----------------------------------------------------------------------------
 inline const int* Lattice::GetBounds () const
 {
-    return mBounds;
+	return mBounds;
 }
 //----------------------------------------------------------------------------
 inline int Lattice::GetBound (int i) const
 {
-    return mBounds[i];
+	return mBounds[i];
 }
 //----------------------------------------------------------------------------
 inline int Lattice::GetQuantity () const
 {
-    return mQuantity;
+	return mQuantity;
 }
 //----------------------------------------------------------------------------
 inline const int* Lattice::GetOffsets () const
 {
-    return mOffsets;
+	return mOffsets;
 }
 //----------------------------------------------------------------------------
 inline int Lattice::GetOffset (int i) const
 {
-    return mOffsets[i];
+	return mOffsets[i];
 }
 //----------------------------------------------------------------------------

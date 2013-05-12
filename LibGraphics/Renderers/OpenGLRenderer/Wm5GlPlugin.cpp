@@ -19,20 +19,20 @@
 //----------------------------------------------------------------------------
 void ReportNullFunction (const char*)
 {
-    assert(false);
+	assert(false);
 }
 //----------------------------------------------------------------------------
 void ReportGLError (const char* acFunction)
 {
-    GLenum code = glGetError();
-    while (code != GL_NO_ERROR)
-    {
-        const char* errorString = GTGetErrorString(code);
-        (void)errorString;
-        assert(false);
-        code = glGetError();
-    }
-    (void)acFunction;
+	GLenum code = glGetError();
+	while (code != GL_NO_ERROR)
+	{
+		const char* errorString = GTGetErrorString(code);
+		(void)errorString;
+		assert(false);
+		code = glGetError();
+	}
+	(void)acFunction;
 }
 //----------------------------------------------------------------------------
 

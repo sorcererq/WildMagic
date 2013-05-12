@@ -9,36 +9,36 @@
 //----------------------------------------------------------------------------
 inline int RevolutionSurface::GetCurveSamples () const
 {
-    return mNumCurveSamples;
+	return mNumCurveSamples;
 }
 //----------------------------------------------------------------------------
 inline int RevolutionSurface::GetRadialSamples () const
 {
-    return mNumRadialSamples;
+	return mNumRadialSamples;
 }
 //----------------------------------------------------------------------------
 inline void RevolutionSurface::SetCurve (Curve2f* curve)
 {
-    mCurve = curve;
+	mCurve = curve;
 }
 //----------------------------------------------------------------------------
 inline const Curve2f* RevolutionSurface::GetCurve () const
 {
-    return mCurve;
+	return mCurve;
 }
 //----------------------------------------------------------------------------
 inline RevolutionSurface::TopologyType RevolutionSurface::GetTopology () const
 {
-    return mTopology;
+	return mTopology;
 }
 //----------------------------------------------------------------------------
 inline void RevolutionSurface::SetSampleByArcLength (bool sampleByArcLength)
 {
-    mSampleByArcLength = sampleByArcLength;
+	mSampleByArcLength = sampleByArcLength;
 }
 //----------------------------------------------------------------------------
 inline bool RevolutionSurface::GetSampleByArcLength () const
 {
-    return mSampleByArcLength;
+	return mSampleByArcLength;
 }
 //----------------------------------------------------------------------------

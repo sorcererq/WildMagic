@@ -19,28 +19,28 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrPlane3Ellipsoid3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrPlane3Ellipsoid3 (const Plane3<Real>& plane,
-        const Ellipsoid3<Real>& ellipsoid);
+	IntrPlane3Ellipsoid3 (const Plane3<Real>& plane,
+	                      const Ellipsoid3<Real>& ellipsoid);
 
-    // Object access.
-    const Plane3<Real>& GetPlane () const;
-    const Ellipsoid3<Real>& GetEllipsoid () const;
+	// Object access.
+	const Plane3<Real>& GetPlane () const;
+	const Ellipsoid3<Real>& GetEllipsoid () const;
 
-    // Static intersection query.
-    virtual bool Test ();
+	// Static intersection query.
+	virtual bool Test ();
 
-    // Culling support.  The view frustum is assumed to be on the positive
-    // side of the plane.  The ellipsoid is culled if it is on the negative
-    // side of the plane.
-    bool EllipsoidIsCulled () const;
+	// Culling support.  The view frustum is assumed to be on the positive
+	// side of the plane.  The ellipsoid is culled if it is on the negative
+	// side of the plane.
+	bool EllipsoidIsCulled () const;
 
 protected:
-    // The objects to intersect.
-    const Plane3<Real>* mPlane;
-    const Ellipsoid3<Real>* mEllipsoid;
+	// The objects to intersect.
+	const Plane3<Real>* mPlane;
+	const Ellipsoid3<Real>* mEllipsoid;
 };
 
 typedef IntrPlane3Ellipsoid3<float> IntrPlane3Ellipsoid3f;

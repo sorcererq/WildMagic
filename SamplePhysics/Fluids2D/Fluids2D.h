@@ -15,26 +15,26 @@ using namespace Wm5;
 
 class Fluids2D : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    Fluids2D ();
+	Fluids2D ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
-    virtual void ScreenOverlay ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
+	virtual void ScreenOverlay ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    Smoke2D<float>* mSmoke;
-    ColorRGB mColor[256];
-    bool mSingleStep;
-    bool mDrawColored;
-    bool mDrawVortices;
-    Float4 mTextColor;
+	Smoke2D<float>* mSmoke;
+	ColorRGB mColor[256];
+	bool mSingleStep;
+	bool mDrawColored;
+	bool mDrawVortices;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(Fluids2D);

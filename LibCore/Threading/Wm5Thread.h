@@ -18,23 +18,23 @@ namespace Wm5
 class WM5_CORE_ITEM Thread
 {
 public:
-    // Construction and destruction.
-    Thread (void* function, void* userData, unsigned int processorNumber = 0,
-        unsigned int stackSize = 0);
+	// Construction and destruction.
+	Thread (void* function, void* userData, unsigned int processorNumber = 0,
+	        unsigned int stackSize = 0);
 
-    ~Thread ();
+	~Thread ();
 
-    // Start and stop the thread.
-    void Resume ();
-    void Suspend ();
+	// Start and stop the thread.
+	void Resume ();
+	void Suspend ();
 
 private:
-    ThreadType mThread;
-    unsigned int mThreadID;
-    void* mFunction;
-    void* mUserData;
-    unsigned int mProcessorNumber;
-    unsigned int mStackSize;
+	ThreadType mThread;
+	unsigned int mThreadID;
+	void* mFunction;
+	void* mUserData;
+	unsigned int mProcessorNumber;
+	unsigned int mStackSize;
 };
 
 }

@@ -24,33 +24,33 @@ template <int DIMENSION, typename TYPE>
 class Tuple
 {
 public:
-    // Construction and destruction.  The default constructor does not
-    // initialize the tuple elements for native elements.  The tuple elements
-    // are initialized for class data whenever TYPE initializes during its
-    // default construction.
-    Tuple ();
-    Tuple (const Tuple& tuple);
-    ~Tuple ();
+	// Construction and destruction.  The default constructor does not
+	// initialize the tuple elements for native elements.  The tuple elements
+	// are initialized for class data whenever TYPE initializes during its
+	// default construction.
+	Tuple ();
+	Tuple (const Tuple& tuple);
+	~Tuple ();
 
-    // Coordinate access.
-    inline operator const TYPE* () const;
-    inline operator TYPE* ();
-    inline const TYPE& operator[] (int i) const;
-    inline TYPE& operator[] (int i);
+	// Coordinate access.
+	inline operator const TYPE* () const;
+	inline operator TYPE* ();
+	inline const TYPE& operator[] (int i) const;
+	inline TYPE& operator[] (int i);
 
-    // Assignment.
-    Tuple& operator= (const Tuple& tuple);
+	// Assignment.
+	Tuple& operator= (const Tuple& tuple);
 
-    // Comparison.
-    bool operator== (const Tuple& tuple) const;
-    bool operator!= (const Tuple& tuple) const;
-    bool operator<  (const Tuple& tuple) const;
-    bool operator<= (const Tuple& tuple) const;
-    bool operator>  (const Tuple& tuple) const;
-    bool operator>= (const Tuple& tuple) const;
+	// Comparison.
+	bool operator== (const Tuple& tuple) const;
+	bool operator!= (const Tuple& tuple) const;
+	bool operator<  (const Tuple& tuple) const;
+	bool operator<= (const Tuple& tuple) const;
+	bool operator>  (const Tuple& tuple) const;
+	bool operator>= (const Tuple& tuple) const;
 
 protected:
-    TYPE mTuple[DIMENSION];
+	TYPE mTuple[DIMENSION];
 };
 
 #include "Wm5Tuple.inl"

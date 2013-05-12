@@ -12,37 +12,37 @@
 class LinearMergeTree
 {
 public:
-    // Construction and destruction.  The array is assumed to contain 2^N+1
-    // elements where N >= 0.  The application is responsible for any memory
-    // management associated with the input array.
-    LinearMergeTree (int N);
-    ~LinearMergeTree ();
+	// Construction and destruction.  The array is assumed to contain 2^N+1
+	// elements where N >= 0.  The application is responsible for any memory
+	// management associated with the input array.
+	LinearMergeTree (int N);
+	~LinearMergeTree ();
 
-    enum
-    {
-        CFG_NONE = 0,
-        CFG_INCR = 1,
-        CFG_DECR = 2,
-        CFG_MULT = 3,
-        CFG_ROOT_MASK = 3,
-        CFG_EDGE = 4,
-        CFG_ZERO_SUBEDGE = 8
-    };
+	enum
+	{
+		CFG_NONE = 0,
+		CFG_INCR = 1,
+		CFG_DECR = 2,
+		CFG_MULT = 3,
+		CFG_ROOT_MASK = 3,
+		CFG_EDGE = 4,
+		CFG_ZERO_SUBEDGE = 8
+	};
 
-    bool IsNone (int i) const;
-    unsigned char GetRootType (int i) const;
-    int GetZeroBase (int i) const;
+	bool IsNone (int i) const;
+	unsigned char GetRootType (int i) const;
+	int GetZeroBase (int i) const;
 
-    void SetEdge (int i);
-    bool IsZeroEdge (int i) const;
-    bool HasZeroSubedge (int i) const;
+	void SetEdge (int i);
+	bool IsZeroEdge (int i) const;
+	bool HasZeroSubedge (int i) const;
 
-    void SetLevel (float level, const float* data, int offset, int stride);
+	void SetLevel (float level, const float* data, int offset, int stride);
 
 private:
-    int mN, mTwoPowerN;
-    unsigned char* mNodes;
-    short* mZeroBases;
+	int mN, mTwoPowerN;
+	unsigned char* mNodes;
+	short* mZeroBases;
 };
 
 #endif

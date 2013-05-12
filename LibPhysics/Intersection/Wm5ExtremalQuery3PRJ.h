@@ -19,18 +19,18 @@ template <typename Real>
 class WM5_PHYSICS_ITEM ExtremalQuery3PRJ : public ExtremalQuery3<Real>
 {
 public:
-    ExtremalQuery3PRJ (const ConvexPolyhedron3<Real>* polytope);
-    virtual ~ExtremalQuery3PRJ ();
+	ExtremalQuery3PRJ (const ConvexPolyhedron3<Real>* polytope);
+	virtual ~ExtremalQuery3PRJ ();
 
-    // Compute the extreme vertices in the specified direction and return the
-    // indices of the vertices in the polyhedron vertex array.
-    virtual void GetExtremeVertices (const Vector3<Real>& direction,
-        int& positiveDirection, int& negativeDirection);
+	// Compute the extreme vertices in the specified direction and return the
+	// indices of the vertices in the polyhedron vertex array.
+	virtual void GetExtremeVertices (const Vector3<Real>& direction,
+	                                 int& positiveDirection, int& negativeDirection);
 
 private:
-    using ExtremalQuery3<Real>::mPolytope;
+	using ExtremalQuery3<Real>::mPolytope;
 
-    Vector3<Real> mCentroid;
+	Vector3<Real> mCentroid;
 };
 
 typedef ExtremalQuery3PRJ<float> ExtremalQuery3PRJf;

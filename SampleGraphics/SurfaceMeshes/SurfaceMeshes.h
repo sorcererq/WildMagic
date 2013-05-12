@@ -16,34 +16,34 @@ using namespace Wm5;
 
 class SurfaceMeshes : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    SurfaceMeshes ();
+	SurfaceMeshes ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    void CreateSimpleSegment ();
-    void CreateSimplePatch ();
+	void CreateScene ();
+	void CreateSimpleSegment ();
+	void CreateSimplePatch ();
 
-    NodePtr mScene;
-    WireStatePtr mWireState;
-    CullStatePtr mCullState;
-    Culler mCuller;
+	NodePtr mScene;
+	WireStatePtr mWireState;
+	CullStatePtr mCullState;
+	Culler mCuller;
 
-    SimpleSegmentPtr mSegment;
-    CurveMeshPtr mCurve;
-    SimplePatchPtr mPatch;
-    SurfaceMeshPtr mSurface;
-    int mLevel;
+	SimpleSegmentPtr mSegment;
+	CurveMeshPtr mCurve;
+	SimplePatchPtr mPatch;
+	SurfaceMeshPtr mSurface;
+	int mLevel;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(SurfaceMeshes);

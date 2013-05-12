@@ -19,17 +19,17 @@ template <typename Real>
 class Sphere3
 {
 public:
-    // The sphere is represented as |X-C| = R where C is the center and R is
-    // the radius.
+	// The sphere is represented as |X-C| = R where C is the center and R is
+	// the radius.
 
-    // Construction and destruction.
-    Sphere3 ();  // uninitialized
-    ~Sphere3 ();
+	// Construction and destruction.
+	Sphere3 ();  // uninitialized
+	~Sphere3 ();
 
-    Sphere3 (const Vector3<Real>& center, Real radius);
+	Sphere3 (const Vector3<Real>& center, Real radius);
 
-    Vector3<Real> Center;
-    Real Radius;
+	Vector3<Real> Center;
+	Real Radius;
 };
 
 #include "Wm5Sphere3.inl"

@@ -20,26 +20,26 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM PolynomialCurve2 : public SingleCurve2<Real>
 {
 public:
-    // Construction and destruction.  PolynomialCurve2 accepts responsibility
-    // for deleting the input polynomials.
-    PolynomialCurve2 (Polynomial1<Real>* xPoly, Polynomial1<Real>* yPoly);
-    virtual ~PolynomialCurve2 ();
+	// Construction and destruction.  PolynomialCurve2 accepts responsibility
+	// for deleting the input polynomials.
+	PolynomialCurve2 (Polynomial1<Real>* xPoly, Polynomial1<Real>* yPoly);
+	virtual ~PolynomialCurve2 ();
 
-    int GetDegree () const;
-    const Polynomial1<Real>* GetXPolynomial () const;
-    const Polynomial1<Real>* GetYPolynomial () const;
+	int GetDegree () const;
+	const Polynomial1<Real>* GetXPolynomial () const;
+	const Polynomial1<Real>* GetYPolynomial () const;
 
-    virtual Vector2<Real> GetPosition (Real t) const;
-    virtual Vector2<Real> GetFirstDerivative (Real t) const;
-    virtual Vector2<Real> GetSecondDerivative (Real t) const;
-    virtual Vector2<Real> GetThirdDerivative (Real t) const;
+	virtual Vector2<Real> GetPosition (Real t) const;
+	virtual Vector2<Real> GetFirstDerivative (Real t) const;
+	virtual Vector2<Real> GetSecondDerivative (Real t) const;
+	virtual Vector2<Real> GetThirdDerivative (Real t) const;
 
 protected:
-    Polynomial1<Real>* mXPoly;
-    Polynomial1<Real>* mYPoly;
-    Polynomial1<Real> mXDer1, mYDer1;
-    Polynomial1<Real> mXDer2, mYDer2;
-    Polynomial1<Real> mXDer3, mYDer3;
+	Polynomial1<Real>* mXPoly;
+	Polynomial1<Real>* mYPoly;
+	Polynomial1<Real> mXDer1, mYDer1;
+	Polynomial1<Real> mXDer2, mYDer2;
+	Polynomial1<Real> mXDer3, mYDer3;
 };
 
 typedef PolynomialCurve2<float> PolynomialCurve2f;

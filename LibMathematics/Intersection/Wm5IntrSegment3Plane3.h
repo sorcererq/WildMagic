@@ -19,37 +19,37 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrSegment3Plane3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrSegment3Plane3 (const Segment3<Real>& segment,
-        const Plane3<Real>& plane);
+	IntrSegment3Plane3 (const Segment3<Real>& segment,
+	                    const Plane3<Real>& plane);
 
-    // Object access.
-    const Segment3<Real>& GetSegment () const;
-    const Plane3<Real>& GetPlane () const;
+	// Object access.
+	const Segment3<Real>& GetSegment () const;
+	const Plane3<Real>& GetPlane () const;
 
-    // Test-intersection query.
-    virtual bool Test ();
+	// Test-intersection query.
+	virtual bool Test ();
 
-    // Find-intersection query.  The point of intersection is
-    // P = origin + t*direction, with |t| <= e, where e is the segment
-    // extent.
-    virtual bool Find ();
-    Real GetSegmentParameter () const;
+	// Find-intersection query.  The point of intersection is
+	// P = origin + t*direction, with |t| <= e, where e is the segment
+	// extent.
+	virtual bool Find ();
+	Real GetSegmentParameter () const;
 
 private:
-    using Intersector<Real,Vector3<Real> >::IT_EMPTY;
-    using Intersector<Real,Vector3<Real> >::IT_POINT;
-    using Intersector<Real,Vector3<Real> >::IT_SEGMENT;
-    using Intersector<Real,Vector3<Real> >::mIntersectionType;
+	using Intersector<Real,Vector3<Real> >::IT_EMPTY;
+	using Intersector<Real,Vector3<Real> >::IT_POINT;
+	using Intersector<Real,Vector3<Real> >::IT_SEGMENT;
+	using Intersector<Real,Vector3<Real> >::mIntersectionType;
 
-    // The objects to intersect.
-    const Segment3<Real>* mSegment;
-    const Plane3<Real>* mPlane;
+	// The objects to intersect.
+	const Segment3<Real>* mSegment;
+	const Plane3<Real>* mPlane;
 
-    // Information about the intersection set.
-    Real mSegmentParameter;
+	// Information about the intersection set.
+	Real mSegmentParameter;
 };
 
 typedef IntrSegment3Plane3<float> IntrSegment3Plane3f;

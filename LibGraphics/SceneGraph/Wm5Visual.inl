@@ -9,71 +9,71 @@
 //----------------------------------------------------------------------------
 inline Visual::PrimitiveType Visual::GetPrimitiveType () const
 {
-    return mType;
+	return mType;
 }
 //----------------------------------------------------------------------------
 inline void Visual::SetVertexFormat (VertexFormat* vformat)
 {
-    mVFormat = vformat;
+	mVFormat = vformat;
 }
 //----------------------------------------------------------------------------
 inline const VertexFormat* Visual::GetVertexFormat () const
 {
-    return mVFormat;
+	return mVFormat;
 }
 //----------------------------------------------------------------------------
 inline VertexFormat* Visual::GetVertexFormat ()
 {
-    return mVFormat;
+	return mVFormat;
 }
 //----------------------------------------------------------------------------
 inline void Visual::SetVertexBuffer (VertexBuffer* vbuffer)
 {
-    mVBuffer = vbuffer;
+	mVBuffer = vbuffer;
 }
 //----------------------------------------------------------------------------
 inline const VertexBuffer* Visual::GetVertexBuffer () const
 {
-    return mVBuffer;
+	return mVBuffer;
 }
 //----------------------------------------------------------------------------
 inline VertexBuffer* Visual::GetVertexBuffer ()
 {
-    return mVBuffer;
+	return mVBuffer;
 }
 //----------------------------------------------------------------------------
 inline void Visual::SetIndexBuffer (IndexBuffer* ibuffer)
 {
-    mIBuffer = ibuffer;
+	mIBuffer = ibuffer;
 }
 //----------------------------------------------------------------------------
 inline const IndexBuffer* Visual::GetIndexBuffer () const
 {
-    return mIBuffer;
+	return mIBuffer;
 }
 //----------------------------------------------------------------------------
 inline IndexBuffer* Visual::GetIndexBuffer ()
 {
-    return mIBuffer;
+	return mIBuffer;
 }
 //----------------------------------------------------------------------------
 inline const Bound& Visual::GetModelBound () const
 {
-    return mModelBound;
+	return mModelBound;
 }
 //----------------------------------------------------------------------------
 inline Bound& Visual::GetModelBound ()
 {
-    return mModelBound;
+	return mModelBound;
 }
 //----------------------------------------------------------------------------
 inline void Visual::SetEffectInstance (VisualEffectInstance* effect)
 {
-    mEffect = effect;
+	mEffect = effect;
 }
 //----------------------------------------------------------------------------
 inline VisualEffectInstance* Visual::GetEffectInstance () const
 {
-    return mEffect;
+	return mEffect;
 }
 //----------------------------------------------------------------------------

@@ -17,20 +17,20 @@ inline Float2::~Float2 ()
 //----------------------------------------------------------------------------
 inline Float2::Float2 (float f0, float f1)
 {
-    mTuple[0] = f0;
-    mTuple[1] = f1;
+	mTuple[0] = f0;
+	mTuple[1] = f1;
 }
 //----------------------------------------------------------------------------
 inline Float2::Float2 (const Float2& tuple)
 {
-    mTuple[0] = tuple.mTuple[0];
-    mTuple[1] = tuple.mTuple[1];
+	mTuple[0] = tuple.mTuple[0];
+	mTuple[1] = tuple.mTuple[1];
 }
 //----------------------------------------------------------------------------
 inline Float2& Float2::operator= (const Float2& tuple)
 {
-    mTuple[0] = tuple.mTuple[0];
-    mTuple[1] = tuple.mTuple[1];
-    return *this;
+	mTuple[0] = tuple.mTuple[0];
+	mTuple[1] = tuple.mTuple[1];
+	return *this;
 }
 //----------------------------------------------------------------------------

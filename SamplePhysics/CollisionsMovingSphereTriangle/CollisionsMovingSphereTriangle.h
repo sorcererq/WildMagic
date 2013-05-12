@@ -15,36 +15,36 @@ using namespace Wm5;
 
 class CollisionsMovingSphereTriangle : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    CollisionsMovingSphereTriangle ();
+	CollisionsMovingSphereTriangle ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    void Update ();
+	void CreateScene ();
+	void Update ();
 
-    NodePtr mScene;
-    SphereStruct mSphere;
-    TriangleStruct mTriangle;
-    Vector3f mSphereVelocity, mTriangleVelocity;
-    TriMeshPtr mSphereMesh, mTriangleMesh;
-    PolysegmentPtr mCenters;
-    TriMeshPtr mContactMesh;
-    WireStatePtr mWireState;
-    Culler mCuller;
-    float mSimTime, mSimDelta;
-    float mContactTime;
-    Vector3f mContactPoint;
-    Vector3f mMTri[3];
-    bool mUseInitialCenter;
-    Float4 mTextColor;
+	NodePtr mScene;
+	SphereStruct mSphere;
+	TriangleStruct mTriangle;
+	Vector3f mSphereVelocity, mTriangleVelocity;
+	TriMeshPtr mSphereMesh, mTriangleMesh;
+	PolysegmentPtr mCenters;
+	TriMeshPtr mContactMesh;
+	WireStatePtr mWireState;
+	Culler mCuller;
+	float mSimTime, mSimDelta;
+	float mContactTime;
+	Vector3f mContactPoint;
+	Vector3f mMTri[3];
+	bool mUseInitialCenter;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(CollisionsMovingSphereTriangle);

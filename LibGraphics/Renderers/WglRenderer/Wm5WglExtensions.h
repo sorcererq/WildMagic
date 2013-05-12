@@ -34,7 +34,7 @@ extern "C"
 //----------------------------------------------------------------------------
 // (ARB 04) WGL_ARB_buffer_region
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglArbBufferRegion;
+	GT_EXTERN int GTExistsWglArbBufferRegion;
 
 #define WGL_FRONT_COLOR_BUFFER_BIT_ARB                              0x00000001
 #define WGL_BACK_COLOR_BUFFER_BIT_ARB                               0x00000002
@@ -46,18 +46,18 @@ GT_EXTERN int GTExistsWglArbBufferRegion;
 #define wglSaveBufferRegionARB GTwglSaveBufferRegionARB
 #define wglRestoreBufferRegionARB GTwglRestoreBufferRegionARB
 
-HANDLE GTwglCreateBufferRegionARB (HDC hDC, int iLayerPlane, UINT uiType);
-GT_EXTERN VOID GTwglDeleteBufferRegionARB (HANDLE hRegion);
-GT_EXTERN BOOL GTwglSaveBufferRegionARB (HANDLE hRegion, int iX, int iY,
-    int iWidth, int iHeight);
-GT_EXTERN BOOL GTwglRestoreBufferRegionARB (HANDLE hRegion, int iX, int iY,
-    int iWidth, int iHeight, int iXSrc, int iYSrc);
+	HANDLE GTwglCreateBufferRegionARB (HDC hDC, int iLayerPlane, UINT uiType);
+	GT_EXTERN VOID GTwglDeleteBufferRegionARB (HANDLE hRegion);
+	GT_EXTERN BOOL GTwglSaveBufferRegionARB (HANDLE hRegion, int iX, int iY,
+	        int iWidth, int iHeight);
+	GT_EXTERN BOOL GTwglRestoreBufferRegionARB (HANDLE hRegion, int iX, int iY,
+	        int iWidth, int iHeight, int iXSrc, int iYSrc);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 05) WGL_ARB_multisample
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglArbMultisample;
+	GT_EXTERN int GTExistsWglArbMultisample;
 
 #define WGL_SAMPLE_BUFFERS_ARB                                      0x2041
 #define WGL_SAMPLES_ARB                                             0x2042
@@ -66,17 +66,17 @@ GT_EXTERN int GTExistsWglArbMultisample;
 //----------------------------------------------------------------------------
 // (ARB 08) WGL_ARB_extensions_string
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglArbExtensionsString;
+	GT_EXTERN int GTExistsWglArbExtensionsString;
 
 #define wglGetExtensionsStringARB GTwglGetExtensionsStringARB
 
-GT_EXTERN const char* GTwglGetExtensionsStringARB (HDC hDC);
+	GT_EXTERN const char* GTwglGetExtensionsStringARB (HDC hDC);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 09) WGL_ARB_pixel_format
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglArbPixelFormat;
+	GT_EXTERN int GTExistsWglArbPixelFormat;
 
 #define WGL_NUMBER_PIXEL_FORMATS_ARB                                0x2000
 #define WGL_DRAW_TO_WINDOW_ARB                                      0x2001
@@ -132,21 +132,21 @@ GT_EXTERN int GTExistsWglArbPixelFormat;
 #define wglGetPixelFormatAttribfvARB GTwglGetPixelFormatAttribfvARB
 #define wglChoosePixelFormatARB GTwglChoosePixelFormatARB
 
-GT_EXTERN BOOL GTwglGetPixelFormatAttribivARB (HDC hDC, int iPixelFormat,
-    int iLayerPlane, UINT uiNumAttributes, const int* aiAttribute,
-    int* aiValue);
-GT_EXTERN BOOL GTwglGetPixelFormatAttribfvARB (HDC hDC, int iPixelFormat,
-    int iLayerPlane, UINT uiNumAttributes, const int* aiAttribute,
-    FLOAT* afValue);
-GT_EXTERN BOOL GTwglChoosePixelFormatARB (HDC hDC, const int* aiAttribIList,
-    const FLOAT* afAttribFList, UINT uiMaxFormats, int* aiFormat,
-    UINT* puiNumFormats);
+	GT_EXTERN BOOL GTwglGetPixelFormatAttribivARB (HDC hDC, int iPixelFormat,
+	        int iLayerPlane, UINT uiNumAttributes, const int* aiAttribute,
+	        int* aiValue);
+	GT_EXTERN BOOL GTwglGetPixelFormatAttribfvARB (HDC hDC, int iPixelFormat,
+	        int iLayerPlane, UINT uiNumAttributes, const int* aiAttribute,
+	        FLOAT* afValue);
+	GT_EXTERN BOOL GTwglChoosePixelFormatARB (HDC hDC, const int* aiAttribIList,
+	        const FLOAT* afAttribFList, UINT uiMaxFormats, int* aiFormat,
+	        UINT* puiNumFormats);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 10) WGL_ARB_make_current_read
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglArbMakeCurrentRead;
+	GT_EXTERN int GTExistsWglArbMakeCurrentRead;
 
 #define ERROR_INVALID_PIXEL_TYPE_ARB                                0x2043
 #define ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB                      0x2054
@@ -154,15 +154,15 @@ GT_EXTERN int GTExistsWglArbMakeCurrentRead;
 #define wglMakeContextCurrentARB GTwglMakeContextCurrentARB
 #define wglGetCurrentReadDCARB GTwglGetCurrentReadDCARB
 
-GT_EXTERN BOOL GTwglMakeContextCurrentARB (HDC hDrawDC, HDC hReadDC,
-    HGLRC hWindowRC);
-GT_EXTERN HDC GTwglGetCurrentReadDCARB ();
+	GT_EXTERN BOOL GTwglMakeContextCurrentARB (HDC hDrawDC, HDC hReadDC,
+	        HGLRC hWindowRC);
+	GT_EXTERN HDC GTwglGetCurrentReadDCARB ();
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 11) WGL_ARB_pbuffer
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglArbPBuffer;
+	GT_EXTERN int GTExistsWglArbPBuffer;
 
 #define WGL_DRAW_TO_PBUFFER_ARB                                     0x202D
 #define WGL_MAX_PBUFFER_PIXELS_ARB                                  0x202E
@@ -172,7 +172,7 @@ GT_EXTERN int GTExistsWglArbPBuffer;
 #define WGL_PBUFFER_WIDTH_ARB                                       0x2034
 #define WGL_PBUFFER_HEIGHT_ARB                                      0x2035
 #define WGL_PBUFFER_LOST_ARB                                        0x2036
-DECLARE_HANDLE(HPBUFFERARB);
+	DECLARE_HANDLE(HPBUFFERARB);
 
 #define wglCreatePbufferARB GTwglCreatePbufferARB
 #define wglGetPbufferDCARB GTwglGetPbufferDCARB
@@ -180,19 +180,19 @@ DECLARE_HANDLE(HPBUFFERARB);
 #define wglDestroyPbufferARB GTwglDestroyPbufferARB
 #define wglQueryPbufferARB GTwglQueryPbufferARB
 
-GT_EXTERN HPBUFFERARB GTwglCreatePbufferARB (HDC hDC, int iPixelFormat,
-    int iWidth, int iHeight, const int* aiAttribList);
-GT_EXTERN HDC GTwglGetPbufferDCARB (HPBUFFERARB hPBuffer);
-GT_EXTERN int GTwglReleasePbufferDCARB (HPBUFFERARB hPBuffer, HDC hDC);
-GT_EXTERN BOOL GTwglDestroyPbufferARB (HPBUFFERARB hPBuffer);
-GT_EXTERN BOOL GTwglQueryPbufferARB (HPBUFFERARB hPBuffer, int iAttribute,
-    int* piValue);
+	GT_EXTERN HPBUFFERARB GTwglCreatePbufferARB (HDC hDC, int iPixelFormat,
+	        int iWidth, int iHeight, const int* aiAttribList);
+	GT_EXTERN HDC GTwglGetPbufferDCARB (HPBUFFERARB hPBuffer);
+	GT_EXTERN int GTwglReleasePbufferDCARB (HPBUFFERARB hPBuffer, HDC hDC);
+	GT_EXTERN BOOL GTwglDestroyPbufferARB (HPBUFFERARB hPBuffer);
+	GT_EXTERN BOOL GTwglQueryPbufferARB (HPBUFFERARB hPBuffer, int iAttribute,
+	                                     int* piValue);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 20) WGL_ARB_render_texture
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglArbRenderTexture;
+	GT_EXTERN int GTExistsWglArbRenderTexture;
 
 #define WGL_BIND_TO_TEXTURE_RGB_ARB                                 0x2070
 #define WGL_BIND_TO_TEXTURE_RGBA_ARB                                0x2071
@@ -232,16 +232,16 @@ GT_EXTERN int GTExistsWglArbRenderTexture;
 #define wglReleaseTexImageARB GTwglReleaseTexImageARB
 #define wglSetPbufferAttribARB GTwglSetPbufferAttribARB
 
-GT_EXTERN BOOL GTwglBindTexImageARB (HPBUFFERARB hPBuffer, int iBuffer);
-GT_EXTERN BOOL GTwglReleaseTexImageARB (HPBUFFERARB hPBuffer, int iBuffer);
-GT_EXTERN BOOL GTwglSetPbufferAttribARB (HPBUFFERARB hPBuffer,
-    const int* aiAttribList);
+	GT_EXTERN BOOL GTwglBindTexImageARB (HPBUFFERARB hPBuffer, int iBuffer);
+	GT_EXTERN BOOL GTwglReleaseTexImageARB (HPBUFFERARB hPBuffer, int iBuffer);
+	GT_EXTERN BOOL GTwglSetPbufferAttribARB (HPBUFFERARB hPBuffer,
+	        const int* aiAttribList);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 39) WGL_ARB_pixel_format_float
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglArbPixelFormatFloat;
+	GT_EXTERN int GTExistsWglArbPixelFormatFloat;
 
 #define WGL_TYPE_RGBA_FLOAT_ARB                                     0x21A0
 //----------------------------------------------------------------------------
@@ -253,49 +253,49 @@ GT_EXTERN int GTExistsWglArbPixelFormatFloat;
 //----------------------------------------------------------------------------
 // (EXT 167) WGL_EXT_display_color_table
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglExtDisplayColorTable;
+	GT_EXTERN int GTExistsWglExtDisplayColorTable;
 
 #define wglCreateDisplayColorTableEXT GTwglCreateDisplayColorTableEXT
 #define wglLoadDisplayColorTableEXT GTwglLoadDisplayColorTableEXT
 #define wglBindDisplayColorTableEXT GTwglBindDisplayColorTableEXT
 #define wglDestroyDisplayColorTableEXT GTwglDestroyDisplayColorTableEXT
 
-GT_EXTERN GLboolean GTwglCreateDisplayColorTableEXT (GLushort usID);
-GT_EXTERN GLboolean GTwglLoadDisplayColorTableEXT (const GLushort* ausTable,
-    GLuint uiLength);
-GT_EXTERN GLboolean GTwglBindDisplayColorTableEXT (GLushort usID);
-GT_EXTERN VOID GTwglDestroyDisplayColorTableEXT (GLushort usID);
+	GT_EXTERN GLboolean GTwglCreateDisplayColorTableEXT (GLushort usID);
+	GT_EXTERN GLboolean GTwglLoadDisplayColorTableEXT (const GLushort* ausTable,
+	        GLuint uiLength);
+	GT_EXTERN GLboolean GTwglBindDisplayColorTableEXT (GLushort usID);
+	GT_EXTERN VOID GTwglDestroyDisplayColorTableEXT (GLushort usID);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 168) WGL_EXT_extensions_string
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglExtExtensionsString;
+	GT_EXTERN int GTExistsWglExtExtensionsString;
 
 #define wglGetExtensionsStringEXT GTwglGetExtensionsStringEXT
 
-GT_EXTERN const char* GTwglGetExtensionsStringEXT ();
+	GT_EXTERN const char* GTwglGetExtensionsStringEXT ();
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 169) WGL_EXT_make_current_read
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglExtMakeCurrentRead;
+	GT_EXTERN int GTExistsWglExtMakeCurrentRead;
 
 #define ERROR_INVALID_PIXEL_TYPE_EXT                                0x2043
 
 #define wglMakeContextCurrentEXT GTwglMakeContextCurrentEXT
 #define wglGetCurrentReadDCEXT GTwglGetCurrentReadDCEXT
 
-GT_EXTERN BOOL GTwglMakeContextCurrentEXT (HDC hDrawDC, HDC hReadDC,
-    HGLRC hWindowRC);
-GT_EXTERN HDC GTwglGetCurrentReadDCEXT ();
+	GT_EXTERN BOOL GTwglMakeContextCurrentEXT (HDC hDrawDC, HDC hReadDC,
+	        HGLRC hWindowRC);
+	GT_EXTERN HDC GTwglGetCurrentReadDCEXT ();
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 170) WGL_EXT_pixel_format
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglExtPixelFormat;
+	GT_EXTERN int GTExistsWglExtPixelFormat;
 
 #define WGL_NUMBER_PIXEL_FORMATS_EXT                                0x2000
 #define WGL_DRAW_TO_WINDOW_EXT                                      0x2001
@@ -347,21 +347,21 @@ GT_EXTERN int GTExistsWglExtPixelFormat;
 #define wglGetPixelFormatAttribfvEXT GTwglGetPixelFormatAttribfvEXT
 #define wglChoosePixelFormatEXT GTwglChoosePixelFormatEXT
 
-GT_EXTERN BOOL GTwglGetPixelFormatAttribivEXT (HDC hDC, int iPixelFormat,
-    int iLayerPlane, UINT uiNumAttributes, const int* aiAttribute,
-    int* aiValue);
-GT_EXTERN BOOL GTwglGetPixelFormatAttribfvEXT (HDC hDC, int iPixelFormat,
-    int iLayerPlane, UINT uiNumAttributes, const int* aiAttribute,
-    FLOAT* afValue);
-GT_EXTERN BOOL GTwglChoosePixelFormatEXT (HDC hDC, const int* aiAttribIList,
-    const FLOAT* afAttribFList, UINT uiMaxFormats, int* aiFormat,
-    UINT* puiNumFormats);
+	GT_EXTERN BOOL GTwglGetPixelFormatAttribivEXT (HDC hDC, int iPixelFormat,
+	        int iLayerPlane, UINT uiNumAttributes, const int* aiAttribute,
+	        int* aiValue);
+	GT_EXTERN BOOL GTwglGetPixelFormatAttribfvEXT (HDC hDC, int iPixelFormat,
+	        int iLayerPlane, UINT uiNumAttributes, const int* aiAttribute,
+	        FLOAT* afValue);
+	GT_EXTERN BOOL GTwglChoosePixelFormatEXT (HDC hDC, const int* aiAttribIList,
+	        const FLOAT* afAttribFList, UINT uiMaxFormats, int* aiFormat,
+	        UINT* puiNumFormats);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 171) WGL_EXT_pbuffer
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglExtPBuffer;
+	GT_EXTERN int GTExistsWglExtPBuffer;
 
 #define WGL_DRAW_TO_PBUFFER_EXT                                     0x202D
 #define WGL_MAX_PBUFFER_PIXELS_EXT                                  0x202E
@@ -372,7 +372,7 @@ GT_EXTERN int GTExistsWglExtPBuffer;
 #define WGL_PBUFFER_LARGEST_EXT                                     0x2033
 #define WGL_PBUFFER_WIDTH_EXT                                       0x2034
 #define WGL_PBUFFER_HEIGHT_EXT                                      0x2035
-DECLARE_HANDLE(HPBUFFEREXT);
+	DECLARE_HANDLE(HPBUFFEREXT);
 
 #define wglCreatePbufferEXT GTwglCreatePbufferEXT
 #define wglGetPbufferDCEXT GTwglGetPbufferDCEXT
@@ -380,31 +380,31 @@ DECLARE_HANDLE(HPBUFFEREXT);
 #define wglDestroyPbufferEXT GTwglDestroyPbufferEXT
 #define wglQueryPbufferEXT GTwglQueryPbufferEXT
 
-GT_EXTERN HPBUFFEREXT GTwglCreatePbufferEXT (HDC hDC, int iPixelFormat,
-    int iWidth, int iHeight, const int* aiAttribList);
-GT_EXTERN HDC GTwglGetPbufferDCEXT (HPBUFFEREXT hPBuffer);
-GT_EXTERN int GTwglReleasePbufferDCEXT (HPBUFFEREXT hPBuffer, HDC hDC);
-GT_EXTERN BOOL GTwglDestroyPbufferEXT (HPBUFFEREXT hPBuffer);
-GT_EXTERN BOOL GTwglQueryPbufferEXT (HPBUFFEREXT hPBuffer, int iAttribute,
-    int* piValue);
+	GT_EXTERN HPBUFFEREXT GTwglCreatePbufferEXT (HDC hDC, int iPixelFormat,
+	        int iWidth, int iHeight, const int* aiAttribList);
+	GT_EXTERN HDC GTwglGetPbufferDCEXT (HPBUFFEREXT hPBuffer);
+	GT_EXTERN int GTwglReleasePbufferDCEXT (HPBUFFEREXT hPBuffer, HDC hDC);
+	GT_EXTERN BOOL GTwglDestroyPbufferEXT (HPBUFFEREXT hPBuffer);
+	GT_EXTERN BOOL GTwglQueryPbufferEXT (HPBUFFEREXT hPBuffer, int iAttribute,
+	                                     int* piValue);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 172) WGL_EXT_swap_control
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglExtSwapControl;
+	GT_EXTERN int GTExistsWglExtSwapControl;
 
 #define wglSwapIntervalEXT GTwglSwapIntervalEXT
 #define wglGetSwapIntervalEXT GTwglGetSwapIntervalEXT
 
-GT_EXTERN BOOL GTwglSwapIntervalEXT (int iInterval);
-GT_EXTERN int GTwglGetSwapIntervalEXT ();
+	GT_EXTERN BOOL GTwglSwapIntervalEXT (int iInterval);
+	GT_EXTERN int GTwglGetSwapIntervalEXT ();
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 177) WGL_EXT_depth_float
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglExtDepthFloat;
+	GT_EXTERN int GTExistsWglExtDepthFloat;
 
 #define WGL_DEPTH_FLOAT_EXT                                         0x2040
 //----------------------------------------------------------------------------
@@ -412,15 +412,15 @@ GT_EXTERN int GTExistsWglExtDepthFloat;
 //----------------------------------------------------------------------------
 // (EXT 209) WGL_EXT_multisample
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsWglExtMultisample;
+	GT_EXTERN int GTExistsWglExtMultisample;
 
 #define WGL_SAMPLE_BUFFERS_EXT                                      0x2041
 #define WGL_SAMPLES_EXT                                             0x2042
 //----------------------------------------------------------------------------
 
-GT_EXTERN void GTInitWGL (const char* acInfoFile);
-GT_EXTERN const char* GTGetWglExtensionString ();
-GT_EXTERN int GTSupportsWglExtension (const char* acWglExtension);
+	GT_EXTERN void GTInitWGL (const char* acInfoFile);
+	GT_EXTERN const char* GTGetWglExtensionString ();
+	GT_EXTERN int GTSupportsWglExtension (const char* acWglExtension);
 
 }  // extern "C"
 

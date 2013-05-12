@@ -18,22 +18,22 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM LightModelPositionConstant : public ShaderFloat
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(LightModelPositionConstant);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(LightModelPositionConstant);
 
 public:
-    // Construction and destruction.
-    LightModelPositionConstant (Light* light);
-    virtual ~LightModelPositionConstant ();
+	// Construction and destruction.
+	LightModelPositionConstant (Light* light);
+	virtual ~LightModelPositionConstant ();
 
-    // Member access.
-    Light* GetLight ();
+	// Member access.
+	Light* GetLight ();
 
-    virtual void Update (const Visual* visual, const Camera* camera);
+	virtual void Update (const Visual* visual, const Camera* camera);
 
 protected:
-    LightPtr mLight;
+	LightPtr mLight;
 };
 
 WM5_REGISTER_STREAM(LightModelPositionConstant);

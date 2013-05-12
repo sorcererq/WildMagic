@@ -19,38 +19,38 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrLine3Triangle3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrLine3Triangle3 (const Line3<Real>& line,
-        const Triangle3<Real>& triangle);
+	IntrLine3Triangle3 (const Line3<Real>& line,
+	                    const Triangle3<Real>& triangle);
 
-    // Object access.
-    const Line3<Real>& GetLine () const;
-    const Triangle3<Real>& GetTriangle () const;
+	// Object access.
+	const Line3<Real>& GetLine () const;
+	const Triangle3<Real>& GetTriangle () const;
 
-    // Test-intersection query.
-    virtual bool Test ();
+	// Test-intersection query.
+	virtual bool Test ();
 
-    // Find-intersection query.  The point of intersection is
-    //   P = origin + t*direction = b0*V0 + b1*V1 + b2*V2
-    virtual bool Find ();
-    Real GetLineParameter () const;
-    Real GetTriBary0 () const;
-    Real GetTriBary1 () const;
-    Real GetTriBary2 () const;
+	// Find-intersection query.  The point of intersection is
+	//   P = origin + t*direction = b0*V0 + b1*V1 + b2*V2
+	virtual bool Find ();
+	Real GetLineParameter () const;
+	Real GetTriBary0 () const;
+	Real GetTriBary1 () const;
+	Real GetTriBary2 () const;
 
 private:
-    using Intersector<Real,Vector3<Real> >::IT_EMPTY;
-    using Intersector<Real,Vector3<Real> >::IT_POINT;
-    using Intersector<Real,Vector3<Real> >::mIntersectionType;
+	using Intersector<Real,Vector3<Real> >::IT_EMPTY;
+	using Intersector<Real,Vector3<Real> >::IT_POINT;
+	using Intersector<Real,Vector3<Real> >::mIntersectionType;
 
-    // The objects to intersect.
-    const Line3<Real>* mLine;
-    const Triangle3<Real>* mTriangle;
+	// The objects to intersect.
+	const Line3<Real>* mLine;
+	const Triangle3<Real>* mTriangle;
 
-    // Information about the intersection set.
-    Real mLineParameter, mTriBary0, mTriBary1, mTriBary2;
+	// Information about the intersection set.
+	Real mLineParameter, mTriBary0, mTriBary1, mTriBary2;
 };
 
 typedef IntrLine3Triangle3<float> IntrLine3Triangle3f;

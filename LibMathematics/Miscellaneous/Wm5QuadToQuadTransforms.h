@@ -25,14 +25,14 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM HmQuadToSqr
 {
 public:
-    HmQuadToSqr (const Vector2<Real>& P00, const Vector2<Real>& P10,
-        const Vector2<Real>& P11, const Vector2<Real>& P01);
+	HmQuadToSqr (const Vector2<Real>& P00, const Vector2<Real>& P10,
+	             const Vector2<Real>& P11, const Vector2<Real>& P01);
 
-    Vector2<Real> Transform (const Vector2<Real>& P);
+	Vector2<Real> Transform (const Vector2<Real>& P);
 
 protected:
-    Vector2<Real> mT, mG, mD;
-    Matrix2<Real> mM;
+	Vector2<Real> mT, mG, mD;
+	Matrix2<Real> mM;
 };
 
 //----------------------------------------------------------------------------
@@ -44,14 +44,14 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM HmSqrToQuad
 {
 public:
-    HmSqrToQuad (const Vector2<Real>& P00, const Vector2<Real>& P10,
-        const Vector2<Real>& P11, const Vector2<Real>& P01);
+	HmSqrToQuad (const Vector2<Real>& P00, const Vector2<Real>& P10,
+	             const Vector2<Real>& P11, const Vector2<Real>& P01);
 
-    Vector2<Real> Transform (const Vector2<Real>& P);
+	Vector2<Real> Transform (const Vector2<Real>& P);
 
 protected:
-    Vector2<Real> mT, mG, mD;
-    Matrix2<Real> mM;
+	Vector2<Real> mT, mG, mD;
+	Matrix2<Real> mM;
 };
 
 //----------------------------------------------------------------------------
@@ -85,16 +85,16 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM BiQuadToSqr
 {
 public:
-    BiQuadToSqr (const Vector2<Real>& P00, const Vector2<Real>& P10,
-        const Vector2<Real>& P11, const Vector2<Real>& P01);
+	BiQuadToSqr (const Vector2<Real>& P00, const Vector2<Real>& P10,
+	             const Vector2<Real>& P11, const Vector2<Real>& P01);
 
-    Vector2<Real> Transform (const Vector2<Real>& P);
+	Vector2<Real> Transform (const Vector2<Real>& P);
 
 protected:
-    static Real Deviation (const Vector2<Real>& SPoint);
+	static Real Deviation (const Vector2<Real>& SPoint);
 
-    Vector2<Real> mP00, mB, mC, mD;
-    Real mBC, mBD, mCD;
+	Vector2<Real> mP00, mB, mC, mD;
+	Real mBC, mBD, mCD;
 };
 
 //----------------------------------------------------------------------------
@@ -109,13 +109,13 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM BiSqrToQuad
 {
 public:
-    BiSqrToQuad (const Vector2<Real>& P00, const Vector2<Real>& P10,
-        const Vector2<Real>& P11, const Vector2<Real>& P01);
+	BiSqrToQuad (const Vector2<Real>& P00, const Vector2<Real>& P10,
+	             const Vector2<Real>& P11, const Vector2<Real>& P01);
 
-    Vector2<Real> Transform (const Vector2<Real>& P);
+	Vector2<Real> Transform (const Vector2<Real>& P);
 
 protected:
-    Vector2<Real> mS00, mS01, mS10, mS11;
+	Vector2<Real> mS00, mS01, mS10, mS11;
 };
 
 typedef HmQuadToSqr<float> HmQuadToSqrf;

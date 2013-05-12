@@ -26,39 +26,39 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrHalfspace3Sphere3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrHalfspace3Sphere3 (const Plane3<Real>& halfspace,
-        const Sphere3<Real>& sphere);
+	IntrHalfspace3Sphere3 (const Plane3<Real>& halfspace,
+	                       const Sphere3<Real>& sphere);
 
-    // Object access.
-    const Plane3<Real>& GetHalfspace () const;
-    const Sphere3<Real>& GetSphere () const;
+	// Object access.
+	const Plane3<Real>& GetHalfspace () const;
+	const Sphere3<Real>& GetSphere () const;
 
-    // Static query.
-    virtual bool Test ();
+	// Static query.
+	virtual bool Test ();
 
-    // Dynamic queries.
-    virtual bool Test (Real tmax, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	// Dynamic queries.
+	virtual bool Test (Real tmax, const Vector3<Real>& velocity0,
+	                   const Vector3<Real>& velocity1);
 
-    virtual bool Find (Real tmax, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	virtual bool Find (Real tmax, const Vector3<Real>& velocity0,
+	                   const Vector3<Real>& velocity1);
 
-    // The intersection set is empty or a point.  GetPoint() returns a
-    // valid result only when Find(...) returns 'true'.
-    const Vector3<Real>& GetPoint () const;
+	// The intersection set is empty or a point.  GetPoint() returns a
+	// valid result only when Find(...) returns 'true'.
+	const Vector3<Real>& GetPoint () const;
 
 protected:
-    using Intersector<Real,Vector3<Real> >::mContactTime;
+	using Intersector<Real,Vector3<Real> >::mContactTime;
 
-    // The objects to intersect.
-    const Plane3<Real>* mHalfspace;
-    const Sphere3<Real>* mSphere;
+	// The objects to intersect.
+	const Plane3<Real>* mHalfspace;
+	const Sphere3<Real>* mSphere;
 
-    // Information about the intersection set.
-    Vector3<Real> mPoint;
+	// Information about the intersection set.
+	Vector3<Real> mPoint;
 };
 
 typedef IntrHalfspace3Sphere3<float> IntrHalfspace3Sphere3f;

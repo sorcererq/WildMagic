@@ -16,109 +16,109 @@ WM5_IMPLEMENT_ABSTRACT_FACTORY(ControlledObject);
 
 //----------------------------------------------------------------------------
 ControlledObject::ControlledObject ()
-    :
-    mNumControllers(0),
-    mCapacity(0),
-    mControllers(0)
+	:
+	mNumControllers(0),
+	mCapacity(0),
+	mControllers(0)
 {
 }
 //----------------------------------------------------------------------------
 ControlledObject::~ControlledObject ()
 {
-    DetachAllControllers();
-    delete1(mControllers);
+	DetachAllControllers();
+	delete1(mControllers);
 }
 //----------------------------------------------------------------------------
 void ControlledObject::AttachController (Controller* controller)
 {
-    // By design, controllers may not be controlled.  This avoids arbitrarily
-    // complex graphs of controllers.  TODO:  Consider allowing this?
-    if (IsDerived(Controller::TYPE))
-    {
-        assertion(false, "Controllers may not be controlled\n");
-        return;
-    }
+	// By design, controllers may not be controlled.  This avoids arbitrarily
+	// complex graphs of controllers.  TODO:  Consider allowing this?
+	if (IsDerived(Controller::TYPE))
+	{
+		assertion(false, "Controllers may not be controlled\n");
+		return;
+	}
 
-    // The controller must exist.
-    if (!controller)
-    {
-        assertion(false, "Cannot attach a null controller\n");
-        return;
-    }
+	// The controller must exist.
+	if (!controller)
+	{
+		assertion(false, "Cannot attach a null controller\n");
+		return;
+	}
 
-    // Test whether the controller is already in the array.
-    int i;
-    for (i = 0; i < mNumControllers; ++i)
-    {
-        if (controller == mControllers[i])
-        {
-            return;
-        }
-    }
+	// Test whether the controller is already in the array.
+	int i;
+	for (i = 0; i < mNumControllers; ++i)
+	{
+		if (controller == mControllers[i])
+		{
+			return;
+		}
+	}
 
-    // Bind the controller to the object.
-    controller->SetObject(this);
+	// Bind the controller to the object.
+	controller->SetObject(this);
 
-    // The controller is not in the current array, so add it.
-    if (mNumControllers == mCapacity)
-    {
-        // The array is full, so increase its capacity.
-        mCapacity += CO_GROW_BY;
-        ControllerPtr* newControllers = new1<ControllerPtr>(mCapacity);
-        for (i = 0; i < mNumControllers; ++i)
-        {
-            newControllers[i] = mControllers[i];
-        }
-        delete1(mControllers);
-        mControllers = newControllers;
-    }
+	// The controller is not in the current array, so add it.
+	if (mNumControllers == mCapacity)
+	{
+		// The array is full, so increase its capacity.
+		mCapacity += CO_GROW_BY;
+		ControllerPtr* newControllers = new1<ControllerPtr>(mCapacity);
+		for (i = 0; i < mNumControllers; ++i)
+		{
+			newControllers[i] = mControllers[i];
+		}
+		delete1(mControllers);
+		mControllers = newControllers;
+	}
 
-    mControllers[mNumControllers++] = controller;
+	mControllers[mNumControllers++] = controller;
 }
 //----------------------------------------------------------------------------
 void ControlledObject::DetachController (Controller* controller)
 {
-    for (int i = 0; i < mNumControllers; ++i)
-    {
-        if (controller == mControllers[i])
-        {
-            // Unbind the controller from the object.
-            controller->SetObject(0);
+	for (int i = 0; i < mNumControllers; ++i)
+	{
+		if (controller == mControllers[i])
+		{
+			// Unbind the controller from the object.
+			controller->SetObject(0);
 
-            // Remove the controller from the array, keeping the array
-            // compact.
-            for (int j = i + 1; j < mNumControllers; ++j, ++i)
-            {
-                mControllers[i] = mControllers[j];
-            }
-            mControllers[--mNumControllers] = 0;
-            return;
-        }
-    }
+			// Remove the controller from the array, keeping the array
+			// compact.
+			for (int j = i + 1; j < mNumControllers; ++j, ++i)
+			{
+				mControllers[i] = mControllers[j];
+			}
+			mControllers[--mNumControllers] = 0;
+			return;
+		}
+	}
 }
 //----------------------------------------------------------------------------
 void ControlledObject::DetachAllControllers ()
 {
-    for (int i = 0; i < mNumControllers; ++i)
-    {
-        // Unbind the controller from the object.
-        mControllers[i]->SetObject(0);
-        mControllers[i] = 0;
-    }
-    mNumControllers = 0;
+	for (int i = 0; i < mNumControllers; ++i)
+	{
+		// Unbind the controller from the object.
+		mControllers[i]->SetObject(0);
+		mControllers[i] = 0;
+	}
+	mNumControllers = 0;
 }
 //----------------------------------------------------------------------------
 bool ControlledObject::UpdateControllers (double applicationTime)
 {
-    bool someoneUpdated = false;
-    for (int i = 0; i < mNumControllers; ++i)
-    {
-        if (mControllers[i]->Update(applicationTime))
-        {
-            someoneUpdated = true;
-        }
-    }
-    return someoneUpdated;
+	bool someoneUpdated = false;
+	for (int i = 0; i < mNumControllers; ++i)
+	{
+		if (mControllers[i]->Update(applicationTime))
+		{
+			someoneUpdated = true;
+		}
+	}
+	return someoneUpdated;
 }
 //----------------------------------------------------------------------------
 
@@ -127,29 +127,29 @@ bool ControlledObject::UpdateControllers (double applicationTime)
 //----------------------------------------------------------------------------
 Object* ControlledObject::GetObjectByName (const std::string& name)
 {
-    Object* found = Object::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = Object::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    for (int i = 0; i < mNumControllers; ++i)
-    {
-        WM5_GET_OBJECT_BY_NAME(mControllers[i], name, found);
-    }
+	for (int i = 0; i < mNumControllers; ++i)
+	{
+		WM5_GET_OBJECT_BY_NAME(mControllers[i], name, found);
+	}
 
-    return 0;
+	return 0;
 }
 //----------------------------------------------------------------------------
 void ControlledObject::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+        std::vector<Object*>& objects)
 {
-    Object::GetAllObjectsByName(name, objects);
+	Object::GetAllObjectsByName(name, objects);
 
-    for (int i = 0; i < mNumControllers; ++i)
-    {
-        WM5_GET_ALL_OBJECTS_BY_NAME(mControllers[i], name, objects);
-    }
+	for (int i = 0; i < mNumControllers; ++i)
+	{
+		WM5_GET_ALL_OBJECTS_BY_NAME(mControllers[i], name, objects);
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -157,65 +157,65 @@ void ControlledObject::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 ControlledObject::ControlledObject (LoadConstructor value)
-    :
-    Object(value),
-    mNumControllers(0),
-    mCapacity(0),
-    mControllers(0)
+	:
+	Object(value),
+	mNumControllers(0),
+	mCapacity(0),
+	mControllers(0)
 {
 }
 //----------------------------------------------------------------------------
 void ControlledObject::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    Object::Load(source);
+	Object::Load(source);
 
-    source.ReadPointerRR(mNumControllers, mControllers);
+	source.ReadPointerRR(mNumControllers, mControllers);
 
-    mCapacity = mNumControllers;
+	mCapacity = mNumControllers;
 
-    WM5_END_DEBUG_STREAM_LOAD(ControlledObject, source);
+	WM5_END_DEBUG_STREAM_LOAD(ControlledObject, source);
 }
 //----------------------------------------------------------------------------
 void ControlledObject::Link (InStream& source)
 {
-    Object::Link(source);
+	Object::Link(source);
 
-    source.ResolveLink(mNumControllers, mControllers);
+	source.ResolveLink(mNumControllers, mControllers);
 }
 //----------------------------------------------------------------------------
 void ControlledObject::PostLink ()
 {
-    Object::PostLink();
+	Object::PostLink();
 }
 //----------------------------------------------------------------------------
 bool ControlledObject::Register (OutStream& target) const
 {
-    if (Object::Register(target))
-    {
-        target.Register(mNumControllers, mControllers);
-        return true;
-    }
-    return false;
+	if (Object::Register(target))
+	{
+		target.Register(mNumControllers, mControllers);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void ControlledObject::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    Object::Save(target);
+	Object::Save(target);
 
-    target.WritePointerW(mNumControllers, mControllers);
+	target.WritePointerW(mNumControllers, mControllers);
 
-    WM5_END_DEBUG_STREAM_SAVE(ControlledObject, target);
+	WM5_END_DEBUG_STREAM_SAVE(ControlledObject, target);
 }
 //----------------------------------------------------------------------------
 int ControlledObject::GetStreamingSize () const
 {
-    int size = Object::GetStreamingSize();
-    size += sizeof(mNumControllers);
-    size += mNumControllers*WM5_POINTERSIZE(mControllers[0]);
-    return size;
+	int size = Object::GetStreamingSize();
+	size += sizeof(mNumControllers);
+	size += mNumControllers*WM5_POINTERSIZE(mControllers[0]);
+	return size;
 }
 //----------------------------------------------------------------------------

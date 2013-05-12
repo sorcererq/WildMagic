@@ -20,18 +20,18 @@ class Renderer;
 class PdrIndexBuffer
 {
 public:
-    // Construction and destruction.
-    PdrIndexBuffer (Renderer* renderer, const IndexBuffer* ibuffer);
-    ~PdrIndexBuffer ();
+	// Construction and destruction.
+	PdrIndexBuffer (Renderer* renderer, const IndexBuffer* ibuffer);
+	~PdrIndexBuffer ();
 
-    // Buffer operations.
-    void Enable (Renderer* renderer);
-    void Disable (Renderer* renderer);
-    void* Lock (Buffer::Locking mode);
-    void Unlock ();
+	// Buffer operations.
+	void Enable (Renderer* renderer);
+	void Disable (Renderer* renderer);
+	void* Lock (Buffer::Locking mode);
+	void Unlock ();
 
 private:
-    IDirect3DIndexBuffer9* mBuffer;
+	IDirect3DIndexBuffer9* mBuffer;
 };
 
 }

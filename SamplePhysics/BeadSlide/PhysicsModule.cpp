@@ -13,66 +13,66 @@
 
 //----------------------------------------------------------------------------
 PhysicsModule::PhysicsModule ()
-    :
-    Gravity(0.0),
-    Mass(0.0),
-    mTime(0.0),
-    mDeltaTime(0.0),
-    mSolver(0)
+	:
+	Gravity(0.0),
+	Mass(0.0),
+	mTime(0.0),
+	mDeltaTime(0.0),
+	mSolver(0)
 {
-    mState[0] = 0.0;
-    mState[1] = 0.0;
-    mAux[0] = 0.0;
+	mState[0] = 0.0;
+	mState[1] = 0.0;
+	mAux[0] = 0.0;
 }
 //----------------------------------------------------------------------------
 PhysicsModule::~PhysicsModule ()
 {
-    delete0(mSolver);
+	delete0(mSolver);
 }
 //----------------------------------------------------------------------------
 void PhysicsModule::Initialize (double time, double deltaTime, double q,
-    double qDot)
+                                double qDot)
 {
-    mTime = time;
-    mDeltaTime = deltaTime;
+	mTime = time;
+	mDeltaTime = deltaTime;
 
-    // State variables.
-    mState[0] = q;
-    mState[1] = qDot;
+	// State variables.
+	mState[0] = q;
+	mState[1] = qDot;
 
-    // Auxiliary variable.
-    mAux[0] = Gravity;
+	// Auxiliary variable.
+	mAux[0] = Gravity;
 
-    // RK4 differential equation solver.  Since mSolver is a base class
-    // pointer, you can instead create a solver of whatever class you prefer.
-    delete0(mSolver);
-    mSolver = new0 OdeRungeKutta4d(2, mDeltaTime, OdeFunction, mAux);
+	// RK4 differential equation solver.  Since mSolver is a base class
+	// pointer, you can instead create a solver of whatever class you prefer.
+	delete0(mSolver);
+	mSolver = new0 OdeRungeKutta4d(2, mDeltaTime, OdeFunction, mAux);
 }
 //----------------------------------------------------------------------------
 void PhysicsModule::Update ()
 {
-    // Apply a single step of the ODE solver.
-    if (mSolver)
-    {
-        mSolver->Update(mTime, mState, mTime, mState);
-    }
+	// Apply a single step of the ODE solver.
+	if (mSolver)
+	{
+		mSolver->Update(mTime, mState, mTime, mState);
+	}
 }
 //----------------------------------------------------------------------------
 void PhysicsModule::OdeFunction (double, const double* input, void* data,
-    double* output)
+                                 double* output)
 {
-    double* aux = (double*)data;
+	double* aux = (double*)data;
 
-    double qSqr = input[0]*input[0];
-    double qDotSqr = input[1]*input[1];
-    double numer = -3.0*aux[0]*qSqr - 2.0*input[0]*(2.0 + 9.0*qSqr)*qDotSqr;
-    double denom = 1.0 + qSqr*(4.0 + 9.0*qSqr);
-    double qDotFunction = numer/denom;
+	double qSqr = input[0]*input[0];
+	double qDotSqr = input[1]*input[1];
+	double numer = -3.0*aux[0]*qSqr - 2.0*input[0]*(2.0 + 9.0*qSqr)*qDotSqr;
+	double denom = 1.0 + qSqr*(4.0 + 9.0*qSqr);
+	double qDotFunction = numer/denom;
 
-    // q function
-    output[0] = input[1];
+	// q function
+	output[0] = input[1];
 
-    // dot(q) function
-    output[1] = qDotFunction;
+	// dot(q) function
+	output[1] = qDotFunction;
 }
 //----------------------------------------------------------------------------

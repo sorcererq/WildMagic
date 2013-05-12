@@ -29,35 +29,35 @@ template <typename T>
 class TImage : public Lattice
 {
 public:
-    // Construction and destruction.  TImage accepts responsibility for
-    // deleting the input arrays.
-    TImage (int numDimensions, int* bounds, T* data = 0);
-    TImage (const TImage& image);
-    TImage (const char* filename);
-    virtual ~TImage ();
+	// Construction and destruction.  TImage accepts responsibility for
+	// deleting the input arrays.
+	TImage (int numDimensions, int* bounds, T* data = 0);
+	TImage (const TImage& image);
+	TImage (const char* filename);
+	virtual ~TImage ();
 
-    // Data access.
-    T* GetData () const;
-    T& operator[] (int i) const;
+	// Data access.
+	T* GetData () const;
+	T& operator[] (int i) const;
 
-    // Assignment.
-    TImage& operator= (const TImage& image);
-    TImage& operator= (T value);
+	// Assignment.
+	TImage& operator= (const TImage& image);
+	TImage& operator= (T value);
 
-    // Comparison.
-    bool operator== (const TImage& image) const;
-    bool operator!= (const TImage& image) const;
+	// Comparison.
+	bool operator== (const TImage& image) const;
+	bool operator!= (const TImage& image) const;
 
-    // Streaming.
-    bool Load (const char* filename);
-    bool Save (const char* filename) const;
+	// Streaming.
+	bool Load (const char* filename);
+	bool Save (const char* filename) const;
 
 protected:
-    // For deferred creation of bounds.
-    TImage (int numDimensions);
-    void SetData (T* data);
+	// For deferred creation of bounds.
+	TImage (int numDimensions);
+	void SetData (T* data);
 
-    T* mData;
+	T* mData;
 };
 
 #include "Wm5TImage.inl"

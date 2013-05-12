@@ -18,11 +18,11 @@ WM5_IMPLEMENT_FACTORY(MaterialEmissiveConstant);
 
 //----------------------------------------------------------------------------
 MaterialEmissiveConstant::MaterialEmissiveConstant (Material* material)
-    :
-    ShaderFloat(1),
-    mMaterial(material)
+	:
+	ShaderFloat(1),
+	mMaterial(material)
 {
-    EnableUpdater();
+	EnableUpdater();
 }
 //----------------------------------------------------------------------------
 MaterialEmissiveConstant::~MaterialEmissiveConstant ()
@@ -31,17 +31,17 @@ MaterialEmissiveConstant::~MaterialEmissiveConstant ()
 //----------------------------------------------------------------------------
 Material* MaterialEmissiveConstant::GetMaterial ()
 {
-    return mMaterial;
+	return mMaterial;
 }
 //----------------------------------------------------------------------------
 void MaterialEmissiveConstant::Update (const Visual*, const Camera*)
 {
-    const float* source = (const float*)mMaterial->Emissive;
-    float* target = mData;
-    for (int i = 0; i < 4; ++i)
-    {
-        *target++ = *source++;
-    }
+	const float* source = (const float*)mMaterial->Emissive;
+	float* target = mData;
+	for (int i = 0; i < 4; ++i)
+	{
+		*target++ = *source++;
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -50,22 +50,22 @@ void MaterialEmissiveConstant::Update (const Visual*, const Camera*)
 //----------------------------------------------------------------------------
 Object* MaterialEmissiveConstant::GetObjectByName (const std::string& name)
 {
-    Object* found = ShaderFloat::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = ShaderFloat::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    WM5_GET_OBJECT_BY_NAME(mMaterial, name, found);
-    return 0;
+	WM5_GET_OBJECT_BY_NAME(mMaterial, name, found);
+	return 0;
 }
 //----------------------------------------------------------------------------
 void MaterialEmissiveConstant::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+        std::vector<Object*>& objects)
 {
-    ShaderFloat::GetAllObjectsByName(name, objects);
+	ShaderFloat::GetAllObjectsByName(name, objects);
 
-    WM5_GET_ALL_OBJECTS_BY_NAME(mMaterial, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mMaterial, name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -73,59 +73,59 @@ void MaterialEmissiveConstant::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 MaterialEmissiveConstant::MaterialEmissiveConstant (LoadConstructor value)
-    :
-    ShaderFloat(value)
+	:
+	ShaderFloat(value)
 {
 }
 //----------------------------------------------------------------------------
 void MaterialEmissiveConstant::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    ShaderFloat::Load(source);
+	ShaderFloat::Load(source);
 
-    source.ReadPointer(mMaterial);
+	source.ReadPointer(mMaterial);
 
-    WM5_END_DEBUG_STREAM_LOAD(MaterialEmissiveConstant, source);
+	WM5_END_DEBUG_STREAM_LOAD(MaterialEmissiveConstant, source);
 }
 //----------------------------------------------------------------------------
 void MaterialEmissiveConstant::Link (InStream& source)
 {
-    ShaderFloat::Link(source);
+	ShaderFloat::Link(source);
 
-    source.ResolveLink(mMaterial);
+	source.ResolveLink(mMaterial);
 }
 //----------------------------------------------------------------------------
 void MaterialEmissiveConstant::PostLink ()
 {
-    ShaderFloat::PostLink();
+	ShaderFloat::PostLink();
 }
 //----------------------------------------------------------------------------
 bool MaterialEmissiveConstant::Register (OutStream& target) const
 {
-    if (ShaderFloat::Register(target))
-    {
-        target.Register(mMaterial);
-        return true;
-    }
-    return false;
+	if (ShaderFloat::Register(target))
+	{
+		target.Register(mMaterial);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void MaterialEmissiveConstant::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    ShaderFloat::Save(target);
+	ShaderFloat::Save(target);
 
-    target.WritePointer(mMaterial);
+	target.WritePointer(mMaterial);
 
-    WM5_END_DEBUG_STREAM_SAVE(MaterialEmissiveConstant, target);
+	WM5_END_DEBUG_STREAM_SAVE(MaterialEmissiveConstant, target);
 }
 //----------------------------------------------------------------------------
 int MaterialEmissiveConstant::GetStreamingSize () const
 {
-    int size = ShaderFloat::GetStreamingSize();
-    size += WM5_POINTERSIZE(mMaterial);
-    return size;
+	int size = ShaderFloat::GetStreamingSize();
+	size += WM5_POINTERSIZE(mMaterial);
+	return size;
 }
 //----------------------------------------------------------------------------

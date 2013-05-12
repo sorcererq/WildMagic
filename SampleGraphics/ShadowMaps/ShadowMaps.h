@@ -23,44 +23,44 @@ using namespace Wm5;
 
 class ShadowMaps : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    ShadowMaps ();
+	ShadowMaps ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
 
 protected:
-    void CreateScene ();
-    void CreateScreenSpaceObjects ();
-    void CreateShaders ();
+	void CreateScene ();
+	void CreateScreenSpaceObjects ();
+	void CreateShaders ();
 
-    // The scene objects.
-    NodePtr mScene;
-    Culler mCuller;
+	// The scene objects.
+	NodePtr mScene;
+	Culler mCuller;
 
-    // Screen-space objects.
-    CameraPtr mScreenCamera;
-    TriMeshPtr mScreenPolygon;
-    int mScreenTargetSize;
-    RenderTargetPtr mShadowTarget;
-    RenderTargetPtr mUnlitTarget;
-    RenderTargetPtr mHBlurTarget;
-    RenderTargetPtr mVBlurTarget;
-    Float4 mShadowClear, mUnlitClear;
+	// Screen-space objects.
+	CameraPtr mScreenCamera;
+	TriMeshPtr mScreenPolygon;
+	int mScreenTargetSize;
+	RenderTargetPtr mShadowTarget;
+	RenderTargetPtr mUnlitTarget;
+	RenderTargetPtr mHBlurTarget;
+	RenderTargetPtr mVBlurTarget;
+	Float4 mShadowClear, mUnlitClear;
 
-    // The effects.
-    VisualEffectInstancePtr mPlaneSceneInstance;
-    VisualEffectInstancePtr mSphereSceneInstance;
-    SMShadowEffectPtr mShadowEffect;
-    SMUnlitEffectPtr mUnlitEffect;
-    VisualEffectInstancePtr mHBlurInstance;
-    VisualEffectInstancePtr mVBlurInstance;
+	// The effects.
+	VisualEffectInstancePtr mPlaneSceneInstance;
+	VisualEffectInstancePtr mSphereSceneInstance;
+	SMShadowEffectPtr mShadowEffect;
+	SMUnlitEffectPtr mUnlitEffect;
+	VisualEffectInstancePtr mHBlurInstance;
+	VisualEffectInstancePtr mVBlurInstance;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(ShadowMaps);

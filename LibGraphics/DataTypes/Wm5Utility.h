@@ -19,11 +19,11 @@ namespace Wm5
 class WM5_GRAPHICS_ITEM Utility
 {
 public:
-    static void ReflectX (int xSize, int ySize, int numBytesPerPixel,
-        char* pixels);
+	static void ReflectX (int xSize, int ySize, int numBytesPerPixel,
+	                      char* pixels);
 
-    static void ReflectY (int xSize, int ySize, int numBytesPerPixel,
-        char* pixels);
+	static void ReflectY (int xSize, int ySize, int numBytesPerPixel,
+	                      char* pixels);
 };
 
 }

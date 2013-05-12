@@ -47,7 +47,7 @@ extern "C"
 //----------------------------------------------------------------------------
 // OpenGL 1.1
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsOpenGL11;
+	GT_EXTERN int GTExistsOpenGL11;
 
 #define GL_ACCUM                                                    0x0100
 #define GL_LOAD                                                     0x0101
@@ -584,21 +584,21 @@ GT_EXTERN int GTExistsOpenGL11;
 #define GL_COLOR_INDEX12_EXT                                        0x80E6
 #define GL_COLOR_INDEX16_EXT                                        0x80E7
 
-typedef unsigned int GLenum;
-typedef unsigned char GLboolean;
-typedef unsigned int GLbitfield;
-typedef signed char GLbyte;
-typedef short GLshort;
-typedef int GLint;
-typedef int GLsizei;
-typedef unsigned char GLubyte;
-typedef unsigned short GLushort;
-typedef unsigned int GLuint;
-typedef float GLfloat;
-typedef float GLclampf;
-typedef double GLdouble;
-typedef double GLclampd;
-typedef void GLvoid;
+	typedef unsigned int GLenum;
+	typedef unsigned char GLboolean;
+	typedef unsigned int GLbitfield;
+	typedef signed char GLbyte;
+	typedef short GLshort;
+	typedef int GLint;
+	typedef int GLsizei;
+	typedef unsigned char GLubyte;
+	typedef unsigned short GLushort;
+	typedef unsigned int GLuint;
+	typedef float GLfloat;
+	typedef float GLclampf;
+	typedef double GLdouble;
+	typedef double GLclampd;
+	typedef void GLvoid;
 
 #define glAccum GTglAccum
 #define glAlphaFunc GTglAlphaFunc
@@ -937,447 +937,447 @@ typedef void GLvoid;
 #define glVertexPointer GTglVertexPointer
 #define glViewport GTglViewport
 
-GT_EXTERN void GTglAccum (GLenum eOperation, GLfloat fValue);
-GT_EXTERN void GTglAlphaFunc (GLenum eFunction, GLclampf fReference);
-GT_EXTERN GLboolean GTglAreTexturesResident (GLsizei iNumTextures,
-    const GLuint* auiTextures, GLboolean* aucResidences);
-GT_EXTERN void GTglArrayElement (GLint i);
-GT_EXTERN void GTglBegin (GLenum eMode);
-GT_EXTERN void GTglBindTexture (GLenum eTarget, GLuint uiTexture);
-GT_EXTERN void GTglBitmap (GLsizei iWidth, GLsizei iHeight, GLfloat fXOrigin,
-    GLfloat fYOrigin, GLfloat fXMove, GLfloat fYMove,
-    const GLubyte* aucBitmap);
-GT_EXTERN void GTglBlendFunc (GLenum eSrcFunction, GLenum eDstFunction);
-GT_EXTERN void GTglCallList (GLuint uiList);
-GT_EXTERN void GTglCallLists (GLsizei iNumLists, GLenum eType,
-    const GLvoid* pvLists);
-GT_EXTERN void GTglClear (GLbitfield uiMask);
-GT_EXTERN void GTglClearAccum (GLfloat fRed, GLfloat fGreen, GLfloat fBlue,
-    GLfloat fAlpha);
-GT_EXTERN void GTglClearColor (GLclampf fRed, GLclampf fGreen, GLclampf fBlue,
-    GLclampf fAlpha);
-GT_EXTERN void GTglClearDepth (GLclampd dDepth);
-GT_EXTERN void GTglClearIndex (GLfloat fIndex);
-GT_EXTERN void GTglClearStencil (GLint iStencil);
-GT_EXTERN void GTglClipPlane (GLenum ePlane, const GLdouble* adEquation);
-GT_EXTERN void GTglColor3b (GLbyte cRed, GLbyte cGreen, GLbyte cBlue);
-GT_EXTERN void GTglColor3bv (const GLbyte* acRGB);
-GT_EXTERN void GTglColor3d (GLdouble dRed, GLdouble dGreen, GLdouble dBlue);
-GT_EXTERN void GTglColor3dv (const GLdouble* adRGB);
-GT_EXTERN void GTglColor3f (GLfloat fRed, GLfloat fGreen, GLfloat fBlue);
-GT_EXTERN void GTglColor3fv (const GLfloat* afRGB);
-GT_EXTERN void GTglColor3i (GLint iRed, GLint iGreen, GLint iBlue);
-GT_EXTERN void GTglColor3iv (const GLint* aiRGB);
-GT_EXTERN void GTglColor3s (GLshort sRed, GLshort sGreen, GLshort sBlue);
-GT_EXTERN void GTglColor3sv (const GLshort* asRGB);
-GT_EXTERN void GTglColor3ub (GLubyte ucRed, GLubyte ucGreen, GLubyte ucBlue);
-GT_EXTERN void GTglColor3ubv (const GLubyte* aucRGB);
-GT_EXTERN void GTglColor3ui (GLuint uiRed, GLuint uiGreen, GLuint uiBlue);
-GT_EXTERN void GTglColor3uiv (const GLuint* auiRGB);
-GT_EXTERN void GTglColor3us (GLushort usRed, GLushort usGreen,
-    GLushort usBlue);
-GT_EXTERN void GTglColor3usv (const GLushort* ausRGB);
-GT_EXTERN void GTglColor4b (GLbyte cRed, GLbyte cGreen, GLbyte cBlue,
-    GLbyte cAlpha);
-GT_EXTERN void GTglColor4bv (const GLbyte* acRGBA);
-GT_EXTERN void GTglColor4d (GLdouble dRed, GLdouble dGreen, GLdouble dBlue,
-    GLdouble dAlpha);
-GT_EXTERN void GTglColor4dv (const GLdouble* adRGBA);
-GT_EXTERN void GTglColor4f (GLfloat fRed, GLfloat fGreen, GLfloat fBlue,
-    GLfloat fAlpha);
-GT_EXTERN void GTglColor4fv (const GLfloat* afRGBA);
-GT_EXTERN void GTglColor4i (GLint iRed, GLint iGreen, GLint iBlue,
-    GLint iAlpha);
-GT_EXTERN void GTglColor4iv (const GLint* aiRGBA);
-GT_EXTERN void GTglColor4s (GLshort sRed, GLshort sGreen, GLshort sBlue,
-    GLshort sAlpha);
-GT_EXTERN void GTglColor4sv (const GLshort* asRGBA);
-GT_EXTERN void GTglColor4ub (GLubyte ucRed, GLubyte ucGreen, GLubyte ucBlue,
-    GLubyte ucAlpha);
-GT_EXTERN void GTglColor4ubv (const GLubyte* aucRGBA);
-GT_EXTERN void GTglColor4ui (GLuint uiRed, GLuint uiGreen, GLuint uiBlue,
-    GLuint uiAlpha);
-GT_EXTERN void GTglColor4uiv (const GLuint* auiRGBA);
-GT_EXTERN void GTglColor4us (GLushort usRed, GLushort usGreen,
-    GLushort usBlue, GLushort usAlpha);
-GT_EXTERN void GTglColor4usv (const GLushort* ausRGBA);
-GT_EXTERN void GTglColorMask (GLboolean ucRed, GLboolean ucGreen,
-    GLboolean ucBlue, GLboolean ucAlpha);
-GT_EXTERN void GTglColorMaterial (GLenum eFace, GLenum eMode);
-GT_EXTERN void GTglColorPointer (GLint iSize, GLenum eType, GLsizei iStride,
-    const GLvoid* pvPointer);
-GT_EXTERN void GTglCopyPixels (GLint iX, GLint iY, GLsizei iWidth,
-    GLsizei iHeight, GLenum eType);
-GT_EXTERN void GTglCopyTexImage1D (GLenum eTarget, GLint iLevel,
-    GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth,
-    GLint iBorder);
-GT_EXTERN void GTglCopyTexImage2D (GLenum eTarget, GLint iLevel,
-    GLenum eInternalFormat,  GLint iX, GLint iY, GLsizei iWidth,
-    GLsizei iHeight, GLint iBorder);
-GT_EXTERN void GTglCopyTexSubImage1D (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iX, GLint iY, GLsizei iWidth);
-GT_EXTERN void GTglCopyTexSubImage2D (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iYOffset, GLint iX, GLint iY, GLsizei iWidth,
-    GLsizei iHeight);
-GT_EXTERN void GTglCullFace (GLenum eMode);
-GT_EXTERN void GTglDeleteLists (GLuint uiList, GLsizei iRange);
-GT_EXTERN void GTglDeleteTextures (GLsizei iNumTextures,
-    const GLuint* auiTextures);
-GT_EXTERN void GTglDepthFunc (GLenum eFunction);
-GT_EXTERN void GTglDepthMask (GLboolean ucMask);
-GT_EXTERN void GTglDepthRange (GLclampd dZNear, GLclampd dZFar);
-GT_EXTERN void GTglDisable (GLenum eCapability);
-GT_EXTERN void GTglDisableClientState (GLenum eArray);
-GT_EXTERN void GTglDrawArrays (GLenum eMode, GLint iFirst, GLsizei iCount);
-GT_EXTERN void GTglDrawBuffer (GLenum eMode);
-GT_EXTERN void GTglDrawElements (GLenum eMode, GLsizei iCount, GLenum eType,
-    const GLvoid* pvIndices);
-GT_EXTERN void GTglDrawPixels (GLsizei iWidth, GLsizei iHeight,
-    GLenum eFormat, GLenum eType, const GLvoid* pvPixels);
-GT_EXTERN void GTglEdgeFlag (GLboolean ucFlag);
-GT_EXTERN void GTglEdgeFlagPointer (GLsizei iStride, const GLvoid* pvPointer);
-GT_EXTERN void GTglEdgeFlagv (const GLboolean* pucFlag);
-GT_EXTERN void GTglEnable (GLenum eCapability);
-GT_EXTERN void GTglEnableClientState (GLenum eArray);
-GT_EXTERN void GTglEnd ();
-GT_EXTERN void GTglEndList ();
-GT_EXTERN void GTglEvalCoord1d (GLdouble dU);
-GT_EXTERN void GTglEvalCoord1dv (const GLdouble* pdU);
-GT_EXTERN void GTglEvalCoord1f (GLfloat fU);
-GT_EXTERN void GTglEvalCoord1fv (const GLfloat* pfU);
-GT_EXTERN void GTglEvalCoord2d (GLdouble dU, GLdouble dV);
-GT_EXTERN void GTglEvalCoord2dv (const GLdouble* adUV);
-GT_EXTERN void GTglEvalCoord2f (GLfloat fU, GLfloat fV);
-GT_EXTERN void GTglEvalCoord2fv (const GLfloat* afUV);
-GT_EXTERN void GTglEvalMesh1 (GLenum eMode, GLint i1, GLint i2);
-GT_EXTERN void GTglEvalMesh2 (GLenum eMode, GLint i1, GLint i2, GLint j1,
-    GLint j2);
-GT_EXTERN void GTglEvalPoint1 (GLint i);
-GT_EXTERN void GTglEvalPoint2 (GLint i, GLint j);
-GT_EXTERN void GTglFeedbackBuffer (GLsizei iSize, GLenum eType,
-    GLfloat* afBuffer);
-GT_EXTERN void GTglFinish ();
-GT_EXTERN void GTglFlush ();
-GT_EXTERN void GTglFogf (GLenum ePName, GLfloat fParam);
-GT_EXTERN void GTglFogfv (GLenum ePName, const GLfloat* afParam);
-GT_EXTERN void GTglFogi (GLenum ePName, GLint iParam);
-GT_EXTERN void GTglFogiv (GLenum ePName, const GLint* aiParam);
-GT_EXTERN void GTglFrontFace (GLenum eMode);
-GT_EXTERN void GTglFrustum (GLdouble dLeft, GLdouble dRight, GLdouble dBottom,
-    GLdouble dTop, GLdouble dZNear, GLdouble dZFar);
-GT_EXTERN GLuint GTglGenLists (GLsizei iRange);
-GT_EXTERN void GTglGenTextures (GLsizei iNumTextures, GLuint* auiTexture);
-GT_EXTERN void GTglGetBooleanv (GLenum ePName, GLboolean* aucParam);
-GT_EXTERN void GTglGetClipPlane (GLenum ePlane, GLdouble* adEquation);
-GT_EXTERN void GTglGetDoublev (GLenum ePName, GLdouble* adParam);
-GT_EXTERN GLenum GTglGetError ();
-GT_EXTERN void GTglGetFloatv (GLenum ePName, GLfloat* afParam);
-GT_EXTERN void GTglGetIntegerv (GLenum ePName, GLint* aiParam);
-GT_EXTERN void GTglGetLightfv (GLenum eLight, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetLightiv (GLenum eLight, GLenum ePName, GLint* aiParam);
-GT_EXTERN void GTglGetMapdv (GLenum eTarget, GLenum eQuery,
-    GLdouble* adValue);
-GT_EXTERN void GTglGetMapfv (GLenum eTarget, GLenum eQuery, GLfloat* afValue);
-GT_EXTERN void GTglGetMapiv (GLenum eTarget, GLenum eQuery, GLint* aiValue);
-GT_EXTERN void GTglGetMaterialfv (GLenum eFace, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetMaterialiv (GLenum eFace, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetPixelMapfv (GLenum eMap, GLfloat* afValue);
-GT_EXTERN void GTglGetPixelMapuiv (GLenum eMap, GLuint* auiValue);
-GT_EXTERN void GTglGetPixelMapusv (GLenum eMap, GLushort* ausValue);
-GT_EXTERN void GTglGetPointerv (GLenum ePName, GLvoid** apvParam);
-GT_EXTERN void GTglGetPolygonStipple (GLubyte* aucPattern);
-GT_EXTERN const GLubyte* GTglGetString (GLenum eName);
-GT_EXTERN void GTglGetTexEnvfv (GLenum eTarget, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetTexEnviv (GLenum eTarget, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetTexGendv (GLenum eCoord, GLenum ePName,
-    GLdouble* adParam);
-GT_EXTERN void GTglGetTexGenfv (GLenum eCoord, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetTexGeniv (GLenum eCoord, GLenum ePName, GLint* aiParam);
-GT_EXTERN void GTglGetTexImage (GLenum eTarget, GLint iLevel, GLenum eFormat,
-    GLenum eType, GLvoid* pvPixels);
-GT_EXTERN void GTglGetTexLevelParameterfv (GLenum eTarget, GLint iLevel,
-    GLenum ePName, GLfloat* afParam);
-GT_EXTERN void GTglGetTexLevelParameteriv (GLenum eTarget, GLint iLevel,
-    GLenum ePName, GLint* aiParam);
-GT_EXTERN void GTglGetTexParameterfv (GLenum eTarget, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetTexParameteriv (GLenum eTarget, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglHint (GLenum eTarget, GLenum eMode);
-GT_EXTERN void GTglIndexMask (GLuint uiMask);
-GT_EXTERN void GTglIndexPointer (GLenum eType, GLsizei iStride,
-    const GLvoid* pvPointer);
-GT_EXTERN void GTglIndexd (GLdouble dIndex);
-GT_EXTERN void GTglIndexdv (const GLdouble* pdIndex);
-GT_EXTERN void GTglIndexf (GLfloat fIndex);
-GT_EXTERN void GTglIndexfv (const GLfloat* pfIndex);
-GT_EXTERN void GTglIndexi (GLint iIndex);
-GT_EXTERN void GTglIndexiv (const GLint* piIndex);
-GT_EXTERN void GTglIndexs (GLshort sIndex);
-GT_EXTERN void GTglIndexsv (const GLshort* psIndex);
-GT_EXTERN void GTglIndexub (GLubyte ucIndex);
-GT_EXTERN void GTglIndexubv (const GLubyte* pucIndex);
-GT_EXTERN void GTglInitNames ();
-GT_EXTERN void GTglInterleavedArrays (GLenum eFormat, GLsizei iStride,
-    const GLvoid* pvPointer);
-GT_EXTERN GLboolean GTglIsEnabled (GLenum eCapability);
-GT_EXTERN GLboolean GTglIsList (GLuint uiList);
-GT_EXTERN GLboolean GTglIsTexture (GLuint uiTexture);
-GT_EXTERN void GTglLightModelf (GLenum ePName, GLfloat fParam);
-GT_EXTERN void GTglLightModelfv (GLenum ePName, const GLfloat* afParam);
-GT_EXTERN void GTglLightModeli (GLenum ePName, GLint iParam);
-GT_EXTERN void GTglLightModeliv (GLenum ePName, const GLint* aiParam);
-GT_EXTERN void GTglLightf (GLenum eLight, GLenum ePName, GLfloat fParam);
-GT_EXTERN void GTglLightfv (GLenum eLight, GLenum ePName,
-    const GLfloat* afParam);
-GT_EXTERN void GTglLighti (GLenum eLight, GLenum ePName, GLint iParam);
-GT_EXTERN void GTglLightiv (GLenum eLight, GLenum ePName,
-    const GLint* aiParam);
-GT_EXTERN void GTglLineStipple (GLint iFactor, GLushort usPattern);
-GT_EXTERN void GTglLineWidth (GLfloat fWidth);
-GT_EXTERN void GTglListBase (GLuint uiBase);
-GT_EXTERN void GTglLoadIdentity ();
-GT_EXTERN void GTglLoadMatrixd (const GLdouble* adMatrix);
-GT_EXTERN void GTglLoadMatrixf (const GLfloat* afMatrix);
-GT_EXTERN void GTglLoadName (GLuint uiName);
-GT_EXTERN void GTglLogicOp (GLenum eOpCode);
-GT_EXTERN void GTglMap1d (GLenum eTarget, GLdouble dU1, GLdouble dU2,
-    GLint iStride, GLint iOrder, const GLdouble* adPoints);
-GT_EXTERN void GTglMap1f (GLenum eTarget, GLfloat fU1, GLfloat fU2,
-    GLint iStride, GLint iOrder, const GLfloat* afPoints);
-GT_EXTERN void GTglMap2d (GLenum eTarget, GLdouble dU1, GLdouble dU2,
-    GLint iUStride, GLint iUOrder, GLdouble dV1, GLdouble dV2,
-    GLint iVStride, GLint iVOrder, const GLdouble* adPoints);
-GT_EXTERN void GTglMap2f (GLenum eTarget, GLfloat fU1, GLfloat fU2,
-    GLint iUStride, GLint iUOrder, GLfloat fV1, GLfloat fV2, GLint iVStride,
-    GLint iVOrder, const GLfloat* afPoints);
-GT_EXTERN void GTglMapGrid1d (GLint iNumUPartitions, GLdouble dU1,
-    GLdouble dU2);
-GT_EXTERN void GTglMapGrid1f (GLint iNumUPartitions, GLfloat fU1,
-    GLfloat fU2);
-GT_EXTERN void GTglMapGrid2d (GLint iNumUPartitions, GLdouble dU1,
-    GLdouble dU2, GLint iNumVPartitions, GLdouble dV1, GLdouble dV2);
-GT_EXTERN void GTglMapGrid2f (GLint iNumUPartitions, GLfloat fU1, GLfloat fU2,
-    GLint iNumVPartitions, GLfloat fV1, GLfloat fV2);
-GT_EXTERN void GTglMaterialf (GLenum eFace, GLenum ePName, GLfloat fParam);
-GT_EXTERN void GTglMaterialfv (GLenum eFace, GLenum ePName,
-    const GLfloat* afParam);
-GT_EXTERN void GTglMateriali (GLenum eFace, GLenum ePName, GLint iParam);
-GT_EXTERN void GTglMaterialiv (GLenum eFace, GLenum ePName,
-    const GLint* aiParam);
-GT_EXTERN void GTglMatrixMode (GLenum eMode);
-GT_EXTERN void GTglMultMatrixd (const GLdouble* adMatrix);
-GT_EXTERN void GTglMultMatrixf (const GLfloat* afMatrix);
-GT_EXTERN void GTglNewList (GLuint uiList, GLenum eMode);
-GT_EXTERN void GTglNormal3b (GLbyte cX, GLbyte cY, GLbyte cZ);
-GT_EXTERN void GTglNormal3bv (const GLbyte* acXYZ);
-GT_EXTERN void GTglNormal3d (GLdouble dX, GLdouble dY, GLdouble dZ);
-GT_EXTERN void GTglNormal3dv (const GLdouble* adXYZ);
-GT_EXTERN void GTglNormal3f (GLfloat fX, GLfloat fY, GLfloat fZ);
-GT_EXTERN void GTglNormal3fv (const GLfloat* afXYZ);
-GT_EXTERN void GTglNormal3i (GLint iX, GLint iY, GLint iZ);
-GT_EXTERN void GTglNormal3iv (const GLint* aiXYZ);
-GT_EXTERN void GTglNormal3s (GLshort sX, GLshort sY, GLshort sZ);
-GT_EXTERN void GTglNormal3sv (const GLshort* asXYZ);
-GT_EXTERN void GTglNormalPointer (GLenum eType, GLsizei iStride,
-    const GLvoid* pvPointer);
-GT_EXTERN void GTglOrtho (GLdouble dLeft, GLdouble dRight, GLdouble dBottom,
-    GLdouble dTop, GLdouble dZNear, GLdouble dZFar);
-GT_EXTERN void GTglPassThrough (GLfloat fToken);
-GT_EXTERN void GTglPixelMapfv (GLenum eMap, GLsizei iSize,
-    const GLfloat* afValue);
-GT_EXTERN void GTglPixelMapuiv (GLenum eMap, GLsizei iSize,
-    const GLuint* auiValue);
-GT_EXTERN void GTglPixelMapusv (GLenum eMap, GLsizei iSize,
-    const GLushort* ausValue);
-GT_EXTERN void GTglPixelStoref (GLenum ePName, GLfloat fParam);
-GT_EXTERN void GTglPixelStorei (GLenum ePName, GLint iParam);
-GT_EXTERN void GTglPixelTransferf (GLenum ePName, GLfloat fParam);
-GT_EXTERN void GTglPixelTransferi (GLenum ePName, GLint iParam);
-GT_EXTERN void GTglPixelZoom (GLfloat fXFactor, GLfloat fYFactor);
-GT_EXTERN void GTglPointSize (GLfloat fSize);
-GT_EXTERN void GTglPolygonMode (GLenum eFace, GLenum eMode);
-GT_EXTERN void GTglPolygonOffset (GLfloat fScale, GLfloat fBias);
-GT_EXTERN void GTglPolygonStipple (const GLubyte* aucPattern);
-GT_EXTERN void GTglPopAttrib ();
-GT_EXTERN void GTglPopClientAttrib ();
-GT_EXTERN void GTglPopMatrix ();
-GT_EXTERN void GTglPopName ();
-GT_EXTERN void GTglPrioritizeTextures (GLsizei iNumTextures,
-    const GLuint* auiTextures, const GLclampf* afPriorities);
-GT_EXTERN void GTglPushAttrib (GLbitfield uiMask);
-GT_EXTERN void GTglPushClientAttrib (GLbitfield uiMask);
-GT_EXTERN void GTglPushMatrix ();
-GT_EXTERN void GTglPushName (GLuint uiName);
-GT_EXTERN void GTglRasterPos2d (GLdouble dX, GLdouble dY);
-GT_EXTERN void GTglRasterPos2dv (const GLdouble* adXY);
-GT_EXTERN void GTglRasterPos2f (GLfloat fX, GLfloat fY);
-GT_EXTERN void GTglRasterPos2fv (const GLfloat* afXY);
-GT_EXTERN void GTglRasterPos2i (GLint iX, GLint iY);
-GT_EXTERN void GTglRasterPos2iv (const GLint* aiXY);
-GT_EXTERN void GTglRasterPos2s (GLshort sX, GLshort sY);
-GT_EXTERN void GTglRasterPos2sv (const GLshort* asXY);
-GT_EXTERN void GTglRasterPos3d (GLdouble dX, GLdouble dY, GLdouble dZ);
-GT_EXTERN void GTglRasterPos3dv (const GLdouble* adXYZ);
-GT_EXTERN void GTglRasterPos3f (GLfloat fX, GLfloat fY, GLfloat fZ);
-GT_EXTERN void GTglRasterPos3fv (const GLfloat* afXYZ);
-GT_EXTERN void GTglRasterPos3i (GLint iX, GLint iY, GLint iZ);
-GT_EXTERN void GTglRasterPos3iv (const GLint* aiXYZ);
-GT_EXTERN void GTglRasterPos3s (GLshort sX, GLshort sY, GLshort sZ);
-GT_EXTERN void GTglRasterPos3sv (const GLshort* asXYZ);
-GT_EXTERN void GTglRasterPos4d (GLdouble dX, GLdouble dY, GLdouble dZ,
-    GLdouble dW);
-GT_EXTERN void GTglRasterPos4dv (const GLdouble* adXYZW);
-GT_EXTERN void GTglRasterPos4f (GLfloat fX, GLfloat fY, GLfloat fZ,
-    GLfloat fW);
-GT_EXTERN void GTglRasterPos4fv (const GLfloat* afXYZW);
-GT_EXTERN void GTglRasterPos4i (int iX, int iY, int iZ, int iW);
-GT_EXTERN void GTglRasterPos4iv (const GLint* aiXYZW);
-GT_EXTERN void GTglRasterPos4s (GLshort sX, GLshort sY, GLshort sZ,
-    GLshort sW);
-GT_EXTERN void GTglRasterPos4sv (const GLshort* asXYZW);
-GT_EXTERN void GTglReadBuffer (GLenum eMode);
-GT_EXTERN void GTglReadPixels (GLint iX, GLint iY, GLsizei iWidth,
-    GLsizei iHeight, GLenum eFormat, GLenum eType, GLvoid* pvPixels);
-GT_EXTERN void GTglRectd (GLdouble dX1, GLdouble dY1, GLdouble dX2,
-    GLdouble dY2);
-GT_EXTERN void GTglRectdv (const GLdouble* adX1Y1, const GLdouble* adX2Y2);
-GT_EXTERN void GTglRectf (GLfloat fX1, GLfloat fY1, GLfloat fX2, GLfloat fY2);
-GT_EXTERN void GTglRectfv (const GLfloat* afX1Y1, const GLfloat* afX2Y2);
-GT_EXTERN void GTglRecti (GLint iX1, GLint iY1, GLint iX2, GLint iY2);
-GT_EXTERN void GTglRectiv (const GLint* aiX1Y1, const GLint* aiX2Y2);
-GT_EXTERN void GTglRects (GLshort sX1, GLshort sY1, GLshort sX2, GLshort sY2);
-GT_EXTERN void GTglRectsv (const GLshort* asX1Y1, const GLshort* asX2Y2);
-GT_EXTERN GLint GTglRenderMode (GLenum eMode);
-GT_EXTERN void GTglRotated (GLdouble dAngle, GLdouble dX, GLdouble dY,
-    GLdouble dZ);
-GT_EXTERN void GTglRotatef (GLfloat fAngle, GLfloat fX, GLfloat fY,
-    GLfloat fZ);
-GT_EXTERN void GTglScaled (GLdouble dX, GLdouble dY, GLdouble dZ);
-GT_EXTERN void GTglScalef (GLfloat fAngle, GLfloat fX, GLfloat fY);
-GT_EXTERN void GTglScissor (GLint iX, GLint iY, GLsizei iWidth,
-    GLsizei iHeight);
-GT_EXTERN void GTglSelectBuffer (GLsizei iSize, GLuint* auiBuffer);
-GT_EXTERN void GTglShadeModel (GLenum eMode);
-GT_EXTERN void GTglStencilFunc (GLenum eFunction, GLint iReference,
-    GLuint uiMask);
-GT_EXTERN void GTglStencilMask (GLuint uiMask);
-GT_EXTERN void GTglStencilOp (GLenum eFail, GLenum eZFail, GLenum eZPass);
-GT_EXTERN void GTglTexCoord1d (GLdouble dS);
-GT_EXTERN void GTglTexCoord1dv (const GLdouble* pdS);
-GT_EXTERN void GTglTexCoord1f (GLfloat fS);
-GT_EXTERN void GTglTexCoord1fv (const GLfloat* pfS);
-GT_EXTERN void GTglTexCoord1i (GLint iS);
-GT_EXTERN void GTglTexCoord1iv (const GLint* piS);
-GT_EXTERN void GTglTexCoord1s (GLshort sS);
-GT_EXTERN void GTglTexCoord1sv (const GLshort* psS);
-GT_EXTERN void GTglTexCoord2d (GLdouble dS, GLdouble dT);
-GT_EXTERN void GTglTexCoord2dv (const GLdouble* asDT);
-GT_EXTERN void GTglTexCoord2f (GLfloat fS, GLfloat fT);
-GT_EXTERN void GTglTexCoord2fv (const GLfloat* afST);
-GT_EXTERN void GTglTexCoord2i (GLint iS, GLint iT);
-GT_EXTERN void GTglTexCoord2iv (const GLint* aiST);
-GT_EXTERN void GTglTexCoord2s (GLshort sS, GLshort sT);
-GT_EXTERN void GTglTexCoord2sv (const GLshort* asST);
-GT_EXTERN void GTglTexCoord3d (GLdouble dS, GLdouble dT, GLdouble dR);
-GT_EXTERN void GTglTexCoord3dv (const GLdouble* adSTR);
-GT_EXTERN void GTglTexCoord3f (GLfloat fS, GLfloat fT, GLfloat fR);
-GT_EXTERN void GTglTexCoord3fv (const GLfloat* afSTR);
-GT_EXTERN void GTglTexCoord3i (GLint iS, GLint iT, GLint iR);
-GT_EXTERN void GTglTexCoord3iv (const GLint* aiSTR);
-GT_EXTERN void GTglTexCoord3s (GLshort sS, GLshort sT, GLshort sR);
-GT_EXTERN void GTglTexCoord3sv (const GLshort* asSTR);
-GT_EXTERN void GTglTexCoord4d (GLdouble dS, GLdouble dT, GLdouble dR,
-    GLdouble dQ);
-GT_EXTERN void GTglTexCoord4dv (const GLdouble* adSTRQ);
-GT_EXTERN void GTglTexCoord4f (GLfloat fS, GLfloat fT, GLfloat fR,
-    GLfloat fQ);
-GT_EXTERN void GTglTexCoord4fv (const GLfloat* afSTRQ);
-GT_EXTERN void GTglTexCoord4i (GLint iS, GLint iT, GLint iR, GLint iQ);
-GT_EXTERN void GTglTexCoord4iv (const GLint* aiSTRQ);
-GT_EXTERN void GTglTexCoord4s (GLshort sS, GLshort sT, GLshort sR,
-    GLshort sQ);
-GT_EXTERN void GTglTexCoord4sv (const GLshort* asSTRQ);
-GT_EXTERN void GTglTexCoordPointer (GLint iSize, GLenum eType,
-    GLsizei iStride, const GLvoid* pvPointer);
-GT_EXTERN void GTglTexEnvf (GLenum eTarget, GLenum ePName, GLfloat fParam);
-GT_EXTERN void GTglTexEnvfv (GLenum eTarget, GLenum ePName,
-    const GLfloat* afParam);
-GT_EXTERN void GTglTexEnvi (GLenum eTarget, GLenum ePName, GLint iParam);
-GT_EXTERN void GTglTexEnviv (GLenum eTarget, GLenum ePName,
-    const GLint* aiParam);
-GT_EXTERN void GTglTexGend (GLenum eCoord, GLenum ePName, GLdouble dParam);
-GT_EXTERN void GTglTexGendv (GLenum eCoord, GLenum ePName,
-    const GLdouble* adParam);
-GT_EXTERN void GTglTexGenf (GLenum eCoord, GLenum ePName, GLfloat fParam);
-GT_EXTERN void GTglTexGenfv (GLenum eCoord, GLenum ePName,
-    const GLfloat* afParam);
-GT_EXTERN void GTglTexGeni (GLenum eCoord, GLenum ePName, GLint iParam);
-GT_EXTERN void GTglTexGeniv (GLenum eCoord, GLenum ePName,
-    const GLint* aiParam);
-GT_EXTERN void GTglTexImage1D (GLenum eTarget, GLint iLevel,
-    GLint iInternalFormat, GLsizei iWidth, GLint iBorder, GLenum eFormat,
-    GLenum eType, const GLvoid* pvPixels);
-GT_EXTERN void GTglTexImage2D (GLenum eTarget, GLint iLevel,
-    GLint iInternalFormat, GLsizei iWidth, GLsizei iHeight, GLint iBorder,
-    GLenum eFormat, GLenum eType, const GLvoid* pvPixels);
-GT_EXTERN void GTglTexParameterf (GLenum eTarget, GLenum ePName,
-    GLfloat fParam);
-GT_EXTERN void GTglTexParameterfv (GLenum eTarget, GLenum ePName,
-    const GLfloat* afParam);
-GT_EXTERN void GTglTexParameteri (GLenum eTarget, GLenum ePName,
-    GLint iParam);
-GT_EXTERN void GTglTexParameteriv (GLenum eTarget, GLenum ePName,
-    const GLint* aiParam);
-GT_EXTERN void GTglTexSubImage1D (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLsizei iWidth, GLenum eFormat, GLenum eType,
-    const GLvoid* pvPixels);
-GT_EXTERN void GTglTexSubImage2D (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iYOffset, GLsizei iWidth, GLsizei iHeight,
-    GLenum eFormat, GLenum eType, const GLvoid* pvPixels);
-GT_EXTERN void GTglTranslated (GLdouble dX, GLdouble dY, GLdouble dZ);
-GT_EXTERN void GTglTranslatef (GLfloat fX, GLfloat fY, GLfloat fZ);
-GT_EXTERN void GTglVertex2d (GLdouble dX, GLdouble dY);
-GT_EXTERN void GTglVertex2dv (const GLdouble* adXY);
-GT_EXTERN void GTglVertex2f (GLfloat fX, GLfloat fY);
-GT_EXTERN void GTglVertex2fv (const GLfloat* afXY);
-GT_EXTERN void GTglVertex2i (GLint iX, GLint iY);
-GT_EXTERN void GTglVertex2iv (const GLint* aiXY);
-GT_EXTERN void GTglVertex2s (GLshort sX, GLshort sY);
-GT_EXTERN void GTglVertex2sv (const GLshort* asXY);
-GT_EXTERN void GTglVertex3d (GLdouble dX, GLdouble dY, GLdouble dZ);
-GT_EXTERN void GTglVertex3dv (const GLdouble* adXYZ);
-GT_EXTERN void GTglVertex3f (GLfloat fX, GLfloat fY, GLfloat fZ);
-GT_EXTERN void GTglVertex3fv (const GLfloat* afXYZ);
-GT_EXTERN void GTglVertex3i (GLint iX, GLint iY, GLint iZ);
-GT_EXTERN void GTglVertex3iv (const GLint* aiXYZ);
-GT_EXTERN void GTglVertex3s (GLshort sX, GLshort sY, GLshort sZ);
-GT_EXTERN void GTglVertex3sv (const GLshort* asXYZ);
-GT_EXTERN void GTglVertex4d (GLdouble dX, GLdouble dY, GLdouble dZ,
-    GLdouble dW);
-GT_EXTERN void GTglVertex4dv (const GLdouble* adXYZW);
-GT_EXTERN void GTglVertex4f (GLfloat fX, GLfloat fY, GLfloat fZ, GLfloat fW);
-GT_EXTERN void GTglVertex4fv (const GLfloat* afXYZW);
-GT_EXTERN void GTglVertex4i (GLint iX, GLint iY, GLint iZ, GLint iW);
-GT_EXTERN void GTglVertex4iv (const GLint* aiXYZW);
-GT_EXTERN void GTglVertex4s (GLshort sX, GLshort sY, GLshort sZ, GLshort sW);
-GT_EXTERN void GTglVertex4sv (const GLshort* asXYZW);
-GT_EXTERN void GTglVertexPointer (GLint iSize, GLenum eType, GLsizei iStride,
-    const GLvoid* pvPointer);
-GT_EXTERN void GTglViewport (GLint iX, GLint iY, GLsizei iWidth,
-    GLsizei iHeight);
+	GT_EXTERN void GTglAccum (GLenum eOperation, GLfloat fValue);
+	GT_EXTERN void GTglAlphaFunc (GLenum eFunction, GLclampf fReference);
+	GT_EXTERN GLboolean GTglAreTexturesResident (GLsizei iNumTextures,
+	        const GLuint* auiTextures, GLboolean* aucResidences);
+	GT_EXTERN void GTglArrayElement (GLint i);
+	GT_EXTERN void GTglBegin (GLenum eMode);
+	GT_EXTERN void GTglBindTexture (GLenum eTarget, GLuint uiTexture);
+	GT_EXTERN void GTglBitmap (GLsizei iWidth, GLsizei iHeight, GLfloat fXOrigin,
+	                           GLfloat fYOrigin, GLfloat fXMove, GLfloat fYMove,
+	                           const GLubyte* aucBitmap);
+	GT_EXTERN void GTglBlendFunc (GLenum eSrcFunction, GLenum eDstFunction);
+	GT_EXTERN void GTglCallList (GLuint uiList);
+	GT_EXTERN void GTglCallLists (GLsizei iNumLists, GLenum eType,
+	                              const GLvoid* pvLists);
+	GT_EXTERN void GTglClear (GLbitfield uiMask);
+	GT_EXTERN void GTglClearAccum (GLfloat fRed, GLfloat fGreen, GLfloat fBlue,
+	                               GLfloat fAlpha);
+	GT_EXTERN void GTglClearColor (GLclampf fRed, GLclampf fGreen, GLclampf fBlue,
+	                               GLclampf fAlpha);
+	GT_EXTERN void GTglClearDepth (GLclampd dDepth);
+	GT_EXTERN void GTglClearIndex (GLfloat fIndex);
+	GT_EXTERN void GTglClearStencil (GLint iStencil);
+	GT_EXTERN void GTglClipPlane (GLenum ePlane, const GLdouble* adEquation);
+	GT_EXTERN void GTglColor3b (GLbyte cRed, GLbyte cGreen, GLbyte cBlue);
+	GT_EXTERN void GTglColor3bv (const GLbyte* acRGB);
+	GT_EXTERN void GTglColor3d (GLdouble dRed, GLdouble dGreen, GLdouble dBlue);
+	GT_EXTERN void GTglColor3dv (const GLdouble* adRGB);
+	GT_EXTERN void GTglColor3f (GLfloat fRed, GLfloat fGreen, GLfloat fBlue);
+	GT_EXTERN void GTglColor3fv (const GLfloat* afRGB);
+	GT_EXTERN void GTglColor3i (GLint iRed, GLint iGreen, GLint iBlue);
+	GT_EXTERN void GTglColor3iv (const GLint* aiRGB);
+	GT_EXTERN void GTglColor3s (GLshort sRed, GLshort sGreen, GLshort sBlue);
+	GT_EXTERN void GTglColor3sv (const GLshort* asRGB);
+	GT_EXTERN void GTglColor3ub (GLubyte ucRed, GLubyte ucGreen, GLubyte ucBlue);
+	GT_EXTERN void GTglColor3ubv (const GLubyte* aucRGB);
+	GT_EXTERN void GTglColor3ui (GLuint uiRed, GLuint uiGreen, GLuint uiBlue);
+	GT_EXTERN void GTglColor3uiv (const GLuint* auiRGB);
+	GT_EXTERN void GTglColor3us (GLushort usRed, GLushort usGreen,
+	                             GLushort usBlue);
+	GT_EXTERN void GTglColor3usv (const GLushort* ausRGB);
+	GT_EXTERN void GTglColor4b (GLbyte cRed, GLbyte cGreen, GLbyte cBlue,
+	                            GLbyte cAlpha);
+	GT_EXTERN void GTglColor4bv (const GLbyte* acRGBA);
+	GT_EXTERN void GTglColor4d (GLdouble dRed, GLdouble dGreen, GLdouble dBlue,
+	                            GLdouble dAlpha);
+	GT_EXTERN void GTglColor4dv (const GLdouble* adRGBA);
+	GT_EXTERN void GTglColor4f (GLfloat fRed, GLfloat fGreen, GLfloat fBlue,
+	                            GLfloat fAlpha);
+	GT_EXTERN void GTglColor4fv (const GLfloat* afRGBA);
+	GT_EXTERN void GTglColor4i (GLint iRed, GLint iGreen, GLint iBlue,
+	                            GLint iAlpha);
+	GT_EXTERN void GTglColor4iv (const GLint* aiRGBA);
+	GT_EXTERN void GTglColor4s (GLshort sRed, GLshort sGreen, GLshort sBlue,
+	                            GLshort sAlpha);
+	GT_EXTERN void GTglColor4sv (const GLshort* asRGBA);
+	GT_EXTERN void GTglColor4ub (GLubyte ucRed, GLubyte ucGreen, GLubyte ucBlue,
+	                             GLubyte ucAlpha);
+	GT_EXTERN void GTglColor4ubv (const GLubyte* aucRGBA);
+	GT_EXTERN void GTglColor4ui (GLuint uiRed, GLuint uiGreen, GLuint uiBlue,
+	                             GLuint uiAlpha);
+	GT_EXTERN void GTglColor4uiv (const GLuint* auiRGBA);
+	GT_EXTERN void GTglColor4us (GLushort usRed, GLushort usGreen,
+	                             GLushort usBlue, GLushort usAlpha);
+	GT_EXTERN void GTglColor4usv (const GLushort* ausRGBA);
+	GT_EXTERN void GTglColorMask (GLboolean ucRed, GLboolean ucGreen,
+	                              GLboolean ucBlue, GLboolean ucAlpha);
+	GT_EXTERN void GTglColorMaterial (GLenum eFace, GLenum eMode);
+	GT_EXTERN void GTglColorPointer (GLint iSize, GLenum eType, GLsizei iStride,
+	                                 const GLvoid* pvPointer);
+	GT_EXTERN void GTglCopyPixels (GLint iX, GLint iY, GLsizei iWidth,
+	                               GLsizei iHeight, GLenum eType);
+	GT_EXTERN void GTglCopyTexImage1D (GLenum eTarget, GLint iLevel,
+	                                   GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth,
+	                                   GLint iBorder);
+	GT_EXTERN void GTglCopyTexImage2D (GLenum eTarget, GLint iLevel,
+	                                   GLenum eInternalFormat,  GLint iX, GLint iY, GLsizei iWidth,
+	                                   GLsizei iHeight, GLint iBorder);
+	GT_EXTERN void GTglCopyTexSubImage1D (GLenum eTarget, GLint iLevel,
+	                                      GLint iXOffset, GLint iX, GLint iY, GLsizei iWidth);
+	GT_EXTERN void GTglCopyTexSubImage2D (GLenum eTarget, GLint iLevel,
+	                                      GLint iXOffset, GLint iYOffset, GLint iX, GLint iY, GLsizei iWidth,
+	                                      GLsizei iHeight);
+	GT_EXTERN void GTglCullFace (GLenum eMode);
+	GT_EXTERN void GTglDeleteLists (GLuint uiList, GLsizei iRange);
+	GT_EXTERN void GTglDeleteTextures (GLsizei iNumTextures,
+	                                   const GLuint* auiTextures);
+	GT_EXTERN void GTglDepthFunc (GLenum eFunction);
+	GT_EXTERN void GTglDepthMask (GLboolean ucMask);
+	GT_EXTERN void GTglDepthRange (GLclampd dZNear, GLclampd dZFar);
+	GT_EXTERN void GTglDisable (GLenum eCapability);
+	GT_EXTERN void GTglDisableClientState (GLenum eArray);
+	GT_EXTERN void GTglDrawArrays (GLenum eMode, GLint iFirst, GLsizei iCount);
+	GT_EXTERN void GTglDrawBuffer (GLenum eMode);
+	GT_EXTERN void GTglDrawElements (GLenum eMode, GLsizei iCount, GLenum eType,
+	                                 const GLvoid* pvIndices);
+	GT_EXTERN void GTglDrawPixels (GLsizei iWidth, GLsizei iHeight,
+	                               GLenum eFormat, GLenum eType, const GLvoid* pvPixels);
+	GT_EXTERN void GTglEdgeFlag (GLboolean ucFlag);
+	GT_EXTERN void GTglEdgeFlagPointer (GLsizei iStride, const GLvoid* pvPointer);
+	GT_EXTERN void GTglEdgeFlagv (const GLboolean* pucFlag);
+	GT_EXTERN void GTglEnable (GLenum eCapability);
+	GT_EXTERN void GTglEnableClientState (GLenum eArray);
+	GT_EXTERN void GTglEnd ();
+	GT_EXTERN void GTglEndList ();
+	GT_EXTERN void GTglEvalCoord1d (GLdouble dU);
+	GT_EXTERN void GTglEvalCoord1dv (const GLdouble* pdU);
+	GT_EXTERN void GTglEvalCoord1f (GLfloat fU);
+	GT_EXTERN void GTglEvalCoord1fv (const GLfloat* pfU);
+	GT_EXTERN void GTglEvalCoord2d (GLdouble dU, GLdouble dV);
+	GT_EXTERN void GTglEvalCoord2dv (const GLdouble* adUV);
+	GT_EXTERN void GTglEvalCoord2f (GLfloat fU, GLfloat fV);
+	GT_EXTERN void GTglEvalCoord2fv (const GLfloat* afUV);
+	GT_EXTERN void GTglEvalMesh1 (GLenum eMode, GLint i1, GLint i2);
+	GT_EXTERN void GTglEvalMesh2 (GLenum eMode, GLint i1, GLint i2, GLint j1,
+	                              GLint j2);
+	GT_EXTERN void GTglEvalPoint1 (GLint i);
+	GT_EXTERN void GTglEvalPoint2 (GLint i, GLint j);
+	GT_EXTERN void GTglFeedbackBuffer (GLsizei iSize, GLenum eType,
+	                                   GLfloat* afBuffer);
+	GT_EXTERN void GTglFinish ();
+	GT_EXTERN void GTglFlush ();
+	GT_EXTERN void GTglFogf (GLenum ePName, GLfloat fParam);
+	GT_EXTERN void GTglFogfv (GLenum ePName, const GLfloat* afParam);
+	GT_EXTERN void GTglFogi (GLenum ePName, GLint iParam);
+	GT_EXTERN void GTglFogiv (GLenum ePName, const GLint* aiParam);
+	GT_EXTERN void GTglFrontFace (GLenum eMode);
+	GT_EXTERN void GTglFrustum (GLdouble dLeft, GLdouble dRight, GLdouble dBottom,
+	                            GLdouble dTop, GLdouble dZNear, GLdouble dZFar);
+	GT_EXTERN GLuint GTglGenLists (GLsizei iRange);
+	GT_EXTERN void GTglGenTextures (GLsizei iNumTextures, GLuint* auiTexture);
+	GT_EXTERN void GTglGetBooleanv (GLenum ePName, GLboolean* aucParam);
+	GT_EXTERN void GTglGetClipPlane (GLenum ePlane, GLdouble* adEquation);
+	GT_EXTERN void GTglGetDoublev (GLenum ePName, GLdouble* adParam);
+	GT_EXTERN GLenum GTglGetError ();
+	GT_EXTERN void GTglGetFloatv (GLenum ePName, GLfloat* afParam);
+	GT_EXTERN void GTglGetIntegerv (GLenum ePName, GLint* aiParam);
+	GT_EXTERN void GTglGetLightfv (GLenum eLight, GLenum ePName,
+	                               GLfloat* afParam);
+	GT_EXTERN void GTglGetLightiv (GLenum eLight, GLenum ePName, GLint* aiParam);
+	GT_EXTERN void GTglGetMapdv (GLenum eTarget, GLenum eQuery,
+	                             GLdouble* adValue);
+	GT_EXTERN void GTglGetMapfv (GLenum eTarget, GLenum eQuery, GLfloat* afValue);
+	GT_EXTERN void GTglGetMapiv (GLenum eTarget, GLenum eQuery, GLint* aiValue);
+	GT_EXTERN void GTglGetMaterialfv (GLenum eFace, GLenum ePName,
+	                                  GLfloat* afParam);
+	GT_EXTERN void GTglGetMaterialiv (GLenum eFace, GLenum ePName,
+	                                  GLint* aiParam);
+	GT_EXTERN void GTglGetPixelMapfv (GLenum eMap, GLfloat* afValue);
+	GT_EXTERN void GTglGetPixelMapuiv (GLenum eMap, GLuint* auiValue);
+	GT_EXTERN void GTglGetPixelMapusv (GLenum eMap, GLushort* ausValue);
+	GT_EXTERN void GTglGetPointerv (GLenum ePName, GLvoid** apvParam);
+	GT_EXTERN void GTglGetPolygonStipple (GLubyte* aucPattern);
+	GT_EXTERN const GLubyte* GTglGetString (GLenum eName);
+	GT_EXTERN void GTglGetTexEnvfv (GLenum eTarget, GLenum ePName,
+	                                GLfloat* afParam);
+	GT_EXTERN void GTglGetTexEnviv (GLenum eTarget, GLenum ePName,
+	                                GLint* aiParam);
+	GT_EXTERN void GTglGetTexGendv (GLenum eCoord, GLenum ePName,
+	                                GLdouble* adParam);
+	GT_EXTERN void GTglGetTexGenfv (GLenum eCoord, GLenum ePName,
+	                                GLfloat* afParam);
+	GT_EXTERN void GTglGetTexGeniv (GLenum eCoord, GLenum ePName, GLint* aiParam);
+	GT_EXTERN void GTglGetTexImage (GLenum eTarget, GLint iLevel, GLenum eFormat,
+	                                GLenum eType, GLvoid* pvPixels);
+	GT_EXTERN void GTglGetTexLevelParameterfv (GLenum eTarget, GLint iLevel,
+	        GLenum ePName, GLfloat* afParam);
+	GT_EXTERN void GTglGetTexLevelParameteriv (GLenum eTarget, GLint iLevel,
+	        GLenum ePName, GLint* aiParam);
+	GT_EXTERN void GTglGetTexParameterfv (GLenum eTarget, GLenum ePName,
+	                                      GLfloat* afParam);
+	GT_EXTERN void GTglGetTexParameteriv (GLenum eTarget, GLenum ePName,
+	                                      GLint* aiParam);
+	GT_EXTERN void GTglHint (GLenum eTarget, GLenum eMode);
+	GT_EXTERN void GTglIndexMask (GLuint uiMask);
+	GT_EXTERN void GTglIndexPointer (GLenum eType, GLsizei iStride,
+	                                 const GLvoid* pvPointer);
+	GT_EXTERN void GTglIndexd (GLdouble dIndex);
+	GT_EXTERN void GTglIndexdv (const GLdouble* pdIndex);
+	GT_EXTERN void GTglIndexf (GLfloat fIndex);
+	GT_EXTERN void GTglIndexfv (const GLfloat* pfIndex);
+	GT_EXTERN void GTglIndexi (GLint iIndex);
+	GT_EXTERN void GTglIndexiv (const GLint* piIndex);
+	GT_EXTERN void GTglIndexs (GLshort sIndex);
+	GT_EXTERN void GTglIndexsv (const GLshort* psIndex);
+	GT_EXTERN void GTglIndexub (GLubyte ucIndex);
+	GT_EXTERN void GTglIndexubv (const GLubyte* pucIndex);
+	GT_EXTERN void GTglInitNames ();
+	GT_EXTERN void GTglInterleavedArrays (GLenum eFormat, GLsizei iStride,
+	                                      const GLvoid* pvPointer);
+	GT_EXTERN GLboolean GTglIsEnabled (GLenum eCapability);
+	GT_EXTERN GLboolean GTglIsList (GLuint uiList);
+	GT_EXTERN GLboolean GTglIsTexture (GLuint uiTexture);
+	GT_EXTERN void GTglLightModelf (GLenum ePName, GLfloat fParam);
+	GT_EXTERN void GTglLightModelfv (GLenum ePName, const GLfloat* afParam);
+	GT_EXTERN void GTglLightModeli (GLenum ePName, GLint iParam);
+	GT_EXTERN void GTglLightModeliv (GLenum ePName, const GLint* aiParam);
+	GT_EXTERN void GTglLightf (GLenum eLight, GLenum ePName, GLfloat fParam);
+	GT_EXTERN void GTglLightfv (GLenum eLight, GLenum ePName,
+	                            const GLfloat* afParam);
+	GT_EXTERN void GTglLighti (GLenum eLight, GLenum ePName, GLint iParam);
+	GT_EXTERN void GTglLightiv (GLenum eLight, GLenum ePName,
+	                            const GLint* aiParam);
+	GT_EXTERN void GTglLineStipple (GLint iFactor, GLushort usPattern);
+	GT_EXTERN void GTglLineWidth (GLfloat fWidth);
+	GT_EXTERN void GTglListBase (GLuint uiBase);
+	GT_EXTERN void GTglLoadIdentity ();
+	GT_EXTERN void GTglLoadMatrixd (const GLdouble* adMatrix);
+	GT_EXTERN void GTglLoadMatrixf (const GLfloat* afMatrix);
+	GT_EXTERN void GTglLoadName (GLuint uiName);
+	GT_EXTERN void GTglLogicOp (GLenum eOpCode);
+	GT_EXTERN void GTglMap1d (GLenum eTarget, GLdouble dU1, GLdouble dU2,
+	                          GLint iStride, GLint iOrder, const GLdouble* adPoints);
+	GT_EXTERN void GTglMap1f (GLenum eTarget, GLfloat fU1, GLfloat fU2,
+	                          GLint iStride, GLint iOrder, const GLfloat* afPoints);
+	GT_EXTERN void GTglMap2d (GLenum eTarget, GLdouble dU1, GLdouble dU2,
+	                          GLint iUStride, GLint iUOrder, GLdouble dV1, GLdouble dV2,
+	                          GLint iVStride, GLint iVOrder, const GLdouble* adPoints);
+	GT_EXTERN void GTglMap2f (GLenum eTarget, GLfloat fU1, GLfloat fU2,
+	                          GLint iUStride, GLint iUOrder, GLfloat fV1, GLfloat fV2, GLint iVStride,
+	                          GLint iVOrder, const GLfloat* afPoints);
+	GT_EXTERN void GTglMapGrid1d (GLint iNumUPartitions, GLdouble dU1,
+	                              GLdouble dU2);
+	GT_EXTERN void GTglMapGrid1f (GLint iNumUPartitions, GLfloat fU1,
+	                              GLfloat fU2);
+	GT_EXTERN void GTglMapGrid2d (GLint iNumUPartitions, GLdouble dU1,
+	                              GLdouble dU2, GLint iNumVPartitions, GLdouble dV1, GLdouble dV2);
+	GT_EXTERN void GTglMapGrid2f (GLint iNumUPartitions, GLfloat fU1, GLfloat fU2,
+	                              GLint iNumVPartitions, GLfloat fV1, GLfloat fV2);
+	GT_EXTERN void GTglMaterialf (GLenum eFace, GLenum ePName, GLfloat fParam);
+	GT_EXTERN void GTglMaterialfv (GLenum eFace, GLenum ePName,
+	                               const GLfloat* afParam);
+	GT_EXTERN void GTglMateriali (GLenum eFace, GLenum ePName, GLint iParam);
+	GT_EXTERN void GTglMaterialiv (GLenum eFace, GLenum ePName,
+	                               const GLint* aiParam);
+	GT_EXTERN void GTglMatrixMode (GLenum eMode);
+	GT_EXTERN void GTglMultMatrixd (const GLdouble* adMatrix);
+	GT_EXTERN void GTglMultMatrixf (const GLfloat* afMatrix);
+	GT_EXTERN void GTglNewList (GLuint uiList, GLenum eMode);
+	GT_EXTERN void GTglNormal3b (GLbyte cX, GLbyte cY, GLbyte cZ);
+	GT_EXTERN void GTglNormal3bv (const GLbyte* acXYZ);
+	GT_EXTERN void GTglNormal3d (GLdouble dX, GLdouble dY, GLdouble dZ);
+	GT_EXTERN void GTglNormal3dv (const GLdouble* adXYZ);
+	GT_EXTERN void GTglNormal3f (GLfloat fX, GLfloat fY, GLfloat fZ);
+	GT_EXTERN void GTglNormal3fv (const GLfloat* afXYZ);
+	GT_EXTERN void GTglNormal3i (GLint iX, GLint iY, GLint iZ);
+	GT_EXTERN void GTglNormal3iv (const GLint* aiXYZ);
+	GT_EXTERN void GTglNormal3s (GLshort sX, GLshort sY, GLshort sZ);
+	GT_EXTERN void GTglNormal3sv (const GLshort* asXYZ);
+	GT_EXTERN void GTglNormalPointer (GLenum eType, GLsizei iStride,
+	                                  const GLvoid* pvPointer);
+	GT_EXTERN void GTglOrtho (GLdouble dLeft, GLdouble dRight, GLdouble dBottom,
+	                          GLdouble dTop, GLdouble dZNear, GLdouble dZFar);
+	GT_EXTERN void GTglPassThrough (GLfloat fToken);
+	GT_EXTERN void GTglPixelMapfv (GLenum eMap, GLsizei iSize,
+	                               const GLfloat* afValue);
+	GT_EXTERN void GTglPixelMapuiv (GLenum eMap, GLsizei iSize,
+	                                const GLuint* auiValue);
+	GT_EXTERN void GTglPixelMapusv (GLenum eMap, GLsizei iSize,
+	                                const GLushort* ausValue);
+	GT_EXTERN void GTglPixelStoref (GLenum ePName, GLfloat fParam);
+	GT_EXTERN void GTglPixelStorei (GLenum ePName, GLint iParam);
+	GT_EXTERN void GTglPixelTransferf (GLenum ePName, GLfloat fParam);
+	GT_EXTERN void GTglPixelTransferi (GLenum ePName, GLint iParam);
+	GT_EXTERN void GTglPixelZoom (GLfloat fXFactor, GLfloat fYFactor);
+	GT_EXTERN void GTglPointSize (GLfloat fSize);
+	GT_EXTERN void GTglPolygonMode (GLenum eFace, GLenum eMode);
+	GT_EXTERN void GTglPolygonOffset (GLfloat fScale, GLfloat fBias);
+	GT_EXTERN void GTglPolygonStipple (const GLubyte* aucPattern);
+	GT_EXTERN void GTglPopAttrib ();
+	GT_EXTERN void GTglPopClientAttrib ();
+	GT_EXTERN void GTglPopMatrix ();
+	GT_EXTERN void GTglPopName ();
+	GT_EXTERN void GTglPrioritizeTextures (GLsizei iNumTextures,
+	                                       const GLuint* auiTextures, const GLclampf* afPriorities);
+	GT_EXTERN void GTglPushAttrib (GLbitfield uiMask);
+	GT_EXTERN void GTglPushClientAttrib (GLbitfield uiMask);
+	GT_EXTERN void GTglPushMatrix ();
+	GT_EXTERN void GTglPushName (GLuint uiName);
+	GT_EXTERN void GTglRasterPos2d (GLdouble dX, GLdouble dY);
+	GT_EXTERN void GTglRasterPos2dv (const GLdouble* adXY);
+	GT_EXTERN void GTglRasterPos2f (GLfloat fX, GLfloat fY);
+	GT_EXTERN void GTglRasterPos2fv (const GLfloat* afXY);
+	GT_EXTERN void GTglRasterPos2i (GLint iX, GLint iY);
+	GT_EXTERN void GTglRasterPos2iv (const GLint* aiXY);
+	GT_EXTERN void GTglRasterPos2s (GLshort sX, GLshort sY);
+	GT_EXTERN void GTglRasterPos2sv (const GLshort* asXY);
+	GT_EXTERN void GTglRasterPos3d (GLdouble dX, GLdouble dY, GLdouble dZ);
+	GT_EXTERN void GTglRasterPos3dv (const GLdouble* adXYZ);
+	GT_EXTERN void GTglRasterPos3f (GLfloat fX, GLfloat fY, GLfloat fZ);
+	GT_EXTERN void GTglRasterPos3fv (const GLfloat* afXYZ);
+	GT_EXTERN void GTglRasterPos3i (GLint iX, GLint iY, GLint iZ);
+	GT_EXTERN void GTglRasterPos3iv (const GLint* aiXYZ);
+	GT_EXTERN void GTglRasterPos3s (GLshort sX, GLshort sY, GLshort sZ);
+	GT_EXTERN void GTglRasterPos3sv (const GLshort* asXYZ);
+	GT_EXTERN void GTglRasterPos4d (GLdouble dX, GLdouble dY, GLdouble dZ,
+	                                GLdouble dW);
+	GT_EXTERN void GTglRasterPos4dv (const GLdouble* adXYZW);
+	GT_EXTERN void GTglRasterPos4f (GLfloat fX, GLfloat fY, GLfloat fZ,
+	                                GLfloat fW);
+	GT_EXTERN void GTglRasterPos4fv (const GLfloat* afXYZW);
+	GT_EXTERN void GTglRasterPos4i (int iX, int iY, int iZ, int iW);
+	GT_EXTERN void GTglRasterPos4iv (const GLint* aiXYZW);
+	GT_EXTERN void GTglRasterPos4s (GLshort sX, GLshort sY, GLshort sZ,
+	                                GLshort sW);
+	GT_EXTERN void GTglRasterPos4sv (const GLshort* asXYZW);
+	GT_EXTERN void GTglReadBuffer (GLenum eMode);
+	GT_EXTERN void GTglReadPixels (GLint iX, GLint iY, GLsizei iWidth,
+	                               GLsizei iHeight, GLenum eFormat, GLenum eType, GLvoid* pvPixels);
+	GT_EXTERN void GTglRectd (GLdouble dX1, GLdouble dY1, GLdouble dX2,
+	                          GLdouble dY2);
+	GT_EXTERN void GTglRectdv (const GLdouble* adX1Y1, const GLdouble* adX2Y2);
+	GT_EXTERN void GTglRectf (GLfloat fX1, GLfloat fY1, GLfloat fX2, GLfloat fY2);
+	GT_EXTERN void GTglRectfv (const GLfloat* afX1Y1, const GLfloat* afX2Y2);
+	GT_EXTERN void GTglRecti (GLint iX1, GLint iY1, GLint iX2, GLint iY2);
+	GT_EXTERN void GTglRectiv (const GLint* aiX1Y1, const GLint* aiX2Y2);
+	GT_EXTERN void GTglRects (GLshort sX1, GLshort sY1, GLshort sX2, GLshort sY2);
+	GT_EXTERN void GTglRectsv (const GLshort* asX1Y1, const GLshort* asX2Y2);
+	GT_EXTERN GLint GTglRenderMode (GLenum eMode);
+	GT_EXTERN void GTglRotated (GLdouble dAngle, GLdouble dX, GLdouble dY,
+	                            GLdouble dZ);
+	GT_EXTERN void GTglRotatef (GLfloat fAngle, GLfloat fX, GLfloat fY,
+	                            GLfloat fZ);
+	GT_EXTERN void GTglScaled (GLdouble dX, GLdouble dY, GLdouble dZ);
+	GT_EXTERN void GTglScalef (GLfloat fAngle, GLfloat fX, GLfloat fY);
+	GT_EXTERN void GTglScissor (GLint iX, GLint iY, GLsizei iWidth,
+	                            GLsizei iHeight);
+	GT_EXTERN void GTglSelectBuffer (GLsizei iSize, GLuint* auiBuffer);
+	GT_EXTERN void GTglShadeModel (GLenum eMode);
+	GT_EXTERN void GTglStencilFunc (GLenum eFunction, GLint iReference,
+	                                GLuint uiMask);
+	GT_EXTERN void GTglStencilMask (GLuint uiMask);
+	GT_EXTERN void GTglStencilOp (GLenum eFail, GLenum eZFail, GLenum eZPass);
+	GT_EXTERN void GTglTexCoord1d (GLdouble dS);
+	GT_EXTERN void GTglTexCoord1dv (const GLdouble* pdS);
+	GT_EXTERN void GTglTexCoord1f (GLfloat fS);
+	GT_EXTERN void GTglTexCoord1fv (const GLfloat* pfS);
+	GT_EXTERN void GTglTexCoord1i (GLint iS);
+	GT_EXTERN void GTglTexCoord1iv (const GLint* piS);
+	GT_EXTERN void GTglTexCoord1s (GLshort sS);
+	GT_EXTERN void GTglTexCoord1sv (const GLshort* psS);
+	GT_EXTERN void GTglTexCoord2d (GLdouble dS, GLdouble dT);
+	GT_EXTERN void GTglTexCoord2dv (const GLdouble* asDT);
+	GT_EXTERN void GTglTexCoord2f (GLfloat fS, GLfloat fT);
+	GT_EXTERN void GTglTexCoord2fv (const GLfloat* afST);
+	GT_EXTERN void GTglTexCoord2i (GLint iS, GLint iT);
+	GT_EXTERN void GTglTexCoord2iv (const GLint* aiST);
+	GT_EXTERN void GTglTexCoord2s (GLshort sS, GLshort sT);
+	GT_EXTERN void GTglTexCoord2sv (const GLshort* asST);
+	GT_EXTERN void GTglTexCoord3d (GLdouble dS, GLdouble dT, GLdouble dR);
+	GT_EXTERN void GTglTexCoord3dv (const GLdouble* adSTR);
+	GT_EXTERN void GTglTexCoord3f (GLfloat fS, GLfloat fT, GLfloat fR);
+	GT_EXTERN void GTglTexCoord3fv (const GLfloat* afSTR);
+	GT_EXTERN void GTglTexCoord3i (GLint iS, GLint iT, GLint iR);
+	GT_EXTERN void GTglTexCoord3iv (const GLint* aiSTR);
+	GT_EXTERN void GTglTexCoord3s (GLshort sS, GLshort sT, GLshort sR);
+	GT_EXTERN void GTglTexCoord3sv (const GLshort* asSTR);
+	GT_EXTERN void GTglTexCoord4d (GLdouble dS, GLdouble dT, GLdouble dR,
+	                               GLdouble dQ);
+	GT_EXTERN void GTglTexCoord4dv (const GLdouble* adSTRQ);
+	GT_EXTERN void GTglTexCoord4f (GLfloat fS, GLfloat fT, GLfloat fR,
+	                               GLfloat fQ);
+	GT_EXTERN void GTglTexCoord4fv (const GLfloat* afSTRQ);
+	GT_EXTERN void GTglTexCoord4i (GLint iS, GLint iT, GLint iR, GLint iQ);
+	GT_EXTERN void GTglTexCoord4iv (const GLint* aiSTRQ);
+	GT_EXTERN void GTglTexCoord4s (GLshort sS, GLshort sT, GLshort sR,
+	                               GLshort sQ);
+	GT_EXTERN void GTglTexCoord4sv (const GLshort* asSTRQ);
+	GT_EXTERN void GTglTexCoordPointer (GLint iSize, GLenum eType,
+	                                    GLsizei iStride, const GLvoid* pvPointer);
+	GT_EXTERN void GTglTexEnvf (GLenum eTarget, GLenum ePName, GLfloat fParam);
+	GT_EXTERN void GTglTexEnvfv (GLenum eTarget, GLenum ePName,
+	                             const GLfloat* afParam);
+	GT_EXTERN void GTglTexEnvi (GLenum eTarget, GLenum ePName, GLint iParam);
+	GT_EXTERN void GTglTexEnviv (GLenum eTarget, GLenum ePName,
+	                             const GLint* aiParam);
+	GT_EXTERN void GTglTexGend (GLenum eCoord, GLenum ePName, GLdouble dParam);
+	GT_EXTERN void GTglTexGendv (GLenum eCoord, GLenum ePName,
+	                             const GLdouble* adParam);
+	GT_EXTERN void GTglTexGenf (GLenum eCoord, GLenum ePName, GLfloat fParam);
+	GT_EXTERN void GTglTexGenfv (GLenum eCoord, GLenum ePName,
+	                             const GLfloat* afParam);
+	GT_EXTERN void GTglTexGeni (GLenum eCoord, GLenum ePName, GLint iParam);
+	GT_EXTERN void GTglTexGeniv (GLenum eCoord, GLenum ePName,
+	                             const GLint* aiParam);
+	GT_EXTERN void GTglTexImage1D (GLenum eTarget, GLint iLevel,
+	                               GLint iInternalFormat, GLsizei iWidth, GLint iBorder, GLenum eFormat,
+	                               GLenum eType, const GLvoid* pvPixels);
+	GT_EXTERN void GTglTexImage2D (GLenum eTarget, GLint iLevel,
+	                               GLint iInternalFormat, GLsizei iWidth, GLsizei iHeight, GLint iBorder,
+	                               GLenum eFormat, GLenum eType, const GLvoid* pvPixels);
+	GT_EXTERN void GTglTexParameterf (GLenum eTarget, GLenum ePName,
+	                                  GLfloat fParam);
+	GT_EXTERN void GTglTexParameterfv (GLenum eTarget, GLenum ePName,
+	                                   const GLfloat* afParam);
+	GT_EXTERN void GTglTexParameteri (GLenum eTarget, GLenum ePName,
+	                                  GLint iParam);
+	GT_EXTERN void GTglTexParameteriv (GLenum eTarget, GLenum ePName,
+	                                   const GLint* aiParam);
+	GT_EXTERN void GTglTexSubImage1D (GLenum eTarget, GLint iLevel,
+	                                  GLint iXOffset, GLsizei iWidth, GLenum eFormat, GLenum eType,
+	                                  const GLvoid* pvPixels);
+	GT_EXTERN void GTglTexSubImage2D (GLenum eTarget, GLint iLevel,
+	                                  GLint iXOffset, GLint iYOffset, GLsizei iWidth, GLsizei iHeight,
+	                                  GLenum eFormat, GLenum eType, const GLvoid* pvPixels);
+	GT_EXTERN void GTglTranslated (GLdouble dX, GLdouble dY, GLdouble dZ);
+	GT_EXTERN void GTglTranslatef (GLfloat fX, GLfloat fY, GLfloat fZ);
+	GT_EXTERN void GTglVertex2d (GLdouble dX, GLdouble dY);
+	GT_EXTERN void GTglVertex2dv (const GLdouble* adXY);
+	GT_EXTERN void GTglVertex2f (GLfloat fX, GLfloat fY);
+	GT_EXTERN void GTglVertex2fv (const GLfloat* afXY);
+	GT_EXTERN void GTglVertex2i (GLint iX, GLint iY);
+	GT_EXTERN void GTglVertex2iv (const GLint* aiXY);
+	GT_EXTERN void GTglVertex2s (GLshort sX, GLshort sY);
+	GT_EXTERN void GTglVertex2sv (const GLshort* asXY);
+	GT_EXTERN void GTglVertex3d (GLdouble dX, GLdouble dY, GLdouble dZ);
+	GT_EXTERN void GTglVertex3dv (const GLdouble* adXYZ);
+	GT_EXTERN void GTglVertex3f (GLfloat fX, GLfloat fY, GLfloat fZ);
+	GT_EXTERN void GTglVertex3fv (const GLfloat* afXYZ);
+	GT_EXTERN void GTglVertex3i (GLint iX, GLint iY, GLint iZ);
+	GT_EXTERN void GTglVertex3iv (const GLint* aiXYZ);
+	GT_EXTERN void GTglVertex3s (GLshort sX, GLshort sY, GLshort sZ);
+	GT_EXTERN void GTglVertex3sv (const GLshort* asXYZ);
+	GT_EXTERN void GTglVertex4d (GLdouble dX, GLdouble dY, GLdouble dZ,
+	                             GLdouble dW);
+	GT_EXTERN void GTglVertex4dv (const GLdouble* adXYZW);
+	GT_EXTERN void GTglVertex4f (GLfloat fX, GLfloat fY, GLfloat fZ, GLfloat fW);
+	GT_EXTERN void GTglVertex4fv (const GLfloat* afXYZW);
+	GT_EXTERN void GTglVertex4i (GLint iX, GLint iY, GLint iZ, GLint iW);
+	GT_EXTERN void GTglVertex4iv (const GLint* aiXYZW);
+	GT_EXTERN void GTglVertex4s (GLshort sX, GLshort sY, GLshort sZ, GLshort sW);
+	GT_EXTERN void GTglVertex4sv (const GLshort* asXYZW);
+	GT_EXTERN void GTglVertexPointer (GLint iSize, GLenum eType, GLsizei iStride,
+	                                  const GLvoid* pvPointer);
+	GT_EXTERN void GTglViewport (GLint iX, GLint iY, GLsizei iWidth,
+	                             GLsizei iHeight);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // OpenGL 1.2
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsOpenGL12;
+	GT_EXTERN int GTExistsOpenGL12;
 
 #define GL_SMOOTH_POINT_SIZE_RANGE                                  0x0B12
 #define GL_SMOOTH_POINT_SIZE_GRANULARITY                            0x0B13
@@ -1426,24 +1426,24 @@ GT_EXTERN int GTExistsOpenGL12;
 #define glTexSubImage3D GTglTexSubImage3D
 #define glCopyTexSubImage3D GTglCopyTexSubImage3D
 
-GT_EXTERN void GTglDrawRangeElements (GLenum eMode, GLuint uiStart,
-    GLuint uiEnd, GLsizei iCount, GLenum eType, const GLvoid* pvIndices);
-GT_EXTERN void GTglTexImage3D (GLenum eTarget, GLint iLevel,
-    GLint iInternalFormat, GLsizei iWidth, GLsizei iHeight, GLsizei iDepth,
-    GLint iBorder, GLenum eFormat, GLenum eType, const GLvoid* pvData);
-GT_EXTERN void GTglTexSubImage3D (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iYOffset, GLint iZOffset, GLsizei iWidth,
-    GLsizei iHeight, GLsizei iDepth, GLenum eFormat, GLenum eType,
-    const GLvoid* pvData);
-GT_EXTERN void GTglCopyTexSubImage3D (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iYOffset, GLint iZOffset, GLint iX, GLint iY,
-    GLsizei iWidth, GLsizei iHeight);
+	GT_EXTERN void GTglDrawRangeElements (GLenum eMode, GLuint uiStart,
+	                                      GLuint uiEnd, GLsizei iCount, GLenum eType, const GLvoid* pvIndices);
+	GT_EXTERN void GTglTexImage3D (GLenum eTarget, GLint iLevel,
+	                               GLint iInternalFormat, GLsizei iWidth, GLsizei iHeight, GLsizei iDepth,
+	                               GLint iBorder, GLenum eFormat, GLenum eType, const GLvoid* pvData);
+	GT_EXTERN void GTglTexSubImage3D (GLenum eTarget, GLint iLevel,
+	                                  GLint iXOffset, GLint iYOffset, GLint iZOffset, GLsizei iWidth,
+	                                  GLsizei iHeight, GLsizei iDepth, GLenum eFormat, GLenum eType,
+	                                  const GLvoid* pvData);
+	GT_EXTERN void GTglCopyTexSubImage3D (GLenum eTarget, GLint iLevel,
+	                                      GLint iXOffset, GLint iYOffset, GLint iZOffset, GLint iX, GLint iY,
+	                                      GLsizei iWidth, GLsizei iHeight);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // Imaging Subset (GL_ARB_imaging)
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbImaging;
+	GT_EXTERN int GTExistsGlArbImaging;
 
 #define GL_CONSTANT_COLOR                                           0x8001
 #define GL_ONE_MINUS_CONSTANT_COLOR                                 0x8002
@@ -1556,81 +1556,81 @@ GT_EXTERN int GTExistsGlArbImaging;
 #define glResetHistogram GTglResetHistogram
 #define glResetMinmax GTglResetMinmax
 
-GT_EXTERN void GTglBlendColor (GLclampf fRed, GLclampf fGreen,
-    GLclampf fBlue, GLclampf fAlpha);
-GT_EXTERN void GTglBlendEquation (GLenum eMode);
-GT_EXTERN void GTglColorTable (GLenum eTarget, GLenum eInternalFormat,
-    GLsizei iWidth, GLenum eFormat, GLenum eType, const GLvoid* pvTable);
-GT_EXTERN void GTglColorTableParameterfv (GLenum eTarget, GLenum ePName,
-    const GLfloat* afParam);
-GT_EXTERN void GTglColorTableParameteriv (GLenum eTarget, GLenum ePName,
-    const GLint* aiParam);
-GT_EXTERN void GTglCopyColorTable (GLenum eTarget, GLenum eInternalFormat,
-    GLint iX, GLint iY, GLsizei iWidth);
-GT_EXTERN void GTglGetColorTable (GLenum eTarget, GLenum eFormat,
-    GLenum eType, GLvoid* pvTable);
-GT_EXTERN void GTglGetColorTableParameterfv (GLenum eTarget, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetColorTableParameteriv (GLenum eTarget, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglColorSubTable (GLenum eTarget, GLsizei iStart,
-    GLsizei iCount, GLenum eFormat, GLenum eType, const GLvoid* pvData);
-GT_EXTERN void GTglCopyColorSubTable (GLenum eTarget, GLsizei iStart,
-    GLint iX, GLint iY, GLsizei iWidth);
-GT_EXTERN void GTglConvolutionFilter1D (GLenum eTarget,
-    GLenum eInternalFormat, GLsizei iWidth, GLenum eFormat, GLenum eType,
-    const GLvoid* pvImage);
-GT_EXTERN void GTglConvolutionFilter2D (GLenum eTarget,
-    GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLenum eFormat,
-    GLenum eType, const GLvoid* pvImage);
-GT_EXTERN void GTglConvolutionParameterf (GLenum eTarget, GLenum ePName,
-    GLfloat fParam);
-GT_EXTERN void GTglConvolutionParameterfv (GLenum eTarget, GLenum ePName,
-    const GLfloat* afParam);
-GT_EXTERN void GTglConvolutionParameteri (GLenum eTarget, GLenum ePName,
-    GLint iParam);
-GT_EXTERN void GTglConvolutionParameteriv (GLenum eTarget, GLenum ePName,
-    const GLint* aiParam);
-GT_EXTERN void GTglCopyConvolutionFilter1D (GLenum eTarget,
-    GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth);
-GT_EXTERN void GTglCopyConvolutionFilter2D (GLenum eTarget,
-    GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth,
-    GLsizei iHeight);
-GT_EXTERN void GTglGetConvolutionFilter (GLenum eTarget, GLenum eFormat,
-    GLenum eType, GLvoid* pvImage);
-GT_EXTERN void GTglGetConvolutionParameterfv (GLenum eTarget, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetConvolutionParameteriv (GLenum eTarget, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetSeparableFilter (GLenum eTarget, GLenum eFormat,
-    GLenum eType, GLvoid* pvRow, GLvoid* pvColumn, GLvoid* pvSpan);
-GT_EXTERN void GTglSeparableFilter2D (GLenum eTarget, GLenum eInternalFormat,
-    GLsizei iWidth, GLsizei iHeight, GLenum eFormat, GLenum eType,
-    const GLvoid* pvRow, const GLvoid* pvColumn);
-GT_EXTERN void GTglGetHistogram (GLenum eTarget, GLboolean ucReset,
-    GLenum eFormat, GLenum eType, GLvoid* pvValues);
-GT_EXTERN void GTglGetHistogramParameterfv (GLenum eTarget, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetHistogramParameteriv (GLenum eTarget, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetMinmax (GLenum eTarget, GLboolean ucReset,
-    GLenum eFormat, GLenum eType, GLvoid* pvValues);
-GT_EXTERN void GTglGetMinmaxParameterfv (GLenum eTarget, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetMinmaxParameteriv (GLenum eTarget, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglHistogram (GLenum eTarget, GLsizei iWidth,
-    GLenum eInternalFormat, GLboolean ucSink);
-GT_EXTERN void GTglMinmax (GLenum eTarget, GLenum eInternalFormat,
-    GLboolean ucSink);
-GT_EXTERN void GTglResetHistogram (GLenum eTarget);
-GT_EXTERN void GTglResetMinmax (GLenum eTarget);
+	GT_EXTERN void GTglBlendColor (GLclampf fRed, GLclampf fGreen,
+	                               GLclampf fBlue, GLclampf fAlpha);
+	GT_EXTERN void GTglBlendEquation (GLenum eMode);
+	GT_EXTERN void GTglColorTable (GLenum eTarget, GLenum eInternalFormat,
+	                               GLsizei iWidth, GLenum eFormat, GLenum eType, const GLvoid* pvTable);
+	GT_EXTERN void GTglColorTableParameterfv (GLenum eTarget, GLenum ePName,
+	        const GLfloat* afParam);
+	GT_EXTERN void GTglColorTableParameteriv (GLenum eTarget, GLenum ePName,
+	        const GLint* aiParam);
+	GT_EXTERN void GTglCopyColorTable (GLenum eTarget, GLenum eInternalFormat,
+	                                   GLint iX, GLint iY, GLsizei iWidth);
+	GT_EXTERN void GTglGetColorTable (GLenum eTarget, GLenum eFormat,
+	                                  GLenum eType, GLvoid* pvTable);
+	GT_EXTERN void GTglGetColorTableParameterfv (GLenum eTarget, GLenum ePName,
+	        GLfloat* afParam);
+	GT_EXTERN void GTglGetColorTableParameteriv (GLenum eTarget, GLenum ePName,
+	        GLint* aiParam);
+	GT_EXTERN void GTglColorSubTable (GLenum eTarget, GLsizei iStart,
+	                                  GLsizei iCount, GLenum eFormat, GLenum eType, const GLvoid* pvData);
+	GT_EXTERN void GTglCopyColorSubTable (GLenum eTarget, GLsizei iStart,
+	                                      GLint iX, GLint iY, GLsizei iWidth);
+	GT_EXTERN void GTglConvolutionFilter1D (GLenum eTarget,
+	                                        GLenum eInternalFormat, GLsizei iWidth, GLenum eFormat, GLenum eType,
+	                                        const GLvoid* pvImage);
+	GT_EXTERN void GTglConvolutionFilter2D (GLenum eTarget,
+	                                        GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLenum eFormat,
+	                                        GLenum eType, const GLvoid* pvImage);
+	GT_EXTERN void GTglConvolutionParameterf (GLenum eTarget, GLenum ePName,
+	        GLfloat fParam);
+	GT_EXTERN void GTglConvolutionParameterfv (GLenum eTarget, GLenum ePName,
+	        const GLfloat* afParam);
+	GT_EXTERN void GTglConvolutionParameteri (GLenum eTarget, GLenum ePName,
+	        GLint iParam);
+	GT_EXTERN void GTglConvolutionParameteriv (GLenum eTarget, GLenum ePName,
+	        const GLint* aiParam);
+	GT_EXTERN void GTglCopyConvolutionFilter1D (GLenum eTarget,
+	        GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth);
+	GT_EXTERN void GTglCopyConvolutionFilter2D (GLenum eTarget,
+	        GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth,
+	        GLsizei iHeight);
+	GT_EXTERN void GTglGetConvolutionFilter (GLenum eTarget, GLenum eFormat,
+	        GLenum eType, GLvoid* pvImage);
+	GT_EXTERN void GTglGetConvolutionParameterfv (GLenum eTarget, GLenum ePName,
+	        GLfloat* afParam);
+	GT_EXTERN void GTglGetConvolutionParameteriv (GLenum eTarget, GLenum ePName,
+	        GLint* aiParam);
+	GT_EXTERN void GTglGetSeparableFilter (GLenum eTarget, GLenum eFormat,
+	                                       GLenum eType, GLvoid* pvRow, GLvoid* pvColumn, GLvoid* pvSpan);
+	GT_EXTERN void GTglSeparableFilter2D (GLenum eTarget, GLenum eInternalFormat,
+	                                      GLsizei iWidth, GLsizei iHeight, GLenum eFormat, GLenum eType,
+	                                      const GLvoid* pvRow, const GLvoid* pvColumn);
+	GT_EXTERN void GTglGetHistogram (GLenum eTarget, GLboolean ucReset,
+	                                 GLenum eFormat, GLenum eType, GLvoid* pvValues);
+	GT_EXTERN void GTglGetHistogramParameterfv (GLenum eTarget, GLenum ePName,
+	        GLfloat* afParam);
+	GT_EXTERN void GTglGetHistogramParameteriv (GLenum eTarget, GLenum ePName,
+	        GLint* aiParam);
+	GT_EXTERN void GTglGetMinmax (GLenum eTarget, GLboolean ucReset,
+	                              GLenum eFormat, GLenum eType, GLvoid* pvValues);
+	GT_EXTERN void GTglGetMinmaxParameterfv (GLenum eTarget, GLenum ePName,
+	        GLfloat* afParam);
+	GT_EXTERN void GTglGetMinmaxParameteriv (GLenum eTarget, GLenum ePName,
+	        GLint* aiParam);
+	GT_EXTERN void GTglHistogram (GLenum eTarget, GLsizei iWidth,
+	                              GLenum eInternalFormat, GLboolean ucSink);
+	GT_EXTERN void GTglMinmax (GLenum eTarget, GLenum eInternalFormat,
+	                           GLboolean ucSink);
+	GT_EXTERN void GTglResetHistogram (GLenum eTarget);
+	GT_EXTERN void GTglResetMinmax (GLenum eTarget);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // OpenGL 1.3
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsOpenGL13;
+	GT_EXTERN int GTExistsOpenGL13;
 
 #define GL_TEXTURE0                                                 0x84C0
 #define GL_TEXTURE1                                                 0x84C1
@@ -1776,80 +1776,80 @@ GT_EXTERN int GTExistsOpenGL13;
 #define glCompressedTexSubImage3D GTglCompressedTexSubImage3D
 #define glGetCompressedTexImage GTglGetCompressedTexImage
 
-GT_EXTERN void GTglActiveTexture (GLenum eTexture);
-GT_EXTERN void GTglClientActiveTexture (GLenum eTexture);
-GT_EXTERN void GTglMultiTexCoord1d (GLenum eTarget, GLdouble dS);
-GT_EXTERN void GTglMultiTexCoord1dv (GLenum eTarget, const GLdouble* pdS);
-GT_EXTERN void GTglMultiTexCoord1f (GLenum eTarget, GLfloat fS);
-GT_EXTERN void GTglMultiTexCoord1fv (GLenum eTarget, const GLfloat* pfS);
-GT_EXTERN void GTglMultiTexCoord1i (GLenum eTarget, GLint iS);
-GT_EXTERN void GTglMultiTexCoord1iv (GLenum eTarget, const GLint* piS);
-GT_EXTERN void GTglMultiTexCoord1s (GLenum eTarget, GLshort sS);
-GT_EXTERN void GTglMultiTexCoord1sv (GLenum eTarget, const GLshort* psS);
-GT_EXTERN void GTglMultiTexCoord2d (GLenum eTarget, GLdouble dS, GLdouble dT);
-GT_EXTERN void GTglMultiTexCoord2dv (GLenum eTarget, const GLdouble* asDT);
-GT_EXTERN void GTglMultiTexCoord2f (GLenum eTarget, GLfloat fS, GLfloat fT);
-GT_EXTERN void GTglMultiTexCoord2fv (GLenum eTarget, const GLfloat* afST);
-GT_EXTERN void GTglMultiTexCoord2i (GLenum eTarget, GLint iS, GLint iT);
-GT_EXTERN void GTglMultiTexCoord2iv (GLenum eTarget, const GLint* aiST);
-GT_EXTERN void GTglMultiTexCoord2s (GLenum eTarget, GLshort sS, GLshort sT);
-GT_EXTERN void GTglMultiTexCoord2sv (GLenum eTarget, const GLshort* asST);
-GT_EXTERN void GTglMultiTexCoord3d (GLenum eTarget, GLdouble dS, GLdouble dT,
-    GLdouble dR);
-GT_EXTERN void GTglMultiTexCoord3dv (GLenum eTarget, const GLdouble* adSTR);
-GT_EXTERN void GTglMultiTexCoord3f (GLenum eTarget, GLfloat fS, GLfloat fT,
-    GLfloat fR);
-GT_EXTERN void GTglMultiTexCoord3fv (GLenum eTarget, const GLfloat* afSTR);
-GT_EXTERN void GTglMultiTexCoord3i (GLenum eTarget, GLint iS, GLint iT,
-    GLint iR);
-GT_EXTERN void GTglMultiTexCoord3iv (GLenum eTarget, const GLint* aiSTR);
-GT_EXTERN void GTglMultiTexCoord3s (GLenum eTarget, GLshort sS, GLshort sT,
-    GLshort sR);
-GT_EXTERN void GTglMultiTexCoord3sv (GLenum eTarget, const GLshort* asSTR);
-GT_EXTERN void GTglMultiTexCoord4d (GLenum eTarget, GLdouble dS, GLdouble dT,
-    GLdouble dR, GLdouble dQ);
-GT_EXTERN void GTglMultiTexCoord4dv (GLenum eTarget, const GLdouble* asSTRQ);
-GT_EXTERN void GTglMultiTexCoord4f (GLenum eTarget, GLfloat fS, GLfloat fT,
-    GLfloat fR, GLfloat fQ);
-GT_EXTERN void GTglMultiTexCoord4fv (GLenum eTarget, const GLfloat* afSTRQ);
-GT_EXTERN void GTglMultiTexCoord4i (GLenum eTarget, GLint iS, GLint iT,
-    GLint iR, GLint iQ);
-GT_EXTERN void GTglMultiTexCoord4iv (GLenum eTarget, const GLint* aiSTRQ);
-GT_EXTERN void GTglMultiTexCoord4s (GLenum eTarget, GLshort sS, GLshort sT,
-    GLshort sR, GLshort sQ);
-GT_EXTERN void GTglMultiTexCoord4sv (GLenum eTarget, const GLshort* asSTRQ);
-GT_EXTERN void GTglLoadTransposeMatrixd (const GLdouble* adMatrix);
-GT_EXTERN void GTglLoadTransposeMatrixf (const GLfloat* afMatrix);
-GT_EXTERN void GTglMultTransposeMatrixd (const GLdouble* adMatrix);
-GT_EXTERN void GTglMultTransposeMatrixf (const GLfloat* afMatrix);
-GT_EXTERN void GTglSampleCoverage (GLclampf fValue, GLboolean ucInvert);
-GT_EXTERN void GTglCompressedTexImage1D (GLenum eTarget, GLint iLevel,
-    GLenum eInternalFormat, GLsizei iWidth, GLint iBorder, GLsizei iImageSize,
-    const GLvoid* pvData);
-GT_EXTERN void GTglCompressedTexImage2D (GLenum eTarget, GLint iLevel,
-    GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLint iBorder,
-    GLsizei iImageSize, const GLvoid* pvData);
-GT_EXTERN void GTglCompressedTexImage3D (GLenum eTarget, GLint iLevel,
-    GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLsizei iDepth,
-    GLint iBorder, GLsizei iImageSize, const GLvoid* pvData);
-GT_EXTERN void GTglCompressedTexSubImage1D (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLsizei iWidth, GLenum eFormat, GLsizei iImageSize,
-    const GLvoid* pvData);
-GT_EXTERN void GTglCompressedTexSubImage2D (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iYOffset, GLsizei iWidth, GLsizei iHeight,
-    GLenum eFormat, GLsizei iImageSize, const GLvoid* pvData);
-GT_EXTERN void GTglCompressedTexSubImage3D (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iYOffset, GLint iZOffset, GLsizei iWidth,
-    GLsizei iHeight, GLsizei iDepth, GLenum eFormat, GLsizei iImageSize,
-    const GLvoid* pvData);
-GT_EXTERN void GTglGetCompressedTexImage (GLenum eTarget, GLint iLevel,
-    GLvoid* pvData);
+	GT_EXTERN void GTglActiveTexture (GLenum eTexture);
+	GT_EXTERN void GTglClientActiveTexture (GLenum eTexture);
+	GT_EXTERN void GTglMultiTexCoord1d (GLenum eTarget, GLdouble dS);
+	GT_EXTERN void GTglMultiTexCoord1dv (GLenum eTarget, const GLdouble* pdS);
+	GT_EXTERN void GTglMultiTexCoord1f (GLenum eTarget, GLfloat fS);
+	GT_EXTERN void GTglMultiTexCoord1fv (GLenum eTarget, const GLfloat* pfS);
+	GT_EXTERN void GTglMultiTexCoord1i (GLenum eTarget, GLint iS);
+	GT_EXTERN void GTglMultiTexCoord1iv (GLenum eTarget, const GLint* piS);
+	GT_EXTERN void GTglMultiTexCoord1s (GLenum eTarget, GLshort sS);
+	GT_EXTERN void GTglMultiTexCoord1sv (GLenum eTarget, const GLshort* psS);
+	GT_EXTERN void GTglMultiTexCoord2d (GLenum eTarget, GLdouble dS, GLdouble dT);
+	GT_EXTERN void GTglMultiTexCoord2dv (GLenum eTarget, const GLdouble* asDT);
+	GT_EXTERN void GTglMultiTexCoord2f (GLenum eTarget, GLfloat fS, GLfloat fT);
+	GT_EXTERN void GTglMultiTexCoord2fv (GLenum eTarget, const GLfloat* afST);
+	GT_EXTERN void GTglMultiTexCoord2i (GLenum eTarget, GLint iS, GLint iT);
+	GT_EXTERN void GTglMultiTexCoord2iv (GLenum eTarget, const GLint* aiST);
+	GT_EXTERN void GTglMultiTexCoord2s (GLenum eTarget, GLshort sS, GLshort sT);
+	GT_EXTERN void GTglMultiTexCoord2sv (GLenum eTarget, const GLshort* asST);
+	GT_EXTERN void GTglMultiTexCoord3d (GLenum eTarget, GLdouble dS, GLdouble dT,
+	                                    GLdouble dR);
+	GT_EXTERN void GTglMultiTexCoord3dv (GLenum eTarget, const GLdouble* adSTR);
+	GT_EXTERN void GTglMultiTexCoord3f (GLenum eTarget, GLfloat fS, GLfloat fT,
+	                                    GLfloat fR);
+	GT_EXTERN void GTglMultiTexCoord3fv (GLenum eTarget, const GLfloat* afSTR);
+	GT_EXTERN void GTglMultiTexCoord3i (GLenum eTarget, GLint iS, GLint iT,
+	                                    GLint iR);
+	GT_EXTERN void GTglMultiTexCoord3iv (GLenum eTarget, const GLint* aiSTR);
+	GT_EXTERN void GTglMultiTexCoord3s (GLenum eTarget, GLshort sS, GLshort sT,
+	                                    GLshort sR);
+	GT_EXTERN void GTglMultiTexCoord3sv (GLenum eTarget, const GLshort* asSTR);
+	GT_EXTERN void GTglMultiTexCoord4d (GLenum eTarget, GLdouble dS, GLdouble dT,
+	                                    GLdouble dR, GLdouble dQ);
+	GT_EXTERN void GTglMultiTexCoord4dv (GLenum eTarget, const GLdouble* asSTRQ);
+	GT_EXTERN void GTglMultiTexCoord4f (GLenum eTarget, GLfloat fS, GLfloat fT,
+	                                    GLfloat fR, GLfloat fQ);
+	GT_EXTERN void GTglMultiTexCoord4fv (GLenum eTarget, const GLfloat* afSTRQ);
+	GT_EXTERN void GTglMultiTexCoord4i (GLenum eTarget, GLint iS, GLint iT,
+	                                    GLint iR, GLint iQ);
+	GT_EXTERN void GTglMultiTexCoord4iv (GLenum eTarget, const GLint* aiSTRQ);
+	GT_EXTERN void GTglMultiTexCoord4s (GLenum eTarget, GLshort sS, GLshort sT,
+	                                    GLshort sR, GLshort sQ);
+	GT_EXTERN void GTglMultiTexCoord4sv (GLenum eTarget, const GLshort* asSTRQ);
+	GT_EXTERN void GTglLoadTransposeMatrixd (const GLdouble* adMatrix);
+	GT_EXTERN void GTglLoadTransposeMatrixf (const GLfloat* afMatrix);
+	GT_EXTERN void GTglMultTransposeMatrixd (const GLdouble* adMatrix);
+	GT_EXTERN void GTglMultTransposeMatrixf (const GLfloat* afMatrix);
+	GT_EXTERN void GTglSampleCoverage (GLclampf fValue, GLboolean ucInvert);
+	GT_EXTERN void GTglCompressedTexImage1D (GLenum eTarget, GLint iLevel,
+	        GLenum eInternalFormat, GLsizei iWidth, GLint iBorder, GLsizei iImageSize,
+	        const GLvoid* pvData);
+	GT_EXTERN void GTglCompressedTexImage2D (GLenum eTarget, GLint iLevel,
+	        GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLint iBorder,
+	        GLsizei iImageSize, const GLvoid* pvData);
+	GT_EXTERN void GTglCompressedTexImage3D (GLenum eTarget, GLint iLevel,
+	        GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLsizei iDepth,
+	        GLint iBorder, GLsizei iImageSize, const GLvoid* pvData);
+	GT_EXTERN void GTglCompressedTexSubImage1D (GLenum eTarget, GLint iLevel,
+	        GLint iXOffset, GLsizei iWidth, GLenum eFormat, GLsizei iImageSize,
+	        const GLvoid* pvData);
+	GT_EXTERN void GTglCompressedTexSubImage2D (GLenum eTarget, GLint iLevel,
+	        GLint iXOffset, GLint iYOffset, GLsizei iWidth, GLsizei iHeight,
+	        GLenum eFormat, GLsizei iImageSize, const GLvoid* pvData);
+	GT_EXTERN void GTglCompressedTexSubImage3D (GLenum eTarget, GLint iLevel,
+	        GLint iXOffset, GLint iYOffset, GLint iZOffset, GLsizei iWidth,
+	        GLsizei iHeight, GLsizei iDepth, GLenum eFormat, GLsizei iImageSize,
+	        const GLvoid* pvData);
+	GT_EXTERN void GTglGetCompressedTexImage (GLenum eTarget, GLint iLevel,
+	        GLvoid* pvData);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // OpenGL 1.4
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsOpenGL14;
+	GT_EXTERN int GTExistsOpenGL14;
 
 #define GL_BLEND_DST_RGB                                            0x80C8
 #define GL_BLEND_SRC_RGB                                            0x80C9
@@ -1937,63 +1937,63 @@ GT_EXTERN int GTExistsOpenGL14;
 #define glWindowPos3s GTglWindowPos3s
 #define glWindowPos3sv GTglWindowPos3sv
 
-GT_EXTERN void GTglBlendFuncSeparate (GLenum eSrcFactorRGB,
-    GLenum eDstFactorRGB, GLenum eSrcFactorA, GLenum eDstFactorA);
-GT_EXTERN void GTglFogCoordd (GLdouble dCoord);
-GT_EXTERN void GTglFogCoorddv (const GLdouble *adCoord);
-GT_EXTERN void GTglFogCoordf (GLfloat fCoord);
-GT_EXTERN void GTglFogCoordfv (const GLfloat *afCoord);
-GT_EXTERN void GTglFogCoordPointer (GLenum eType, GLsizei iStride,
-    const GLvoid* pvPointer);
-GT_EXTERN void GTglMultiDrawArrays (GLenum eMode, GLint* aiFirst,
-    GLsizei* aiCount, GLsizei iPrimitiveCount);
-GT_EXTERN void GTglMultiDrawElements (GLenum eMode, const GLsizei* aiCount,
-    GLenum eType, const GLvoid** apvIndices, GLsizei iPrimitiveCount);
-GT_EXTERN void GTglPointParameterf (GLenum ePName, GLfloat fParam);
-GT_EXTERN void GTglPointParameterfv (GLenum ePName, const GLfloat* afParam);
-GT_EXTERN void GTglPointParameteri (GLenum ePName, int iParam);
-GT_EXTERN void GTglPointParameteriv (GLenum ePName, const int* aiParam);
-GT_EXTERN void GTglSecondaryColor3b (GLbyte cR, GLbyte cG, GLbyte cB);
-GT_EXTERN void GTglSecondaryColor3bv (const GLbyte* acRGB);
-GT_EXTERN void GTglSecondaryColor3d (GLdouble dR, GLdouble dG, GLdouble dB);
-GT_EXTERN void GTglSecondaryColor3dv (const GLdouble* adRGB);
-GT_EXTERN void GTglSecondaryColor3f (GLfloat fR, GLfloat fG, GLfloat fB);
-GT_EXTERN void GTglSecondaryColor3fv (const GLfloat* afRGB);
-GT_EXTERN void GTglSecondaryColor3i (GLint iR, GLint iG, GLint iB);
-GT_EXTERN void GTglSecondaryColor3iv (const GLint* aiRGB);
-GT_EXTERN void GTglSecondaryColor3s (GLshort sR, GLshort sG, GLshort sB);
-GT_EXTERN void GTglSecondaryColor3sv (const GLshort* asRGB);
-GT_EXTERN void GTglSecondaryColor3ub (GLubyte ucR, GLubyte ucG, GLubyte ucB);
-GT_EXTERN void GTglSecondaryColor3ubv (const GLubyte* aucRGB);
-GT_EXTERN void GTglSecondaryColor3ui (GLuint uiR, GLuint uiG, GLuint uiB);
-GT_EXTERN void GTglSecondaryColor3uiv (const GLuint* auiRGB);
-GT_EXTERN void GTglSecondaryColor3us (GLushort usR, GLushort usG,
-    GLushort usB);
-GT_EXTERN void GTglSecondaryColor3usv (const GLushort* ausRGB);
-GT_EXTERN void GTglSecondaryColorPointer (GLint iSize, GLenum eType,
-    GLsizei iStride, const GLvoid* pvPointer);
-GT_EXTERN void GTglWindowPos2d (GLdouble dX, GLdouble dY);
-GT_EXTERN void GTglWindowPos2dv (const GLdouble* adXY);
-GT_EXTERN void GTglWindowPos2f (GLfloat fX, GLfloat fY);
-GT_EXTERN void GTglWindowPos2fv (const GLfloat* afXY);
-GT_EXTERN void GTglWindowPos2i (GLint iX, GLint iY);
-GT_EXTERN void GTglWindowPos2iv (const GLint* aiXY);
-GT_EXTERN void GTglWindowPos2s (GLshort sX, GLshort sY);
-GT_EXTERN void GTglWindowPos2sv (const GLshort* asXY);
-GT_EXTERN void GTglWindowPos3d (GLdouble dX, GLdouble dY, GLdouble dZ);
-GT_EXTERN void GTglWindowPos3dv (const GLdouble* adXYZ);
-GT_EXTERN void GTglWindowPos3f (GLfloat fX, GLfloat fY, GLfloat fZ);
-GT_EXTERN void GTglWindowPos3fv (const GLfloat* afXYZ);
-GT_EXTERN void GTglWindowPos3i (GLint iX, GLint iY, GLint iZ);
-GT_EXTERN void GTglWindowPos3iv (const GLint* aiXYZ);
-GT_EXTERN void GTglWindowPos3s (GLshort sX, GLshort sY, GLshort sZ);
-GT_EXTERN void GTglWindowPos3sv (const GLshort* asXYZ);
+	GT_EXTERN void GTglBlendFuncSeparate (GLenum eSrcFactorRGB,
+	                                      GLenum eDstFactorRGB, GLenum eSrcFactorA, GLenum eDstFactorA);
+	GT_EXTERN void GTglFogCoordd (GLdouble dCoord);
+	GT_EXTERN void GTglFogCoorddv (const GLdouble *adCoord);
+	GT_EXTERN void GTglFogCoordf (GLfloat fCoord);
+	GT_EXTERN void GTglFogCoordfv (const GLfloat *afCoord);
+	GT_EXTERN void GTglFogCoordPointer (GLenum eType, GLsizei iStride,
+	                                    const GLvoid* pvPointer);
+	GT_EXTERN void GTglMultiDrawArrays (GLenum eMode, GLint* aiFirst,
+	                                    GLsizei* aiCount, GLsizei iPrimitiveCount);
+	GT_EXTERN void GTglMultiDrawElements (GLenum eMode, const GLsizei* aiCount,
+	                                      GLenum eType, const GLvoid** apvIndices, GLsizei iPrimitiveCount);
+	GT_EXTERN void GTglPointParameterf (GLenum ePName, GLfloat fParam);
+	GT_EXTERN void GTglPointParameterfv (GLenum ePName, const GLfloat* afParam);
+	GT_EXTERN void GTglPointParameteri (GLenum ePName, int iParam);
+	GT_EXTERN void GTglPointParameteriv (GLenum ePName, const int* aiParam);
+	GT_EXTERN void GTglSecondaryColor3b (GLbyte cR, GLbyte cG, GLbyte cB);
+	GT_EXTERN void GTglSecondaryColor3bv (const GLbyte* acRGB);
+	GT_EXTERN void GTglSecondaryColor3d (GLdouble dR, GLdouble dG, GLdouble dB);
+	GT_EXTERN void GTglSecondaryColor3dv (const GLdouble* adRGB);
+	GT_EXTERN void GTglSecondaryColor3f (GLfloat fR, GLfloat fG, GLfloat fB);
+	GT_EXTERN void GTglSecondaryColor3fv (const GLfloat* afRGB);
+	GT_EXTERN void GTglSecondaryColor3i (GLint iR, GLint iG, GLint iB);
+	GT_EXTERN void GTglSecondaryColor3iv (const GLint* aiRGB);
+	GT_EXTERN void GTglSecondaryColor3s (GLshort sR, GLshort sG, GLshort sB);
+	GT_EXTERN void GTglSecondaryColor3sv (const GLshort* asRGB);
+	GT_EXTERN void GTglSecondaryColor3ub (GLubyte ucR, GLubyte ucG, GLubyte ucB);
+	GT_EXTERN void GTglSecondaryColor3ubv (const GLubyte* aucRGB);
+	GT_EXTERN void GTglSecondaryColor3ui (GLuint uiR, GLuint uiG, GLuint uiB);
+	GT_EXTERN void GTglSecondaryColor3uiv (const GLuint* auiRGB);
+	GT_EXTERN void GTglSecondaryColor3us (GLushort usR, GLushort usG,
+	                                      GLushort usB);
+	GT_EXTERN void GTglSecondaryColor3usv (const GLushort* ausRGB);
+	GT_EXTERN void GTglSecondaryColorPointer (GLint iSize, GLenum eType,
+	        GLsizei iStride, const GLvoid* pvPointer);
+	GT_EXTERN void GTglWindowPos2d (GLdouble dX, GLdouble dY);
+	GT_EXTERN void GTglWindowPos2dv (const GLdouble* adXY);
+	GT_EXTERN void GTglWindowPos2f (GLfloat fX, GLfloat fY);
+	GT_EXTERN void GTglWindowPos2fv (const GLfloat* afXY);
+	GT_EXTERN void GTglWindowPos2i (GLint iX, GLint iY);
+	GT_EXTERN void GTglWindowPos2iv (const GLint* aiXY);
+	GT_EXTERN void GTglWindowPos2s (GLshort sX, GLshort sY);
+	GT_EXTERN void GTglWindowPos2sv (const GLshort* asXY);
+	GT_EXTERN void GTglWindowPos3d (GLdouble dX, GLdouble dY, GLdouble dZ);
+	GT_EXTERN void GTglWindowPos3dv (const GLdouble* adXYZ);
+	GT_EXTERN void GTglWindowPos3f (GLfloat fX, GLfloat fY, GLfloat fZ);
+	GT_EXTERN void GTglWindowPos3fv (const GLfloat* afXYZ);
+	GT_EXTERN void GTglWindowPos3i (GLint iX, GLint iY, GLint iZ);
+	GT_EXTERN void GTglWindowPos3iv (const GLint* aiXYZ);
+	GT_EXTERN void GTglWindowPos3s (GLshort sX, GLshort sY, GLshort sZ);
+	GT_EXTERN void GTglWindowPos3sv (const GLshort* asXYZ);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // OpenGL 1.5
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsOpenGL15;
+	GT_EXTERN int GTExistsOpenGL15;
 
 #define GL_BUFFER_SIZE                                              0x8764
 #define GL_BUFFER_USAGE                                             0x8765
@@ -2046,8 +2046,8 @@ GT_EXTERN int GTExistsOpenGL15;
 #define GL_SRC1_ALPHA                                               0x8589
 #define GL_SRC2_ALPHA                                               0x858A
 
-typedef ptrdiff_t GLintptr;
-typedef ptrdiff_t GLsizeiptr;
+	typedef ptrdiff_t GLintptr;
+	typedef ptrdiff_t GLsizeiptr;
 
 #define glGenQueries GTglGenQueries
 #define glDeleteQueries GTglDeleteQueries
@@ -2069,39 +2069,39 @@ typedef ptrdiff_t GLsizeiptr;
 #define glGetBufferParameteriv GTglGetBufferParameteriv
 #define glGetBufferPointerv GTglGetBufferPointerv
 
-GT_EXTERN void GTglGenQueries (GLsizei iNumQueries, GLuint* auiID);
-GT_EXTERN void GTglDeleteQueries (GLsizei iNumQueries, const GLuint* auiID);
-GLboolean GTglIsQuery (GLuint uiID);
-GT_EXTERN void GTglBeginQuery (GLenum eTarget, GLuint uiID);
-GT_EXTERN void GTglEndQuery (GLenum eTarget);
-GT_EXTERN void GTglGetQueryiv (GLenum eTarget, GLenum ePName, GLint* aiParam);
-GT_EXTERN void GTglGetQueryObjectiv (GLuint uiID, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetQueryObjectuiv (GLuint uiID, GLenum ePName,
-    GLuint* auiParam);
-GT_EXTERN void GTglBindBuffer (GLenum eTarget, GLuint uiBuffer);
-GT_EXTERN void GTglDeleteBuffers (GLsizei iNumBuffers,
-    const GLuint* auiBuffer);
-GT_EXTERN void GTglGenBuffers (GLsizei iNumBuffers, GLuint* auiBuffer);
-GT_EXTERN GLboolean GTglIsBuffer (GLuint uiBuffer);
-GT_EXTERN void GTglBufferData (GLenum eTarget, GLsizeiptr piSize,
-    const GLvoid* pvData, GLenum eUsage);
-GT_EXTERN void GTglBufferSubData (GLenum eTarget, GLintptr piOffset,
-    GLsizeiptr piSize, const GLvoid* pvData);
-GT_EXTERN void GTglGetBufferSubData (GLenum eTarget, GLintptr piOffset,
-    GLsizeiptr piSize, GLvoid* pvData);
-GT_EXTERN GLvoid* GTglMapBuffer (GLenum eTarget, GLenum eAccess);
-GT_EXTERN GLboolean GTglUnmapBuffer (GLenum eTarget);
-GT_EXTERN void GTglGetBufferParameteriv (GLenum eTarget, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetBufferPointerv (GLenum eTarget, GLenum ePName,
-    GLvoid** apvParam);
+	GT_EXTERN void GTglGenQueries (GLsizei iNumQueries, GLuint* auiID);
+	GT_EXTERN void GTglDeleteQueries (GLsizei iNumQueries, const GLuint* auiID);
+	GLboolean GTglIsQuery (GLuint uiID);
+	GT_EXTERN void GTglBeginQuery (GLenum eTarget, GLuint uiID);
+	GT_EXTERN void GTglEndQuery (GLenum eTarget);
+	GT_EXTERN void GTglGetQueryiv (GLenum eTarget, GLenum ePName, GLint* aiParam);
+	GT_EXTERN void GTglGetQueryObjectiv (GLuint uiID, GLenum ePName,
+	                                     GLint* aiParam);
+	GT_EXTERN void GTglGetQueryObjectuiv (GLuint uiID, GLenum ePName,
+	                                      GLuint* auiParam);
+	GT_EXTERN void GTglBindBuffer (GLenum eTarget, GLuint uiBuffer);
+	GT_EXTERN void GTglDeleteBuffers (GLsizei iNumBuffers,
+	                                  const GLuint* auiBuffer);
+	GT_EXTERN void GTglGenBuffers (GLsizei iNumBuffers, GLuint* auiBuffer);
+	GT_EXTERN GLboolean GTglIsBuffer (GLuint uiBuffer);
+	GT_EXTERN void GTglBufferData (GLenum eTarget, GLsizeiptr piSize,
+	                               const GLvoid* pvData, GLenum eUsage);
+	GT_EXTERN void GTglBufferSubData (GLenum eTarget, GLintptr piOffset,
+	                                  GLsizeiptr piSize, const GLvoid* pvData);
+	GT_EXTERN void GTglGetBufferSubData (GLenum eTarget, GLintptr piOffset,
+	                                     GLsizeiptr piSize, GLvoid* pvData);
+	GT_EXTERN GLvoid* GTglMapBuffer (GLenum eTarget, GLenum eAccess);
+	GT_EXTERN GLboolean GTglUnmapBuffer (GLenum eTarget);
+	GT_EXTERN void GTglGetBufferParameteriv (GLenum eTarget, GLenum ePName,
+	        GLint* aiParam);
+	GT_EXTERN void GTglGetBufferPointerv (GLenum eTarget, GLenum ePName,
+	                                      GLvoid** apvParam);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // OpenGL 2.0
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsOpenGL20;
+	GT_EXTERN int GTExistsOpenGL20;
 
 #define GL_BLEND_EQUATION_RGB                                       0x8009
 #define GL_VERTEX_ATTRIB_ARRAY_ENABLED                              0x8622
@@ -2188,7 +2188,7 @@ GT_EXTERN int GTExistsOpenGL20;
 #define GL_STENCIL_BACK_VALUE_MASK                                  0x8CA4
 #define GL_STENCIL_BACK_WRITEMASK                                   0x8CA5
 
-typedef char GLchar;
+	typedef char GLchar;
 
 #define glBlendEquationSeparate GTglBlendEquationSeparate
 #define glDrawBuffers GTglDrawBuffers
@@ -2284,152 +2284,152 @@ typedef char GLchar;
 #define glVertexAttrib4usv GTglVertexAttrib4usv
 #define glVertexAttribPointer GTglVertexAttribPointer
 
-GT_EXTERN void GTglBlendEquationSeparate (GLenum eModeRGB, GLenum eModeAlpha);
-GT_EXTERN void GTglDrawBuffers (GLsizei iNumBuffers, const GLenum* aeBuffer);
-GT_EXTERN void GTglStencilOpSeparate (GLenum eFace, GLenum eSFail,
-    GLenum eDPFail, GLenum eDPPass);
-GT_EXTERN void GTglStencilFuncSeparate (GLenum eFrontFunc, GLenum eBackFunc,
-    GLint iReference, GLuint uiMask);
-GT_EXTERN void GTglStencilMaskSeparate (GLenum eFace, GLuint uiMask);
-GT_EXTERN void GTglAttachShader (GLuint uiProgram, GLuint uiShader);
-GT_EXTERN void GTglBindAttribLocation (GLuint uiProgram, GLuint uiIndex,
-    const GLchar* acName);
-GT_EXTERN void GTglCompileShader (GLuint uiShader);
-GT_EXTERN GLuint GTglCreateProgram ();
-GT_EXTERN GLuint GTglCreateShader (GLenum eType);
-GT_EXTERN void GTglDeleteProgram (GLuint uiProgram);
-GT_EXTERN void GTglDeleteShader (GLuint uiShader);
-GT_EXTERN void GTglDetachShader (GLuint uiProgram, GLuint uiShader);
-GT_EXTERN void GTglDisableVertexAttribArray (GLuint uiIndex);
-GT_EXTERN void GTglEnableVertexAttribArray (GLuint uiIndex);
-GT_EXTERN void GTglGetActiveAttrib (GLuint uiProgram, GLuint uiIndex,
-    GLsizei iBufSize, GLsizei* piLength, GLint* piSize, GLenum* peType,
-    GLchar* acName);
-GT_EXTERN void GTglGetActiveUniform (GLuint uiProgram, GLuint uiIndex,
-    GLsizei iBufSize, GLsizei* piLength, GLint* piSize, GLenum* peType,
-    GLchar* acName);
-GT_EXTERN void GTglGetAttachedShaders (GLuint uiProgram, GLsizei iMaxCount,
-    GLsizei* aiCount, GLuint* aiObj);
-GT_EXTERN GLint GTglGetAttribLocation (GLuint uiProgram,
-    const GLchar* acName);
-GT_EXTERN void GTglGetProgramiv (GLuint uiProgram, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetProgramInfoLog (GLuint uiProgram, GLsizei iBufSize,
-    GLsizei* piLength, GLchar* acInfoLog);
-GT_EXTERN void GTglGetShaderiv (GLuint uiShader, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetShaderInfoLog (GLuint uiShader, GLsizei iBufSize,
-    GLsizei* piLength, GLchar* acInfoLog);
-GT_EXTERN void GTglGetShaderSource (GLuint uiShader, GLsizei iBufSize,
-    GLsizei* piLength, GLchar* acSource);
-GT_EXTERN GLint GTglGetUniformLocation (GLuint uiProgram,
-    const GLchar* acName);
-GT_EXTERN void GTglGetUniformfv (GLuint uiProgram, GLint uiLocation,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetUniformiv (GLuint uiProgram, GLint uiLocation,
-    GLint* aiParam);
-GT_EXTERN void GTglGetVertexAttribdv (GLuint uiIndex, GLenum ePName,
-    GLdouble* adParam);
-GT_EXTERN void GTglGetVertexAttribfv (GLuint uiIndex, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetVertexAttribiv (GLuint uiIndex, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetVertexAttribPointerv (GLuint uiIndex, GLenum ePName,
-    GLvoid** apvParam);
-GT_EXTERN GLboolean GTglIsProgram (GLuint uiProgram);
-GT_EXTERN GLboolean GTglIsShader (GLuint uiShader);
-GT_EXTERN void GTglLinkProgram (GLuint uiProgram);
-GT_EXTERN void GTglShaderSource (GLuint uiShader, GLsizei iCount,
-    const GLchar** aacString, const GLint* piLength);
-GT_EXTERN void GTglUseProgram (GLuint uiProgram);
-GT_EXTERN void GTglUniform1f (GLint uiLocation, GLfloat fV0);
-GT_EXTERN void GTglUniform2f (GLint uiLocation, GLfloat fV0, GLfloat fV1);
-GT_EXTERN void GTglUniform3f (GLint uiLocation, GLfloat fV0, GLfloat fV1,
-    GLfloat fV2);
-GT_EXTERN void GTglUniform4f (GLint uiLocation, GLfloat fV0, GLfloat fV1,
-    GLfloat fV2, GLfloat fV3);
-GT_EXTERN void GTglUniform1i (GLint uiLocation, GLint iV0);
-GT_EXTERN void GTglUniform2i (GLint uiLocation, GLint iV0, GLint iV1);
-GT_EXTERN void GTglUniform3i (GLint uiLocation, GLint iV0, GLint iV1,
-    GLint iV2);
-GT_EXTERN void GTglUniform4i (GLint uiLocation, GLint iV0, GLint iV1,
-    GLint iV2, GLint iV3);
-GT_EXTERN void GTglUniform1fv (GLint uiLocation, GLsizei iCount,
-    const GLfloat* afValue);
-GT_EXTERN void GTglUniform2fv (GLint uiLocation, GLsizei iCount,
-    const GLfloat* afValue);
-GT_EXTERN void GTglUniform3fv (GLint uiLocation, GLsizei iCount,
-    const GLfloat* afValue);
-GT_EXTERN void GTglUniform4fv (GLint uiLocation, GLsizei iCount,
-    const GLfloat* afValue);
-GT_EXTERN void GTglUniform1iv (GLint uiLocation, GLsizei iCount,
-    const GLint* aiValue);
-GT_EXTERN void GTglUniform2iv (GLint uiLocation, GLsizei iCount,
-    const GLint* aiValue);
-GT_EXTERN void GTglUniform3iv (GLint uiLocation, GLsizei iCount,
-    const GLint* aiValue);
-GT_EXTERN void GTglUniform4iv (GLint uiLocation, GLsizei iCount,
-    const GLint* aiValue);
-GT_EXTERN void GTglUniformMatrix2fv (GLint uiLocation, GLsizei iCount,
-    GLboolean ucTranspose, const GLfloat* afValue);
-GT_EXTERN void GTglUniformMatrix3fv (GLint uiLocation, GLsizei iCount,
-    GLboolean ucTranspose, const GLfloat* afValue);
-GT_EXTERN void GTglUniformMatrix4fv (GLint uiLocation, GLsizei iCount,
-    GLboolean ucTranspose, const GLfloat* afValue);
-GT_EXTERN void GTglValidateProgram (GLuint uiProgram);
-GT_EXTERN void GTglVertexAttrib1d (GLuint uiIndex, GLdouble dX);
-GT_EXTERN void GTglVertexAttrib1dv (GLuint uiIndex, const GLdouble* pdX);
-GT_EXTERN void GTglVertexAttrib1f (GLuint uiIndex, GLfloat fX);
-GT_EXTERN void GTglVertexAttrib1fv (GLuint uiIndex, const GLfloat* pfX);
-GT_EXTERN void GTglVertexAttrib1s (GLuint uiIndex, GLshort sX);
-GT_EXTERN void GTglVertexAttrib1sv (GLuint uiIndex, const GLshort* psX);
-GT_EXTERN void GTglVertexAttrib2d (GLuint uiIndex, GLdouble dX, GLdouble dY);
-GT_EXTERN void GTglVertexAttrib2dv (GLuint uiIndex, const GLdouble* adXY);
-GT_EXTERN void GTglVertexAttrib2f (GLuint uiIndex, GLfloat fX, GLfloat fY);
-GT_EXTERN void GTglVertexAttrib2fv (GLuint uiIndex, const GLfloat* afXY);
-GT_EXTERN void GTglVertexAttrib2s (GLuint uiIndex, GLshort sX, GLshort sY);
-GT_EXTERN void GTglVertexAttrib2sv (GLuint uiIndex, const GLshort* asXY);
-GT_EXTERN void GTglVertexAttrib3d (GLuint uiIndex, GLdouble dX, GLdouble dY,
-    GLdouble dZ);
-GT_EXTERN void GTglVertexAttrib3dv (GLuint uiIndex, const GLdouble* adXYZ);
-GT_EXTERN void GTglVertexAttrib3f (GLuint uiIndex, GLfloat fX, GLfloat fY,
-    GLfloat fZ);
-GT_EXTERN void GTglVertexAttrib3fv (GLuint uiIndex, const GLfloat* afXYZ);
-GT_EXTERN void GTglVertexAttrib3s (GLuint uiIndex, GLshort sX, GLshort sY,
-    GLshort sZ);
-GT_EXTERN void GTglVertexAttrib3sv (GLuint uiIndex, const GLshort* asXYZ);
-GT_EXTERN void GTglVertexAttrib4Nbv (GLuint uiIndex, const GLbyte* acXYZW);
-GT_EXTERN void GTglVertexAttrib4Niv (GLuint uiIndex, const GLint* aiXYZW);
-GT_EXTERN void GTglVertexAttrib4Nsv (GLuint uiIndex, const GLshort* asXYZW);
-GT_EXTERN void GTglVertexAttrib4Nub (GLuint uiIndex, GLubyte ucX, GLubyte ucY,
-    GLubyte ucZ, GLubyte ucW);
-GT_EXTERN void GTglVertexAttrib4Nubv (GLuint uiIndex, const GLubyte* aucXYZW);
-GT_EXTERN void GTglVertexAttrib4Nuiv (GLuint uiIndex, const GLuint* auiXYZW);
-GT_EXTERN void GTglVertexAttrib4Nusv (GLuint uiIndex,
-    const GLushort* ausXYZW);
-GT_EXTERN void GTglVertexAttrib4bv (GLuint uiIndex, const GLbyte* acXYZW);
-GT_EXTERN void GTglVertexAttrib4d (GLuint uiIndex, GLdouble dX, GLdouble dY,
-    GLdouble dZ, GLdouble dW);
-GT_EXTERN void GTglVertexAttrib4dv (GLuint uiIndex, const GLdouble* adXYZW);
-GT_EXTERN void GTglVertexAttrib4f (GLuint uiIndex, GLfloat fX, GLfloat fY,
-    GLfloat fZ, GLfloat fW);
-GT_EXTERN void GTglVertexAttrib4fv (GLuint uiIndex, const GLfloat* afXYZW);
-GT_EXTERN void GTglVertexAttrib4iv (GLuint uiIndex, const GLint* aiXYZW);
-GT_EXTERN void GTglVertexAttrib4s (GLuint uiIndex, GLshort sX, GLshort sY,
-    GLshort sZ, GLshort sW);
-GT_EXTERN void GTglVertexAttrib4sv (GLuint uiIndex, const GLshort* asXYZW);
-GT_EXTERN void GTglVertexAttrib4ubv (GLuint uiIndex, const GLubyte* aucXYZW);
-GT_EXTERN void GTglVertexAttrib4uiv (GLuint uiIndex, const GLuint* auiXYZW);
-GT_EXTERN void GTglVertexAttrib4usv (GLuint uiIndex, const GLushort* ausXYZW);
-GT_EXTERN void GTglVertexAttribPointer (GLuint uiIndex, GLint iSize,
-    GLenum eType, GLboolean ucNormalized, GLsizei iStride,
-    const GLvoid* pvPointer);
+	GT_EXTERN void GTglBlendEquationSeparate (GLenum eModeRGB, GLenum eModeAlpha);
+	GT_EXTERN void GTglDrawBuffers (GLsizei iNumBuffers, const GLenum* aeBuffer);
+	GT_EXTERN void GTglStencilOpSeparate (GLenum eFace, GLenum eSFail,
+	                                      GLenum eDPFail, GLenum eDPPass);
+	GT_EXTERN void GTglStencilFuncSeparate (GLenum eFrontFunc, GLenum eBackFunc,
+	                                        GLint iReference, GLuint uiMask);
+	GT_EXTERN void GTglStencilMaskSeparate (GLenum eFace, GLuint uiMask);
+	GT_EXTERN void GTglAttachShader (GLuint uiProgram, GLuint uiShader);
+	GT_EXTERN void GTglBindAttribLocation (GLuint uiProgram, GLuint uiIndex,
+	                                       const GLchar* acName);
+	GT_EXTERN void GTglCompileShader (GLuint uiShader);
+	GT_EXTERN GLuint GTglCreateProgram ();
+	GT_EXTERN GLuint GTglCreateShader (GLenum eType);
+	GT_EXTERN void GTglDeleteProgram (GLuint uiProgram);
+	GT_EXTERN void GTglDeleteShader (GLuint uiShader);
+	GT_EXTERN void GTglDetachShader (GLuint uiProgram, GLuint uiShader);
+	GT_EXTERN void GTglDisableVertexAttribArray (GLuint uiIndex);
+	GT_EXTERN void GTglEnableVertexAttribArray (GLuint uiIndex);
+	GT_EXTERN void GTglGetActiveAttrib (GLuint uiProgram, GLuint uiIndex,
+	                                    GLsizei iBufSize, GLsizei* piLength, GLint* piSize, GLenum* peType,
+	                                    GLchar* acName);
+	GT_EXTERN void GTglGetActiveUniform (GLuint uiProgram, GLuint uiIndex,
+	                                     GLsizei iBufSize, GLsizei* piLength, GLint* piSize, GLenum* peType,
+	                                     GLchar* acName);
+	GT_EXTERN void GTglGetAttachedShaders (GLuint uiProgram, GLsizei iMaxCount,
+	                                       GLsizei* aiCount, GLuint* aiObj);
+	GT_EXTERN GLint GTglGetAttribLocation (GLuint uiProgram,
+	                                       const GLchar* acName);
+	GT_EXTERN void GTglGetProgramiv (GLuint uiProgram, GLenum ePName,
+	                                 GLint* aiParam);
+	GT_EXTERN void GTglGetProgramInfoLog (GLuint uiProgram, GLsizei iBufSize,
+	                                      GLsizei* piLength, GLchar* acInfoLog);
+	GT_EXTERN void GTglGetShaderiv (GLuint uiShader, GLenum ePName,
+	                                GLint* aiParam);
+	GT_EXTERN void GTglGetShaderInfoLog (GLuint uiShader, GLsizei iBufSize,
+	                                     GLsizei* piLength, GLchar* acInfoLog);
+	GT_EXTERN void GTglGetShaderSource (GLuint uiShader, GLsizei iBufSize,
+	                                    GLsizei* piLength, GLchar* acSource);
+	GT_EXTERN GLint GTglGetUniformLocation (GLuint uiProgram,
+	                                        const GLchar* acName);
+	GT_EXTERN void GTglGetUniformfv (GLuint uiProgram, GLint uiLocation,
+	                                 GLfloat* afParam);
+	GT_EXTERN void GTglGetUniformiv (GLuint uiProgram, GLint uiLocation,
+	                                 GLint* aiParam);
+	GT_EXTERN void GTglGetVertexAttribdv (GLuint uiIndex, GLenum ePName,
+	                                      GLdouble* adParam);
+	GT_EXTERN void GTglGetVertexAttribfv (GLuint uiIndex, GLenum ePName,
+	                                      GLfloat* afParam);
+	GT_EXTERN void GTglGetVertexAttribiv (GLuint uiIndex, GLenum ePName,
+	                                      GLint* aiParam);
+	GT_EXTERN void GTglGetVertexAttribPointerv (GLuint uiIndex, GLenum ePName,
+	        GLvoid** apvParam);
+	GT_EXTERN GLboolean GTglIsProgram (GLuint uiProgram);
+	GT_EXTERN GLboolean GTglIsShader (GLuint uiShader);
+	GT_EXTERN void GTglLinkProgram (GLuint uiProgram);
+	GT_EXTERN void GTglShaderSource (GLuint uiShader, GLsizei iCount,
+	                                 const GLchar** aacString, const GLint* piLength);
+	GT_EXTERN void GTglUseProgram (GLuint uiProgram);
+	GT_EXTERN void GTglUniform1f (GLint uiLocation, GLfloat fV0);
+	GT_EXTERN void GTglUniform2f (GLint uiLocation, GLfloat fV0, GLfloat fV1);
+	GT_EXTERN void GTglUniform3f (GLint uiLocation, GLfloat fV0, GLfloat fV1,
+	                              GLfloat fV2);
+	GT_EXTERN void GTglUniform4f (GLint uiLocation, GLfloat fV0, GLfloat fV1,
+	                              GLfloat fV2, GLfloat fV3);
+	GT_EXTERN void GTglUniform1i (GLint uiLocation, GLint iV0);
+	GT_EXTERN void GTglUniform2i (GLint uiLocation, GLint iV0, GLint iV1);
+	GT_EXTERN void GTglUniform3i (GLint uiLocation, GLint iV0, GLint iV1,
+	                              GLint iV2);
+	GT_EXTERN void GTglUniform4i (GLint uiLocation, GLint iV0, GLint iV1,
+	                              GLint iV2, GLint iV3);
+	GT_EXTERN void GTglUniform1fv (GLint uiLocation, GLsizei iCount,
+	                               const GLfloat* afValue);
+	GT_EXTERN void GTglUniform2fv (GLint uiLocation, GLsizei iCount,
+	                               const GLfloat* afValue);
+	GT_EXTERN void GTglUniform3fv (GLint uiLocation, GLsizei iCount,
+	                               const GLfloat* afValue);
+	GT_EXTERN void GTglUniform4fv (GLint uiLocation, GLsizei iCount,
+	                               const GLfloat* afValue);
+	GT_EXTERN void GTglUniform1iv (GLint uiLocation, GLsizei iCount,
+	                               const GLint* aiValue);
+	GT_EXTERN void GTglUniform2iv (GLint uiLocation, GLsizei iCount,
+	                               const GLint* aiValue);
+	GT_EXTERN void GTglUniform3iv (GLint uiLocation, GLsizei iCount,
+	                               const GLint* aiValue);
+	GT_EXTERN void GTglUniform4iv (GLint uiLocation, GLsizei iCount,
+	                               const GLint* aiValue);
+	GT_EXTERN void GTglUniformMatrix2fv (GLint uiLocation, GLsizei iCount,
+	                                     GLboolean ucTranspose, const GLfloat* afValue);
+	GT_EXTERN void GTglUniformMatrix3fv (GLint uiLocation, GLsizei iCount,
+	                                     GLboolean ucTranspose, const GLfloat* afValue);
+	GT_EXTERN void GTglUniformMatrix4fv (GLint uiLocation, GLsizei iCount,
+	                                     GLboolean ucTranspose, const GLfloat* afValue);
+	GT_EXTERN void GTglValidateProgram (GLuint uiProgram);
+	GT_EXTERN void GTglVertexAttrib1d (GLuint uiIndex, GLdouble dX);
+	GT_EXTERN void GTglVertexAttrib1dv (GLuint uiIndex, const GLdouble* pdX);
+	GT_EXTERN void GTglVertexAttrib1f (GLuint uiIndex, GLfloat fX);
+	GT_EXTERN void GTglVertexAttrib1fv (GLuint uiIndex, const GLfloat* pfX);
+	GT_EXTERN void GTglVertexAttrib1s (GLuint uiIndex, GLshort sX);
+	GT_EXTERN void GTglVertexAttrib1sv (GLuint uiIndex, const GLshort* psX);
+	GT_EXTERN void GTglVertexAttrib2d (GLuint uiIndex, GLdouble dX, GLdouble dY);
+	GT_EXTERN void GTglVertexAttrib2dv (GLuint uiIndex, const GLdouble* adXY);
+	GT_EXTERN void GTglVertexAttrib2f (GLuint uiIndex, GLfloat fX, GLfloat fY);
+	GT_EXTERN void GTglVertexAttrib2fv (GLuint uiIndex, const GLfloat* afXY);
+	GT_EXTERN void GTglVertexAttrib2s (GLuint uiIndex, GLshort sX, GLshort sY);
+	GT_EXTERN void GTglVertexAttrib2sv (GLuint uiIndex, const GLshort* asXY);
+	GT_EXTERN void GTglVertexAttrib3d (GLuint uiIndex, GLdouble dX, GLdouble dY,
+	                                   GLdouble dZ);
+	GT_EXTERN void GTglVertexAttrib3dv (GLuint uiIndex, const GLdouble* adXYZ);
+	GT_EXTERN void GTglVertexAttrib3f (GLuint uiIndex, GLfloat fX, GLfloat fY,
+	                                   GLfloat fZ);
+	GT_EXTERN void GTglVertexAttrib3fv (GLuint uiIndex, const GLfloat* afXYZ);
+	GT_EXTERN void GTglVertexAttrib3s (GLuint uiIndex, GLshort sX, GLshort sY,
+	                                   GLshort sZ);
+	GT_EXTERN void GTglVertexAttrib3sv (GLuint uiIndex, const GLshort* asXYZ);
+	GT_EXTERN void GTglVertexAttrib4Nbv (GLuint uiIndex, const GLbyte* acXYZW);
+	GT_EXTERN void GTglVertexAttrib4Niv (GLuint uiIndex, const GLint* aiXYZW);
+	GT_EXTERN void GTglVertexAttrib4Nsv (GLuint uiIndex, const GLshort* asXYZW);
+	GT_EXTERN void GTglVertexAttrib4Nub (GLuint uiIndex, GLubyte ucX, GLubyte ucY,
+	                                     GLubyte ucZ, GLubyte ucW);
+	GT_EXTERN void GTglVertexAttrib4Nubv (GLuint uiIndex, const GLubyte* aucXYZW);
+	GT_EXTERN void GTglVertexAttrib4Nuiv (GLuint uiIndex, const GLuint* auiXYZW);
+	GT_EXTERN void GTglVertexAttrib4Nusv (GLuint uiIndex,
+	                                      const GLushort* ausXYZW);
+	GT_EXTERN void GTglVertexAttrib4bv (GLuint uiIndex, const GLbyte* acXYZW);
+	GT_EXTERN void GTglVertexAttrib4d (GLuint uiIndex, GLdouble dX, GLdouble dY,
+	                                   GLdouble dZ, GLdouble dW);
+	GT_EXTERN void GTglVertexAttrib4dv (GLuint uiIndex, const GLdouble* adXYZW);
+	GT_EXTERN void GTglVertexAttrib4f (GLuint uiIndex, GLfloat fX, GLfloat fY,
+	                                   GLfloat fZ, GLfloat fW);
+	GT_EXTERN void GTglVertexAttrib4fv (GLuint uiIndex, const GLfloat* afXYZW);
+	GT_EXTERN void GTglVertexAttrib4iv (GLuint uiIndex, const GLint* aiXYZW);
+	GT_EXTERN void GTglVertexAttrib4s (GLuint uiIndex, GLshort sX, GLshort sY,
+	                                   GLshort sZ, GLshort sW);
+	GT_EXTERN void GTglVertexAttrib4sv (GLuint uiIndex, const GLshort* asXYZW);
+	GT_EXTERN void GTglVertexAttrib4ubv (GLuint uiIndex, const GLubyte* aucXYZW);
+	GT_EXTERN void GTglVertexAttrib4uiv (GLuint uiIndex, const GLuint* auiXYZW);
+	GT_EXTERN void GTglVertexAttrib4usv (GLuint uiIndex, const GLushort* ausXYZW);
+	GT_EXTERN void GTglVertexAttribPointer (GLuint uiIndex, GLint iSize,
+	                                        GLenum eType, GLboolean ucNormalized, GLsizei iStride,
+	                                        const GLvoid* pvPointer);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // OpenGL 2.1
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsOpenGL21;
+	GT_EXTERN int GTExistsOpenGL21;
 
 #define GL_PIXEL_PACK_BUFFER                                        0x88EB
 #define GL_PIXEL_UNPACK_BUFFER                                      0x88EC
@@ -2455,24 +2455,24 @@ GT_EXTERN int GTExistsOpenGL21;
 #define glUniformMatrix3x4fv GTglUniformMatrix3x4fv
 #define glUniformMatrix4x3fv GTglUniformMatrix4x3fv
 
-GT_EXTERN void GTglUniformMatrix2x3fv (GLint location, GLsizei count,
-    GLboolean transpose, const GLfloat* value);
-GT_EXTERN void GTglUniformMatrix3x2fv (GLint location, GLsizei count,
-    GLboolean transpose, const GLfloat* value);
-GT_EXTERN void GTglUniformMatrix2x4fv (GLint location, GLsizei count,
-    GLboolean transpose, const GLfloat* value);
-GT_EXTERN void GTglUniformMatrix4x2fv (GLint location, GLsizei count,
-    GLboolean transpose, const GLfloat* value);
-GT_EXTERN void GTglUniformMatrix3x4fv (GLint location, GLsizei count,
-    GLboolean transpose, const GLfloat* value);
-GT_EXTERN void GTglUniformMatrix4x3fv (GLint location, GLsizei count,
-    GLboolean transpose, const GLfloat* value);
+	GT_EXTERN void GTglUniformMatrix2x3fv (GLint location, GLsizei count,
+	                                       GLboolean transpose, const GLfloat* value);
+	GT_EXTERN void GTglUniformMatrix3x2fv (GLint location, GLsizei count,
+	                                       GLboolean transpose, const GLfloat* value);
+	GT_EXTERN void GTglUniformMatrix2x4fv (GLint location, GLsizei count,
+	                                       GLboolean transpose, const GLfloat* value);
+	GT_EXTERN void GTglUniformMatrix4x2fv (GLint location, GLsizei count,
+	                                       GLboolean transpose, const GLfloat* value);
+	GT_EXTERN void GTglUniformMatrix3x4fv (GLint location, GLsizei count,
+	                                       GLboolean transpose, const GLfloat* value);
+	GT_EXTERN void GTglUniformMatrix4x3fv (GLint location, GLsizei count,
+	                                       GLboolean transpose, const GLfloat* value);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // OpenGL 3.0
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsOpenGL30;
+	GT_EXTERN int GTExistsOpenGL30;
 
 #define GL_COMPARE_REF_TO_TEXTURE                                   0x884E
 #define GL_CLIP_DISTANCE0                                           0x3000
@@ -2636,99 +2636,99 @@ GT_EXTERN int GTExistsOpenGL30;
 #define glClearBufferfi GTglClearBufferfi
 #define glGetStringi GTglGetStringi
 
-GT_EXTERN void GTglColorMaski (GLuint index, GLboolean r, GLboolean g,
-    GLboolean b, GLboolean a);
-GT_EXTERN void GTglGetBooleani_v (GLenum target, GLuint index,
-    GLboolean* data);
-GT_EXTERN void GTglGetIntegeri_v (GLenum target, GLuint index, GLint* data);
-GT_EXTERN void GTglEnablei (GLenum target, GLuint index);
-GT_EXTERN void GTglDisablei (GLenum target, GLuint index);
-GT_EXTERN GLboolean GTglIsEnabledi (GLenum target, GLuint index);
-GT_EXTERN void GTglBeginTransformFeedback (GLenum primitiveMode);
-GT_EXTERN void GTglEndTransformFeedback (void);
-GT_EXTERN void GTglBindBufferRange (GLenum target, GLuint index,
-    GLuint buffer, GLintptr offset, GLsizeiptr size);
-GT_EXTERN void GTglBindBufferBase (GLenum target, GLuint index,
-    GLuint buffer);
-GT_EXTERN void GTglTransformFeedbackVaryings (GLuint program, GLsizei count,
-    const GLchar** varyings, GLenum bufferMode);
-GT_EXTERN void GTglGetTransformFeedbackVarying (GLuint program, GLuint index,
-    GLsizei bufSize, GLsizei* length, GLsizei* size, GLenum* type,
-    GLchar* name);
-GT_EXTERN void GTglClampColor (GLenum target, GLenum clamp);
-GT_EXTERN void GTglBeginConditionalRender (GLuint id, GLenum mode);
-GT_EXTERN void GTglEndConditionalRender (void);
-GT_EXTERN void GTglVertexAttribIPointer (GLuint index, GLint size,
-    GLenum type, GLsizei stride, const GLvoid* pointer);
-GT_EXTERN void GTglGetVertexAttribIiv (GLuint index, GLenum pname,
-    GLint* params);
-GT_EXTERN void GTglGetVertexAttribIuiv (GLuint index, GLenum pname,
-    GLuint* params);
-GT_EXTERN void GTglVertexAttribI1i (GLuint index, GLint x);
-GT_EXTERN void GTglVertexAttribI2i (GLuint index, GLint x, GLint y);
-GT_EXTERN void GTglVertexAttribI3i (GLuint index, GLint x, GLint y, GLint z);
-GT_EXTERN void GTglVertexAttribI4i (GLuint index, GLint x, GLint y, GLint z,
-    GLint w);
-GT_EXTERN void GTglVertexAttribI1ui (GLuint index, GLuint x);
-GT_EXTERN void GTglVertexAttribI2ui (GLuint index, GLuint x, GLuint y);
-GT_EXTERN void GTglVertexAttribI3ui (GLuint index, GLuint x, GLuint y,
-    GLuint z);
-GT_EXTERN void GTglVertexAttribI4ui (GLuint index, GLuint x, GLuint y,
-    GLuint z, GLuint w);
-GT_EXTERN void GTglVertexAttribI1iv (GLuint index, const GLint* v);
-GT_EXTERN void GTglVertexAttribI2iv (GLuint index, const GLint* v);
-GT_EXTERN void GTglVertexAttribI3iv (GLuint index, const GLint* v);
-GT_EXTERN void GTglVertexAttribI4iv (GLuint index, const GLint* v);
-GT_EXTERN void GTglVertexAttribI1uiv (GLuint index, const GLuint* v);
-GT_EXTERN void GTglVertexAttribI2uiv (GLuint index, const GLuint* v);
-GT_EXTERN void GTglVertexAttribI3uiv (GLuint index, const GLuint* v);
-GT_EXTERN void GTglVertexAttribI4uiv (GLuint index, const GLuint* v);
-GT_EXTERN void GTglVertexAttribI4bv (GLuint index, const GLbyte* v);
-GT_EXTERN void GTglVertexAttribI4sv (GLuint index, const GLshort* v);
-GT_EXTERN void GTglVertexAttribI4ubv (GLuint index, const GLubyte* v);
-GT_EXTERN void GTglVertexAttribI4usv (GLuint index, const GLushort* v);
-GT_EXTERN void GTglGetUniformuiv (GLuint program, GLint location,
-    GLuint* params);
-GT_EXTERN void GTglBindFragDataLocation (GLuint program, GLuint color,
-    const GLchar* name);
-GT_EXTERN GLint GTglGetFragDataLocation (GLuint program, const GLchar* name);
-GT_EXTERN void GTglUniform1ui (GLint location, GLuint v0);
-GT_EXTERN void GTglUniform2ui (GLint location, GLuint v0, GLuint v1);
-GT_EXTERN void GTglUniform3ui (GLint location, GLuint v0, GLuint v1,
-    GLuint v2);
-GT_EXTERN void GTglUniform4ui (GLint location, GLuint v0, GLuint v1,
-    GLuint v2, GLuint v3);
-GT_EXTERN void GTglUniform1uiv (GLint location, GLsizei count,
-    const GLuint* value);
-GT_EXTERN void GTglUniform2uiv (GLint location, GLsizei count,
-    const GLuint* value);
-GT_EXTERN void GTglUniform3uiv (GLint location, GLsizei count,
-    const GLuint* value);
-GT_EXTERN void GTglUniform4uiv (GLint location, GLsizei count,
-    const GLuint* value);
-GT_EXTERN void GTglTexParameterIiv (GLenum target, GLenum pname,
-    const GLint* params);
-GT_EXTERN void GTglTexParameterIuiv (GLenum target, GLenum pname,
-    const GLuint* params);
-GT_EXTERN void GTglGetTexParameterIiv (GLenum target, GLenum pname,
-    GLint* params);
-GT_EXTERN void GTglGetTexParameterIuiv (GLenum target, GLenum pname,
-    GLuint* params);
-GT_EXTERN void GTglClearBufferiv (GLenum buffer, GLint drawbuffer,
-    const GLint* value);
-GT_EXTERN void GTglClearBufferuiv (GLenum buffer, GLint drawbuffer,
-    const GLuint* value);
-GT_EXTERN void GTglClearBufferfv (GLenum buffer, GLint drawbuffer,
-    const GLfloat* value);
-GT_EXTERN void GTglClearBufferfi (GLenum buffer, GLint drawbuffer,
-    GLfloat depth, GLint stencil);
-GT_EXTERN const GLubyte* GTglGetStringi (GLenum name, GLuint index);
+	GT_EXTERN void GTglColorMaski (GLuint index, GLboolean r, GLboolean g,
+	                               GLboolean b, GLboolean a);
+	GT_EXTERN void GTglGetBooleani_v (GLenum target, GLuint index,
+	                                  GLboolean* data);
+	GT_EXTERN void GTglGetIntegeri_v (GLenum target, GLuint index, GLint* data);
+	GT_EXTERN void GTglEnablei (GLenum target, GLuint index);
+	GT_EXTERN void GTglDisablei (GLenum target, GLuint index);
+	GT_EXTERN GLboolean GTglIsEnabledi (GLenum target, GLuint index);
+	GT_EXTERN void GTglBeginTransformFeedback (GLenum primitiveMode);
+	GT_EXTERN void GTglEndTransformFeedback (void);
+	GT_EXTERN void GTglBindBufferRange (GLenum target, GLuint index,
+	                                    GLuint buffer, GLintptr offset, GLsizeiptr size);
+	GT_EXTERN void GTglBindBufferBase (GLenum target, GLuint index,
+	                                   GLuint buffer);
+	GT_EXTERN void GTglTransformFeedbackVaryings (GLuint program, GLsizei count,
+	        const GLchar** varyings, GLenum bufferMode);
+	GT_EXTERN void GTglGetTransformFeedbackVarying (GLuint program, GLuint index,
+	        GLsizei bufSize, GLsizei* length, GLsizei* size, GLenum* type,
+	        GLchar* name);
+	GT_EXTERN void GTglClampColor (GLenum target, GLenum clamp);
+	GT_EXTERN void GTglBeginConditionalRender (GLuint id, GLenum mode);
+	GT_EXTERN void GTglEndConditionalRender (void);
+	GT_EXTERN void GTglVertexAttribIPointer (GLuint index, GLint size,
+	        GLenum type, GLsizei stride, const GLvoid* pointer);
+	GT_EXTERN void GTglGetVertexAttribIiv (GLuint index, GLenum pname,
+	                                       GLint* params);
+	GT_EXTERN void GTglGetVertexAttribIuiv (GLuint index, GLenum pname,
+	                                        GLuint* params);
+	GT_EXTERN void GTglVertexAttribI1i (GLuint index, GLint x);
+	GT_EXTERN void GTglVertexAttribI2i (GLuint index, GLint x, GLint y);
+	GT_EXTERN void GTglVertexAttribI3i (GLuint index, GLint x, GLint y, GLint z);
+	GT_EXTERN void GTglVertexAttribI4i (GLuint index, GLint x, GLint y, GLint z,
+	                                    GLint w);
+	GT_EXTERN void GTglVertexAttribI1ui (GLuint index, GLuint x);
+	GT_EXTERN void GTglVertexAttribI2ui (GLuint index, GLuint x, GLuint y);
+	GT_EXTERN void GTglVertexAttribI3ui (GLuint index, GLuint x, GLuint y,
+	                                     GLuint z);
+	GT_EXTERN void GTglVertexAttribI4ui (GLuint index, GLuint x, GLuint y,
+	                                     GLuint z, GLuint w);
+	GT_EXTERN void GTglVertexAttribI1iv (GLuint index, const GLint* v);
+	GT_EXTERN void GTglVertexAttribI2iv (GLuint index, const GLint* v);
+	GT_EXTERN void GTglVertexAttribI3iv (GLuint index, const GLint* v);
+	GT_EXTERN void GTglVertexAttribI4iv (GLuint index, const GLint* v);
+	GT_EXTERN void GTglVertexAttribI1uiv (GLuint index, const GLuint* v);
+	GT_EXTERN void GTglVertexAttribI2uiv (GLuint index, const GLuint* v);
+	GT_EXTERN void GTglVertexAttribI3uiv (GLuint index, const GLuint* v);
+	GT_EXTERN void GTglVertexAttribI4uiv (GLuint index, const GLuint* v);
+	GT_EXTERN void GTglVertexAttribI4bv (GLuint index, const GLbyte* v);
+	GT_EXTERN void GTglVertexAttribI4sv (GLuint index, const GLshort* v);
+	GT_EXTERN void GTglVertexAttribI4ubv (GLuint index, const GLubyte* v);
+	GT_EXTERN void GTglVertexAttribI4usv (GLuint index, const GLushort* v);
+	GT_EXTERN void GTglGetUniformuiv (GLuint program, GLint location,
+	                                  GLuint* params);
+	GT_EXTERN void GTglBindFragDataLocation (GLuint program, GLuint color,
+	        const GLchar* name);
+	GT_EXTERN GLint GTglGetFragDataLocation (GLuint program, const GLchar* name);
+	GT_EXTERN void GTglUniform1ui (GLint location, GLuint v0);
+	GT_EXTERN void GTglUniform2ui (GLint location, GLuint v0, GLuint v1);
+	GT_EXTERN void GTglUniform3ui (GLint location, GLuint v0, GLuint v1,
+	                               GLuint v2);
+	GT_EXTERN void GTglUniform4ui (GLint location, GLuint v0, GLuint v1,
+	                               GLuint v2, GLuint v3);
+	GT_EXTERN void GTglUniform1uiv (GLint location, GLsizei count,
+	                                const GLuint* value);
+	GT_EXTERN void GTglUniform2uiv (GLint location, GLsizei count,
+	                                const GLuint* value);
+	GT_EXTERN void GTglUniform3uiv (GLint location, GLsizei count,
+	                                const GLuint* value);
+	GT_EXTERN void GTglUniform4uiv (GLint location, GLsizei count,
+	                                const GLuint* value);
+	GT_EXTERN void GTglTexParameterIiv (GLenum target, GLenum pname,
+	                                    const GLint* params);
+	GT_EXTERN void GTglTexParameterIuiv (GLenum target, GLenum pname,
+	                                     const GLuint* params);
+	GT_EXTERN void GTglGetTexParameterIiv (GLenum target, GLenum pname,
+	                                       GLint* params);
+	GT_EXTERN void GTglGetTexParameterIuiv (GLenum target, GLenum pname,
+	                                        GLuint* params);
+	GT_EXTERN void GTglClearBufferiv (GLenum buffer, GLint drawbuffer,
+	                                  const GLint* value);
+	GT_EXTERN void GTglClearBufferuiv (GLenum buffer, GLint drawbuffer,
+	                                   const GLuint* value);
+	GT_EXTERN void GTglClearBufferfv (GLenum buffer, GLint drawbuffer,
+	                                  const GLfloat* value);
+	GT_EXTERN void GTglClearBufferfi (GLenum buffer, GLint drawbuffer,
+	                                  GLfloat depth, GLint stencil);
+	GT_EXTERN const GLubyte* GTglGetStringi (GLenum name, GLuint index);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // OpenGL 3.1
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsOpenGL31;
+	GT_EXTERN int GTExistsOpenGL31;
 
 #define GL_SAMPLER_2D_RECT                                          0x8B63
 #define GL_SAMPLER_2D_RECT_SHADOW                                   0x8B64
@@ -2767,19 +2767,19 @@ GT_EXTERN int GTExistsOpenGL31;
 #define glTexBuffer GTglTexBuffer
 #define glPrimitiveRestartIndex GTglPrimitiveRestartIndex
 
-GT_EXTERN void GTglDrawArraysInstanced (GLenum mode, GLint first,
-    GLsizei count, GLsizei primcount);
-GT_EXTERN void GTglDrawElementsInstanced (GLenum mode, GLsizei count,
-    GLenum type, const GLvoid* indices, GLsizei primcount);
-GT_EXTERN void GTglTexBuffer (GLenum target, GLenum internalformat,
-    GLuint buffer);
-GT_EXTERN void GTglPrimitiveRestartIndex (GLuint index);
+	GT_EXTERN void GTglDrawArraysInstanced (GLenum mode, GLint first,
+	                                        GLsizei count, GLsizei primcount);
+	GT_EXTERN void GTglDrawElementsInstanced (GLenum mode, GLsizei count,
+	        GLenum type, const GLvoid* indices, GLsizei primcount);
+	GT_EXTERN void GTglTexBuffer (GLenum target, GLenum internalformat,
+	                              GLuint buffer);
+	GT_EXTERN void GTglPrimitiveRestartIndex (GLuint index);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // OpenGL 3.2
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsOpenGL32;
+	GT_EXTERN int GTExistsOpenGL32;
 
 #define GL_CONTEXT_CORE_PROFILE_BIT                                 0x00000001
 #define GL_CONTEXT_COMPATIBILITY_PROFILE_BIT                        0x00000002
@@ -2804,43 +2804,43 @@ GT_EXTERN int GTExistsOpenGL32;
 #define GL_MAX_FRAGMENT_INPUT_COMPONENTS                            0x9125
 #define GL_CONTEXT_PROFILE_MASK                                     0x9126
 
-/* Logic is from Em1SourceLIB.h */
+	/* Logic is from Em1SourceLIB.h */
 #if defined(_WIN32) || defined(WIN32)
-typedef __int64             int64_t;
-typedef unsigned __int64    uint64_t;
+	typedef __int64             int64_t;
+	typedef unsigned __int64    uint64_t;
 #endif
 #if defined(__LINUX__)
 #include <inttypes.h>
 #endif
 
-typedef int64_t GLint64;
-typedef uint64_t GLuint64;
+	typedef int64_t GLint64;
+	typedef uint64_t GLuint64;
 
 #define glGetInteger64i_v GTglGetInteger64i_v
 #define glGetBufferParameteri64v GTglGetBufferParameteri64v
 #define glProgramParameteri GTglProgramParameteri
 #define glFramebufferTexture GTglFramebufferTexture
 
-GT_EXTERN void GTglGetInteger64i_v (GLenum target, GLuint index,
-    GLint64* data);
-GT_EXTERN void GTglGetBufferParameteri64v (GLenum target, GLenum pname,
-    GLint64* params);
-GT_EXTERN void GTglProgramParameteri (GLuint program, GLenum pname,
-    GLint value);
-GT_EXTERN void GTglFramebufferTexture (GLenum target, GLenum attachment,
-    GLuint texture, GLint level);
+	GT_EXTERN void GTglGetInteger64i_v (GLenum target, GLuint index,
+	                                    GLint64* data);
+	GT_EXTERN void GTglGetBufferParameteri64v (GLenum target, GLenum pname,
+	        GLint64* params);
+	GT_EXTERN void GTglProgramParameteri (GLuint program, GLenum pname,
+	                                      GLint value);
+	GT_EXTERN void GTglFramebufferTexture (GLenum target, GLenum attachment,
+	                                       GLuint texture, GLint level);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // OpenGL 3.3
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsOpenGL33;
+	GT_EXTERN int GTExistsOpenGL33;
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // OpenGL 4.0
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsOpenGL40;
+	GT_EXTERN int GTExistsOpenGL40;
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
@@ -2850,7 +2850,7 @@ GT_EXTERN int GTExistsOpenGL40;
 //----------------------------------------------------------------------------
 // (ARB 01) GL_ARB_multitexture
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbMultitexture;
+	GT_EXTERN int GTExistsGlArbMultitexture;
 
 #define GL_TEXTURE0_ARB                                             0x84C0
 #define GL_TEXTURE1_ARB                                             0x84C1
@@ -2923,61 +2923,61 @@ GT_EXTERN int GTExistsGlArbMultitexture;
 #define glMultiTexCoord4sARB GTglMultiTexCoord4sARB
 #define glMultiTexCoord4svARB GTglMultiTexCoord4svARB
 
-GT_EXTERN void GTglActiveTextureARB (GLenum eTexture);
-GT_EXTERN void GTglClientActiveTextureARB (GLenum eTexture);
-GT_EXTERN void GTglMultiTexCoord1dARB (GLenum eTarget, GLdouble dS);
-GT_EXTERN void GTglMultiTexCoord1dvARB (GLenum eTarget, const GLdouble* pdS);
-GT_EXTERN void GTglMultiTexCoord1fARB (GLenum eTarget, GLfloat fS);
-GT_EXTERN void GTglMultiTexCoord1fvARB (GLenum eTarget, const GLfloat* pfS);
-GT_EXTERN void GTglMultiTexCoord1iARB (GLenum eTarget, GLint iS);
-GT_EXTERN void GTglMultiTexCoord1ivARB (GLenum eTarget, const GLint* piS);
-GT_EXTERN void GTglMultiTexCoord1sARB (GLenum eTarget, GLshort sS);
-GT_EXTERN void GTglMultiTexCoord1svARB (GLenum eTarget, const GLshort* psS);
-GT_EXTERN void GTglMultiTexCoord2dARB (GLenum eTarget, GLdouble dS,
-    GLdouble dT);
-GT_EXTERN void GTglMultiTexCoord2dvARB (GLenum eTarget, const GLdouble* asDT);
-GT_EXTERN void GTglMultiTexCoord2fARB (GLenum eTarget, GLfloat fS,
-    GLfloat fT);
-GT_EXTERN void GTglMultiTexCoord2fvARB (GLenum eTarget, const GLfloat* afST);
-GT_EXTERN void GTglMultiTexCoord2iARB (GLenum eTarget, GLint iS, GLint iT);
-GT_EXTERN void GTglMultiTexCoord2ivARB (GLenum eTarget, const GLint* aiST);
-GT_EXTERN void GTglMultiTexCoord2sARB (GLenum eTarget, GLshort sS,
-    GLshort sT);
-GT_EXTERN void GTglMultiTexCoord2svARB (GLenum eTarget, const GLshort* asST);
-GT_EXTERN void GTglMultiTexCoord3dARB (GLenum eTarget, GLdouble dS,
-    GLdouble dT, GLdouble dR);
-GT_EXTERN void GTglMultiTexCoord3dvARB (GLenum eTarget,
-    const GLdouble* adSTR);
-GT_EXTERN void GTglMultiTexCoord3fARB (GLenum eTarget, GLfloat fS, GLfloat fT,
-    GLfloat fR);
-GT_EXTERN void GTglMultiTexCoord3fvARB (GLenum eTarget, const GLfloat* afSTR);
-GT_EXTERN void GTglMultiTexCoord3iARB (GLenum eTarget, GLint iS, GLint iT,
-    GLint iR);
-GT_EXTERN void GTglMultiTexCoord3ivARB (GLenum eTarget, const GLint* aiSTR);
-GT_EXTERN void GTglMultiTexCoord3sARB (GLenum eTarget, GLshort sS, GLshort sT,
-    GLshort sR);
-GT_EXTERN void GTglMultiTexCoord3svARB (GLenum eTarget, const GLshort* asSTR);
-GT_EXTERN void GTglMultiTexCoord4dARB (GLenum eTarget, GLdouble dS,
-    GLdouble dT, GLdouble dR, GLdouble dQ);
-GT_EXTERN void GTglMultiTexCoord4dvARB (GLenum eTarget,
-    const GLdouble* asSTRQ);
-GT_EXTERN void GTglMultiTexCoord4fARB (GLenum eTarget, GLfloat fS, GLfloat fT,
-    GLfloat fR,GLfloat fQ);
-GT_EXTERN void GTglMultiTexCoord4fvARB (GLenum eTarget,
-    const GLfloat* afSTRQ);
-GT_EXTERN void GTglMultiTexCoord4iARB (GLenum eTarget, GLint iS, GLint iT,
-    GLint iR, GLint iQ);
-GT_EXTERN void GTglMultiTexCoord4ivARB (GLenum eTarget, const GLint* aiSTRQ);
-GT_EXTERN void GTglMultiTexCoord4sARB (GLenum eTarget, GLshort sS, GLshort sT,
-    GLshort sR, GLshort sQ);
-GT_EXTERN void GTglMultiTexCoord4svARB (GLenum eTarget,
-    const GLshort* asSTRQ);
+	GT_EXTERN void GTglActiveTextureARB (GLenum eTexture);
+	GT_EXTERN void GTglClientActiveTextureARB (GLenum eTexture);
+	GT_EXTERN void GTglMultiTexCoord1dARB (GLenum eTarget, GLdouble dS);
+	GT_EXTERN void GTglMultiTexCoord1dvARB (GLenum eTarget, const GLdouble* pdS);
+	GT_EXTERN void GTglMultiTexCoord1fARB (GLenum eTarget, GLfloat fS);
+	GT_EXTERN void GTglMultiTexCoord1fvARB (GLenum eTarget, const GLfloat* pfS);
+	GT_EXTERN void GTglMultiTexCoord1iARB (GLenum eTarget, GLint iS);
+	GT_EXTERN void GTglMultiTexCoord1ivARB (GLenum eTarget, const GLint* piS);
+	GT_EXTERN void GTglMultiTexCoord1sARB (GLenum eTarget, GLshort sS);
+	GT_EXTERN void GTglMultiTexCoord1svARB (GLenum eTarget, const GLshort* psS);
+	GT_EXTERN void GTglMultiTexCoord2dARB (GLenum eTarget, GLdouble dS,
+	                                       GLdouble dT);
+	GT_EXTERN void GTglMultiTexCoord2dvARB (GLenum eTarget, const GLdouble* asDT);
+	GT_EXTERN void GTglMultiTexCoord2fARB (GLenum eTarget, GLfloat fS,
+	                                       GLfloat fT);
+	GT_EXTERN void GTglMultiTexCoord2fvARB (GLenum eTarget, const GLfloat* afST);
+	GT_EXTERN void GTglMultiTexCoord2iARB (GLenum eTarget, GLint iS, GLint iT);
+	GT_EXTERN void GTglMultiTexCoord2ivARB (GLenum eTarget, const GLint* aiST);
+	GT_EXTERN void GTglMultiTexCoord2sARB (GLenum eTarget, GLshort sS,
+	                                       GLshort sT);
+	GT_EXTERN void GTglMultiTexCoord2svARB (GLenum eTarget, const GLshort* asST);
+	GT_EXTERN void GTglMultiTexCoord3dARB (GLenum eTarget, GLdouble dS,
+	                                       GLdouble dT, GLdouble dR);
+	GT_EXTERN void GTglMultiTexCoord3dvARB (GLenum eTarget,
+	                                        const GLdouble* adSTR);
+	GT_EXTERN void GTglMultiTexCoord3fARB (GLenum eTarget, GLfloat fS, GLfloat fT,
+	                                       GLfloat fR);
+	GT_EXTERN void GTglMultiTexCoord3fvARB (GLenum eTarget, const GLfloat* afSTR);
+	GT_EXTERN void GTglMultiTexCoord3iARB (GLenum eTarget, GLint iS, GLint iT,
+	                                       GLint iR);
+	GT_EXTERN void GTglMultiTexCoord3ivARB (GLenum eTarget, const GLint* aiSTR);
+	GT_EXTERN void GTglMultiTexCoord3sARB (GLenum eTarget, GLshort sS, GLshort sT,
+	                                       GLshort sR);
+	GT_EXTERN void GTglMultiTexCoord3svARB (GLenum eTarget, const GLshort* asSTR);
+	GT_EXTERN void GTglMultiTexCoord4dARB (GLenum eTarget, GLdouble dS,
+	                                       GLdouble dT, GLdouble dR, GLdouble dQ);
+	GT_EXTERN void GTglMultiTexCoord4dvARB (GLenum eTarget,
+	                                        const GLdouble* asSTRQ);
+	GT_EXTERN void GTglMultiTexCoord4fARB (GLenum eTarget, GLfloat fS, GLfloat fT,
+	                                       GLfloat fR,GLfloat fQ);
+	GT_EXTERN void GTglMultiTexCoord4fvARB (GLenum eTarget,
+	                                        const GLfloat* afSTRQ);
+	GT_EXTERN void GTglMultiTexCoord4iARB (GLenum eTarget, GLint iS, GLint iT,
+	                                       GLint iR, GLint iQ);
+	GT_EXTERN void GTglMultiTexCoord4ivARB (GLenum eTarget, const GLint* aiSTRQ);
+	GT_EXTERN void GTglMultiTexCoord4sARB (GLenum eTarget, GLshort sS, GLshort sT,
+	                                       GLshort sR, GLshort sQ);
+	GT_EXTERN void GTglMultiTexCoord4svARB (GLenum eTarget,
+	                                        const GLshort* asSTRQ);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 03) GL_ARB_transpose_matrix
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbTransposeMatrix;
+	GT_EXTERN int GTExistsGlArbTransposeMatrix;
 
 #define GL_TRANSPOSE_MODELVIEW_MATRIX_ARB                           0x84E3
 #define GL_TRANSPOSE_PROJECTION_MATRIX_ARB                          0x84E4
@@ -2989,16 +2989,16 @@ GT_EXTERN int GTExistsGlArbTransposeMatrix;
 #define glMultTransposeMatrixdARB GTglMultTransposeMatrixdARB
 #define glMultTransposeMatrixfARB GTglMultTransposeMatrixfARB
 
-GT_EXTERN void GTglLoadTransposeMatrixdARB (const GLdouble* adMatrix);
-GT_EXTERN void GTglLoadTransposeMatrixfARB (const GLfloat* afMatrix);
-GT_EXTERN void GTglMultTransposeMatrixdARB (const GLdouble* adMatrix);
-GT_EXTERN void GTglMultTransposeMatrixfARB (const GLfloat* afMatrix);
+	GT_EXTERN void GTglLoadTransposeMatrixdARB (const GLdouble* adMatrix);
+	GT_EXTERN void GTglLoadTransposeMatrixfARB (const GLfloat* afMatrix);
+	GT_EXTERN void GTglMultTransposeMatrixdARB (const GLdouble* adMatrix);
+	GT_EXTERN void GTglMultTransposeMatrixfARB (const GLfloat* afMatrix);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 05) GL_ARB_multisample
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbMultisample;
+	GT_EXTERN int GTExistsGlArbMultisample;
 
 #define GL_MULTISAMPLE_ARB                                          0x809D
 #define GL_SAMPLE_ALPHA_TO_COVERAGE_ARB                             0x809E
@@ -3012,19 +3012,19 @@ GT_EXTERN int GTExistsGlArbMultisample;
 
 #define glSampleCoverageARB GTglSampleCoverageARB
 
-GT_EXTERN void GTglSampleCoverageARB (GLclampf fValue, GLboolean ucInvert);
+	GT_EXTERN void GTglSampleCoverageARB (GLclampf fValue, GLboolean ucInvert);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 06) GL_ARB_texture_env_add
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbTextureEnvAdd;
+	GT_EXTERN int GTExistsGlArbTextureEnvAdd;
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 07) GL_ARB_texture_cube_map
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbTextureCubeMap;
+	GT_EXTERN int GTExistsGlArbTextureCubeMap;
 
 #define GL_NORMAL_MAP_ARB                                           0x8511
 #define GL_REFLECTION_MAP_ARB                                       0x8512
@@ -3043,7 +3043,7 @@ GT_EXTERN int GTExistsGlArbTextureCubeMap;
 //----------------------------------------------------------------------------
 // (ARB 12) GL_ARB_texture_compression
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbTextureCompression;
+	GT_EXTERN int GTExistsGlArbTextureCompression;
 
 #define GL_COMPRESSED_ALPHA_ARB                                     0x84E9
 #define GL_COMPRESSED_LUMINANCE_ARB                                 0x84EA
@@ -3065,33 +3065,33 @@ GT_EXTERN int GTExistsGlArbTextureCompression;
 #define glCompressedTexSubImage3DARB GTglCompressedTexSubImage3DARB
 #define glGetCompressedTexImageARB GTglGetCompressedTexImageARB
 
-GT_EXTERN void GTglCompressedTexImage1DARB (GLenum eTarget, GLint iLevel,
-    GLenum eInternalFormat, GLsizei iWidth, GLint iBorder,
-    GLsizei iImageSize, const GLvoid* pvData);
-GT_EXTERN void GTglCompressedTexImage2DARB (GLenum eTarget, GLint iLevel,
-    GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLint iBorder,
-    GLsizei iImageSize, const GLvoid* pvData);
-GT_EXTERN void GTglCompressedTexImage3DARB (GLenum eTarget, GLint iLevel,
-    GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLsizei iDepth,
-    GLint iBorder, GLsizei iImageSize, const GLvoid* pvData);
-GT_EXTERN void GTglCompressedTexSubImage1DARB (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLsizei iWidth, GLenum eFormat, GLsizei iImageSize,
-    const GLvoid* pvData);
-GT_EXTERN void GTglCompressedTexSubImage2DARB (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iYOffset, GLsizei iWidth, GLsizei iHeight,
-    GLenum eFormat, GLsizei iImageSize, const GLvoid* pvData);
-GT_EXTERN void GTglCompressedTexSubImage3DARB (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iYOffset, GLint iZOffset, GLsizei iWidth,
-    GLsizei iHeight, GLsizei iDepth, GLenum eFormat, GLsizei iImageSize,
-    const GLvoid* pvData);
-GT_EXTERN void GTglGetCompressedTexImageARB (GLenum eTarget, GLint iLevel,
-    GLvoid* pvData);
+	GT_EXTERN void GTglCompressedTexImage1DARB (GLenum eTarget, GLint iLevel,
+	        GLenum eInternalFormat, GLsizei iWidth, GLint iBorder,
+	        GLsizei iImageSize, const GLvoid* pvData);
+	GT_EXTERN void GTglCompressedTexImage2DARB (GLenum eTarget, GLint iLevel,
+	        GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLint iBorder,
+	        GLsizei iImageSize, const GLvoid* pvData);
+	GT_EXTERN void GTglCompressedTexImage3DARB (GLenum eTarget, GLint iLevel,
+	        GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLsizei iDepth,
+	        GLint iBorder, GLsizei iImageSize, const GLvoid* pvData);
+	GT_EXTERN void GTglCompressedTexSubImage1DARB (GLenum eTarget, GLint iLevel,
+	        GLint iXOffset, GLsizei iWidth, GLenum eFormat, GLsizei iImageSize,
+	        const GLvoid* pvData);
+	GT_EXTERN void GTglCompressedTexSubImage2DARB (GLenum eTarget, GLint iLevel,
+	        GLint iXOffset, GLint iYOffset, GLsizei iWidth, GLsizei iHeight,
+	        GLenum eFormat, GLsizei iImageSize, const GLvoid* pvData);
+	GT_EXTERN void GTglCompressedTexSubImage3DARB (GLenum eTarget, GLint iLevel,
+	        GLint iXOffset, GLint iYOffset, GLint iZOffset, GLsizei iWidth,
+	        GLsizei iHeight, GLsizei iDepth, GLenum eFormat, GLsizei iImageSize,
+	        const GLvoid* pvData);
+	GT_EXTERN void GTglGetCompressedTexImageARB (GLenum eTarget, GLint iLevel,
+	        GLvoid* pvData);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 13) GL_ARB_texture_border_clamp
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbTextureBorderClamp;
+	GT_EXTERN int GTExistsGlArbTextureBorderClamp;
 
 #define GL_CLAMP_TO_BORDER_ARB                                      0x812D
 //----------------------------------------------------------------------------
@@ -3099,7 +3099,7 @@ GT_EXTERN int GTExistsGlArbTextureBorderClamp;
 //----------------------------------------------------------------------------
 // (ARB 14) GL_ARB_point_parameters
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbPointParameters;
+	GT_EXTERN int GTExistsGlArbPointParameters;
 
 #define GL_POINT_SIZE_MIN_ARB                                       0x8126
 #define GL_POINT_SIZE_MAX_ARB                                       0x8127
@@ -3109,15 +3109,15 @@ GT_EXTERN int GTExistsGlArbPointParameters;
 #define glPointParameterfARB GTglPointParameterfARB
 #define glPointParameterfvARB GTglPointParameterfvARB
 
-GT_EXTERN void GTglPointParameterfARB (GLenum ePName, GLfloat fParam);
-GT_EXTERN void GTglPointParameterfvARB (GLenum ePName,
-    const GLfloat* afParam);
+	GT_EXTERN void GTglPointParameterfARB (GLenum ePName, GLfloat fParam);
+	GT_EXTERN void GTglPointParameterfvARB (GLenum ePName,
+	                                        const GLfloat* afParam);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 15) GL_ARB_vertex_blend
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbVertexBlend;
+	GT_EXTERN int GTExistsGlArbVertexBlend;
 
 #define GL_MAX_VERTEX_UNITS_ARB                                     0x86A4
 #define GL_ACTIVE_VERTEX_UNITS_ARB                                  0x86A5
@@ -3173,23 +3173,23 @@ GT_EXTERN int GTExistsGlArbVertexBlend;
 #define glWeightPointerARB GTglWeightPointerARB
 #define glVertexBlendARB GTglVertexBlendARB
 
-GT_EXTERN void GTglWeightbvARB (GLint iSize, const GLbyte* acWeight);
-GT_EXTERN void GTglWeightsvARB (GLint iSize, const GLshort* asWeight);
-GT_EXTERN void GTglWeightivARB (GLint iSize, const GLint* aiWeight);
-GT_EXTERN void GTglWeightfvARB (GLint iSize, const GLfloat* afWeight);
-GT_EXTERN void GTglWeightdvARB (GLint iSize, const GLdouble* adWeight);
-GT_EXTERN void GTglWeightubvARB (GLint iSize, const GLubyte* aucWeight);
-GT_EXTERN void GTglWeightusvARB (GLint iSize, const GLushort* ausWeight);
-GT_EXTERN void GTglWeightuivARB (GLint iSize, const GLuint* auiWeight);
-GT_EXTERN void GTglWeightPointerARB (GLint iSize, GLenum eType,
-    GLsizei iStride, const GLvoid* pvPointer);
-GT_EXTERN void GTglVertexBlendARB (GLint iCount);
+	GT_EXTERN void GTglWeightbvARB (GLint iSize, const GLbyte* acWeight);
+	GT_EXTERN void GTglWeightsvARB (GLint iSize, const GLshort* asWeight);
+	GT_EXTERN void GTglWeightivARB (GLint iSize, const GLint* aiWeight);
+	GT_EXTERN void GTglWeightfvARB (GLint iSize, const GLfloat* afWeight);
+	GT_EXTERN void GTglWeightdvARB (GLint iSize, const GLdouble* adWeight);
+	GT_EXTERN void GTglWeightubvARB (GLint iSize, const GLubyte* aucWeight);
+	GT_EXTERN void GTglWeightusvARB (GLint iSize, const GLushort* ausWeight);
+	GT_EXTERN void GTglWeightuivARB (GLint iSize, const GLuint* auiWeight);
+	GT_EXTERN void GTglWeightPointerARB (GLint iSize, GLenum eType,
+	                                     GLsizei iStride, const GLvoid* pvPointer);
+	GT_EXTERN void GTglVertexBlendARB (GLint iCount);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 16) GL_ARB_matrix_palette
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbMatrixPalette;
+	GT_EXTERN int GTExistsGlArbMatrixPalette;
 
 #define GL_MATRIX_PALETTE_ARB                                       0x8840
 #define GL_MAX_MATRIX_PALETTE_STACK_DEPTH_ARB                       0x8841
@@ -3208,18 +3208,18 @@ GT_EXTERN int GTExistsGlArbMatrixPalette;
 #define glMatrixIndexuivARB GTglMatrixIndexuivARB
 #define glMatrixIndexPointerARB GTglMatrixIndexPointerARB
 
-GT_EXTERN void GTglCurrentPaletteMatrixARB (GLint iIndex);
-GT_EXTERN void GTglMatrixIndexubvARB (GLint iSize, const GLubyte* aucIndex);
-GT_EXTERN void GTglMatrixIndexusvARB (GLint iSize, const GLushort* ausIndex);
-GT_EXTERN void GTglMatrixIndexuivARB (GLint iSize, const GLuint* auiIndex);
-GT_EXTERN void GTglMatrixIndexPointerARB (GLint iSize, GLenum eType,
-    GLsizei iStride, const GLvoid* pvPointer);
+	GT_EXTERN void GTglCurrentPaletteMatrixARB (GLint iIndex);
+	GT_EXTERN void GTglMatrixIndexubvARB (GLint iSize, const GLubyte* aucIndex);
+	GT_EXTERN void GTglMatrixIndexusvARB (GLint iSize, const GLushort* ausIndex);
+	GT_EXTERN void GTglMatrixIndexuivARB (GLint iSize, const GLuint* auiIndex);
+	GT_EXTERN void GTglMatrixIndexPointerARB (GLint iSize, GLenum eType,
+	        GLsizei iStride, const GLvoid* pvPointer);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 17) GL_ARB_texture_env_combine
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbTextureEnvCombine;
+	GT_EXTERN int GTExistsGlArbTextureEnvCombine;
 
 #define GL_SUBTRACT_ARB                                             0x84E7
 #define GL_COMBINE_ARB                                              0x8570
@@ -3248,13 +3248,13 @@ GT_EXTERN int GTExistsGlArbTextureEnvCombine;
 //----------------------------------------------------------------------------
 // (ARB 18) GL_ARB_texture_env_crossbar
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbTextureEnvCrossbar;
+	GT_EXTERN int GTExistsGlArbTextureEnvCrossbar;
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 19) GL_ARB_texture_env_dot3
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbTextureEnvDot3;
+	GT_EXTERN int GTExistsGlArbTextureEnvDot3;
 
 #define GL_DOT3_RGB_ARB                                             0x86AE
 #define GL_DOT3_RGBA_ARB                                            0x86AF
@@ -3263,7 +3263,7 @@ GT_EXTERN int GTExistsGlArbTextureEnvDot3;
 //----------------------------------------------------------------------------
 // (ARB 21) GL_ARB_texture_mirrored_repeat
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbTextureMirroredRepeat;
+	GT_EXTERN int GTExistsGlArbTextureMirroredRepeat;
 
 #define GL_MIRRORED_REPEAT_ARB                                      0x8370
 //----------------------------------------------------------------------------
@@ -3271,7 +3271,7 @@ GT_EXTERN int GTExistsGlArbTextureMirroredRepeat;
 //----------------------------------------------------------------------------
 // (ARB 22) GL_ARB_depth_texture
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbDepthTexture;
+	GT_EXTERN int GTExistsGlArbDepthTexture;
 
 #define GL_DEPTH_COMPONENT16_ARB                                    0x81A5
 #define GL_DEPTH_COMPONENT24_ARB                                    0x81A6
@@ -3283,7 +3283,7 @@ GT_EXTERN int GTExistsGlArbDepthTexture;
 //----------------------------------------------------------------------------
 // (ARB 23) GL_ARB_shadow
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbShadow;
+	GT_EXTERN int GTExistsGlArbShadow;
 
 #define GL_TEXTURE_COMPARE_MODE_ARB                                 0x884C
 #define GL_TEXTURE_COMPARE_FUNC_ARB                                 0x884D
@@ -3293,7 +3293,7 @@ GT_EXTERN int GTExistsGlArbShadow;
 //----------------------------------------------------------------------------
 // (ARB 24) GL_ARB_shadow_ambient
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbShadowAmbient;
+	GT_EXTERN int GTExistsGlArbShadowAmbient;
 
 #define GL_TEXTURE_COMPARE_FAIL_VALUE_ARB                           0x80BF
 //----------------------------------------------------------------------------
@@ -3301,7 +3301,7 @@ GT_EXTERN int GTExistsGlArbShadowAmbient;
 //----------------------------------------------------------------------------
 // (ARB 25) GL_ARB_window_pos
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbWindowPos;
+	GT_EXTERN int GTExistsGlArbWindowPos;
 
 #define glWindowPos2dARB GTglWindowPos2dARB
 #define glWindowPos2dvARB GTglWindowPos2dvARB
@@ -3320,28 +3320,28 @@ GT_EXTERN int GTExistsGlArbWindowPos;
 #define glWindowPos3sARB GTglWindowPos3sARB
 #define glWindowPos3svARB GTglWindowPos3svARB
 
-GT_EXTERN void GTglWindowPos2dARB (GLdouble dX, GLdouble dY);
-GT_EXTERN void GTglWindowPos2dvARB (const GLdouble* adXY);
-GT_EXTERN void GTglWindowPos2fARB (GLfloat fX, GLfloat fY);
-GT_EXTERN void GTglWindowPos2fvARB (const GLfloat* afXY);
-GT_EXTERN void GTglWindowPos2iARB (GLint iX, GLint iY);
-GT_EXTERN void GTglWindowPos2ivARB (const GLint* aiXY);
-GT_EXTERN void GTglWindowPos2sARB (GLshort sX, GLshort sY);
-GT_EXTERN void GTglWindowPos2svARB (const GLshort* asXY);
-GT_EXTERN void GTglWindowPos3dARB (GLdouble dX, GLdouble dY, GLdouble dZ);
-GT_EXTERN void GTglWindowPos3dvARB (const GLdouble* adXYZ);
-GT_EXTERN void GTglWindowPos3fARB (GLfloat fX, GLfloat fY, GLfloat fZ);
-GT_EXTERN void GTglWindowPos3fvARB (const GLfloat* afXYZ);
-GT_EXTERN void GTglWindowPos3iARB (GLint iX, GLint iY, GLint iZ);
-GT_EXTERN void GTglWindowPos3ivARB (const GLint* aiXYZ);
-GT_EXTERN void GTglWindowPos3sARB (GLshort sX, GLshort sY, GLshort sZ);
-GT_EXTERN void GTglWindowPos3svARB (const GLshort* asXYZ);
+	GT_EXTERN void GTglWindowPos2dARB (GLdouble dX, GLdouble dY);
+	GT_EXTERN void GTglWindowPos2dvARB (const GLdouble* adXY);
+	GT_EXTERN void GTglWindowPos2fARB (GLfloat fX, GLfloat fY);
+	GT_EXTERN void GTglWindowPos2fvARB (const GLfloat* afXY);
+	GT_EXTERN void GTglWindowPos2iARB (GLint iX, GLint iY);
+	GT_EXTERN void GTglWindowPos2ivARB (const GLint* aiXY);
+	GT_EXTERN void GTglWindowPos2sARB (GLshort sX, GLshort sY);
+	GT_EXTERN void GTglWindowPos2svARB (const GLshort* asXY);
+	GT_EXTERN void GTglWindowPos3dARB (GLdouble dX, GLdouble dY, GLdouble dZ);
+	GT_EXTERN void GTglWindowPos3dvARB (const GLdouble* adXYZ);
+	GT_EXTERN void GTglWindowPos3fARB (GLfloat fX, GLfloat fY, GLfloat fZ);
+	GT_EXTERN void GTglWindowPos3fvARB (const GLfloat* afXYZ);
+	GT_EXTERN void GTglWindowPos3iARB (GLint iX, GLint iY, GLint iZ);
+	GT_EXTERN void GTglWindowPos3ivARB (const GLint* aiXYZ);
+	GT_EXTERN void GTglWindowPos3sARB (GLshort sX, GLshort sY, GLshort sZ);
+	GT_EXTERN void GTglWindowPos3svARB (const GLshort* asXYZ);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 26) GL_ARB_vertex_program
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbVertexProgram;
+	GT_EXTERN int GTExistsGlArbVertexProgram;
 
 #define GL_COLOR_SUM_ARB                                            0x8458
 #define GL_VERTEX_PROGRAM_ARB                                       0x8620
@@ -3486,112 +3486,112 @@ GT_EXTERN int GTExistsGlArbVertexProgram;
 #define glVertexAttrib4usvARB GTglVertexAttrib4usvARB
 #define glVertexAttribPointerARB GTglVertexAttribPointerARB
 
-GT_EXTERN void GTglBindProgramARB (GLenum eTarget, GLuint uiProgram);
-GT_EXTERN void GTglDeleteProgramsARB (GLsizei iNumPrograms,
-    const GLuint* auiPrograms);
-GT_EXTERN void GTglDisableVertexAttribArrayARB (GLuint uiIndex);
-GT_EXTERN void GTglEnableVertexAttribArrayARB (GLuint uiIndex);
-GT_EXTERN void GTglGenProgramsARB (GLsizei iNumPrograms, GLuint* auiPrograms);
-GT_EXTERN void GTglGetProgramivARB (GLenum eTarget, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetProgramEnvParameterdvARB (GLenum eTarget,
-    GLuint uiIndex, GLdouble* adParam);
-GT_EXTERN void GTglGetProgramEnvParameterfvARB (GLenum eTarget,
-    GLuint uiIndex, GLfloat* afParam);
-GT_EXTERN void GTglGetProgramLocalParameterdvARB (GLenum eTarget,
-    GLuint uiIndex, GLdouble* adParam);
-GT_EXTERN void GTglGetProgramLocalParameterfvARB (GLenum eTarget,
-    GLuint uiIndex, GLfloat* afParam);
-GT_EXTERN void GTglGetProgramStringARB (GLenum eTarget, GLenum ePName,
-    GLvoid* pvString);
-GT_EXTERN void GTglGetVertexAttribdvARB (GLuint uiIndex, GLenum ePName,
-    GLdouble* adParam);
-GT_EXTERN void GTglGetVertexAttribfvARB (GLuint uiIndex, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetVertexAttribivARB (GLuint uiIndex, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetVertexAttribPointervARB (GLuint uiIndex, GLenum ePName,
-    GLvoid** apvPointer);
-GT_EXTERN GLboolean GTglIsProgramARB (GLuint uiProgram);
-GT_EXTERN void GTglProgramEnvParameter4dARB (GLenum eTarget, GLuint uiIndex,
-    GLdouble dX, GLdouble dY, GLdouble dZ, GLdouble dW);
-GT_EXTERN void GTglProgramEnvParameter4dvARB (GLenum eTarget, GLuint uiIndex,
-    const GLdouble* adXYZW);
-GT_EXTERN void GTglProgramEnvParameter4fARB (GLenum eTarget, GLuint uiIndex,
-    GLfloat fX, GLfloat fY, GLfloat fZ, GLfloat fW);
-GT_EXTERN void GTglProgramEnvParameter4fvARB (GLenum eTarget, GLuint uiIndex,
-    const GLfloat* afXYZW);
-GT_EXTERN void GTglProgramLocalParameter4dARB (GLenum eTarget, GLuint uiIndex,
-    GLdouble dX, GLdouble dY, GLdouble dZ, GLdouble dW);
-GT_EXTERN void GTglProgramLocalParameter4dvARB (GLenum eTarget,
-    GLuint uiIndex, const GLdouble* adXYZW);
-GT_EXTERN void GTglProgramLocalParameter4fARB (GLenum eTarget, GLuint uiIndex,
-    GLfloat fX, GLfloat fY, GLfloat fZ, GLfloat fW);
-GT_EXTERN void GTglProgramLocalParameter4fvARB (GLenum eTarget,
-    GLuint uiIndex, const GLfloat* afXYZW);
-GT_EXTERN void GTglProgramStringARB (GLenum eTarget, GLenum eFormat,
-    GLsizei iLength, const GLvoid* pvString);
-GT_EXTERN void GTglVertexAttrib1dARB (GLuint uiIndex, GLdouble dX);
-GT_EXTERN void GTglVertexAttrib1dvARB (GLuint uiIndex, const GLdouble* pdX);
-GT_EXTERN void GTglVertexAttrib1fARB (GLuint uiIndex, GLfloat fX);
-GT_EXTERN void GTglVertexAttrib1fvARB (GLuint uiIndex, const GLfloat* pfX);
-GT_EXTERN void GTglVertexAttrib1sARB (GLuint uiIndex, GLshort sX);
-GT_EXTERN void GTglVertexAttrib1svARB (GLuint uiIndex, const GLshort* psX);
-GT_EXTERN void GTglVertexAttrib2dARB (GLuint uiIndex, GLdouble dX,
-    GLdouble dY);
-GT_EXTERN void GTglVertexAttrib2dvARB (GLuint uiIndex, const GLdouble* adXY);
-GT_EXTERN void GTglVertexAttrib2fARB (GLuint uiIndex, GLfloat fX, GLfloat fY);
-GT_EXTERN void GTglVertexAttrib2fvARB (GLuint uiIndex, const GLfloat* afXY);
-GT_EXTERN void GTglVertexAttrib2sARB (GLuint uiIndex, GLshort sX, GLshort sY);
-GT_EXTERN void GTglVertexAttrib2svARB (GLuint uiIndex, const GLshort* asXY);
-GT_EXTERN void GTglVertexAttrib3dARB (GLuint uiIndex, GLdouble dX,
-    GLdouble dY, GLdouble dZ);
-GT_EXTERN void GTglVertexAttrib3dvARB (GLuint uiIndex, const GLdouble* adXYZ);
-GT_EXTERN void GTglVertexAttrib3fARB (GLuint uiIndex, GLfloat fX, GLfloat fY,
-    GLfloat fZ);
-GT_EXTERN void GTglVertexAttrib3fvARB (GLuint uiIndex, const GLfloat* afXYZ);
-GT_EXTERN void GTglVertexAttrib3sARB (GLuint uiIndex, GLshort sX, GLshort sY,
-    GLshort sZ);
-GT_EXTERN void GTglVertexAttrib3svARB (GLuint uiIndex, const GLshort* asXYZ);
-GT_EXTERN void GTglVertexAttrib4NbvARB (GLuint uiIndex, const GLbyte* acXYZW);
-GT_EXTERN void GTglVertexAttrib4NivARB (GLuint uiIndex, const GLint* aiXYZW);
-GT_EXTERN void GTglVertexAttrib4NsvARB (GLuint uiIndex,
-    const GLshort* asXYZW);
-GT_EXTERN void GTglVertexAttrib4NubARB (GLuint uiIndex, GLubyte ucX,
-    GLubyte ucY, GLubyte ucZ, GLubyte ucW);
-GT_EXTERN void GTglVertexAttrib4NubvARB (GLuint uiIndex,
-    const GLubyte* aucXYZW);
-GT_EXTERN void GTglVertexAttrib4NuivARB (GLuint uiIndex,
-    const GLuint* auiXYZW);
-GT_EXTERN void GTglVertexAttrib4NusvARB (GLuint uiIndex,
-    const GLushort* ausXYZW);
-GT_EXTERN void GTglVertexAttrib4bvARB (GLuint uiIndex, const GLbyte* acXYZW);
-GT_EXTERN void GTglVertexAttrib4dARB (GLuint uiIndex, GLdouble dX,
-    GLdouble dY, GLdouble dZ, GLdouble dW);
-GT_EXTERN void GTglVertexAttrib4dvARB (GLuint uiIndex,
-    const GLdouble* adXYZW);
-GT_EXTERN void GTglVertexAttrib4fARB (GLuint uiIndex, GLfloat fX, GLfloat fY,
-    GLfloat fZ, GLfloat fW);
-GT_EXTERN void GTglVertexAttrib4fvARB (GLuint uiIndex, const GLfloat* afXYZW);
-GT_EXTERN void GTglVertexAttrib4ivARB (GLuint uiIndex, const GLint* aiXYZW);
-GT_EXTERN void GTglVertexAttrib4sARB (GLuint uiIndex, GLshort sX, GLshort sY,
-    GLshort sZ, GLshort sW);
-GT_EXTERN void GTglVertexAttrib4svARB (GLuint uiIndex, const GLshort* asXYZW);
-GT_EXTERN void GTglVertexAttrib4ubvARB (GLuint uiIndex,
-    const GLubyte* aucXYZW);
-GT_EXTERN void GTglVertexAttrib4uivARB (GLuint uiIndex,
-    const GLuint* auiXYZW);
-GT_EXTERN void GTglVertexAttrib4usvARB (GLuint uiIndex,
-    const GLushort* ausXYZW);
-GT_EXTERN void GTglVertexAttribPointerARB (GLuint uiIndex, GLint iSize,
-    GLenum eType, GLboolean ucNormalized, GLsizei iStride,
-    const GLvoid* pvPointer);
+	GT_EXTERN void GTglBindProgramARB (GLenum eTarget, GLuint uiProgram);
+	GT_EXTERN void GTglDeleteProgramsARB (GLsizei iNumPrograms,
+	                                      const GLuint* auiPrograms);
+	GT_EXTERN void GTglDisableVertexAttribArrayARB (GLuint uiIndex);
+	GT_EXTERN void GTglEnableVertexAttribArrayARB (GLuint uiIndex);
+	GT_EXTERN void GTglGenProgramsARB (GLsizei iNumPrograms, GLuint* auiPrograms);
+	GT_EXTERN void GTglGetProgramivARB (GLenum eTarget, GLenum ePName,
+	                                    GLint* aiParam);
+	GT_EXTERN void GTglGetProgramEnvParameterdvARB (GLenum eTarget,
+	        GLuint uiIndex, GLdouble* adParam);
+	GT_EXTERN void GTglGetProgramEnvParameterfvARB (GLenum eTarget,
+	        GLuint uiIndex, GLfloat* afParam);
+	GT_EXTERN void GTglGetProgramLocalParameterdvARB (GLenum eTarget,
+	        GLuint uiIndex, GLdouble* adParam);
+	GT_EXTERN void GTglGetProgramLocalParameterfvARB (GLenum eTarget,
+	        GLuint uiIndex, GLfloat* afParam);
+	GT_EXTERN void GTglGetProgramStringARB (GLenum eTarget, GLenum ePName,
+	                                        GLvoid* pvString);
+	GT_EXTERN void GTglGetVertexAttribdvARB (GLuint uiIndex, GLenum ePName,
+	        GLdouble* adParam);
+	GT_EXTERN void GTglGetVertexAttribfvARB (GLuint uiIndex, GLenum ePName,
+	        GLfloat* afParam);
+	GT_EXTERN void GTglGetVertexAttribivARB (GLuint uiIndex, GLenum ePName,
+	        GLint* aiParam);
+	GT_EXTERN void GTglGetVertexAttribPointervARB (GLuint uiIndex, GLenum ePName,
+	        GLvoid** apvPointer);
+	GT_EXTERN GLboolean GTglIsProgramARB (GLuint uiProgram);
+	GT_EXTERN void GTglProgramEnvParameter4dARB (GLenum eTarget, GLuint uiIndex,
+	        GLdouble dX, GLdouble dY, GLdouble dZ, GLdouble dW);
+	GT_EXTERN void GTglProgramEnvParameter4dvARB (GLenum eTarget, GLuint uiIndex,
+	        const GLdouble* adXYZW);
+	GT_EXTERN void GTglProgramEnvParameter4fARB (GLenum eTarget, GLuint uiIndex,
+	        GLfloat fX, GLfloat fY, GLfloat fZ, GLfloat fW);
+	GT_EXTERN void GTglProgramEnvParameter4fvARB (GLenum eTarget, GLuint uiIndex,
+	        const GLfloat* afXYZW);
+	GT_EXTERN void GTglProgramLocalParameter4dARB (GLenum eTarget, GLuint uiIndex,
+	        GLdouble dX, GLdouble dY, GLdouble dZ, GLdouble dW);
+	GT_EXTERN void GTglProgramLocalParameter4dvARB (GLenum eTarget,
+	        GLuint uiIndex, const GLdouble* adXYZW);
+	GT_EXTERN void GTglProgramLocalParameter4fARB (GLenum eTarget, GLuint uiIndex,
+	        GLfloat fX, GLfloat fY, GLfloat fZ, GLfloat fW);
+	GT_EXTERN void GTglProgramLocalParameter4fvARB (GLenum eTarget,
+	        GLuint uiIndex, const GLfloat* afXYZW);
+	GT_EXTERN void GTglProgramStringARB (GLenum eTarget, GLenum eFormat,
+	                                     GLsizei iLength, const GLvoid* pvString);
+	GT_EXTERN void GTglVertexAttrib1dARB (GLuint uiIndex, GLdouble dX);
+	GT_EXTERN void GTglVertexAttrib1dvARB (GLuint uiIndex, const GLdouble* pdX);
+	GT_EXTERN void GTglVertexAttrib1fARB (GLuint uiIndex, GLfloat fX);
+	GT_EXTERN void GTglVertexAttrib1fvARB (GLuint uiIndex, const GLfloat* pfX);
+	GT_EXTERN void GTglVertexAttrib1sARB (GLuint uiIndex, GLshort sX);
+	GT_EXTERN void GTglVertexAttrib1svARB (GLuint uiIndex, const GLshort* psX);
+	GT_EXTERN void GTglVertexAttrib2dARB (GLuint uiIndex, GLdouble dX,
+	                                      GLdouble dY);
+	GT_EXTERN void GTglVertexAttrib2dvARB (GLuint uiIndex, const GLdouble* adXY);
+	GT_EXTERN void GTglVertexAttrib2fARB (GLuint uiIndex, GLfloat fX, GLfloat fY);
+	GT_EXTERN void GTglVertexAttrib2fvARB (GLuint uiIndex, const GLfloat* afXY);
+	GT_EXTERN void GTglVertexAttrib2sARB (GLuint uiIndex, GLshort sX, GLshort sY);
+	GT_EXTERN void GTglVertexAttrib2svARB (GLuint uiIndex, const GLshort* asXY);
+	GT_EXTERN void GTglVertexAttrib3dARB (GLuint uiIndex, GLdouble dX,
+	                                      GLdouble dY, GLdouble dZ);
+	GT_EXTERN void GTglVertexAttrib3dvARB (GLuint uiIndex, const GLdouble* adXYZ);
+	GT_EXTERN void GTglVertexAttrib3fARB (GLuint uiIndex, GLfloat fX, GLfloat fY,
+	                                      GLfloat fZ);
+	GT_EXTERN void GTglVertexAttrib3fvARB (GLuint uiIndex, const GLfloat* afXYZ);
+	GT_EXTERN void GTglVertexAttrib3sARB (GLuint uiIndex, GLshort sX, GLshort sY,
+	                                      GLshort sZ);
+	GT_EXTERN void GTglVertexAttrib3svARB (GLuint uiIndex, const GLshort* asXYZ);
+	GT_EXTERN void GTglVertexAttrib4NbvARB (GLuint uiIndex, const GLbyte* acXYZW);
+	GT_EXTERN void GTglVertexAttrib4NivARB (GLuint uiIndex, const GLint* aiXYZW);
+	GT_EXTERN void GTglVertexAttrib4NsvARB (GLuint uiIndex,
+	                                        const GLshort* asXYZW);
+	GT_EXTERN void GTglVertexAttrib4NubARB (GLuint uiIndex, GLubyte ucX,
+	                                        GLubyte ucY, GLubyte ucZ, GLubyte ucW);
+	GT_EXTERN void GTglVertexAttrib4NubvARB (GLuint uiIndex,
+	        const GLubyte* aucXYZW);
+	GT_EXTERN void GTglVertexAttrib4NuivARB (GLuint uiIndex,
+	        const GLuint* auiXYZW);
+	GT_EXTERN void GTglVertexAttrib4NusvARB (GLuint uiIndex,
+	        const GLushort* ausXYZW);
+	GT_EXTERN void GTglVertexAttrib4bvARB (GLuint uiIndex, const GLbyte* acXYZW);
+	GT_EXTERN void GTglVertexAttrib4dARB (GLuint uiIndex, GLdouble dX,
+	                                      GLdouble dY, GLdouble dZ, GLdouble dW);
+	GT_EXTERN void GTglVertexAttrib4dvARB (GLuint uiIndex,
+	                                       const GLdouble* adXYZW);
+	GT_EXTERN void GTglVertexAttrib4fARB (GLuint uiIndex, GLfloat fX, GLfloat fY,
+	                                      GLfloat fZ, GLfloat fW);
+	GT_EXTERN void GTglVertexAttrib4fvARB (GLuint uiIndex, const GLfloat* afXYZW);
+	GT_EXTERN void GTglVertexAttrib4ivARB (GLuint uiIndex, const GLint* aiXYZW);
+	GT_EXTERN void GTglVertexAttrib4sARB (GLuint uiIndex, GLshort sX, GLshort sY,
+	                                      GLshort sZ, GLshort sW);
+	GT_EXTERN void GTglVertexAttrib4svARB (GLuint uiIndex, const GLshort* asXYZW);
+	GT_EXTERN void GTglVertexAttrib4ubvARB (GLuint uiIndex,
+	                                        const GLubyte* aucXYZW);
+	GT_EXTERN void GTglVertexAttrib4uivARB (GLuint uiIndex,
+	                                        const GLuint* auiXYZW);
+	GT_EXTERN void GTglVertexAttrib4usvARB (GLuint uiIndex,
+	                                        const GLushort* ausXYZW);
+	GT_EXTERN void GTglVertexAttribPointerARB (GLuint uiIndex, GLint iSize,
+	        GLenum eType, GLboolean ucNormalized, GLsizei iStride,
+	        const GLvoid* pvPointer);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 27) GL_ARB_fragment_program
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbFragmentProgram;
+	GT_EXTERN int GTExistsGlArbFragmentProgram;
 
 #define GL_FRAGMENT_PROGRAM_ARB                                     0x8804
 #define GL_PROGRAM_ALU_INSTRUCTIONS_ARB                             0x8805
@@ -3613,7 +3613,7 @@ GT_EXTERN int GTExistsGlArbFragmentProgram;
 //----------------------------------------------------------------------------
 // (ARB 28) GL_ARB_vertex_buffer_object
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbVertexBufferObject;
+	GT_EXTERN int GTExistsGlArbVertexBufferObject;
 
 #define GL_BUFFER_SIZE_ARB                                          0x8764
 #define GL_BUFFER_USAGE_ARB                                         0x8765
@@ -3647,8 +3647,8 @@ GT_EXTERN int GTExistsGlArbVertexBufferObject;
 #define GL_DYNAMIC_READ_ARB                                         0x88E9
 #define GL_DYNAMIC_COPY_ARB                                         0x88EA
 
-typedef ptrdiff_t GLintptrARB;
-typedef ptrdiff_t GLsizeiptrARB;
+	typedef ptrdiff_t GLintptrARB;
+	typedef ptrdiff_t GLsizeiptrARB;
 
 #define glBindBufferARB GTglBindBufferARB
 #define glDeleteBuffersARB GTglDeleteBuffersARB
@@ -3662,29 +3662,29 @@ typedef ptrdiff_t GLsizeiptrARB;
 #define glGetBufferParameterivARB GTglGetBufferParameterivARB
 #define glGetBufferPointervARB GTglGetBufferPointervARB
 
-GT_EXTERN void GTglBindBufferARB (GLenum eTarget, GLuint uiBuffer);
-GT_EXTERN void GTglDeleteBuffersARB (GLsizei iNumBuffers,
-    const GLuint* auiBuffer);
-GT_EXTERN void GTglGenBuffersARB (GLsizei iNumBuffers, GLuint* auiBuffer);
-GT_EXTERN GLboolean GTglIsBufferARB (GLuint uiBuffer);
-GT_EXTERN void GTglBufferDataARB (GLenum eTarget, GLsizeiptrARB piSize,
-    const GLvoid* pvData, GLenum eUsage);
-GT_EXTERN void GTglBufferSubDataARB (GLenum eTarget, GLintptrARB piOffset,
-    GLsizeiptrARB piSize, const GLvoid* pvData);
-GT_EXTERN void GTglGetBufferSubDataARB (GLenum eTarget, GLintptrARB piOffset,
-    GLsizeiptrARB piSize, GLvoid* pvData);
-GT_EXTERN GLvoid* GTglMapBufferARB (GLenum eTarget, GLenum eAccess);
-GT_EXTERN GLboolean GTglUnmapBufferARB (GLenum eTarget);
-GT_EXTERN void GTglGetBufferParameterivARB (GLenum eTarget, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetBufferPointervARB (GLenum eTarget, GLenum ePName,
-    GLvoid** apvParam);
+	GT_EXTERN void GTglBindBufferARB (GLenum eTarget, GLuint uiBuffer);
+	GT_EXTERN void GTglDeleteBuffersARB (GLsizei iNumBuffers,
+	                                     const GLuint* auiBuffer);
+	GT_EXTERN void GTglGenBuffersARB (GLsizei iNumBuffers, GLuint* auiBuffer);
+	GT_EXTERN GLboolean GTglIsBufferARB (GLuint uiBuffer);
+	GT_EXTERN void GTglBufferDataARB (GLenum eTarget, GLsizeiptrARB piSize,
+	                                  const GLvoid* pvData, GLenum eUsage);
+	GT_EXTERN void GTglBufferSubDataARB (GLenum eTarget, GLintptrARB piOffset,
+	                                     GLsizeiptrARB piSize, const GLvoid* pvData);
+	GT_EXTERN void GTglGetBufferSubDataARB (GLenum eTarget, GLintptrARB piOffset,
+	                                        GLsizeiptrARB piSize, GLvoid* pvData);
+	GT_EXTERN GLvoid* GTglMapBufferARB (GLenum eTarget, GLenum eAccess);
+	GT_EXTERN GLboolean GTglUnmapBufferARB (GLenum eTarget);
+	GT_EXTERN void GTglGetBufferParameterivARB (GLenum eTarget, GLenum ePName,
+	        GLint* aiParam);
+	GT_EXTERN void GTglGetBufferPointervARB (GLenum eTarget, GLenum ePName,
+	        GLvoid** apvParam);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 29) GL_ARB_occlusion_query
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbOcclusionQuery;
+	GT_EXTERN int GTExistsGlArbOcclusionQuery;
 
 #define GL_QUERY_COUNTER_BITS_ARB                                   0x8864
 #define GL_CURRENT_QUERY_ARB                                        0x8865
@@ -3701,24 +3701,24 @@ GT_EXTERN int GTExistsGlArbOcclusionQuery;
 #define glGetQueryObjectivARB GTglGetQueryObjectivARB
 #define glGetQueryObjectuivARB GTglGetQueryObjectuivARB
 
-GT_EXTERN void GTglGenQueriesARB (GLsizei iNumQueries, GLuint* auiID);
-GT_EXTERN void GTglDeleteQueriesARB (GLsizei iNumQueries,
-    const GLuint* auiID);
-GT_EXTERN GLboolean GTglIsQueryARB (GLuint uiID);
-GT_EXTERN void GTglBeginQueryARB (GLenum eTarget, GLuint uiID);
-GT_EXTERN void GTglEndQueryARB (GLenum eTarget);
-GT_EXTERN void GTglGetQueryivARB (GLenum eTarget, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetQueryObjectivARB (GLuint uiID, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetQueryObjectuivARB (GLuint uiID, GLenum ePName,
-    GLuint* auiParam);
+	GT_EXTERN void GTglGenQueriesARB (GLsizei iNumQueries, GLuint* auiID);
+	GT_EXTERN void GTglDeleteQueriesARB (GLsizei iNumQueries,
+	                                     const GLuint* auiID);
+	GT_EXTERN GLboolean GTglIsQueryARB (GLuint uiID);
+	GT_EXTERN void GTglBeginQueryARB (GLenum eTarget, GLuint uiID);
+	GT_EXTERN void GTglEndQueryARB (GLenum eTarget);
+	GT_EXTERN void GTglGetQueryivARB (GLenum eTarget, GLenum ePName,
+	                                  GLint* aiParam);
+	GT_EXTERN void GTglGetQueryObjectivARB (GLuint uiID, GLenum ePName,
+	                                        GLint* aiParam);
+	GT_EXTERN void GTglGetQueryObjectuivARB (GLuint uiID, GLenum ePName,
+	        GLuint* auiParam);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 29) GL_ARB_shader_objects
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbShaderObjects;
+	GT_EXTERN int GTExistsGlArbShaderObjects;
 
 #define GL_PROGRAM_OBJECT_ARB                                       0x8B40
 #define GL_SHADER_OBJECT_ARB                                        0x8B48
@@ -3755,8 +3755,8 @@ GT_EXTERN int GTExistsGlArbShaderObjects;
 #define GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB                     0x8B87
 #define GL_OBJECT_SHADER_SOURCE_LENGTH_ARB                          0x8B88
 
-typedef char GLcharARB;
-typedef unsigned int GLhandleARB;
+	typedef char GLcharARB;
+	typedef unsigned int GLhandleARB;
 
 #define glAttachObjectARB GTglAttachObjectARB
 #define glCompileShaderARB GTglCompileShaderARB
@@ -3798,79 +3798,79 @@ typedef unsigned int GLhandleARB;
 #define glUseProgramObjectARB GTglUseProgramObjectARB
 #define glValidateProgramARB GTglValidateProgramARB
 
-GT_EXTERN void GTglAttachObjectARB (GLhandleARB uiContainer,
-    GLhandleARB uiObject);
-GT_EXTERN void GTglCompileShaderARB (GLhandleARB uiShader);
-GT_EXTERN GLhandleARB GTglCreateProgramObjectARB ();
-GT_EXTERN GLhandleARB GTglCreateShaderObjectARB (GLenum eType);
-GT_EXTERN void GTglDeleteObjectARB (GLhandleARB uiObject);
-GT_EXTERN void GTglDetachObjectARB (GLhandleARB uiContainer,
-    GLhandleARB uiObject);
-GT_EXTERN void GTglGetActiveUniformARB (GLhandleARB uiProgram, GLuint uiIndex,
-    GLsizei iMaxLength, GLsizei* piLength, GLint* piSize, GLenum* peType,
-    GLcharARB* acName);
-GT_EXTERN void GTglGetAttachedObjectsARB (GLhandleARB uiContainer,
-    GLsizei iMaxCount, GLsizei* aiCount, GLhandleARB* auiObject);
-GT_EXTERN GLhandleARB GTglGetHandleARB (GLenum ePName);
-GT_EXTERN void GTglGetInfoLogARB (GLhandleARB uiObject, GLsizei iMaxLength,
-    GLsizei* piLength, GLcharARB* acInfoLog);
-GT_EXTERN void GTglGetObjectParameterfvARB (GLhandleARB uiObject,
-    GLenum ePName, GLfloat* afParam);
-GT_EXTERN void GTglGetObjectParameterivARB (GLhandleARB uiObject,
-    GLenum ePName, GLint* aiParam);
-GT_EXTERN void GTglGetShaderSourceARB (GLhandleARB uiObject,
-    GLsizei iMaxLength, GLsizei* piLength, GLcharARB* acSource);
-GT_EXTERN GLint GTglGetUniformLocationARB (GLhandleARB uiProgram,
-    const GLcharARB* acName);
-GT_EXTERN void GTglGetUniformfvARB (GLhandleARB uiProgram, GLint iLocation,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetUniformivARB (GLhandleARB uiProgram, GLint iLocation,
-    GLint* aiParam);
-GT_EXTERN void GTglLinkProgramARB (GLhandleARB uiProgram);
-GT_EXTERN void GTglShaderSourceARB (GLhandleARB uiShader, GLsizei iCount,
-    const GLcharARB** aacString, const GLint* aiLength);
-GT_EXTERN void GTglUniform1fARB (GLint iLocation, GLfloat fV0);
-GT_EXTERN void GTglUniform2fARB (GLint iLocation, GLfloat fV0, GLfloat fV1);
-GT_EXTERN void GTglUniform3fARB (GLint iLocation, GLfloat fV0, GLfloat fV1,
-    GLfloat fV2);
-GT_EXTERN void GTglUniform4fARB (GLint iLocation, GLfloat fV0, GLfloat fV1,
-    GLfloat fV2, GLfloat fV3);
-GT_EXTERN void GTglUniform1iARB (GLint iLocation, GLint iV0);
-GT_EXTERN void GTglUniform2iARB (GLint iLocation, GLint iV0, GLint iV1);
-GT_EXTERN void GTglUniform3iARB (GLint iLocation, GLint iV0, GLint iV1,
-    GLint iV2);
-GT_EXTERN void GTglUniform4iARB (GLint iLocation, GLint iV0, GLint iV1,
-    GLint iV2, GLint iV3);
-GT_EXTERN void GTglUniform1fvARB (GLint iLocation, GLsizei iCount,
-    const GLfloat* afValue);
-GT_EXTERN void GTglUniform2fvARB (GLint iLocation, GLsizei iCount,
-    const GLfloat* afValue);
-GT_EXTERN void GTglUniform3fvARB (GLint iLocation, GLsizei iCount,
-    const GLfloat* afValue);
-GT_EXTERN void GTglUniform4fvARB (GLint iLocation, GLsizei iCount,
-    const GLfloat* afValue);
-GT_EXTERN void GTglUniform1ivARB (GLint iLocation, GLsizei iCount,
-    const GLint* aiValue);
-GT_EXTERN void GTglUniform2ivARB (GLint iLocation, GLsizei iCount,
-    const GLint* aiValue);
-GT_EXTERN void GTglUniform3ivARB (GLint iLocation, GLsizei iCount,
-    const GLint* aiValue);
-GT_EXTERN void GTglUniform4ivARB (GLint iLocation, GLsizei iCount,
-    const GLint* aiValue);
-GT_EXTERN void GTglUniformMatrix2fvARB (GLint iLocation, GLsizei iCount,
-    GLboolean ucTranspose, const GLfloat* afValue);
-GT_EXTERN void GTglUniformMatrix3fvARB (GLint iLocation, GLsizei iCount,
-    GLboolean ucTranspose, const GLfloat* afValue);
-GT_EXTERN void GTglUniformMatrix4fvARB (GLint iLocation, GLsizei iCount,
-    GLboolean ucTranspose, const GLfloat* afValue);
-GT_EXTERN void GTglUseProgramObjectARB (GLhandleARB uiProgram);
-GT_EXTERN void GTglValidateProgramARB (GLhandleARB uiProgram);
+	GT_EXTERN void GTglAttachObjectARB (GLhandleARB uiContainer,
+	                                    GLhandleARB uiObject);
+	GT_EXTERN void GTglCompileShaderARB (GLhandleARB uiShader);
+	GT_EXTERN GLhandleARB GTglCreateProgramObjectARB ();
+	GT_EXTERN GLhandleARB GTglCreateShaderObjectARB (GLenum eType);
+	GT_EXTERN void GTglDeleteObjectARB (GLhandleARB uiObject);
+	GT_EXTERN void GTglDetachObjectARB (GLhandleARB uiContainer,
+	                                    GLhandleARB uiObject);
+	GT_EXTERN void GTglGetActiveUniformARB (GLhandleARB uiProgram, GLuint uiIndex,
+	                                        GLsizei iMaxLength, GLsizei* piLength, GLint* piSize, GLenum* peType,
+	                                        GLcharARB* acName);
+	GT_EXTERN void GTglGetAttachedObjectsARB (GLhandleARB uiContainer,
+	        GLsizei iMaxCount, GLsizei* aiCount, GLhandleARB* auiObject);
+	GT_EXTERN GLhandleARB GTglGetHandleARB (GLenum ePName);
+	GT_EXTERN void GTglGetInfoLogARB (GLhandleARB uiObject, GLsizei iMaxLength,
+	                                  GLsizei* piLength, GLcharARB* acInfoLog);
+	GT_EXTERN void GTglGetObjectParameterfvARB (GLhandleARB uiObject,
+	        GLenum ePName, GLfloat* afParam);
+	GT_EXTERN void GTglGetObjectParameterivARB (GLhandleARB uiObject,
+	        GLenum ePName, GLint* aiParam);
+	GT_EXTERN void GTglGetShaderSourceARB (GLhandleARB uiObject,
+	                                       GLsizei iMaxLength, GLsizei* piLength, GLcharARB* acSource);
+	GT_EXTERN GLint GTglGetUniformLocationARB (GLhandleARB uiProgram,
+	        const GLcharARB* acName);
+	GT_EXTERN void GTglGetUniformfvARB (GLhandleARB uiProgram, GLint iLocation,
+	                                    GLfloat* afParam);
+	GT_EXTERN void GTglGetUniformivARB (GLhandleARB uiProgram, GLint iLocation,
+	                                    GLint* aiParam);
+	GT_EXTERN void GTglLinkProgramARB (GLhandleARB uiProgram);
+	GT_EXTERN void GTglShaderSourceARB (GLhandleARB uiShader, GLsizei iCount,
+	                                    const GLcharARB** aacString, const GLint* aiLength);
+	GT_EXTERN void GTglUniform1fARB (GLint iLocation, GLfloat fV0);
+	GT_EXTERN void GTglUniform2fARB (GLint iLocation, GLfloat fV0, GLfloat fV1);
+	GT_EXTERN void GTglUniform3fARB (GLint iLocation, GLfloat fV0, GLfloat fV1,
+	                                 GLfloat fV2);
+	GT_EXTERN void GTglUniform4fARB (GLint iLocation, GLfloat fV0, GLfloat fV1,
+	                                 GLfloat fV2, GLfloat fV3);
+	GT_EXTERN void GTglUniform1iARB (GLint iLocation, GLint iV0);
+	GT_EXTERN void GTglUniform2iARB (GLint iLocation, GLint iV0, GLint iV1);
+	GT_EXTERN void GTglUniform3iARB (GLint iLocation, GLint iV0, GLint iV1,
+	                                 GLint iV2);
+	GT_EXTERN void GTglUniform4iARB (GLint iLocation, GLint iV0, GLint iV1,
+	                                 GLint iV2, GLint iV3);
+	GT_EXTERN void GTglUniform1fvARB (GLint iLocation, GLsizei iCount,
+	                                  const GLfloat* afValue);
+	GT_EXTERN void GTglUniform2fvARB (GLint iLocation, GLsizei iCount,
+	                                  const GLfloat* afValue);
+	GT_EXTERN void GTglUniform3fvARB (GLint iLocation, GLsizei iCount,
+	                                  const GLfloat* afValue);
+	GT_EXTERN void GTglUniform4fvARB (GLint iLocation, GLsizei iCount,
+	                                  const GLfloat* afValue);
+	GT_EXTERN void GTglUniform1ivARB (GLint iLocation, GLsizei iCount,
+	                                  const GLint* aiValue);
+	GT_EXTERN void GTglUniform2ivARB (GLint iLocation, GLsizei iCount,
+	                                  const GLint* aiValue);
+	GT_EXTERN void GTglUniform3ivARB (GLint iLocation, GLsizei iCount,
+	                                  const GLint* aiValue);
+	GT_EXTERN void GTglUniform4ivARB (GLint iLocation, GLsizei iCount,
+	                                  const GLint* aiValue);
+	GT_EXTERN void GTglUniformMatrix2fvARB (GLint iLocation, GLsizei iCount,
+	                                        GLboolean ucTranspose, const GLfloat* afValue);
+	GT_EXTERN void GTglUniformMatrix3fvARB (GLint iLocation, GLsizei iCount,
+	                                        GLboolean ucTranspose, const GLfloat* afValue);
+	GT_EXTERN void GTglUniformMatrix4fvARB (GLint iLocation, GLsizei iCount,
+	                                        GLboolean ucTranspose, const GLfloat* afValue);
+	GT_EXTERN void GTglUseProgramObjectARB (GLhandleARB uiProgram);
+	GT_EXTERN void GTglValidateProgramARB (GLhandleARB uiProgram);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 31) GL_ARB_vertex_shader
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbVertexShader;
+	GT_EXTERN int GTExistsGlArbVertexShader;
 
 #define GL_VERTEX_SHADER_ARB                                        0x8B31
 #define GL_MAX_VERTEX_UNIFORM_COMPONENTS_ARB                        0x8B4A
@@ -3884,19 +3884,19 @@ GT_EXTERN int GTExistsGlArbVertexShader;
 #define glGetActiveAttribARB GTglGetActiveAttribARB
 #define glGetAttribLocationARB GTglGetAttribLocationARB
 
-GT_EXTERN void GTglBindAttribLocationARB (GLhandleARB uiProgram,
-    GLuint uiIndex, const GLcharARB* acName);
-GT_EXTERN void GTglGetActiveAttribARB (GLhandleARB uiProgram, GLuint uiIndex,
-    GLsizei iMaxLength, GLsizei* piLength, GLint* piSize, GLenum* peType,
-    GLcharARB* acName);
-GT_EXTERN GLint GTglGetAttribLocationARB (GLhandleARB uiProgram,
-    const GLcharARB* acName);
+	GT_EXTERN void GTglBindAttribLocationARB (GLhandleARB uiProgram,
+	        GLuint uiIndex, const GLcharARB* acName);
+	GT_EXTERN void GTglGetActiveAttribARB (GLhandleARB uiProgram, GLuint uiIndex,
+	                                       GLsizei iMaxLength, GLsizei* piLength, GLint* piSize, GLenum* peType,
+	                                       GLcharARB* acName);
+	GT_EXTERN GLint GTglGetAttribLocationARB (GLhandleARB uiProgram,
+	        const GLcharARB* acName);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 32) GL_ARB_fragment_shader
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbFragmentShader;
+	GT_EXTERN int GTExistsGlArbFragmentShader;
 
 #define GL_FRAGMENT_SHADER_ARB                                      0x8B30
 #define GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB                      0x8B49
@@ -3906,7 +3906,7 @@ GT_EXTERN int GTExistsGlArbFragmentShader;
 //----------------------------------------------------------------------------
 // (ARB 33) GL_ARB_shading_language_100
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbShadingLanguage100;
+	GT_EXTERN int GTExistsGlArbShadingLanguage100;
 
 #define GL_SHADING_LANGUAGE_VERSION_ARB                             0x8B8C
 //----------------------------------------------------------------------------
@@ -3914,13 +3914,13 @@ GT_EXTERN int GTExistsGlArbShadingLanguage100;
 //----------------------------------------------------------------------------
 // (ARB 34) GL_ARB_texture_non_power_of_two
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbTextureNonpowerOfTwo;
+	GT_EXTERN int GTExistsGlArbTextureNonpowerOfTwo;
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 35) GL_ARB_point_sprite
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbPointSprite;
+	GT_EXTERN int GTExistsGlArbPointSprite;
 
 #define GL_POINT_SPRITE_ARB                                         0x8861
 #define GL_COORD_REPLACE_ARB                                        0x8862
@@ -3929,13 +3929,13 @@ GT_EXTERN int GTExistsGlArbPointSprite;
 //----------------------------------------------------------------------------
 // (ARB 36) GL_ARB_fragment_program_shadow
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbFragmentProgramShadow;
+	GT_EXTERN int GTExistsGlArbFragmentProgramShadow;
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 37) GL_ARB_draw_buffers
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbDrawBuffers;
+	GT_EXTERN int GTExistsGlArbDrawBuffers;
 
 #define GL_MAX_DRAW_BUFFERS_ARB                                     0x8824
 #define GL_DRAW_BUFFER0_ARB                                         0x8825
@@ -3957,14 +3957,14 @@ GT_EXTERN int GTExistsGlArbDrawBuffers;
 
 #define glDrawBuffersARB GTglDrawBuffersARB
 
-GT_EXTERN void GTglDrawBuffersARB (GLsizei iNumBuffers,
-    const GLenum* aeBuffer);
+	GT_EXTERN void GTglDrawBuffersARB (GLsizei iNumBuffers,
+	                                   const GLenum* aeBuffer);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 38) GL_ARB_texture_rectangle
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbTextureRectangle;
+	GT_EXTERN int GTExistsGlArbTextureRectangle;
 
 #define GL_TEXTURE_RECTANGLE_ARB                                    0x84F5
 #define GL_TEXTURE_BINDING_RECTANGLE_ARB                            0x84F6
@@ -3975,7 +3975,7 @@ GT_EXTERN int GTExistsGlArbTextureRectangle;
 //----------------------------------------------------------------------------
 // (ARB 39) GL_ARB_color_buffer_float
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbColorBufferFloat;
+	GT_EXTERN int GTExistsGlArbColorBufferFloat;
 
 #define GL_RGBA_FLOAT_MODE_ARB                                      0x8820
 #define GL_CLAMP_VERTEX_COLOR_ARB                                   0x891A
@@ -3985,13 +3985,13 @@ GT_EXTERN int GTExistsGlArbColorBufferFloat;
 
 #define glClampColorARB GTglClampColorARB
 
-GT_EXTERN void GTglClampColorARB (GLenum eTarget, GLenum eClamp);
+	GT_EXTERN void GTglClampColorARB (GLenum eTarget, GLenum eClamp);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 40) GL_ARB_half_float_pixel
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbHalfFloatPixel;
+	GT_EXTERN int GTExistsGlArbHalfFloatPixel;
 
 #define GL_HALF_FLOAT_ARB                                           0x140B
 //----------------------------------------------------------------------------
@@ -3999,7 +3999,7 @@ GT_EXTERN int GTExistsGlArbHalfFloatPixel;
 //----------------------------------------------------------------------------
 // (ARB 41) GL_ARB_texture_float
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbTextureFloat;
+	GT_EXTERN int GTExistsGlArbTextureFloat;
 
 #define GL_TEXTURE_RED_TYPE_ARB                                     0x8C10
 #define GL_TEXTURE_GREEN_TYPE_ARB                                   0x8C11
@@ -4026,7 +4026,7 @@ GT_EXTERN int GTExistsGlArbTextureFloat;
 //----------------------------------------------------------------------------
 // (ARB 42) GL_ARB_pixel_buffer_object
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbPixelBufferObject;
+	GT_EXTERN int GTExistsGlArbPixelBufferObject;
 
 #define GL_PIXEL_PACK_BUFFER_ARB                                    0x88EB
 #define GL_PIXEL_UNPACK_BUFFER_ARB                                  0x88EC
@@ -4037,7 +4037,7 @@ GT_EXTERN int GTExistsGlArbPixelBufferObject;
 //----------------------------------------------------------------------------
 // (ARB 50) GL_ARB_map_buffer_range
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlArbMapBufferRange;
+	GT_EXTERN int GTExistsGlArbMapBufferRange;
 
 #define GL_MAP_READ_BIT                                             0x0001
 #define GL_MAP_WRITE_BIT                                            0x0002
@@ -4049,10 +4049,10 @@ GT_EXTERN int GTExistsGlArbMapBufferRange;
 #define glMapBufferRange GTglMapBufferRange
 #define glFlushMappedBufferRange GTglFlushMappedBufferRange
 
-GT_EXTERN GLvoid* GTglMapBufferRange (GLenum target, GLintptr offset,
-    GLsizeiptr length, GLbitfield access);
-GT_EXTERN void GTglFlushMappedBufferRange (GLenum target, GLintptr offset,
-    GLsizeiptr length);
+	GT_EXTERN GLvoid* GTglMapBufferRange (GLenum target, GLintptr offset,
+	                                      GLsizeiptr length, GLbitfield access);
+	GT_EXTERN void GTglFlushMappedBufferRange (GLenum target, GLintptr offset,
+	        GLsizeiptr length);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
@@ -4089,7 +4089,7 @@ GT_EXTERN void GTglFlushMappedBufferRange (GLenum target, GLintptr offset,
 //----------------------------------------------------------------------------
 // (EXT 001) GL_EXT_abgr
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtABGR;
+	GT_EXTERN int GTExistsGlExtABGR;
 
 #define GL_ABGR_EXT                                                 0x8000
 //----------------------------------------------------------------------------
@@ -4097,7 +4097,7 @@ GT_EXTERN int GTExistsGlExtABGR;
 //----------------------------------------------------------------------------
 // (EXT 002) GL_EXT_blend_color
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtBlendColor;
+	GT_EXTERN int GTExistsGlExtBlendColor;
 
 #define GL_CONSTANT_COLOR_EXT                                       0x8001
 #define GL_ONE_MINUS_CONSTANT_COLOR_EXT                             0x8002
@@ -4107,14 +4107,14 @@ GT_EXTERN int GTExistsGlExtBlendColor;
 
 #define glBlendColorEXT GTglBlendColorEXT
 
-GT_EXTERN void GTglBlendColorEXT (GLclampf fRed, GLclampf fGreen,
-    GLclampf fBlue, GLclampf fAlpha);
+	GT_EXTERN void GTglBlendColorEXT (GLclampf fRed, GLclampf fGreen,
+	                                  GLclampf fBlue, GLclampf fAlpha);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 003) GL_EXT_polygon_offset
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtPolygonOffset;
+	GT_EXTERN int GTExistsGlExtPolygonOffset;
 
 #define GL_POLYGON_OFFSET_EXT                                       0x8037
 #define GL_POLYGON_OFFSET_FACTOR_EXT                                0x8038
@@ -4122,13 +4122,13 @@ GT_EXTERN int GTExistsGlExtPolygonOffset;
 
 #define glPolygonOffsetEXT GTglPolygonOffsetEXT
 
-GT_EXTERN void GTglPolygonOffsetEXT (GLfloat fScale, GLfloat fBias);
+	GT_EXTERN void GTglPolygonOffsetEXT (GLfloat fScale, GLfloat fBias);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 004) GL_EXT_texture
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtTexture;
+	GT_EXTERN int GTExistsGlExtTexture;
 
 #define GL_ALPHA4_EXT                                               0x803B
 #define GL_ALPHA8_EXT                                               0x803C
@@ -4178,7 +4178,7 @@ GT_EXTERN int GTExistsGlExtTexture;
 //----------------------------------------------------------------------------
 // (EXT 006) GL_EXT_texture3D
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtTexture3D;
+	GT_EXTERN int GTExistsGlExtTexture3D;
 
 #define GL_PACK_SKIP_IMAGES_EXT                                     0x806B
 #define GL_PACK_IMAGE_HEIGHT_EXT                                    0x806C
@@ -4193,35 +4193,35 @@ GT_EXTERN int GTExistsGlExtTexture3D;
 #define glTexImage3DEXT GTglTexImage3DEXT
 #define glTexSubImage3DEXT GTglTexSubImage3DEXT
 
-GT_EXTERN void GTglTexImage3DEXT (GLenum eTarget, GLint iLevel,
-    GLint iInternalFormat, GLsizei iWidth, GLsizei iHeight, GLsizei iDepth,
-    GLint iBorder, GLenum eFormat, GLenum eType, const GLvoid* pvData);
-GT_EXTERN void GTglTexSubImage3DEXT (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iYOffset, GLint iZOffset, GLsizei iWidth,
-    GLsizei iHeight, GLsizei iDepth, GLenum eFormat, GLenum eType,
-    const GLvoid* pvData);
+	GT_EXTERN void GTglTexImage3DEXT (GLenum eTarget, GLint iLevel,
+	                                  GLint iInternalFormat, GLsizei iWidth, GLsizei iHeight, GLsizei iDepth,
+	                                  GLint iBorder, GLenum eFormat, GLenum eType, const GLvoid* pvData);
+	GT_EXTERN void GTglTexSubImage3DEXT (GLenum eTarget, GLint iLevel,
+	                                     GLint iXOffset, GLint iYOffset, GLint iZOffset, GLsizei iWidth,
+	                                     GLsizei iHeight, GLsizei iDepth, GLenum eFormat, GLenum eType,
+	                                     const GLvoid* pvData);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 009) GL_EXT_subtexture
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtSubtexture;
+	GT_EXTERN int GTExistsGlExtSubtexture;
 
 #define glTexSubImage1DEXT GTglTexSubImage1DEXT
 #define glTexSubImage2DEXT GTglTexSubImage2DEXT
 
-GT_EXTERN void GTglTexSubImage1DEXT (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLsizei iWidth, GLenum eFormat, GLenum eType,
-    const GLvoid* pvData);
-GT_EXTERN void GTglTexSubImage2DEXT (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iYOffset, GLsizei iWidth, GLsizei iHeight,
-    GLenum eFormat, GLenum eType, const GLvoid* pvData);
+	GT_EXTERN void GTglTexSubImage1DEXT (GLenum eTarget, GLint iLevel,
+	                                     GLint iXOffset, GLsizei iWidth, GLenum eFormat, GLenum eType,
+	                                     const GLvoid* pvData);
+	GT_EXTERN void GTglTexSubImage2DEXT (GLenum eTarget, GLint iLevel,
+	                                     GLint iXOffset, GLint iYOffset, GLsizei iWidth, GLsizei iHeight,
+	                                     GLenum eFormat, GLenum eType, const GLvoid* pvData);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 010) GL_EXT_copy_texture
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtCopyTexture;
+	GT_EXTERN int GTExistsGlExtCopyTexture;
 
 #define glCopyTexImage1DEXT GTglCopyTexImage1DEXT
 #define glCopyTexImage2DEXT GTglCopyTexImage2DEXT
@@ -4229,26 +4229,26 @@ GT_EXTERN int GTExistsGlExtCopyTexture;
 #define glCopyTexSubImage2DEXT GTglCopyTexSubImage2DEXT
 #define glCopyTexSubImage3DEXT GTglCopyTexSubImage3DEXT
 
-GT_EXTERN void GTglCopyTexImage1DEXT (GLenum eTarget, GLint iLevel,
-    GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth,
-    GLint iBorder);
-GT_EXTERN void GTglCopyTexImage2DEXT (GLenum eTarget, GLint iLevel,
-    GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth,
-    GLsizei iHeight, GLint iBorder);
-GT_EXTERN void GTglCopyTexSubImage1DEXT (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iX, GLint iY, GLsizei iWidth);
-GT_EXTERN void GTglCopyTexSubImage2DEXT (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iYOffset, GLint iX, GLint iY, GLsizei iWidth,
-    GLsizei iHeight);
-GT_EXTERN void GTglCopyTexSubImage3DEXT (GLenum eTarget, GLint iLevel,
-    GLint iXOffset, GLint iYOffset, GLint iZOffset, GLint iX, GLint iY,
-    GLsizei iWidth, GLsizei iHeight);
+	GT_EXTERN void GTglCopyTexImage1DEXT (GLenum eTarget, GLint iLevel,
+	                                      GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth,
+	                                      GLint iBorder);
+	GT_EXTERN void GTglCopyTexImage2DEXT (GLenum eTarget, GLint iLevel,
+	                                      GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth,
+	                                      GLsizei iHeight, GLint iBorder);
+	GT_EXTERN void GTglCopyTexSubImage1DEXT (GLenum eTarget, GLint iLevel,
+	        GLint iXOffset, GLint iX, GLint iY, GLsizei iWidth);
+	GT_EXTERN void GTglCopyTexSubImage2DEXT (GLenum eTarget, GLint iLevel,
+	        GLint iXOffset, GLint iYOffset, GLint iX, GLint iY, GLsizei iWidth,
+	        GLsizei iHeight);
+	GT_EXTERN void GTglCopyTexSubImage3DEXT (GLenum eTarget, GLint iLevel,
+	        GLint iXOffset, GLint iYOffset, GLint iZOffset, GLint iX, GLint iY,
+	        GLsizei iWidth, GLsizei iHeight);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 011) GL_EXT_histogram
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtHistogram;
+	GT_EXTERN int GTExistsGlExtHistogram;
 
 #define GL_HISTOGRAM_EXT                                            0x8024
 #define GL_PROXY_HISTOGRAM_EXT                                      0x8025
@@ -4276,30 +4276,30 @@ GT_EXTERN int GTExistsGlExtHistogram;
 #define glResetHistogramEXT GTglResetHistogramEXT
 #define glResetMinmaxEXT GTglResetMinmaxEXT
 
-GT_EXTERN void GTglGetHistogramEXT (GLenum eTarget, GLboolean ucReset,
-    GLenum eFormat, GLenum eType, GLvoid* pvValues);
-GT_EXTERN void GTglGetHistogramParameterfvEXT (GLenum eTarget, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetHistogramParameterivEXT (GLenum eTarget, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglGetMinmaxEXT (GLenum eTarget, GLboolean ucReset,
-    GLenum eFormat, GLenum eType, GLvoid* pvValues);
-GT_EXTERN void GTglGetMinmaxParameterfvEXT (GLenum eTarget, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetMinmaxParameterivEXT (GLenum eTarget, GLenum ePName,
-    GLint* aiParam);
-GT_EXTERN void GTglHistogramEXT (GLenum eTarget, GLsizei iWidth,
-    GLenum eInternalFormat, GLboolean ucSink);
-GT_EXTERN void GTglMinmaxEXT (GLenum eTarget, GLenum eInternalFormat,
-    GLboolean ucSink);
-GT_EXTERN void GTglResetHistogramEXT (GLenum eTarget);
-GT_EXTERN void GTglResetMinmaxEXT (GLenum eTarget);
+	GT_EXTERN void GTglGetHistogramEXT (GLenum eTarget, GLboolean ucReset,
+	                                    GLenum eFormat, GLenum eType, GLvoid* pvValues);
+	GT_EXTERN void GTglGetHistogramParameterfvEXT (GLenum eTarget, GLenum ePName,
+	        GLfloat* afParam);
+	GT_EXTERN void GTglGetHistogramParameterivEXT (GLenum eTarget, GLenum ePName,
+	        GLint* aiParam);
+	GT_EXTERN void GTglGetMinmaxEXT (GLenum eTarget, GLboolean ucReset,
+	                                 GLenum eFormat, GLenum eType, GLvoid* pvValues);
+	GT_EXTERN void GTglGetMinmaxParameterfvEXT (GLenum eTarget, GLenum ePName,
+	        GLfloat* afParam);
+	GT_EXTERN void GTglGetMinmaxParameterivEXT (GLenum eTarget, GLenum ePName,
+	        GLint* aiParam);
+	GT_EXTERN void GTglHistogramEXT (GLenum eTarget, GLsizei iWidth,
+	                                 GLenum eInternalFormat, GLboolean ucSink);
+	GT_EXTERN void GTglMinmaxEXT (GLenum eTarget, GLenum eInternalFormat,
+	                              GLboolean ucSink);
+	GT_EXTERN void GTglResetHistogramEXT (GLenum eTarget);
+	GT_EXTERN void GTglResetMinmaxEXT (GLenum eTarget);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 012) GL_EXT_convolution
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtConvolution;
+	GT_EXTERN int GTExistsGlExtConvolution;
 
 #define GL_CONVOLUTION_1D_EXT                                       0x8010
 #define GL_CONVOLUTION_2D_EXT                                       0x8011
@@ -4336,42 +4336,42 @@ GT_EXTERN int GTExistsGlExtConvolution;
 #define glGetSeparableFilterEXT GTglGetSeparableFilterEXT
 #define glSeparableFilter2DEXT GTglSeparableFilter2DEXT
 
-GT_EXTERN void GTglConvolutionFilter1DEXT (GLenum eTarget,
-    GLenum eInternalFormat, GLsizei iWidth, GLenum eFormat, GLenum eType,
-    const GLvoid* pvImage);
-GT_EXTERN void GTglConvolutionFilter2DEXT (GLenum eTarget,
-    GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLenum eFormat,
-    GLenum eType, const GLvoid* pvImage);
-GT_EXTERN void GTglConvolutionParameterfEXT (GLenum eTarget, GLenum ePName,
-    GLfloat fParam);
-GT_EXTERN void GTglConvolutionParameterfvEXT (GLenum eTarget, GLenum ePName,
-    const GLfloat* afParam);
-GT_EXTERN void GTglConvolutionParameteriEXT (GLenum eTarget, GLenum ePName,
-    GLint iParam);
-GT_EXTERN void GTglConvolutionParameterivEXT (GLenum eTarget, GLenum ePName,
-    const GLint* aiParam);
-GT_EXTERN void GTglCopyConvolutionFilter1DEXT (GLenum eTarget,
-    GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth);
-GT_EXTERN void GTglCopyConvolutionFilter2DEXT (GLenum eTarget,
-    GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth,
-    GLsizei iHeight);
-GT_EXTERN void GTglGetConvolutionFilterEXT (GLenum eTarget, GLenum eFormat,
-    GLenum eType, GLvoid* pvImage);
-GT_EXTERN void GTglGetConvolutionParameterfvEXT (GLenum eTarget,
-    GLenum ePName, GLfloat* afParam);
-GT_EXTERN void GTglGetConvolutionParameterivEXT (GLenum eTarget,
-    GLenum ePName, GLint* aiParam);
-GT_EXTERN void GTglGetSeparableFilterEXT (GLenum eTarget, GLenum eFormat,
-    GLenum eType, GLvoid* pvRow, GLvoid* pvColumn, GLvoid* pvSpan);
-GT_EXTERN void GTglSeparableFilter2DEXT (GLenum eTarget,
-    GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLenum eFormat,
-    GLenum eType, const GLvoid* pvRow, const GLvoid* pvColumn);
+	GT_EXTERN void GTglConvolutionFilter1DEXT (GLenum eTarget,
+	        GLenum eInternalFormat, GLsizei iWidth, GLenum eFormat, GLenum eType,
+	        const GLvoid* pvImage);
+	GT_EXTERN void GTglConvolutionFilter2DEXT (GLenum eTarget,
+	        GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLenum eFormat,
+	        GLenum eType, const GLvoid* pvImage);
+	GT_EXTERN void GTglConvolutionParameterfEXT (GLenum eTarget, GLenum ePName,
+	        GLfloat fParam);
+	GT_EXTERN void GTglConvolutionParameterfvEXT (GLenum eTarget, GLenum ePName,
+	        const GLfloat* afParam);
+	GT_EXTERN void GTglConvolutionParameteriEXT (GLenum eTarget, GLenum ePName,
+	        GLint iParam);
+	GT_EXTERN void GTglConvolutionParameterivEXT (GLenum eTarget, GLenum ePName,
+	        const GLint* aiParam);
+	GT_EXTERN void GTglCopyConvolutionFilter1DEXT (GLenum eTarget,
+	        GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth);
+	GT_EXTERN void GTglCopyConvolutionFilter2DEXT (GLenum eTarget,
+	        GLenum eInternalFormat, GLint iX, GLint iY, GLsizei iWidth,
+	        GLsizei iHeight);
+	GT_EXTERN void GTglGetConvolutionFilterEXT (GLenum eTarget, GLenum eFormat,
+	        GLenum eType, GLvoid* pvImage);
+	GT_EXTERN void GTglGetConvolutionParameterfvEXT (GLenum eTarget,
+	        GLenum ePName, GLfloat* afParam);
+	GT_EXTERN void GTglGetConvolutionParameterivEXT (GLenum eTarget,
+	        GLenum ePName, GLint* aiParam);
+	GT_EXTERN void GTglGetSeparableFilterEXT (GLenum eTarget, GLenum eFormat,
+	        GLenum eType, GLvoid* pvRow, GLvoid* pvColumn, GLvoid* pvSpan);
+	GT_EXTERN void GTglSeparableFilter2DEXT (GLenum eTarget,
+	        GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight, GLenum eFormat,
+	        GLenum eType, const GLvoid* pvRow, const GLvoid* pvColumn);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 018) GL_EXT_cmyka
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtCMYKA;
+	GT_EXTERN int GTExistsGlExtCMYKA;
 
 #define GL_CMYK_EXT                                                 0x800C
 #define GL_CMYKA_EXT                                                0x800D
@@ -4382,7 +4382,7 @@ GT_EXTERN int GTExistsGlExtCMYKA;
 //----------------------------------------------------------------------------
 // (EXT 020) GL_EXT_texture3D
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtTextureObject;
+	GT_EXTERN int GTExistsGlExtTextureObject;
 
 #define GL_TEXTURE_PRIORITY_EXT                                     0x8066
 #define GL_TEXTURE_RESIDENT_EXT                                     0x8067
@@ -4397,21 +4397,21 @@ GT_EXTERN int GTExistsGlExtTextureObject;
 #define glIsTextureEXT GTglIsTextureEXT
 #define glPrioritizeTexturesEXT GTglPrioritizeTexturesEXT
 
-GT_EXTERN GLboolean GTglAreTexturesResidentEXT (GLsizei iNumTextures,
-    const GLuint* auiTextures, GLboolean* aucResidences);
-GT_EXTERN void GTglBindTextureEXT (GLenum eTarget, GLuint uiTexture);
-GT_EXTERN void GTglDeleteTexturesEXT (GLsizei iNumTextures,
-    const GLuint* auiTextures);
-GT_EXTERN void GTglGenTexturesEXT (GLsizei iNumTextures, GLuint* auiTexture);
-GT_EXTERN GLboolean GTglIsTextureEXT (GLuint uiTexture);
-GT_EXTERN void GTglPrioritizeTexturesEXT (GLsizei iNumTextures,
-    const GLuint* auiTextures, const GLclampf* afPriorities);
+	GT_EXTERN GLboolean GTglAreTexturesResidentEXT (GLsizei iNumTextures,
+	        const GLuint* auiTextures, GLboolean* aucResidences);
+	GT_EXTERN void GTglBindTextureEXT (GLenum eTarget, GLuint uiTexture);
+	GT_EXTERN void GTglDeleteTexturesEXT (GLsizei iNumTextures,
+	                                      const GLuint* auiTextures);
+	GT_EXTERN void GTglGenTexturesEXT (GLsizei iNumTextures, GLuint* auiTexture);
+	GT_EXTERN GLboolean GTglIsTextureEXT (GLuint uiTexture);
+	GT_EXTERN void GTglPrioritizeTexturesEXT (GLsizei iNumTextures,
+	        const GLuint* auiTextures, const GLclampf* afPriorities);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 023) GL_EXT_packed_pixels
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtPackedPixels;
+	GT_EXTERN int GTExistsGlExtPackedPixels;
 
 #define GL_UNSIGNED_BYTE_3_3_2_EXT                                  0x8032
 #define GL_UNSIGNED_SHORT_4_4_4_4_EXT                               0x8033
@@ -4423,7 +4423,7 @@ GT_EXTERN int GTExistsGlExtPackedPixels;
 //----------------------------------------------------------------------------
 // (EXT 027) GL_EXT_rescale_normal
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtRescaleNormal;
+	GT_EXTERN int GTExistsGlExtRescaleNormal;
 
 #define GL_RESCALE_NORMAL_EXT                                       0x803A
 //----------------------------------------------------------------------------
@@ -4431,7 +4431,7 @@ GT_EXTERN int GTExistsGlExtRescaleNormal;
 //----------------------------------------------------------------------------
 // (EXT 030) GL_EXT_vertex_array
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtVertexArray;
+	GT_EXTERN int GTExistsGlExtVertexArray;
 
 #define GL_VERTEX_ARRAY_EXT                                         0x8074
 #define GL_NORMAL_ARRAY_EXT                                         0x8075
@@ -4476,27 +4476,27 @@ GT_EXTERN int GTExistsGlExtVertexArray;
 #define glTexCoordPointerEXT GTglTexCoordPointerEXT
 #define glVertexPointerEXT GTglVertexPointerEXT
 
-GT_EXTERN void GTglArrayElementEXT (GLint i);
-GT_EXTERN void GTglColorPointerEXT (GLint iSize, GLenum eType,
-    GLsizei iStride, GLsizei iCount, const GLvoid* pvPointer);
-GT_EXTERN void GTglDrawArraysEXT (GLenum eMode, GLint iFirst, GLsizei iCount);
-GT_EXTERN void GTglEdgeFlagPointerEXT (GLsizei iStride, GLsizei iCount,
-    const GLboolean* pvPointer);
-GT_EXTERN void GTglGetPointervEXT (GLenum ePName, GLvoid** apvParam);
-GT_EXTERN void GTglIndexPointerEXT (GLenum eType, GLsizei iStride,
-    GLsizei iCount, const GLvoid* pvPointer);
-GT_EXTERN void GTglNormalPointerEXT (GLenum eType, GLsizei iStride,
-    GLsizei iCount, const GLvoid* pvPointer);
-GT_EXTERN void GTglTexCoordPointerEXT (GLint iSize, GLenum eType,
-    GLsizei iStride, GLsizei iCount, const GLvoid* pvPointer);
-GT_EXTERN void GTglVertexPointerEXT (GLint iSize, GLenum eType,
-    GLsizei iStride, GLsizei iCount, const GLvoid* pvPointer);
+	GT_EXTERN void GTglArrayElementEXT (GLint i);
+	GT_EXTERN void GTglColorPointerEXT (GLint iSize, GLenum eType,
+	                                    GLsizei iStride, GLsizei iCount, const GLvoid* pvPointer);
+	GT_EXTERN void GTglDrawArraysEXT (GLenum eMode, GLint iFirst, GLsizei iCount);
+	GT_EXTERN void GTglEdgeFlagPointerEXT (GLsizei iStride, GLsizei iCount,
+	                                       const GLboolean* pvPointer);
+	GT_EXTERN void GTglGetPointervEXT (GLenum ePName, GLvoid** apvParam);
+	GT_EXTERN void GTglIndexPointerEXT (GLenum eType, GLsizei iStride,
+	                                    GLsizei iCount, const GLvoid* pvPointer);
+	GT_EXTERN void GTglNormalPointerEXT (GLenum eType, GLsizei iStride,
+	                                     GLsizei iCount, const GLvoid* pvPointer);
+	GT_EXTERN void GTglTexCoordPointerEXT (GLint iSize, GLenum eType,
+	                                       GLsizei iStride, GLsizei iCount, const GLvoid* pvPointer);
+	GT_EXTERN void GTglVertexPointerEXT (GLint iSize, GLenum eType,
+	                                     GLsizei iStride, GLsizei iCount, const GLvoid* pvPointer);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 031) GL_EXT_misc_attribute
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtMiscAttribute;
+	GT_EXTERN int GTExistsGlExtMiscAttribute;
 
 // The specification document mentions
 //     GL_MISC_BIT_EXT
@@ -4506,7 +4506,7 @@ GT_EXTERN int GTExistsGlExtMiscAttribute;
 //----------------------------------------------------------------------------
 // (EXT 037) GL_EXT_blend_minmax
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtBlendMinMax;
+	GT_EXTERN int GTExistsGlExtBlendMinMax;
 
 #define GL_FUNC_ADD_EXT                                             0x8006
 #define GL_MIN_EXT                                                  0x8007
@@ -4515,13 +4515,13 @@ GT_EXTERN int GTExistsGlExtBlendMinMax;
 
 #define glBlendEquationEXT GTglBlendEquationEXT
 
-GT_EXTERN void GTglBlendEquationEXT (GLenum eMode);
+	GT_EXTERN void GTglBlendEquationEXT (GLenum eMode);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 038) GL_EXT_blend_subtract
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtBlendSubtract;
+	GT_EXTERN int GTExistsGlExtBlendSubtract;
 
 #define GL_FUNC_SUBTRACT_EXT                                        0x800A
 #define GL_FUNC_REVERSE_SUBTRACT_EXT                                0x800B
@@ -4530,13 +4530,13 @@ GT_EXTERN int GTExistsGlExtBlendSubtract;
 //----------------------------------------------------------------------------
 // (EXT 039) GL_EXT_blend_logic_op
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtBlendLogicOp;
+	GT_EXTERN int GTExistsGlExtBlendLogicOp;
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 054) GL_EXT_point_parameters
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtPointParameters;
+	GT_EXTERN int GTExistsGlExtPointParameters;
 
 #define GL_POINT_SIZE_MIN_EXT                                       0x8126
 #define GL_POINT_SIZE_MAX_EXT                                       0x8127
@@ -4546,29 +4546,29 @@ GT_EXTERN int GTExistsGlExtPointParameters;
 #define glPointParameterfEXT GTglPointParameterfEXT
 #define glPointParameterfvEXT GTglPointParameterfvEXT
 
-GT_EXTERN void GTglPointParameterfEXT (GLenum ePName, GLfloat fParam);
-GT_EXTERN void GTglPointParameterfvEXT (GLenum ePName,
-    const GLfloat* afParam);
+	GT_EXTERN void GTglPointParameterfEXT (GLenum ePName, GLfloat fParam);
+	GT_EXTERN void GTglPointParameterfvEXT (GLenum ePName,
+	                                        const GLfloat* afParam);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 074) GL_EXT_color_subtable
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtColorSubtable;
+	GT_EXTERN int GTExistsGlExtColorSubtable;
 
 #define glColorSubTableEXT GTglColorSubTableEXT
 #define glCopyColorSubTableEXT GTglCopyColorSubTableEXT
 
-GT_EXTERN void GTglColorSubTable (GLenum eTarget, GLsizei iStart,
-    GLsizei iCount, GLenum eFormat, GLenum eType, const GLvoid* pvData);
-GT_EXTERN void GTglCopyColorSubTable (GLenum eTarget, GLsizei iStart,
-    GLint iX, GLint iY, GLsizei iWidth);
+	GT_EXTERN void GTglColorSubTable (GLenum eTarget, GLsizei iStart,
+	                                  GLsizei iCount, GLenum eFormat, GLenum eType, const GLvoid* pvData);
+	GT_EXTERN void GTglCopyColorSubTable (GLenum eTarget, GLsizei iStart,
+	                                      GLint iX, GLint iY, GLsizei iWidth);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 078) GL_EXT_paletted_texture
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtPalettedTexture;
+	GT_EXTERN int GTExistsGlExtPalettedTexture;
 
 #define GL_COLOR_INDEX1_EXT                                         0x80E2
 #define GL_COLOR_INDEX2_EXT                                         0x80E3
@@ -4583,20 +4583,20 @@ GT_EXTERN int GTExistsGlExtPalettedTexture;
 #define glGetColorTableParameterfvEXT GTglGetColorTableParameterfvEXT
 #define glGetColorTableParameterivEXT GTglGetColorTableParameterivEXT
 
-GT_EXTERN void GTglColorTableEXT (GLenum eTarget, GLenum eInternalFormat,
-    GLsizei iWidth, GLenum eFormat, GLenum eType, const GLvoid* pvTable);
-GT_EXTERN void GTglGetColorTableEXT (GLenum eTarget, GLenum eFormat,
-    GLenum eType, GLvoid* pvTable);
-GT_EXTERN void GTglGetColorTableParameterfvEXT (GLenum eTarget, GLenum ePName,
-    GLfloat* afParam);
-GT_EXTERN void GTglGetColorTableParameterivEXT (GLenum eTarget, GLenum ePName,
-    GLint* aiParam);
+	GT_EXTERN void GTglColorTableEXT (GLenum eTarget, GLenum eInternalFormat,
+	                                  GLsizei iWidth, GLenum eFormat, GLenum eType, const GLvoid* pvTable);
+	GT_EXTERN void GTglGetColorTableEXT (GLenum eTarget, GLenum eFormat,
+	                                     GLenum eType, GLvoid* pvTable);
+	GT_EXTERN void GTglGetColorTableParameterfvEXT (GLenum eTarget, GLenum ePName,
+	        GLfloat* afParam);
+	GT_EXTERN void GTglGetColorTableParameterivEXT (GLenum eTarget, GLenum ePName,
+	        GLint* aiParam);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 079) GL_EXT_clip_volume_hint
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtClipVolumeHint;
+	GT_EXTERN int GTExistsGlExtClipVolumeHint;
 
 #define GL_CLIP_VOLUME_CLIPPING_HINT_EXT                            0x80F0
 //----------------------------------------------------------------------------
@@ -4604,13 +4604,13 @@ GT_EXTERN int GTExistsGlExtClipVolumeHint;
 //----------------------------------------------------------------------------
 // (EXT 093) GL_EXT_index_texture
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtIndexTexture;
+	GT_EXTERN int GTExistsGlExtIndexTexture;
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 094) GL_EXT_index_material
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtIndexMaterial;
+	GT_EXTERN int GTExistsGlExtIndexMaterial;
 
 #define GL_INDEX_MATERIAL_EXT                                       0x81B8
 #define GL_INDEX_MATERIAL_PARAMETER_EXT                             0x81B9
@@ -4618,13 +4618,13 @@ GT_EXTERN int GTExistsGlExtIndexMaterial;
 
 #define glIndexMaterialEXT GTglIndexMaterialEXT
 
-GT_EXTERN void GTglIndexMaterialEXT (GLenum eFace, GLenum eMode);
+	GT_EXTERN void GTglIndexMaterialEXT (GLenum eFace, GLenum eMode);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 095) GL_EXT_index_func
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtIndexFunc;
+	GT_EXTERN int GTExistsGlExtIndexFunc;
 
 #define GL_INDEX_TEST_EXT                                           0x81B5
 #define GL_INDEX_TEST_FUNC_EXT                                      0x81B6
@@ -4632,13 +4632,13 @@ GT_EXTERN int GTExistsGlExtIndexFunc;
 
 #define glIndexFuncEXT GTglIndexFuncEXT
 
-GT_EXTERN void GTglIndexFuncEXT (GLenum eFunction, GLclampf fReference);
+	GT_EXTERN void GTglIndexFuncEXT (GLenum eFunction, GLclampf fReference);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 096) GL_EXT_index_array_formats
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtIndexArrayFormats;
+	GT_EXTERN int GTExistsGlExtIndexArrayFormats;
 
 #define GL_IUI_V2F_EXT                                              0x81AD
 #define GL_IUI_V3F_EXT                                              0x81AE
@@ -4653,7 +4653,7 @@ GT_EXTERN int GTExistsGlExtIndexArrayFormats;
 //----------------------------------------------------------------------------
 // (EXT 097) GL_EXT_compiled_vertex_array
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtCompiledVertexArray;
+	GT_EXTERN int GTExistsGlExtCompiledVertexArray;
 
 #define GL_ARRAY_ELEMENT_LOCK_FIRST_EXT                             0x81A8
 #define GL_ARRAY_ELEMENT_LOCK_COUNT_EXT                             0x81A9
@@ -4661,14 +4661,14 @@ GT_EXTERN int GTExistsGlExtCompiledVertexArray;
 #define glLockArraysEXT GTglLockArraysEXT
 #define glUnlockArraysEXT GTglUnlockArraysEXT
 
-GT_EXTERN void GTglLockArraysEXT (GLint iFirst, GLsizei iCount);
-GT_EXTERN void GTglUnlockArraysEXT ();
+	GT_EXTERN void GTglLockArraysEXT (GLint iFirst, GLsizei iCount);
+	GT_EXTERN void GTglUnlockArraysEXT ();
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 098) GL_EXT_cull_vertex
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtCullVertex;
+	GT_EXTERN int GTExistsGlExtCullVertex;
 
 #define GL_CULL_VERTEX_EXT                                          0x81AA
 #define GL_CULL_VERTEX_EYE_POSITION_EXT                             0x81AB
@@ -4677,28 +4677,28 @@ GT_EXTERN int GTExistsGlExtCullVertex;
 #define glCullParameterdvEXT GTglCullParameterdvEXT
 #define glCullParameterfvEXT GTglCullParameterfvEXT
 
-GT_EXTERN void GTglCullParameterdvEXT (GLenum ePName, GLdouble* adParam);
-GT_EXTERN void GTglCullParameterfvEXT (GLenum ePName, GLfloat* afParam);
+	GT_EXTERN void GTglCullParameterdvEXT (GLenum ePName, GLdouble* adParam);
+	GT_EXTERN void GTglCullParameterfvEXT (GLenum ePName, GLfloat* afParam);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 112) GL_EXT_draw_range_elements
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtDrawRangeElements;
+	GT_EXTERN int GTExistsGlExtDrawRangeElements;
 
 #define GL_MAX_ELEMENTS_VERTICES_EXT                                0x80E8
 #define GL_MAX_ELEMENTS_INDICES_EXT                                 0x80E9
 
 #define glDrawRangeElementsEXT GTglDrawRangeElementsEXT
 
-GT_EXTERN void GTglDrawRangeElementsEXT (GLenum eMode, GLuint uiStart,
-    GLuint uiEnd, GLsizei iCount, GLenum eType, const GLvoid* pvIndices);
+	GT_EXTERN void GTglDrawRangeElementsEXT (GLenum eMode, GLuint uiStart,
+	        GLuint uiEnd, GLsizei iCount, GLenum eType, const GLvoid* pvIndices);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 117) GL_EXT_light_texture
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtLightTexture;
+	GT_EXTERN int GTExistsGlExtLightTexture;
 
 #define GL_FRAGMENT_MATERIAL_EXT                                    0x8349
 #define GL_FRAGMENT_NORMAL_EXT                                      0x834A
@@ -4714,15 +4714,15 @@ GT_EXTERN int GTExistsGlExtLightTexture;
 #define glTextureLightEXT GTglTextureLightEXT
 #define glTextureMaterialEXT GTglTextureMaterialEXT
 
-GT_EXTERN void GTglApplyTextureEXT (GLenum eMode);
-GT_EXTERN void GTglTextureLightEXT (GLenum ePName);
-GT_EXTERN void GTglTextureMaterialEXT (GLenum eFace, GLenum eMode);
+	GT_EXTERN void GTglApplyTextureEXT (GLenum eMode);
+	GT_EXTERN void GTglTextureLightEXT (GLenum ePName);
+	GT_EXTERN void GTglTextureMaterialEXT (GLenum eFace, GLenum eMode);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 129) GL_EXT_bgra
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtBGRA;
+	GT_EXTERN int GTExistsGlExtBGRA;
 
 #define GL_BGR_EXT                                                  0x80E0
 #define GL_BGRA_EXT                                                 0x80E1
@@ -4731,7 +4731,7 @@ GT_EXTERN int GTExistsGlExtBGRA;
 //----------------------------------------------------------------------------
 // (EXT 138) GL_EXT_pixel_transform
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtPixelTransform;
+	GT_EXTERN int GTExistsGlExtPixelTransform;
 
 #define GL_PIXEL_TRANSFORM_2D_EXT                                   0x8330
 #define GL_PIXEL_MAG_FILTER_EXT                                     0x8331
@@ -4748,20 +4748,20 @@ GT_EXTERN int GTExistsGlExtPixelTransform;
 #define glPixelTransformParameterivEXT GTglPixelTransformParameterivEXT
 #define glPixelTransformParameterfvEXT GTglPixelTransformParameterfvEXT
 
-GT_EXTERN void GTglPixelTransformParameteriEXT (GLenum eTarget, GLenum ePName,
-    GLint iParam);
-GT_EXTERN void GTglPixelTransformParameterfEXT (GLenum eTarget, GLenum ePName,
-    GLfloat fParam);
-GT_EXTERN void GTglPixelTransformParameterivEXT (GLenum eTarget,
-    GLenum ePName, const GLint* aiParam);
-GT_EXTERN void GTglPixelTransformParameterfvEXT (GLenum eTarget,
-    GLenum ePName, const GLfloat* afParam);
+	GT_EXTERN void GTglPixelTransformParameteriEXT (GLenum eTarget, GLenum ePName,
+	        GLint iParam);
+	GT_EXTERN void GTglPixelTransformParameterfEXT (GLenum eTarget, GLenum ePName,
+	        GLfloat fParam);
+	GT_EXTERN void GTglPixelTransformParameterivEXT (GLenum eTarget,
+	        GLenum ePName, const GLint* aiParam);
+	GT_EXTERN void GTglPixelTransformParameterfvEXT (GLenum eTarget,
+	        GLenum ePName, const GLfloat* afParam);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 139) GL_EXT_pixel_transform_color_table
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtPixelTransformColorTable;
+	GT_EXTERN int GTExistsGlExtPixelTransformColorTable;
 
 // The specification document mentions
 //     GL_PIXEL_TRANSFORM_COLOR_TABLE_EXT
@@ -4772,7 +4772,7 @@ GT_EXTERN int GTExistsGlExtPixelTransformColorTable;
 //----------------------------------------------------------------------------
 // (EXT 141) GL_EXT_shared_texture_palette
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtSharedTexturePalette;
+	GT_EXTERN int GTExistsGlExtSharedTexturePalette;
 
 #define GL_SHARED_TEXTURE_PALETTE_EXT                               0x81FB
 //----------------------------------------------------------------------------
@@ -4780,7 +4780,7 @@ GT_EXTERN int GTExistsGlExtSharedTexturePalette;
 //----------------------------------------------------------------------------
 // (EXT 144) GL_EXT_separate_specular_color
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtSeparateSpecularColor;
+	GT_EXTERN int GTExistsGlExtSeparateSpecularColor;
 
 #define GL_LIGHT_MODEL_COLOR_CONTROL_EXT                            0x81F8
 #define GL_SINGLE_COLOR_EXT                                         0x81F9
@@ -4790,7 +4790,7 @@ GT_EXTERN int GTExistsGlExtSeparateSpecularColor;
 //----------------------------------------------------------------------------
 // (EXT 145) GL_EXT_secondary_color
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtSecondaryColor;
+	GT_EXTERN int GTExistsGlExtSecondaryColor;
 
 #define GL_COLOR_SUM_EXT                                            0x8458
 #define GL_CURRENT_SECONDARY_COLOR_EXT                              0x8459
@@ -4818,60 +4818,60 @@ GT_EXTERN int GTExistsGlExtSecondaryColor;
 #define glSecondaryColor3usvEXT GTglSecondaryColor3usvEXT
 #define glSecondaryColorPointerEXT GTglSecondaryColorPointerEXT
 
-GT_EXTERN void GTglSecondaryColor3bEXT (GLbyte cR, GLbyte cG, GLbyte cB);
-GT_EXTERN void GTglSecondaryColor3bvEXT (const GLbyte* acRGB);
-GT_EXTERN void GTglSecondaryColor3dEXT (GLdouble dR, GLdouble dG,
-    GLdouble dB);
-GT_EXTERN void GTglSecondaryColor3dvEXT (const GLdouble* adRGB);
-GT_EXTERN void GTglSecondaryColor3fEXT (GLfloat fR, GLfloat fG, GLfloat fB);
-GT_EXTERN void GTglSecondaryColor3fvEXT (const GLfloat* afRGB);
-GT_EXTERN void GTglSecondaryColor3iEXT (GLint iR, GLint iG, GLint iB);
-GT_EXTERN void GTglSecondaryColor3ivEXT (const GLint* aiRGB);
-GT_EXTERN void GTglSecondaryColor3sEXT (GLshort sR, GLshort sG, GLshort sB);
-GT_EXTERN void GTglSecondaryColor3svEXT (const GLshort* asRGB);
-GT_EXTERN void GTglSecondaryColor3ubEXT (GLubyte ucR, GLubyte ucG,
-    GLubyte ucB);
-GT_EXTERN void GTglSecondaryColor3ubvEXT (const GLubyte* aucRGB);
-GT_EXTERN void GTglSecondaryColor3uiEXT (GLuint uiR, GLuint uiG, GLuint uiB);
-GT_EXTERN void GTglSecondaryColor3uivEXT (const GLuint* auiRGB);
-GT_EXTERN void GTglSecondaryColor3usEXT (GLushort usR, GLushort usG,
-    GLushort usB);
-GT_EXTERN void GTglSecondaryColor3usvEXT (const GLushort* ausRGB);
-GT_EXTERN void GTglSecondaryColorPointerEXT (GLint iSize, GLenum eType,
-    GLsizei iStride, const GLvoid* pvPointer);
+	GT_EXTERN void GTglSecondaryColor3bEXT (GLbyte cR, GLbyte cG, GLbyte cB);
+	GT_EXTERN void GTglSecondaryColor3bvEXT (const GLbyte* acRGB);
+	GT_EXTERN void GTglSecondaryColor3dEXT (GLdouble dR, GLdouble dG,
+	                                        GLdouble dB);
+	GT_EXTERN void GTglSecondaryColor3dvEXT (const GLdouble* adRGB);
+	GT_EXTERN void GTglSecondaryColor3fEXT (GLfloat fR, GLfloat fG, GLfloat fB);
+	GT_EXTERN void GTglSecondaryColor3fvEXT (const GLfloat* afRGB);
+	GT_EXTERN void GTglSecondaryColor3iEXT (GLint iR, GLint iG, GLint iB);
+	GT_EXTERN void GTglSecondaryColor3ivEXT (const GLint* aiRGB);
+	GT_EXTERN void GTglSecondaryColor3sEXT (GLshort sR, GLshort sG, GLshort sB);
+	GT_EXTERN void GTglSecondaryColor3svEXT (const GLshort* asRGB);
+	GT_EXTERN void GTglSecondaryColor3ubEXT (GLubyte ucR, GLubyte ucG,
+	        GLubyte ucB);
+	GT_EXTERN void GTglSecondaryColor3ubvEXT (const GLubyte* aucRGB);
+	GT_EXTERN void GTglSecondaryColor3uiEXT (GLuint uiR, GLuint uiG, GLuint uiB);
+	GT_EXTERN void GTglSecondaryColor3uivEXT (const GLuint* auiRGB);
+	GT_EXTERN void GTglSecondaryColor3usEXT (GLushort usR, GLushort usG,
+	        GLushort usB);
+	GT_EXTERN void GTglSecondaryColor3usvEXT (const GLushort* ausRGB);
+	GT_EXTERN void GTglSecondaryColorPointerEXT (GLint iSize, GLenum eType,
+	        GLsizei iStride, const GLvoid* pvPointer);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 147) GL_EXT_texture_perturb_normal
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtTexturePerturbNormal;
+	GT_EXTERN int GTExistsGlExtTexturePerturbNormal;
 
 #define GL_PERTURB_EXT                    0x85AE
 #define GL_TEXTURE_NORMAL_EXT             0x85AF
 
 #define glTextureNormalEXT GTglTextureNormalEXT
 
-GT_EXTERN void GTglTextureNormalEXT (GLenum eMode);
+	GT_EXTERN void GTglTextureNormalEXT (GLenum eMode);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 148) GL_EXT_multi_draw_arrays
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtMultidrawArrays;
+	GT_EXTERN int GTExistsGlExtMultidrawArrays;
 
 #define glMultiDrawArraysEXT GTglMultiDrawArraysEXT
 #define glMultiDrawElementsEXT GTglMultiDrawElementsEXT
 
-GT_EXTERN void GTglMultiDrawArraysEXT (GLenum eMode, GLint* aiFirst,
-    GLsizei* aiCount, GLsizei iPrimitiveCount);
-GT_EXTERN void GTglMultiDrawElementsEXT (GLenum eMode, const GLsizei* aiCount,
-    GLenum eType, const GLvoid** apvIndices, GLsizei iPrimitiveCount);
+	GT_EXTERN void GTglMultiDrawArraysEXT (GLenum eMode, GLint* aiFirst,
+	                                       GLsizei* aiCount, GLsizei iPrimitiveCount);
+	GT_EXTERN void GTglMultiDrawElementsEXT (GLenum eMode, const GLsizei* aiCount,
+	        GLenum eType, const GLvoid** apvIndices, GLsizei iPrimitiveCount);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 149) GL_EXT_fog_coord
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtFogCoord;
+	GT_EXTERN int GTExistsGlExtFogCoord;
 
 #define GL_FOG_COORDINATE_SOURCE_EXT                                0x8450
 #define GL_FOG_COORDINATE_EXT                                       0x8451
@@ -4888,18 +4888,18 @@ GT_EXTERN int GTExistsGlExtFogCoord;
 #define glFogCoordfvEXT GTglFogCoordfvEXT
 #define glFogCoordPointerEXT GTglFogCoordPointerEXT
 
-GT_EXTERN void GTglFogCoorddEXT (GLdouble dCoord);
-GT_EXTERN void GTglFogCoorddvEXT (const GLdouble *adCoord);
-GT_EXTERN void GTglFogCoordfEXT (GLfloat fCoord);
-GT_EXTERN void GTglFogCoordfvEXT (const GLfloat *afCoord);
-GT_EXTERN void GTglFogCoordPointerEXT (GLenum eType, GLsizei iStride,
-    const GLvoid* pvPointer);
+	GT_EXTERN void GTglFogCoorddEXT (GLdouble dCoord);
+	GT_EXTERN void GTglFogCoorddvEXT (const GLdouble *adCoord);
+	GT_EXTERN void GTglFogCoordfEXT (GLfloat fCoord);
+	GT_EXTERN void GTglFogCoordfvEXT (const GLfloat *afCoord);
+	GT_EXTERN void GTglFogCoordPointerEXT (GLenum eType, GLsizei iStride,
+	                                       const GLvoid* pvPointer);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 156) GL_EXT_coordinate_frame
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtCoordinateFrame;
+	GT_EXTERN int GTExistsGlExtCoordinateFrame;
 
 #define GL_TANGENT_ARRAY_EXT                                        0x8439
 #define GL_BINORMAL_ARRAY_EXT                                       0x843A
@@ -4939,36 +4939,36 @@ GT_EXTERN int GTExistsGlExtCoordinateFrame;
 #define glTangentPointerEXT GTglTangentPointerEXT
 #define glBinormalPointerEXT GTglBinormalPointerEXT
 
-GT_EXTERN void GTglTangent3bEXT (GLbyte cX, GLbyte cY, GLbyte cZ);
-GT_EXTERN void GTglTangent3bvEXT (const GLbyte* acXYZ);
-GT_EXTERN void GTglTangent3dEXT (GLdouble dX, GLdouble dY, GLdouble dZ);
-GT_EXTERN void GTglTangent3dvEXT (const GLdouble* adXYZ);
-GT_EXTERN void GTglTangent3fEXT (GLfloat fX, GLfloat fY, GLfloat fZ);
-GT_EXTERN void GTglTangent3fvEXT (const GLfloat* afXYZ);
-GT_EXTERN void GTglTangent3iEXT (GLint iX, GLint iY, GLint iZ);
-GT_EXTERN void GTglTangent3ivEXT (const GLint* aiXYZ);
-GT_EXTERN void GTglTangent3sEXT (GLshort sX, GLshort sY, GLshort sZ);
-GT_EXTERN void GTglTangent3svEXT (const GLshort* asXYZ);
-GT_EXTERN void GTglBinormal3bEXT (GLbyte cX, GLbyte cY, GLbyte cZ);
-GT_EXTERN void GTglBinormal3bvEXT (const GLbyte* acXYZ);
-GT_EXTERN void GTglBinormal3dEXT (GLdouble dX, GLdouble dY, GLdouble dZ);
-GT_EXTERN void GTglBinormal3dvEXT (const GLdouble* adXYZ);
-GT_EXTERN void GTglBinormal3fEXT (GLfloat fX, GLfloat fY, GLfloat fZ);
-GT_EXTERN void GTglBinormal3fvEXT (const GLfloat* afXYZ);
-GT_EXTERN void GTglBinormal3iEXT (GLint iX, GLint iY, GLint iZ);
-GT_EXTERN void GTglBinormal3ivEXT (const GLint* aiXYZ);
-GT_EXTERN void GTglBinormal3sEXT (GLshort sX, GLshort sY, GLshort sZ);
-GT_EXTERN void GTglBinormal3svEXT (const GLshort* asXYZ);
-GT_EXTERN void GTglTangentPointerEXT (GLenum eType, GLsizei iStride,
-    const GLvoid* pvPointer);
-GT_EXTERN void GTglBinormalPointerEXT (GLenum eType, GLsizei iStride,
-    const GLvoid* pvPointer);
+	GT_EXTERN void GTglTangent3bEXT (GLbyte cX, GLbyte cY, GLbyte cZ);
+	GT_EXTERN void GTglTangent3bvEXT (const GLbyte* acXYZ);
+	GT_EXTERN void GTglTangent3dEXT (GLdouble dX, GLdouble dY, GLdouble dZ);
+	GT_EXTERN void GTglTangent3dvEXT (const GLdouble* adXYZ);
+	GT_EXTERN void GTglTangent3fEXT (GLfloat fX, GLfloat fY, GLfloat fZ);
+	GT_EXTERN void GTglTangent3fvEXT (const GLfloat* afXYZ);
+	GT_EXTERN void GTglTangent3iEXT (GLint iX, GLint iY, GLint iZ);
+	GT_EXTERN void GTglTangent3ivEXT (const GLint* aiXYZ);
+	GT_EXTERN void GTglTangent3sEXT (GLshort sX, GLshort sY, GLshort sZ);
+	GT_EXTERN void GTglTangent3svEXT (const GLshort* asXYZ);
+	GT_EXTERN void GTglBinormal3bEXT (GLbyte cX, GLbyte cY, GLbyte cZ);
+	GT_EXTERN void GTglBinormal3bvEXT (const GLbyte* acXYZ);
+	GT_EXTERN void GTglBinormal3dEXT (GLdouble dX, GLdouble dY, GLdouble dZ);
+	GT_EXTERN void GTglBinormal3dvEXT (const GLdouble* adXYZ);
+	GT_EXTERN void GTglBinormal3fEXT (GLfloat fX, GLfloat fY, GLfloat fZ);
+	GT_EXTERN void GTglBinormal3fvEXT (const GLfloat* afXYZ);
+	GT_EXTERN void GTglBinormal3iEXT (GLint iX, GLint iY, GLint iZ);
+	GT_EXTERN void GTglBinormal3ivEXT (const GLint* aiXYZ);
+	GT_EXTERN void GTglBinormal3sEXT (GLshort sX, GLshort sY, GLshort sZ);
+	GT_EXTERN void GTglBinormal3svEXT (const GLshort* asXYZ);
+	GT_EXTERN void GTglTangentPointerEXT (GLenum eType, GLsizei iStride,
+	                                      const GLvoid* pvPointer);
+	GT_EXTERN void GTglBinormalPointerEXT (GLenum eType, GLsizei iStride,
+	                                       const GLvoid* pvPointer);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 158) GL_EXT_texture_env_combine
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtTextureEnvCombine;
+	GT_EXTERN int GTExistsGlExtTextureEnvCombine;
 
 #define GL_COMBINE_EXT                                              0x8570
 #define GL_COMBINE_RGB_EXT                                          0x8571
@@ -4996,7 +4996,7 @@ GT_EXTERN int GTExistsGlExtTextureEnvCombine;
 //----------------------------------------------------------------------------
 // (EXT 173) GL_EXT_blend_func_separate
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtBlendFuncSeparate;
+	GT_EXTERN int GTExistsGlExtBlendFuncSeparate;
 
 #define GL_BLEND_DST_RGB_EXT                                        0x80C8
 #define GL_BLEND_SRC_RGB_EXT                                        0x80C9
@@ -5005,14 +5005,14 @@ GT_EXTERN int GTExistsGlExtBlendFuncSeparate;
 
 #define glBlendFuncSeparateEXT GTglBlendFuncSeparateEXT
 
-GT_EXTERN void GTglBlendFuncSeparateEXT (GLenum eSrcFactorRGB,
-    GLenum eDstFactorRGB, GLenum eSrcFactorA, GLenum eDstFactorA);
+	GT_EXTERN void GTglBlendFuncSeparateEXT (GLenum eSrcFactorRGB,
+	        GLenum eDstFactorRGB, GLenum eSrcFactorA, GLenum eDstFactorA);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 176) GL_EXT_stencil_wrap
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtStencilWrap;
+	GT_EXTERN int GTExistsGlExtStencilWrap;
 
 #define GL_INCR_WRAP_EXT                                            0x8507
 #define GL_DECR_WRAP_EXT                                            0x8508
@@ -5021,7 +5021,7 @@ GT_EXTERN int GTExistsGlExtStencilWrap;
 //----------------------------------------------------------------------------
 // (EXT 178) GL_EXT_422_pixels
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExt422Pixels;
+	GT_EXTERN int GTExistsGlExt422Pixels;
 
 #define GL_422_EXT                                                  0x80CC
 #define GL_422_REV_EXT                                              0x80CD
@@ -5032,13 +5032,13 @@ GT_EXTERN int GTExistsGlExt422Pixels;
 //----------------------------------------------------------------------------
 // (EXT 185) GL_EXT_texture_env_add
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtTextureEnvAdd;
+	GT_EXTERN int GTExistsGlExtTextureEnvAdd;
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 186) GL_EXT_texture_lod_bias
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtTextureLodBias;
+	GT_EXTERN int GTExistsGlExtTextureLodBias;
 
 #define GL_MAX_TEXTURE_LOD_BIAS_EXT                                 0x84FD
 #define GL_TEXTURE_FILTER_CONTROL_EXT                               0x8500
@@ -5048,7 +5048,7 @@ GT_EXTERN int GTExistsGlExtTextureLodBias;
 //----------------------------------------------------------------------------
 // (EXT 187) GL_EXT_texture_filter_anisotropic
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtTextureFilterAnisotropic;
+	GT_EXTERN int GTExistsGlExtTextureFilterAnisotropic;
 
 #define GL_TEXTURE_MAX_ANISOTROPY_EXT                               0x84FE
 #define GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT                           0x84FF
@@ -5057,7 +5057,7 @@ GT_EXTERN int GTExistsGlExtTextureFilterAnisotropic;
 //----------------------------------------------------------------------------
 // (EXT 188) GL_EXT_vertex_weighting
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtVertexWeighting;
+	GT_EXTERN int GTExistsGlExtVertexWeighting;
 
 #define GL_MODELVIEW0_STACK_DEPTH_EXT                               0x0BA3
 #define GL_MODELVIEW1_STACK_DEPTH_EXT                               0x8502
@@ -5077,16 +5077,16 @@ GT_EXTERN int GTExistsGlExtVertexWeighting;
 #define glVertexWeightfvEXT GTglVertexWeightfvEXT
 #define glVertexWeightPointerEXT GTglVertexWeightPointerEXT
 
-GT_EXTERN void GTglVertexWeightfEXT (GLfloat fWeight);
-GT_EXTERN void GTglVertexWeightfvEXT (const GLfloat* afWeight);
-GT_EXTERN void GTglVertexWeightPointerEXT (GLsizei iSize, GLenum eType,
-    GLsizei iStride, const GLvoid* pvPointer);
+	GT_EXTERN void GTglVertexWeightfEXT (GLfloat fWeight);
+	GT_EXTERN void GTglVertexWeightfvEXT (const GLfloat* afWeight);
+	GT_EXTERN void GTglVertexWeightPointerEXT (GLsizei iSize, GLenum eType,
+	        GLsizei iStride, const GLvoid* pvPointer);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 198) GL_EXT_texture_compression_s3tc
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtTextureCompressionS3TC;
+	GT_EXTERN int GTExistsGlExtTextureCompressionS3TC;
 
 #define GL_COMPRESSED_RGB_S3TC_DXT1_EXT                             0x83F0
 #define GL_COMPRESSED_RGBA_S3TC_DXT1_EXT                            0x83F1
@@ -5097,7 +5097,7 @@ GT_EXTERN int GTExistsGlExtTextureCompressionS3TC;
 //----------------------------------------------------------------------------
 // (EXT 209) GL_EXT_multisample
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtMultisample;
+	GT_EXTERN int GTExistsGlExtMultisample;
 
 #define GL_MULTISAMPLE_EXT                                          0x809D
 #define GL_SAMPLE_ALPHA_TO_MASK_EXT                                 0x809E
@@ -5120,14 +5120,14 @@ GT_EXTERN int GTExistsGlExtMultisample;
 #define glSampleMaskEXT GTglSampleMaskEXT
 #define glSamplePatternEXT GTglSamplePatternEXT
 
-GT_EXTERN void GTglSampleMaskEXT (GLclampf fValue, GLboolean ucInvert);
-GT_EXTERN void GTglSamplePatternEXT (GLenum ePattern);
+	GT_EXTERN void GTglSampleMaskEXT (GLclampf fValue, GLboolean ucInvert);
+	GT_EXTERN void GTglSamplePatternEXT (GLenum ePattern);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 220) GL_EXT_texture_env_dot3
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtTextureEnvDot3;
+	GT_EXTERN int GTExistsGlExtTextureEnvDot3;
 
 #define GL_DOT3_RGB_EXT                                             0x8740
 #define GL_DOT3_RGBA_EXT                                            0x8741
@@ -5136,39 +5136,39 @@ GT_EXTERN int GTExistsGlExtTextureEnvDot3;
 //----------------------------------------------------------------------------
 // (EXT 267) GL_EXT_shadow_funcs
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtShadowFuncs;
+	GT_EXTERN int GTExistsGlExtShadowFuncs;
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 268) GL_EXT_stencil_two_side
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtStencilTwoSide;
+	GT_EXTERN int GTExistsGlExtStencilTwoSide;
 
 #define GL_STENCIL_TEST_TWO_SIDE_EXT                                0x8910
 #define GL_ACTIVE_STENCIL_FACE_EXT                                  0x8911
 
 #define glActiveStencilFaceEXT GTglActiveStencilFaceEXT
 
-GT_EXTERN void GTglActiveStencilFaceEXT (GLenum eFace);
+	GT_EXTERN void GTglActiveStencilFaceEXT (GLenum eFace);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 297) GL_EXT_depth_bounds_test
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtDepthBoundsTest;
+	GT_EXTERN int GTExistsGlExtDepthBoundsTest;
 
 #define GL_DEPTH_BOUNDS_TEST_EXT                                    0x8890
 #define GL_DEPTH_BOUNDS_EXT                                         0x8891
 
 #define glDepthBoundsEXT GTglDepthBoundsEXT
 
-GT_EXTERN void GTglDepthBoundsEXT (GLclampd dMin, GLclampd dMax);
+	GT_EXTERN void GTglDepthBoundsEXT (GLclampd dMin, GLclampd dMax);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 298) GL_EXT_texture_mirror_clamp
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtTextureMirrorClamp;
+	GT_EXTERN int GTExistsGlExtTextureMirrorClamp;
 
 #define GL_MIRROR_CLAMP_EXT                                         0x8742
 #define GL_MIRROR_CLAMP_TO_EDGE_EXT                                 0x8743
@@ -5178,21 +5178,21 @@ GT_EXTERN int GTExistsGlExtTextureMirrorClamp;
 //----------------------------------------------------------------------------
 // (EXT 299) GL_EXT_blend_equation_separate
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtBlendEquationSeparate;
+	GT_EXTERN int GTExistsGlExtBlendEquationSeparate;
 
 #define GL_BLEND_EQUATION_RGB_EXT                                   0x8009
 #define GL_BLEND_EQUATION_ALPHA_EXT                                 0x883D
 
 #define glBlendEquationSeparateEXT GTglBlendEquationSeparateEXT
 
-GT_EXTERN void GTglBlendEquationSeparateEXT (GLenum eModeRGB,
-    GLenum eModeAlpha);
+	GT_EXTERN void GTglBlendEquationSeparateEXT (GLenum eModeRGB,
+	        GLenum eModeAlpha);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 302) GL_EXT_pixel_buffer_object
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtPixelBufferObject;
+	GT_EXTERN int GTExistsGlExtPixelBufferObject;
 
 #define GL_PIXEL_PACK_BUFFER_EXT                                    0x88EB
 #define GL_PIXEL_UNPACK_BUFFER_EXT                                  0x88EC
@@ -5203,13 +5203,13 @@ GT_EXTERN int GTExistsGlExtPixelBufferObject;
 //----------------------------------------------------------------------------
 // (EXT 309) GL_EXT_texture_compression_dxt1
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtTextureCompressionDXT1;
+	GT_EXTERN int GTExistsGlExtTextureCompressionDXT1;
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 310) GL_EXT_framebuffer_object
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtFrameBufferObject;
+	GT_EXTERN int GTExistsGlExtFrameBufferObject;
 
 #define GL_INVALID_FRAMEBUFFER_OPERATION_EXT                        0x0506
 #define GL_MAX_RENDERBUFFER_SIZE_EXT                                0x84E8
@@ -5279,44 +5279,44 @@ GT_EXTERN int GTExistsGlExtFrameBufferObject;
     GTglGetFramebufferAttachmentParameterivEXT
 #define glGenerateMipmapEXT GTglGenerateMipmapEXT
 
-GT_EXTERN GLboolean GTglIsRenderbufferEXT (GLuint uiRenderBuffer);
-GT_EXTERN void GTglBindRenderbufferEXT (GLenum eTarget,
-    GLuint uiRenderBuffer);
-GT_EXTERN void GTglDeleteRenderbuffersEXT (GLsizei iNumBuffers,
-    const GLuint* auiRenderBuffer);
-GT_EXTERN void GTglGenRenderbuffersEXT (GLsizei iNumBuffers,
-    GLuint* auiRenderBuffer);
-GT_EXTERN void GTglRenderbufferStorageEXT (GLenum eTarget,
-    GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight);
-GT_EXTERN void GTglGetRenderbufferParameterivEXT (GLenum eTarget,
-    GLenum ePName, GLint* aiParam);
-GT_EXTERN GLboolean GTglIsFramebufferEXT (GLuint uiFrameBuffer);
-GT_EXTERN void GTglBindFramebufferEXT (GLenum eTarget, GLuint uiFrameBuffer);
-GT_EXTERN void GTglDeleteFramebuffersEXT (GLsizei iNumBuffers,
-    const GLuint* auiFrameBuffer);
-GT_EXTERN void GTglGenFramebuffersEXT (GLsizei iNumBuffers,
-    GLuint* auiFrameBuffer);
-GT_EXTERN GLenum GTglCheckFramebufferStatusEXT (GLenum eTarget);
-GT_EXTERN void GTglFramebufferTexture1DEXT (GLenum eTarget,
-    GLenum eAttachment, GLenum eTextureTarget, GLuint uiTexture,
-    GLint iLevel);
-GT_EXTERN void GTglFramebufferTexture2DEXT (GLenum eTarget,
-    GLenum eAttachment, GLenum eTextureTarget, GLuint uiTexture,
-    GLint iLevel);
-GT_EXTERN void GTglFramebufferTexture3DEXT (GLenum eTarget,
-    GLenum eAttachment, GLenum eTextureTarget, GLuint uiTexture, GLint iLevel,
-    GLint iZOffset);
-GT_EXTERN void GTglFramebufferRenderbufferEXT (GLenum eTarget,
-    GLenum eAttachment, GLenum eRenderBufferTarget, GLuint uiRenderBuffer);
-GT_EXTERN void GTglGetFramebufferAttachmentParameterivEXT (GLenum eTarget,
-    GLenum eAttachment, GLenum ePName, GLint* aiParam);
-GT_EXTERN void GTglGenerateMipmapEXT (GLenum eTarget);
+	GT_EXTERN GLboolean GTglIsRenderbufferEXT (GLuint uiRenderBuffer);
+	GT_EXTERN void GTglBindRenderbufferEXT (GLenum eTarget,
+	                                        GLuint uiRenderBuffer);
+	GT_EXTERN void GTglDeleteRenderbuffersEXT (GLsizei iNumBuffers,
+	        const GLuint* auiRenderBuffer);
+	GT_EXTERN void GTglGenRenderbuffersEXT (GLsizei iNumBuffers,
+	                                        GLuint* auiRenderBuffer);
+	GT_EXTERN void GTglRenderbufferStorageEXT (GLenum eTarget,
+	        GLenum eInternalFormat, GLsizei iWidth, GLsizei iHeight);
+	GT_EXTERN void GTglGetRenderbufferParameterivEXT (GLenum eTarget,
+	        GLenum ePName, GLint* aiParam);
+	GT_EXTERN GLboolean GTglIsFramebufferEXT (GLuint uiFrameBuffer);
+	GT_EXTERN void GTglBindFramebufferEXT (GLenum eTarget, GLuint uiFrameBuffer);
+	GT_EXTERN void GTglDeleteFramebuffersEXT (GLsizei iNumBuffers,
+	        const GLuint* auiFrameBuffer);
+	GT_EXTERN void GTglGenFramebuffersEXT (GLsizei iNumBuffers,
+	                                       GLuint* auiFrameBuffer);
+	GT_EXTERN GLenum GTglCheckFramebufferStatusEXT (GLenum eTarget);
+	GT_EXTERN void GTglFramebufferTexture1DEXT (GLenum eTarget,
+	        GLenum eAttachment, GLenum eTextureTarget, GLuint uiTexture,
+	        GLint iLevel);
+	GT_EXTERN void GTglFramebufferTexture2DEXT (GLenum eTarget,
+	        GLenum eAttachment, GLenum eTextureTarget, GLuint uiTexture,
+	        GLint iLevel);
+	GT_EXTERN void GTglFramebufferTexture3DEXT (GLenum eTarget,
+	        GLenum eAttachment, GLenum eTextureTarget, GLuint uiTexture, GLint iLevel,
+	        GLint iZOffset);
+	GT_EXTERN void GTglFramebufferRenderbufferEXT (GLenum eTarget,
+	        GLenum eAttachment, GLenum eRenderBufferTarget, GLuint uiRenderBuffer);
+	GT_EXTERN void GTglGetFramebufferAttachmentParameterivEXT (GLenum eTarget,
+	        GLenum eAttachment, GLenum ePName, GLint* aiParam);
+	GT_EXTERN void GTglGenerateMipmapEXT (GLenum eTarget);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 312) GL_EXT_packed_depth_stencil
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtPackedDepthStencil;
+	GT_EXTERN int GTExistsGlExtPackedDepthStencil;
 
 #define GL_DEPTH_STENCIL_EXT                                        0x84F9
 #define GL_UNSIGNED_INT_24_8_EXT                                    0x84FA
@@ -5327,7 +5327,7 @@ GT_EXTERN int GTExistsGlExtPackedDepthStencil;
 //----------------------------------------------------------------------------
 // (EXT 314) GL_EXT_stencil_clear_tag
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtStencilClearTag;
+	GT_EXTERN int GTExistsGlExtStencilClearTag;
 
 // The specification file mentions the information here but none of the tokens
 // or functions were found in the file glext.h (version 29).  I suppose it is
@@ -5339,14 +5339,14 @@ GT_EXTERN int GTExistsGlExtStencilClearTag;
 
 #define glStencilClearTagEXT GTglStencilClearTagEXT
 
-GT_EXTERN void GTglStencilClearTagEXT (GLsizei iStencilTagBits,
-    GLuint uiStencilClearTag);
+	GT_EXTERN void GTglStencilClearTagEXT (GLsizei iStencilTagBits,
+	                                       GLuint uiStencilClearTag);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 315) GL_EXT_texture_sRGB
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtTextureSRGB;
+	GT_EXTERN int GTExistsGlExtTextureSRGB;
 
 #define GL_SRGB_EXT                                                 0x8C40
 #define GL_SRGB8_EXT                                                0x8C41
@@ -5369,7 +5369,7 @@ GT_EXTERN int GTExistsGlExtTextureSRGB;
 //----------------------------------------------------------------------------
 // (EXT 316) GL_EXT_framebuffer_blit
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtFrameBufferBlit;
+	GT_EXTERN int GTExistsGlExtFrameBufferBlit;
 
 // The specification file mentions the information here but none of the tokens
 // or functions were found in the file glext.h (version 29).  I suppose it is
@@ -5383,15 +5383,15 @@ GT_EXTERN int GTExistsGlExtFrameBufferBlit;
 
 #define glBlitFramebufferEXT GTglBlitFramebufferEXT
 
-GT_EXTERN void GTglBlitFramebufferEXT (GLint iSrcX0, GLint iSrcY0,
-    GLint iSrcX1, GLint iSrcY1, GLint iDstX0, GLint iDstY0, GLint iDstX1,
-    GLint iDstY1, GLbitfield uiMask, GLenum eFilter);
+	GT_EXTERN void GTglBlitFramebufferEXT (GLint iSrcX0, GLint iSrcY0,
+	                                       GLint iSrcX1, GLint iSrcY1, GLint iDstX0, GLint iDstY0, GLint iDstX1,
+	                                       GLint iDstY1, GLbitfield uiMask, GLenum eFilter);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (EXT 317) GL_EXT_framebuffer_multisample
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlExtFrameBufferMultisample;
+	GT_EXTERN int GTExistsGlExtFrameBufferMultisample;
 
 // The specification file mentions the information here but none of the tokens
 // or functions were found in the file glext.h (version 29).  I suppose it is
@@ -5403,9 +5403,9 @@ GT_EXTERN int GTExistsGlExtFrameBufferMultisample;
 #define glRenderbufferStorageMultisampleEXT\
     GTglRenderbufferStorageMultisampleEXT
 
-GT_EXTERN void GTglRenderbufferStorageMultisampleEXT (GLenum eTarget,
-    GLsizei iSamples, GLenum eInternalFormat, GLsizei iWidth,
-    GLsizei iHeight);
+	GT_EXTERN void GTglRenderbufferStorageMultisampleEXT (GLenum eTarget,
+	        GLsizei iSamples, GLenum eInternalFormat, GLsizei iWidth,
+	        GLsizei iHeight);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
@@ -5454,11 +5454,11 @@ GT_EXTERN void GTglRenderbufferStorageMultisampleEXT (GLenum eTarget,
 #endif
 //----------------------------------------------------------------------------
 
-GT_EXTERN const char* GTGetVendorString ();
-GT_EXTERN const char* GTGetRendererString ();
-GT_EXTERN const char* GTGetVersionString ();
-GT_EXTERN const char* GTGetExtensionString ();
-GT_EXTERN void GTInitGL (const char* acInfoFile);
+	GT_EXTERN const char* GTGetVendorString ();
+	GT_EXTERN const char* GTGetRendererString ();
+	GT_EXTERN const char* GTGetVersionString ();
+	GT_EXTERN const char* GTGetExtensionString ();
+	GT_EXTERN void GTInitGL (const char* acInfoFile);
 
 #include "Wm5GlUtility.h"
 

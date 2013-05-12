@@ -18,22 +18,22 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrBox2Box2
-    : public Intersector<Real,Vector2<Real> >
+	: public Intersector<Real,Vector2<Real> >
 {
 public:
-    IntrBox2Box2 (const Box2<Real>& box0, const Box2<Real>& box1);
+	IntrBox2Box2 (const Box2<Real>& box0, const Box2<Real>& box1);
 
-    // Object access.
-    const Box2<Real>& GetBox0 () const;
-    const Box2<Real>& GetBox1 () const;
+	// Object access.
+	const Box2<Real>& GetBox0 () const;
+	const Box2<Real>& GetBox1 () const;
 
-    // Static test-intersection query.
-    virtual bool Test ();
+	// Static test-intersection query.
+	virtual bool Test ();
 
 private:
-    // the objects to intersect
-    const Box2<Real>* mBox0;
-    const Box2<Real>* mBox1;
+	// the objects to intersect
+	const Box2<Real>* mBox0;
+	const Box2<Real>* mBox1;
 };
 
 typedef IntrBox2Box2<float> IntrBox2Box2f;

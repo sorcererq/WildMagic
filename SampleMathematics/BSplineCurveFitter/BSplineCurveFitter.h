@@ -14,34 +14,34 @@ using namespace Wm5;
 
 class BSplineCurveFitter : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BSplineCurveFitter ();
+	BSplineCurveFitter ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    void CreateBSplinePolysegment ();
+	void CreateScene ();
+	void CreateBSplinePolysegment ();
 
-    NodePtr mScene;
-    VertexColor3EffectPtr mEffect;
-    Culler mCuller;
+	NodePtr mScene;
+	VertexColor3EffectPtr mEffect;
+	Culler mCuller;
 
-    int mNumSamples;
-    Vector3f* mSamples;
-    int mDegree;
-    int mNumCtrlPoints;
-    BSplineCurveFitf* mSpline;
+	int mNumSamples;
+	Vector3f* mSamples;
+	int mDegree;
+	int mNumCtrlPoints;
+	BSplineCurveFitf* mSpline;
 
-    float mAvrError, mRmsError;
-    char mMessage[128];
-    Float4 mTextColor;
+	float mAvrError, mRmsError;
+	char mMessage[128];
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(BSplineCurveFitter);

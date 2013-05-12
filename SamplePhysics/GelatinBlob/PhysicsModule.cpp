@@ -10,10 +10,10 @@
 
 //----------------------------------------------------------------------------
 PhysicsModule::PhysicsModule (int numParticles, int numSprings, float step,
-    float viscosity)
-    :
-    MassSpringArbitrary3f(numParticles, numSprings, step),
-    mViscosity(viscosity)
+                              float viscosity)
+	:
+	MassSpringArbitrary3f(numParticles, numSprings, step),
+	mViscosity(viscosity)
 {
 }
 //----------------------------------------------------------------------------
@@ -22,9 +22,9 @@ PhysicsModule::~PhysicsModule ()
 }
 //----------------------------------------------------------------------------
 Vector3f PhysicsModule::ExternalAcceleration (int i, float, const Vector3f*,
-    const Vector3f* velocities)
+        const Vector3f* velocities)
 {
-    Vector3f acceleration = -mViscosity*velocities[i];
-    return acceleration;
+	Vector3f acceleration = -mViscosity*velocities[i];
+	return acceleration;
 }
 //----------------------------------------------------------------------------

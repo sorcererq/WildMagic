@@ -18,23 +18,23 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrLozenge3Lozenge3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrLozenge3Lozenge3 (const Lozenge3<Real>& lozenge0,
-        const Lozenge3<Real>& lozenge1);
+	IntrLozenge3Lozenge3 (const Lozenge3<Real>& lozenge0,
+	                      const Lozenge3<Real>& lozenge1);
 
-    // Object access.
-    const Lozenge3<Real>& GetLozenge0 () const;
-    const Lozenge3<Real>& GetLozenge1 () const;
+	// Object access.
+	const Lozenge3<Real>& GetLozenge0 () const;
+	const Lozenge3<Real>& GetLozenge1 () const;
 
-    // Static intersection query.
-    virtual bool Test ();
+	// Static intersection query.
+	virtual bool Test ();
 
 private:
-    // The objects to intersect.
-    const Lozenge3<Real>* mLozenge0;
-    const Lozenge3<Real>* mLozenge1;
+	// The objects to intersect.
+	const Lozenge3<Real>* mLozenge0;
+	const Lozenge3<Real>* mLozenge1;
 };
 
 typedef IntrLozenge3Lozenge3<float> IntrLozenge3Lozenge3f;

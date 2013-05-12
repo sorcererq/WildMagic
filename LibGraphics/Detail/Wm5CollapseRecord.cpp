@@ -13,19 +13,19 @@ using namespace Wm5;
 
 //----------------------------------------------------------------------------
 CollapseRecord::CollapseRecord (int vKeep, int vThrow, int numVertices,
-    int numTriangles)
-    :
-    VKeep(vKeep),
-    VThrow(vThrow),
-    NumVertices(numVertices),
-    NumTriangles(numTriangles),
-    NumIndices(0),
-    Indices(0)
+                                int numTriangles)
+	:
+	VKeep(vKeep),
+	VThrow(vThrow),
+	NumVertices(numVertices),
+	NumTriangles(numTriangles),
+	NumIndices(0),
+	Indices(0)
 {
 }
 //----------------------------------------------------------------------------
 CollapseRecord::~CollapseRecord ()
 {
-    delete1(Indices);
+	delete1(Indices);
 }
 //----------------------------------------------------------------------------

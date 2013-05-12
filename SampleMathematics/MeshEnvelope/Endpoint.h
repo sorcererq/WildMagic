@@ -14,23 +14,23 @@
 class Endpoint
 {
 public:
-    RScalar Value;  // x-value for a segment endpoint
-    int Type;        // '0' if interval min, '1' if interval max
-    int Index;       // index of interval containing this endpoint
+	RScalar Value;  // x-value for a segment endpoint
+	int Type;        // '0' if interval min, '1' if interval max
+	int Index;       // index of interval containing this endpoint
 
-    // Support for sorting.
-    inline bool operator< (const Endpoint& point) const
-    {
-        if (Value < point.Value)
-        {
-            return true;
-        }
-        if (Value > point.Value)
-        {
-            return false;
-        }
-        return Type < point.Type;
-    }
+	// Support for sorting.
+	inline bool operator< (const Endpoint& point) const
+	{
+		if (Value < point.Value)
+		{
+			return true;
+		}
+		if (Value > point.Value)
+		{
+			return false;
+		}
+		return Type < point.Type;
+	}
 };
 
 #endif

@@ -17,80 +17,80 @@ namespace Wm5
 template <typename Real>
 IntrSegment3Capsule3<Real>::IntrSegment3Capsule3 (
     const Segment3<Real>& rkSegment, const Capsule3<Real>& rkCapsule)
-    :
-    mSegment(&rkSegment),
-    mCapsule(&rkCapsule)
+	:
+	mSegment(&rkSegment),
+	mCapsule(&rkCapsule)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Segment3<Real>& IntrSegment3Capsule3<Real>::GetSegment () const
 {
-    return *mSegment;
+	return *mSegment;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Capsule3<Real>& IntrSegment3Capsule3<Real>::GetCapsule () const
 {
-    return *mCapsule;
+	return *mCapsule;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrSegment3Capsule3<Real>::Test ()
 {
-    Real distance = DistSegment3Segment3<Real>(*mSegment,
-        mCapsule->Segment).Get();
-    return distance <= mCapsule->Radius;
+	Real distance = DistSegment3Segment3<Real>(*mSegment,
+	                mCapsule->Segment).Get();
+	return distance <= mCapsule->Radius;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrSegment3Capsule3<Real>::Find ()
 {
-    int quantity = IntrLine3Capsule3<Real>::Find(mSegment->Center,
-        mSegment->Direction, *mCapsule, mParameter);
+	int quantity = IntrLine3Capsule3<Real>::Find(mSegment->Center,
+	               mSegment->Direction, *mCapsule, mParameter);
 
-    mQuantity = 0;
-    for (int i = 0; i < quantity; ++i)
-    {
-        if (Math<Real>::FAbs(mParameter[i]) <= mSegment->Extent)
-        {
-            mPoint[mQuantity++] = mSegment->Center +
-                mParameter[i]*mSegment->Direction;
-        }
-    }
+	mQuantity = 0;
+	for (int i = 0; i < quantity; ++i)
+	{
+		if (Math<Real>::FAbs(mParameter[i]) <= mSegment->Extent)
+		{
+			mPoint[mQuantity++] = mSegment->Center +
+			                      mParameter[i]*mSegment->Direction;
+		}
+	}
 
-    if (mQuantity == 2)
-    {
-        mIntersectionType = IT_SEGMENT;
-    }
-    else if (mQuantity == 1)
-    {
-        mIntersectionType = IT_POINT;
-    }
-    else
-    {
-        mIntersectionType = IT_EMPTY;
-    }
+	if (mQuantity == 2)
+	{
+		mIntersectionType = IT_SEGMENT;
+	}
+	else if (mQuantity == 1)
+	{
+		mIntersectionType = IT_POINT;
+	}
+	else
+	{
+		mIntersectionType = IT_EMPTY;
+	}
 
-    return mIntersectionType != IT_EMPTY;
+	return mIntersectionType != IT_EMPTY;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 int IntrSegment3Capsule3<Real>::GetQuantity () const
 {
-    return mQuantity;
+	return mQuantity;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Vector3<Real>& IntrSegment3Capsule3<Real>::GetPoint (int i) const
 {
-    return mPoint[i];
+	return mPoint[i];
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real IntrSegment3Capsule3<Real>::GetParameter (int i) const
 {
-    return mParameter[i];
+	return mParameter[i];
 }
 //----------------------------------------------------------------------------
 

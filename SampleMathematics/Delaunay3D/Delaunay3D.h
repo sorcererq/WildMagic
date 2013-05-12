@@ -14,31 +14,31 @@ using namespace Wm5;
 
 class Delaunay3D : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    Delaunay3D ();
+	Delaunay3D ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    TriMesh* CreateSphere () const;
-    TriMesh* CreateTetra (int index) const;
-    void ChangeTetraStatus (int index, const Float4& color, bool enableWire);
-    void ChangeLastTetraStatus (int index, int vOpposite,
-        const Float4& color, const Float4& oppositeColor);
-    void DoSearch ();
+	void CreateScene ();
+	TriMesh* CreateSphere () const;
+	TriMesh* CreateTetra (int index) const;
+	void ChangeTetraStatus (int index, const Float4& color, bool enableWire);
+	void ChangeLastTetraStatus (int index, int vOpposite,
+	                            const Float4& color, const Float4& oppositeColor);
+	void DoSearch ();
 
-    NodePtr mScene;
-    CullStatePtr mCullState;
-    Culler mCuller;
-    Delaunay3f* mDelaunay;
-    Vector3f mMin, mMax;
+	NodePtr mScene;
+	CullStatePtr mCullState;
+	Culler mCuller;
+	Delaunay3f* mDelaunay;
+	Vector3f mMin, mMax;
 };
 
 WM5_REGISTER_INITIALIZE(Delaunay3D);

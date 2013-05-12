@@ -20,7 +20,7 @@
 //----------------------------------------------------------------------------
 namespace Wm5
 {
-    typedef void* MutexType;
+typedef void* MutexType;
 }
 //----------------------------------------------------------------------------
 #elif defined(__LINUX__) || defined(__APPLE__)
@@ -31,12 +31,12 @@ namespace Wm5
 #include <pthread.h>
 namespace Wm5
 {
-    typedef struct
-    {
-        pthread_mutexattr_t Attribute;
-        pthread_mutex_t Mutex;
-    }
-    MutexType;
+typedef struct
+{
+	pthread_mutexattr_t Attribute;
+	pthread_mutex_t Mutex;
+}
+MutexType;
 }
 #else
 //----------------------------------------------------------------------------

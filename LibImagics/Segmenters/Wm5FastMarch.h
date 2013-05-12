@@ -19,46 +19,46 @@ namespace Wm5
 class WM5_IMAGICS_ITEM FastMarch
 {
 public:
-    // Abstract base class.
-    virtual ~FastMarch ();
+	// Abstract base class.
+	virtual ~FastMarch ();
 
-    // Member access.
-    inline void SetTime (int i, float time);
-    inline float GetTime (int i) const;
-    inline int GetQuantity () const;
-    void GetTimeExtremes (float& minValue, float& maxValue) const;
+	// Member access.
+	inline void SetTime (int i, float time);
+	inline float GetTime (int i) const;
+	inline int GetQuantity () const;
+	void GetTimeExtremes (float& minValue, float& maxValue) const;
 
-    // Image element classification.
-    inline bool IsValid (int i) const;
-    inline bool IsTrial (int i) const;
-    inline bool IsFar (int i) const;
-    inline bool IsZeroSpeed (int i) const;
-    inline bool IsInterior (int i) const;
-    void GetInterior (std::vector<int>& interior) const;
-    virtual void GetBoundary (std::vector<int>& boundary) const = 0;
-    virtual bool IsBoundary (int i) const = 0;
+	// Image element classification.
+	inline bool IsValid (int i) const;
+	inline bool IsTrial (int i) const;
+	inline bool IsFar (int i) const;
+	inline bool IsZeroSpeed (int i) const;
+	inline bool IsInterior (int i) const;
+	void GetInterior (std::vector<int>& interior) const;
+	virtual void GetBoundary (std::vector<int>& boundary) const = 0;
+	virtual bool IsBoundary (int i) const = 0;
 
-    // Run one step of the fast marching algorithm.
-    virtual void Iterate () = 0;
+	// Run one step of the fast marching algorithm.
+	virtual void Iterate () = 0;
 
 protected:
-    // Constructors.
-    FastMarch (int quantity, const float* speeds,
-        const std::vector<int>& seeds);
+	// Constructors.
+	FastMarch (int quantity, const float* speeds,
+	           const std::vector<int>& seeds);
 
-    FastMarch (int quantity, const float speed,
-        const std::vector<int>& seeds);
+	FastMarch (int quantity, const float speed,
+	           const std::vector<int>& seeds);
 
-    // Called by the constructors.
-    void Initialize (int quantity, const std::vector<int>& seeds);
-    void InitializeSpeed (const float* speeds);
-    void InitializeSpeed (const float speed);
+	// Called by the constructors.
+	void Initialize (int quantity, const std::vector<int>& seeds);
+	void InitializeSpeed (const float* speeds);
+	void InitializeSpeed (const float speed);
 
-    int mQuantity;
-    float* mInvSpeeds;
-    float* mTimes;
-    MinHeap<int,float> mHeap;
-    const MinHeapRecord<int,float>** mTrials;
+	int mQuantity;
+	float* mInvSpeeds;
+	float* mTimes;
+	MinHeap<int,float> mHeap;
+	const MinHeapRecord<int,float>** mTrials;
 };
 
 #include "Wm5FastMarch.inl"

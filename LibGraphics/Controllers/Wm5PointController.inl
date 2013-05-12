@@ -9,26 +9,26 @@
 //----------------------------------------------------------------------------
 inline int PointController::GetNumPoints () const
 {
-    return mNumPoints;
+	return mNumPoints;
 }
 //----------------------------------------------------------------------------
 inline float* PointController::GetPointLinearSpeed () const
 {
-    return mPointLinearSpeed;
+	return mPointLinearSpeed;
 }
 //----------------------------------------------------------------------------
 inline float* PointController::GetPointAngularSpeed () const
 {
-    return mPointAngularSpeed;
+	return mPointAngularSpeed;
 }
 //----------------------------------------------------------------------------
 inline AVector* PointController::GetPointLinearAxis () const
 {
-    return mPointLinearAxis;
+	return mPointLinearAxis;
 }
 //----------------------------------------------------------------------------
 inline AVector* PointController::GetPointAngularAxis () const
 {
-    return mPointAngularAxis;
+	return mPointAngularAxis;
 }
 //----------------------------------------------------------------------------

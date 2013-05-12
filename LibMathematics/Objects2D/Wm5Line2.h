@@ -19,17 +19,17 @@ template <typename Real>
 class Line2
 {
 public:
-    // The line is represented as P+t*D where P is the line origin, D is a
-    // unit-length direction vector, and t is any real number.  The user must
-    // ensure that D is indeed unit length.
+	// The line is represented as P+t*D where P is the line origin, D is a
+	// unit-length direction vector, and t is any real number.  The user must
+	// ensure that D is indeed unit length.
 
-    // Construction and destruction.
-    Line2 ();  // uninitialized
-    ~Line2 ();
+	// Construction and destruction.
+	Line2 ();  // uninitialized
+	~Line2 ();
 
-    Line2 (const Vector2<Real>& origin, const Vector2<Real>& direction);
+	Line2 (const Vector2<Real>& origin, const Vector2<Real>& direction);
 
-    Vector2<Real> Origin, Direction;
+	Vector2<Real> Origin, Direction;
 };
 
 #include "Wm5Line2.inl"

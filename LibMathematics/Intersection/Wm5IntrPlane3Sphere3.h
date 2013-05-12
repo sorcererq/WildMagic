@@ -20,37 +20,37 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrPlane3Sphere3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrPlane3Sphere3 (const Plane3<Real>& plane,
-        const Sphere3<Real>& sphere);
+	IntrPlane3Sphere3 (const Plane3<Real>& plane,
+	                   const Sphere3<Real>& sphere);
 
-    // Object access.
-    const Plane3<Real>& GetPlane () const;
-    const Sphere3<Real>& GetSphere () const;
+	// Object access.
+	const Plane3<Real>& GetPlane () const;
+	const Sphere3<Real>& GetSphere () const;
 
-    // Static intersection queries.
-    virtual bool Test ();
-    virtual bool Find ();
+	// Static intersection queries.
+	virtual bool Test ();
+	virtual bool Find ();
 
-    // Culling support.  The view frustum is assumed to be on the positive
-    // side of the plane.  The sphere is culled if it is on the negative
-    // side of the plane.
-    bool SphereIsCulled () const;
+	// Culling support.  The view frustum is assumed to be on the positive
+	// side of the plane.  The sphere is culled if it is on the negative
+	// side of the plane.
+	bool SphereIsCulled () const;
 
-    // The intersection set.  The circle is valid only when Find() returns
-    // 'true'.  If the intersection does not exist, the circle radius is
-    // set to -1 as an additional indication that the circle is not valid.
-    const Circle3<Real>& GetCircle () const;
+	// The intersection set.  The circle is valid only when Find() returns
+	// 'true'.  If the intersection does not exist, the circle radius is
+	// set to -1 as an additional indication that the circle is not valid.
+	const Circle3<Real>& GetCircle () const;
 
 protected:
-    // The objects to intersect.
-    const Plane3<Real>* mPlane;
-    const Sphere3<Real>* mSphere;
+	// The objects to intersect.
+	const Plane3<Real>* mPlane;
+	const Sphere3<Real>* mSphere;
 
-    // The intersection set.
-    Circle3<Real> mCircle;
+	// The intersection set.
+	Circle3<Real> mCircle;
 };
 
 typedef IntrPlane3Sphere3<float> IntrPlane3Sphere3f;

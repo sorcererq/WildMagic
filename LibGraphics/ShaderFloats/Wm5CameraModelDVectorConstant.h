@@ -17,16 +17,16 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM CameraModelDVectorConstant : public ShaderFloat
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(CameraModelDVectorConstant);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(CameraModelDVectorConstant);
 
 public:
-    // Construction and destruction.
-    CameraModelDVectorConstant ();
-    virtual ~CameraModelDVectorConstant ();
+	// Construction and destruction.
+	CameraModelDVectorConstant ();
+	virtual ~CameraModelDVectorConstant ();
 
-    virtual void Update (const Visual* visual, const Camera* camera);
+	virtual void Update (const Visual* visual, const Camera* camera);
 };
 
 WM5_REGISTER_STREAM(CameraModelDVectorConstant);

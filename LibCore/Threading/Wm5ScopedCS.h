@@ -23,12 +23,12 @@ namespace Wm5
 class WM5_CORE_ITEM ScopedCS
 {
 public:
-    // Construction and destruction.
-    ScopedCS (Mutex* mutex);
-    ~ScopedCS ();
+	// Construction and destruction.
+	ScopedCS (Mutex* mutex);
+	~ScopedCS ();
 
 private:
-    Mutex* mMutex;
+	Mutex* mMutex;
 };
 
 }

@@ -18,14 +18,14 @@ namespace Wm5
 class WM5_IMAGICS_ITEM CurvatureFlow3 : public PdeFilter3
 {
 public:
-    CurvatureFlow3 (int xBound, int yBound, int zBound, float xSpacing,
-        float ySpacing, float zSpacing, const float* data,
-        const bool* mask, float borderValue, ScaleType scaleType);
+	CurvatureFlow3 (int xBound, int yBound, int zBound, float xSpacing,
+	                float ySpacing, float zSpacing, const float* data,
+	                const bool* mask, float borderValue, ScaleType scaleType);
 
-    virtual ~CurvatureFlow3 ();
+	virtual ~CurvatureFlow3 ();
 
 protected:
-    virtual void OnUpdate (int x, int y, int z);
+	virtual void OnUpdate (int x, int y, int z);
 };
 
 }

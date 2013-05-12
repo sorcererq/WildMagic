@@ -25,58 +25,58 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM PolynomialFit4
 {
 public:
-    // Construction and destruction.  The first constructor is for data of the
-    // form (x[i],y[i],z[i],w[i]), where 0 <= i < numSamples.  The second
-    // constructor is for gridded data of the form (x[i],y[j],z[k],w[m]),
-    // where 0 <= i < numXSamples, 0 <= j < numYSamples, 0 <= k < numZSamples,
-    // and m = i + numXSamples*(j + numYSamples*k).
-    PolynomialFit4 (int numSamples, const Real* xSamples,
-        const Real* ySamples, const Real* zSamples, const Real* wSamples,
-        int numPowers, const Tuple<3,int>* powers);
+	// Construction and destruction.  The first constructor is for data of the
+	// form (x[i],y[i],z[i],w[i]), where 0 <= i < numSamples.  The second
+	// constructor is for gridded data of the form (x[i],y[j],z[k],w[m]),
+	// where 0 <= i < numXSamples, 0 <= j < numYSamples, 0 <= k < numZSamples,
+	// and m = i + numXSamples*(j + numYSamples*k).
+	PolynomialFit4 (int numSamples, const Real* xSamples,
+	                const Real* ySamples, const Real* zSamples, const Real* wSamples,
+	                int numPowers, const Tuple<3,int>* powers);
 
-    PolynomialFit4 (int numXSamples, int numYSamples, int numZSamples,
-        const Real* xSamples, const Real* ySamples, const Real* zSamples,
-        const Real* wSamples, int numPowers, const Tuple<3,int>* powers);
+	PolynomialFit4 (int numXSamples, int numYSamples, int numZSamples,
+	                const Real* xSamples, const Real* ySamples, const Real* zSamples,
+	                const Real* wSamples, int numPowers, const Tuple<3,int>* powers);
 
-    virtual ~PolynomialFit4 ();
+	virtual ~PolynomialFit4 ();
 
-    // This is a function class that returns 'true' iff the linear system
-    // solver was successful.  If it is not successful, then the polynomial
-    // evaluation is invalid and always returns zero.
-    operator bool () const;
+	// This is a function class that returns 'true' iff the linear system
+	// solver was successful.  If it is not successful, then the polynomial
+	// evaluation is invalid and always returns zero.
+	operator bool () const;
 
-    // Member access.
-    Real GetXMin () const;
-    Real GetXMax () const;
-    Real GetYMin () const;
-    Real GetYMax () const;
-    Real GetZMin () const;
-    Real GetZMax () const;
-    Real GetWMin () const;
-    Real GetWMax () const;
+	// Member access.
+	Real GetXMin () const;
+	Real GetXMax () const;
+	Real GetYMin () const;
+	Real GetYMax () const;
+	Real GetZMin () const;
+	Real GetZMax () const;
+	Real GetWMin () const;
+	Real GetWMax () const;
 
-    // Evaluation of the fitted polynomial.  A derived class may override this
-    // to implement an efficient method based on knowledge about the specific
-    // powers passed to the constructor.
-    virtual Real operator() (Real x, Real y, Real z) const;
+	// Evaluation of the fitted polynomial.  A derived class may override this
+	// to implement an efficient method based on knowledge about the specific
+	// powers passed to the constructor.
+	virtual Real operator() (Real x, Real y, Real z) const;
 
 protected:
-    // Support for construction.
-    void InitializePowers (int numPowers, const Tuple<3,int>* powers);
-    void TransformToUnit (int numSamples, const Real* srcSamples[4],
-        Real* trgSamples[4]);
-    void DoLeastSquaresFit (int numSamples, Real* trgSamples[4]);
+	// Support for construction.
+	void InitializePowers (int numPowers, const Tuple<3,int>* powers);
+	void TransformToUnit (int numSamples, const Real* srcSamples[4],
+	                      Real* trgSamples[4]);
+	void DoLeastSquaresFit (int numSamples, Real* trgSamples[4]);
 
-    int mNumPowers;
-    Tuple<3,int>* mPowers;
-    int mMaxXPower, mMaxYPower, mMaxZPower;
-    mutable Real* mXPowers;
-    mutable Real* mYPowers;
-    mutable Real* mZPowers;
+	int mNumPowers;
+	Tuple<3,int>* mPowers;
+	int mMaxXPower, mMaxYPower, mMaxZPower;
+	mutable Real* mXPowers;
+	mutable Real* mYPowers;
+	mutable Real* mZPowers;
 
-    Real mMin[4], mMax[4], mScale[4], mInvTwoWScale;
-    Real* mCoefficients;
-    bool mSolved;
+	Real mMin[4], mMax[4], mScale[4], mInvTwoWScale;
+	Real* mCoefficients;
+	bool mSolved;
 };
 
 }

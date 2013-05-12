@@ -20,61 +20,61 @@ template <int N>
 class Rational
 {
 public:
-    // Construction.
-    Rational ();  // default rational is 0/1
-    Rational (const Rational& rat);
-    Rational (const Integer<N>& numer);
-    Rational (const Integer<N>& numer, const Integer<N>& denom);
+	// Construction.
+	Rational ();  // default rational is 0/1
+	Rational (const Rational& rat);
+	Rational (const Integer<N>& numer);
+	Rational (const Integer<N>& numer, const Integer<N>& denom);
 
-    // Construction converters.
-    Rational (int numer);
-    Rational (int numer, int denom);
-    Rational (float value);
-    Rational (double value);
+	// Construction converters.
+	Rational (int numer);
+	Rational (int numer, int denom);
+	Rational (float value);
+	Rational (double value);
 
-    // Member access.
-    inline Integer<N>& Numer ();
-    inline Integer<N>& Denom ();
-    inline const Integer<N>& Numer () const;
-    inline const Integer<N>& Denom () const;
+	// Member access.
+	inline Integer<N>& Numer ();
+	inline Integer<N>& Denom ();
+	inline const Integer<N>& Numer () const;
+	inline const Integer<N>& Denom () const;
 
-    // Assignment.
-    Rational& operator= (const Rational& rat);
+	// Assignment.
+	Rational& operator= (const Rational& rat);
 
-    // Comparison.
-    bool operator== (const Rational& rat) const;
-    bool operator!= (const Rational& rat) const;
-    bool operator<= (const Rational& rat) const;
-    bool operator<  (const Rational& rat) const;
-    bool operator>= (const Rational& rat) const;
-    bool operator>  (const Rational& rat) const;
+	// Comparison.
+	bool operator== (const Rational& rat) const;
+	bool operator!= (const Rational& rat) const;
+	bool operator<= (const Rational& rat) const;
+	bool operator<  (const Rational& rat) const;
+	bool operator>= (const Rational& rat) const;
+	bool operator>  (const Rational& rat) const;
 
-    // Arithmetic operations.
-    Rational operator+ (const Rational& rat) const;
-    Rational operator- (const Rational& rat) const;
-    Rational operator* (const Rational& rat) const;
-    Rational operator/ (const Rational& rat) const;
-    Rational operator- () const;
+	// Arithmetic operations.
+	Rational operator+ (const Rational& rat) const;
+	Rational operator- (const Rational& rat) const;
+	Rational operator* (const Rational& rat) const;
+	Rational operator/ (const Rational& rat) const;
+	Rational operator- () const;
 
-    // Arithmetic updates.
-    Rational& operator+= (const Rational& rat);
-    Rational& operator-= (const Rational& rat);
-    Rational& operator*= (const Rational& rat);
-    Rational& operator/= (const Rational& rat);
+	// Arithmetic updates.
+	Rational& operator+= (const Rational& rat);
+	Rational& operator-= (const Rational& rat);
+	Rational& operator*= (const Rational& rat);
+	Rational& operator/= (const Rational& rat);
 
-    // Conversions to float and double.
-    void ConvertTo (float& value) const;
-    void ConvertTo (double& value) const;
+	// Conversions to float and double.
+	void ConvertTo (float& value) const;
+	void ConvertTo (double& value) const;
 
-    // Compute the absolute value of the rational number.
-    Rational Abs () const;
+	// Compute the absolute value of the rational number.
+	Rational Abs () const;
 
 private:
-    // Cancel any powers of two common to the numerator and
-    // denominator.
-    void EliminatePowersOfTwo ();
+	// Cancel any powers of two common to the numerator and
+	// denominator.
+	void EliminatePowersOfTwo ();
 
-    Integer<N> mNumer, mDenom;
+	Integer<N> mNumer, mDenom;
 };
 
 template <int N>

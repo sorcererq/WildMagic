@@ -32,12 +32,12 @@ Ellipsoid3<Real> ContEllipsoid (int numPoints, const Vector3<Real>* points);
 // and corresponds to the line segment P+s*D, where smin <= s <= smax.
 template <typename Real> WM5_MATHEMATICS_ITEM
 void ProjectEllipsoid (const Ellipsoid3<Real>& ellipsoid,
-   const Line3<Real>& line, Real& smin, Real& smax);
+                       const Line3<Real>& line, Real& smin, Real& smax);
 
 // Construct a bounding ellipsoid for the two input ellipsoids.
 template <typename Real> WM5_MATHEMATICS_ITEM
 const Ellipsoid3<Real> MergeEllipsoids (const Ellipsoid3<Real>& ellipsoid0,
-    const Ellipsoid3<Real>& ellipsoid1);
+                                        const Ellipsoid3<Real>& ellipsoid1);
 
 }
 

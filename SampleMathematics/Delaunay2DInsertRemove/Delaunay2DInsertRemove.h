@@ -14,29 +14,29 @@ using namespace Wm5;
 
 class Delaunay2DInsertRemove : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    Delaunay2DInsertRemove ();
+	Delaunay2DInsertRemove ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
-    virtual bool OnMouseClick (int button, int state, int x, int y,
-        unsigned int modifiers);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
+	virtual bool OnMouseClick (int button, int state, int x, int y,
+	                           unsigned int modifiers);
 
 protected:
-    void GetMesh ();
+	void GetMesh ();
 
-    IncrementalDelaunay2f* mDelaunay;
-    int mNumVertices;
-    Vector2f* mVertices;
-    int mNumTriangles;
-    int* mIndices;
-    int* mAdjacencies;
+	IncrementalDelaunay2f* mDelaunay;
+	int mNumVertices;
+	Vector2f* mVertices;
+	int mNumTriangles;
+	int* mIndices;
+	int* mAdjacencies;
 
-    int mSize;
+	int mSize;
 };
 
 WM5_REGISTER_INITIALIZE(Delaunay2DInsertRemove);

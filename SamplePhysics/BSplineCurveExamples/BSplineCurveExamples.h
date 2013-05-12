@@ -15,28 +15,28 @@ using namespace Wm5;
 
 class BSplineCurveExamples : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BSplineCurveExamples ();
+	BSplineCurveExamples ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    BSplineCurve2f* mSpline;
-    int mNumCtrlPoints, mDegree;
-    Vector2f* mCtrlPoint;
-    float* mKnot;
-    float mLocCtrlMin[6], mLocCtrlMax[6];
-    int mCurveType;
-    bool mModified;
+	BSplineCurve2f* mSpline;
+	int mNumCtrlPoints, mDegree;
+	Vector2f* mCtrlPoint;
+	float* mKnot;
+	float mLocCtrlMin[6], mLocCtrlMax[6];
+	int mCurveType;
+	bool mModified;
 
-    int mSize;
-    float mV0, mV1, mV2;
+	int mSize;
+	float mV0, mV1, mV2;
 };
 
 WM5_REGISTER_INITIALIZE(BSplineCurveExamples);

@@ -15,32 +15,32 @@ using namespace Wm5;
 
 class BlendedAnimations : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BlendedAnimations ();
+	BlendedAnimations ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
-    virtual bool OnSpecialKeyDown (int key, int x, int y);
-    virtual bool OnSpecialKeyUp (int key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnSpecialKeyDown (int key, int x, int y);
+	virtual bool OnSpecialKeyUp (int key, int x, int y);
 
 protected:
-    void CreateScene ();
-    void ComputeVisibleSet (Spatial* object);
-    void Update ();
+	void CreateScene ();
+	void ComputeVisibleSet (Spatial* object);
+	void Update ();
 
-    Float4 mTextColor;
-    NodePtr mScene;
-    TriMeshPtr mFloor;
-    WireStatePtr mWireState;
-    VisibleSet mVisibleSet;
-    BipedManager mManager;
-    double mAnimTime, mAnimTimeDelta;
-    bool mUpArrowPressed, mShiftPressed;
+	Float4 mTextColor;
+	NodePtr mScene;
+	TriMeshPtr mFloor;
+	WireStatePtr mWireState;
+	VisibleSet mVisibleSet;
+	BipedManager mManager;
+	double mAnimTime, mAnimTimeDelta;
+	bool mUpArrowPressed, mShiftPressed;
 };
 
 WM5_REGISTER_INITIALIZE(BlendedAnimations);

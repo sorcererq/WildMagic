@@ -13,8 +13,8 @@ using namespace Wm5;
 //----------------------------------------------------------------------------
 Rtti::Rtti (const char* name, const Rtti* baseType)
 {
-    mName = name;
-    mBaseType = baseType;
+	mName = name;
+	mBaseType = baseType;
 }
 //----------------------------------------------------------------------------
 Rtti::~Rtti ()
@@ -23,15 +23,15 @@ Rtti::~Rtti ()
 //----------------------------------------------------------------------------
 bool Rtti::IsDerived (const Rtti& type) const
 {
-    const Rtti* search = this;
-    while (search)
-    {
-        if (search == &type)
-        {
-            return true;
-        }
-        search = search->mBaseType;
-    }
-    return false;
+	const Rtti* search = this;
+	while (search)
+	{
+		if (search == &type)
+		{
+			return true;
+		}
+		search = search->mBaseType;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------

@@ -17,16 +17,16 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM PVMatrixConstant : public ShaderFloat
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(PVMatrixConstant);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(PVMatrixConstant);
 
 public:
-    // Construction and destruction.
-    PVMatrixConstant ();
-    virtual ~PVMatrixConstant ();
+	// Construction and destruction.
+	PVMatrixConstant ();
+	virtual ~PVMatrixConstant ();
 
-    virtual void Update (const Visual* visual, const Camera* camera);
+	virtual void Update (const Visual* visual, const Camera* camera);
 };
 
 WM5_REGISTER_STREAM(PVMatrixConstant);

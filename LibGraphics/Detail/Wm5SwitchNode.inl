@@ -9,20 +9,20 @@
 //----------------------------------------------------------------------------
 inline void SwitchNode::SetActiveChild (int activeChild)
 {
-    assertion(
-        activeChild == SN_INVALID_CHILD || activeChild < (int)mChild.size(),
-        "Invalid active child specified\n");
+	assertion(
+	    activeChild == SN_INVALID_CHILD || activeChild < (int)mChild.size(),
+	    "Invalid active child specified\n");
 
-    mActiveChild = activeChild;
+	mActiveChild = activeChild;
 }
 //----------------------------------------------------------------------------
 inline int SwitchNode::GetActiveChild () const
 {
-    return mActiveChild;
+	return mActiveChild;
 }
 //----------------------------------------------------------------------------
 inline void SwitchNode::DisableAllChildren ()
 {
-    mActiveChild = SN_INVALID_CHILD;
+	mActiveChild = SN_INVALID_CHILD;
 }
 //----------------------------------------------------------------------------

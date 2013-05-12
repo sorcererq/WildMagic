@@ -20,75 +20,75 @@ template <typename Real>
 class WM5_PHYSICS_ITEM ExtremalQuery3BSP : public ExtremalQuery3<Real>
 {
 public:
-    ExtremalQuery3BSP (const ConvexPolyhedron3<Real>* polytope);
-    virtual ~ExtremalQuery3BSP ();
+	ExtremalQuery3BSP (const ConvexPolyhedron3<Real>* polytope);
+	virtual ~ExtremalQuery3BSP ();
 
-    // Compute the extreme vertices in the specified direction and return the
-    // indices of the vertices in the polyhedron vertex array.
-    virtual void GetExtremeVertices (const Vector3<Real>& direction,
-        int& positiveDirection, int& negativeDirection);
+	// Compute the extreme vertices in the specified direction and return the
+	// indices of the vertices in the polyhedron vertex array.
+	virtual void GetExtremeVertices (const Vector3<Real>& direction,
+	                                 int& positiveDirection, int& negativeDirection);
 
-    // Tree statistics.
-    int GetNumNodes () const;
-    int GetTreeDepth () const;
+	// Tree statistics.
+	int GetNumNodes () const;
+	int GetTreeDepth () const;
 
 private:
-    using ExtremalQuery3<Real>::mPolytope;
-    using ExtremalQuery3<Real>::mFaceNormals;
+	using ExtremalQuery3<Real>::mPolytope;
+	using ExtremalQuery3<Real>::mFaceNormals;
 
-    class SphericalArc
-    {
-    public:
-        // Construction.
-        SphericalArc ();
+	class SphericalArc
+	{
+	public:
+		// Construction.
+		SphericalArc ();
 
-        // The arcs are stored in a multiset ordered by increasing separation.
-        // The multiset will be traversed in reverse order.  This heuristic is
-        // designed to create BSP trees whose top-most nodes can eliminate as
-        // many arcs as possible during an extremal query.
-        bool operator< (const SphericalArc& arc) const;
+		// The arcs are stored in a multiset ordered by increasing separation.
+		// The multiset will be traversed in reverse order.  This heuristic is
+		// designed to create BSP trees whose top-most nodes can eliminate as
+		// many arcs as possible during an extremal query.
+		bool operator< (const SphericalArc& arc) const;
 
-        // Indices N[] into the face normal array for the endpoints of the
-        // arc.
-        int NIndex[2];
+		// Indices N[] into the face normal array for the endpoints of the
+		// arc.
+		int NIndex[2];
 
-        // The number of arcs in the path from normal N[0] to normal N[1].
-        // For spherical polygon edges, the number is 1.  The number is 2 or
-        // larger for bisector arcs of the spherical polygon.
-        int Separation;
+		// The number of arcs in the path from normal N[0] to normal N[1].
+		// For spherical polygon edges, the number is 1.  The number is 2 or
+		// larger for bisector arcs of the spherical polygon.
+		int Separation;
 
-        // The normal is Cross(FaceNormal[N[0]],FaceNormal[N[1]]).
-        Vector3<Real> Normal;
+		// The normal is Cross(FaceNormal[N[0]],FaceNormal[N[1]]).
+		Vector3<Real> Normal;
 
-        // Indices into the vertex array for the extremal points for the
-        // two regions sharing the arc.  As the arc is traversed from normal
-        // N[0] to normal N[1], PosVertex is the index for the extreme vertex
-        // to the left of the arc and NegVertex is the index for the extreme
-        // vertex to the right of the arc.
-        int PosVertex, NegVertex;
+		// Indices into the vertex array for the extremal points for the
+		// two regions sharing the arc.  As the arc is traversed from normal
+		// N[0] to normal N[1], PosVertex is the index for the extreme vertex
+		// to the left of the arc and NegVertex is the index for the extreme
+		// vertex to the right of the arc.
+		int PosVertex, NegVertex;
 
-        // Support for BSP trees stored as contiguous nodes in an array.
-        int PosChild, NegChild;
-    };
+		// Support for BSP trees stored as contiguous nodes in an array.
+		int PosChild, NegChild;
+	};
 
-    void SortVertexAdjacents (BasicMesh& mesh);
+	void SortVertexAdjacents (BasicMesh& mesh);
 
-    void CreateSphericalArcs (BasicMesh& mesh,
-        std::multiset<SphericalArc>& arcs);
+	void CreateSphericalArcs (BasicMesh& mesh,
+	                          std::multiset<SphericalArc>& arcs);
 
-    void CreateSphericalBisectors (BasicMesh& mesh,
-        std::multiset<SphericalArc>& arcs);
+	void CreateSphericalBisectors (BasicMesh& mesh,
+	                               std::multiset<SphericalArc>& arcs);
 
-    void CreateBSPTree (std::multiset<SphericalArc>& arcs,
-        std::vector<SphericalArc>& nodes);
+	void CreateBSPTree (std::multiset<SphericalArc>& arcs,
+	                    std::vector<SphericalArc>& nodes);
 
-    void InsertArc (const SphericalArc& arcs,
-        std::vector<SphericalArc>& nodes);
+	void InsertArc (const SphericalArc& arcs,
+	                std::vector<SphericalArc>& nodes);
 
-    // Fixed-size storage for the BSP nodes.
-    int mNumNodes;
-    SphericalArc* mNodes;
-    int mTreeDepth;
+	// Fixed-size storage for the BSP nodes.
+	int mNumNodes;
+	SphericalArc* mNodes;
+	int mTreeDepth;
 };
 
 typedef ExtremalQuery3BSP<float> ExtremalQuery3BSPf;

@@ -14,22 +14,22 @@ using namespace Wm5;
 
 class AdaptiveSkeletonClimbing2 : public ConsoleApplication
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    AdaptiveSkeletonClimbing2 ();
-    virtual ~AdaptiveSkeletonClimbing2 ();
+	AdaptiveSkeletonClimbing2 ();
+	virtual ~AdaptiveSkeletonClimbing2 ();
 
-    void Test0 ();
-    void Test1 ();
+	void Test0 ();
+	void Test1 ();
 
-    virtual int Main (int numArguments, char** arguments);
+	virtual int Main (int numArguments, char** arguments);
 
 private:
-    static void SetPixel (int x, int y);
-    static int msData[81];
-    static ImageRGB82D* msColor;
+	static void SetPixel (int x, int y);
+	static int msData[81];
+	static ImageRGB82D* msColor;
 };
 
 WM5_REGISTER_INITIALIZE(AdaptiveSkeletonClimbing2);

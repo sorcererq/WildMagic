@@ -20,25 +20,25 @@
 class SphereColliders : public Colliders
 {
 public:
-    // Construction and destruction.
-    SphereColliders (const Sphere3f& sphere0, const Sphere3f& sphere1);
-    virtual ~SphereColliders ();
+	// Construction and destruction.
+	SphereColliders (const Sphere3f& sphere0, const Sphere3f& sphere1);
+	virtual ~SphereColliders ();
 
-    // Call this function after a Test or Find call *and* when
-    // GetContactTime() returns a value T such that 0 <= T <= maxTime,
-    // where fMaxTime > 0 is the value supplied to the Test or Find call.
-    Vector3f GetContactPoint () const;
+	// Call this function after a Test or Find call *and* when
+	// GetContactTime() returns a value T such that 0 <= T <= maxTime,
+	// where fMaxTime > 0 is the value supplied to the Test or Find call.
+	Vector3f GetContactPoint () const;
 
 protected:
-    virtual float Pseudodistance (float time, const Vector3f& velocity0,
-        const Vector3f& velocity1) const;
+	virtual float Pseudodistance (float time, const Vector3f& velocity0,
+	                              const Vector3f& velocity1) const;
 
-    virtual void ComputeContactInformation (CollisionType type, float time,
-        const Vector3f& velocity0, const Vector3f& velocity1);
+	virtual void ComputeContactInformation (CollisionType type, float time,
+	                                        const Vector3f& velocity0, const Vector3f& velocity1);
 
-    const Sphere3f* mSphere0;
-    const Sphere3f* mSphere1;
-    Vector3f mContactPoint;
+	const Sphere3f* mSphere0;
+	const Sphere3f* mSphere1;
+	Vector3f mContactPoint;
 };
 
 #endif

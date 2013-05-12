@@ -10,28 +10,28 @@
 
 //----------------------------------------------------------------------------
 MTIVertex::MTIVertex (int label)
-    :
-    mLabel(label)
+	:
+	mLabel(label)
 {
 }
 //----------------------------------------------------------------------------
 int MTIVertex::GetLabel () const
 {
-    return mLabel;
+	return mLabel;
 }
 //----------------------------------------------------------------------------
 bool MTIVertex::operator< (const MTIVertex& vertex) const
 {
-    return mLabel < vertex.mLabel;
+	return mLabel < vertex.mLabel;
 }
 //----------------------------------------------------------------------------
 bool MTIVertex::operator== (const MTIVertex& vertex) const
 {
-    return mLabel == vertex.mLabel;
+	return mLabel == vertex.mLabel;
 }
 //----------------------------------------------------------------------------
 bool MTIVertex::operator!= (const MTIVertex& vertex) const
 {
-    return mLabel != vertex.mLabel;
+	return mLabel != vertex.mLabel;
 }
 //----------------------------------------------------------------------------

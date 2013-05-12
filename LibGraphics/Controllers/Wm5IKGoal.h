@@ -17,25 +17,25 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM IKGoal : public Object
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(IKGoal);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(IKGoal);
 
 public:
-    // Construction and destruction.
-    IKGoal (Spatial* target, Spatial* effector, float weight);
-    virtual ~IKGoal ();
+	// Construction and destruction.
+	IKGoal (Spatial* target, Spatial* effector, float weight);
+	virtual ~IKGoal ();
 
-    // Member access.
-    float Weight;  // default = 1
-    inline Spatial* GetTarget ();
-    inline Spatial* GetEffector ();
-    APoint GetTargetPosition () const;
-    APoint GetEffectorPosition () const;
+	// Member access.
+	float Weight;  // default = 1
+	inline Spatial* GetTarget ();
+	inline Spatial* GetEffector ();
+	APoint GetTargetPosition () const;
+	APoint GetEffectorPosition () const;
 
 protected:
-    SpatialPtr mTarget;
-    SpatialPtr mEffector;
+	SpatialPtr mTarget;
+	SpatialPtr mEffector;
 };
 
 WM5_REGISTER_STREAM(IKGoal);

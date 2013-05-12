@@ -9,11 +9,11 @@
 //----------------------------------------------------------------------------
 inline Spatial* Spatial::GetParent ()
 {
-    return mParent;
+	return mParent;
 }
 //----------------------------------------------------------------------------
 inline void Spatial::SetParent (Spatial* parent)
 {
-    mParent = parent;
+	mParent = parent;
 }
 //----------------------------------------------------------------------------

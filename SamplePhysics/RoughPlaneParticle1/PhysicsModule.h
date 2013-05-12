@@ -15,40 +15,40 @@ using namespace Wm5;
 class PhysicsModule
 {
 public:
-    // Construction and destruction.
-    PhysicsModule ();
-    ~PhysicsModule ();
+	// Construction and destruction.
+	PhysicsModule ();
+	~PhysicsModule ();
 
-    // Initialize the differential equation solver.
-    void Initialize (double time, double deltaTime, double x, double w,
-        double xDer, double wDer);
+	// Initialize the differential equation solver.
+	void Initialize (double time, double deltaTime, double x, double w,
+	                 double xDer, double wDer);
 
-    // Access the current state.
-    inline double GetTime () const;
-    inline double GetDeltaTime () const;
-    inline double GetX () const;
-    inline double GetXDer () const;
-    inline double GetW () const;
-    inline double GetWDer () const;
+	// Access the current state.
+	inline double GetTime () const;
+	inline double GetDeltaTime () const;
+	inline double GetX () const;
+	inline double GetXDer () const;
+	inline double GetW () const;
+	inline double GetWDer () const;
 
-    // Apply a single step of the solver.
-    void Update ();
+	// Apply a single step of the solver.
+	void Update ();
 
-    // physical constants // symbols used in the Game Physics book
-    double Gravity;       // g
-    double Mass;          // m
-    double Friction;      // c
-    double Angle;         // phi
+	// physical constants // symbols used in the Game Physics book
+	double Gravity;       // g
+	double Mass;          // m
+	double Friction;      // c
+	double Angle;         // phi
 
 protected:
-    // state and auxiliary variables
-    double mTime, mDeltaTime;
-    double mState[4], mAux[2];
+	// state and auxiliary variables
+	double mTime, mDeltaTime;
+	double mState[4], mAux[2];
 
-    // ODE solver (specific solver assigned in the cpp file)
-    OdeSolverd* mSolver;
-    static void OdeFunction (double time, const double* state, void* data,
-        double* output);
+	// ODE solver (specific solver assigned in the cpp file)
+	OdeSolverd* mSolver;
+	static void OdeFunction (double time, const double* state, void* data,
+	                         double* output);
 };
 
 #include "PhysicsModule.inl"

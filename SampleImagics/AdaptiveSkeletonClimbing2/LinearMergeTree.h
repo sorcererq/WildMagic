@@ -12,30 +12,30 @@
 class LinearMergeTree
 {
 public:
-    // Construction and destruction.  The array is assumed to contain 2^N+1
-    // elements where N >= 0.  The application is responsible for any memory
-    // management associated with the input array.
-    LinearMergeTree (int N);
-    ~LinearMergeTree ();
+	// Construction and destruction.  The array is assumed to contain 2^N+1
+	// elements where N >= 0.  The application is responsible for any memory
+	// management associated with the input array.
+	LinearMergeTree (int N);
+	~LinearMergeTree ();
 
-    enum
-    {
-        CFG_NONE,
-        CFG_INCR,
-        CFG_DECR,
-        CFG_MULT
-    };
+	enum
+	{
+		CFG_NONE,
+		CFG_INCR,
+		CFG_DECR,
+		CFG_MULT
+	};
 
-    // Member access.
-    int GetQuantity () const;
-    int GetNode (int i) const;
-    int GetEdge (int i) const;
+	// Member access.
+	int GetQuantity () const;
+	int GetNode (int i) const;
+	int GetEdge (int i) const;
 
-    void SetLevel (float level, const int* data, int offset, int stride);
+	void SetLevel (float level, const int* data, int offset, int stride);
 
 private:
-    int mN, mTwoPowerN;
-    unsigned char* mNodes;
+	int mN, mTwoPowerN;
+	unsigned char* mNodes;
 };
 
 #endif

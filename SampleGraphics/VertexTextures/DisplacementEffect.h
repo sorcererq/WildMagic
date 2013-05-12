@@ -18,27 +18,27 @@ namespace Wm5
 
 class DisplacementEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(DisplacementEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(DisplacementEffect);
 
 public:
-    // Construction and destruction.
-    DisplacementEffect ();
-    virtual ~DisplacementEffect ();
+	// Construction and destruction.
+	DisplacementEffect ();
+	virtual ~DisplacementEffect ();
 
-    // Create an instance of the effect with unique parameters.
-    VisualEffectInstance* CreateInstance (Texture2D* displacementTexture);
+	// Create an instance of the effect with unique parameters.
+	VisualEffectInstance* CreateInstance (Texture2D* displacementTexture);
 
 private:
-    // The shader is hard-coded until "vp*" and "fp*" profiles are added to
-    // the WmfxCompiler.
-    static int msAllVRegisters[1];
-    static int* msVRegisters[Shader::MAX_PROFILES];
-    static int msAllVTextureUnits[1];
-    static int* msVTextureUnits[Shader::MAX_PROFILES];
-    static std::string msVPrograms[Shader::MAX_PROFILES];
-    static std::string msPPrograms[Shader::MAX_PROFILES];
+	// The shader is hard-coded until "vp*" and "fp*" profiles are added to
+	// the WmfxCompiler.
+	static int msAllVRegisters[1];
+	static int* msVRegisters[Shader::MAX_PROFILES];
+	static int msAllVTextureUnits[1];
+	static int* msVTextureUnits[Shader::MAX_PROFILES];
+	static std::string msVPrograms[Shader::MAX_PROFILES];
+	static std::string msPPrograms[Shader::MAX_PROFILES];
 };
 
 WM5_REGISTER_STREAM(DisplacementEffect);

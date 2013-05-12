@@ -18,11 +18,11 @@ WM5_IMPLEMENT_FACTORY(MaterialSpecularConstant);
 
 //----------------------------------------------------------------------------
 MaterialSpecularConstant::MaterialSpecularConstant (Material* material)
-    :
-    ShaderFloat(1),
-    mMaterial(material)
+	:
+	ShaderFloat(1),
+	mMaterial(material)
 {
-    EnableUpdater();
+	EnableUpdater();
 }
 //----------------------------------------------------------------------------
 MaterialSpecularConstant::~MaterialSpecularConstant ()
@@ -31,17 +31,17 @@ MaterialSpecularConstant::~MaterialSpecularConstant ()
 //----------------------------------------------------------------------------
 Material* MaterialSpecularConstant::GetMaterial ()
 {
-    return mMaterial;
+	return mMaterial;
 }
 //----------------------------------------------------------------------------
 void MaterialSpecularConstant::Update (const Visual*, const Camera*)
 {
-    const float* source = (const float*)mMaterial->Specular;
-    float* target = mData;
-    for (int i = 0; i < 4; ++i)
-    {
-        *target++ = *source++;
-    }
+	const float* source = (const float*)mMaterial->Specular;
+	float* target = mData;
+	for (int i = 0; i < 4; ++i)
+	{
+		*target++ = *source++;
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -50,22 +50,22 @@ void MaterialSpecularConstant::Update (const Visual*, const Camera*)
 //----------------------------------------------------------------------------
 Object* MaterialSpecularConstant::GetObjectByName (const std::string& name)
 {
-    Object* found = ShaderFloat::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = ShaderFloat::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    WM5_GET_OBJECT_BY_NAME(mMaterial, name, found);
-    return 0;
+	WM5_GET_OBJECT_BY_NAME(mMaterial, name, found);
+	return 0;
 }
 //----------------------------------------------------------------------------
 void MaterialSpecularConstant::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+        std::vector<Object*>& objects)
 {
-    ShaderFloat::GetAllObjectsByName(name, objects);
+	ShaderFloat::GetAllObjectsByName(name, objects);
 
-    WM5_GET_ALL_OBJECTS_BY_NAME(mMaterial, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mMaterial, name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -73,59 +73,59 @@ void MaterialSpecularConstant::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 MaterialSpecularConstant::MaterialSpecularConstant (LoadConstructor value)
-    :
-    ShaderFloat(value)
+	:
+	ShaderFloat(value)
 {
 }
 //----------------------------------------------------------------------------
 void MaterialSpecularConstant::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    ShaderFloat::Load(source);
+	ShaderFloat::Load(source);
 
-    source.ReadPointer(mMaterial);
+	source.ReadPointer(mMaterial);
 
-    WM5_END_DEBUG_STREAM_LOAD(MaterialSpecularConstant, source);
+	WM5_END_DEBUG_STREAM_LOAD(MaterialSpecularConstant, source);
 }
 //----------------------------------------------------------------------------
 void MaterialSpecularConstant::Link (InStream& source)
 {
-    ShaderFloat::Link(source);
+	ShaderFloat::Link(source);
 
-    source.ResolveLink(mMaterial);
+	source.ResolveLink(mMaterial);
 }
 //----------------------------------------------------------------------------
 void MaterialSpecularConstant::PostLink ()
 {
-    ShaderFloat::PostLink();
+	ShaderFloat::PostLink();
 }
 //----------------------------------------------------------------------------
 bool MaterialSpecularConstant::Register (OutStream& target) const
 {
-    if (ShaderFloat::Register(target))
-    {
-        target.Register(mMaterial);
-        return true;
-    }
-    return false;
+	if (ShaderFloat::Register(target))
+	{
+		target.Register(mMaterial);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void MaterialSpecularConstant::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    ShaderFloat::Save(target);
+	ShaderFloat::Save(target);
 
-    target.WritePointer(mMaterial);
+	target.WritePointer(mMaterial);
 
-    WM5_END_DEBUG_STREAM_SAVE(MaterialSpecularConstant, target);
+	WM5_END_DEBUG_STREAM_SAVE(MaterialSpecularConstant, target);
 }
 //----------------------------------------------------------------------------
 int MaterialSpecularConstant::GetStreamingSize () const
 {
-    int size = ShaderFloat::GetStreamingSize();
-    size += WM5_POINTERSIZE(mMaterial);
-    return size;
+	int size = ShaderFloat::GetStreamingSize();
+	size += WM5_POINTERSIZE(mMaterial);
+	return size;
 }
 //----------------------------------------------------------------------------

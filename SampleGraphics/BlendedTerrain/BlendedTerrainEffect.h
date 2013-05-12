@@ -20,25 +20,25 @@ namespace Wm5
 
 class BlendedTerrainEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(BlendedTerrainEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(BlendedTerrainEffect);
 
 public:
-    // Construction and destruction.
-    BlendedTerrainEffect (const std::string& effectFile);
-    virtual ~BlendedTerrainEffect ();
+	// Construction and destruction.
+	BlendedTerrainEffect (const std::string& effectFile);
+	virtual ~BlendedTerrainEffect ();
 
-    // Create an instance of the effect with unique parameters.  The
-    // constant 'flowDirection' uses the first two floats of one register.
-    // The constant 'powerFactor' uses one float of one register.  The
-    // shader constants should be initialized by the caller.
-    VisualEffectInstance* CreateInstance (ShaderFloat* flowDirection,
-        ShaderFloat* powerFactor, Texture2D* grassTexture,
-        Texture2D* stoneTexture, Texture2D* cloudTexture);
+	// Create an instance of the effect with unique parameters.  The
+	// constant 'flowDirection' uses the first two floats of one register.
+	// The constant 'powerFactor' uses one float of one register.  The
+	// shader constants should be initialized by the caller.
+	VisualEffectInstance* CreateInstance (ShaderFloat* flowDirection,
+	                                      ShaderFloat* powerFactor, Texture2D* grassTexture,
+	                                      Texture2D* stoneTexture, Texture2D* cloudTexture);
 
 protected:
-    Texture1DPtr mBlendTexture;
+	Texture1DPtr mBlendTexture;
 };
 
 WM5_REGISTER_STREAM(BlendedTerrainEffect);

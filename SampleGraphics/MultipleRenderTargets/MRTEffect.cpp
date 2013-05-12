@@ -18,22 +18,22 @@ WM5_IMPLEMENT_DEFAULT_STREAM(VisualEffect, MRTEffect);
 
 //----------------------------------------------------------------------------
 MRTEffect::MRTEffect (const std::string& effectFile)
-    :
-    VisualEffect(effectFile)
+	:
+	VisualEffect(effectFile)
 {
-    // TODO:  Once WmfxCompiler parses the Cg FX files, we will not need to
-    // set the sampler state.
-    PixelShader* pshader = GetPixelShader(0, 0);
+	// TODO:  Once WmfxCompiler parses the Cg FX files, we will not need to
+	// set the sampler state.
+	PixelShader* pshader = GetPixelShader(0, 0);
 
-    // Sampler0
-    pshader->SetFilter(0, Shader::SF_LINEAR);
-    pshader->SetCoordinate(0, 0, Shader::SC_CLAMP_EDGE);
-    pshader->SetCoordinate(0, 1, Shader::SC_CLAMP_EDGE);
+	// Sampler0
+	pshader->SetFilter(0, Shader::SF_LINEAR);
+	pshader->SetCoordinate(0, 0, Shader::SC_CLAMP_EDGE);
+	pshader->SetCoordinate(0, 1, Shader::SC_CLAMP_EDGE);
 
-    // Sampler1
-    pshader->SetFilter(1, Shader::SF_LINEAR);
-    pshader->SetCoordinate(1, 0, Shader::SC_CLAMP_EDGE);
-    pshader->SetCoordinate(1, 1, Shader::SC_CLAMP_EDGE);
+	// Sampler1
+	pshader->SetFilter(1, Shader::SF_LINEAR);
+	pshader->SetCoordinate(1, 0, Shader::SC_CLAMP_EDGE);
+	pshader->SetCoordinate(1, 1, Shader::SC_CLAMP_EDGE);
 }
 //----------------------------------------------------------------------------
 MRTEffect::~MRTEffect ()
@@ -41,12 +41,12 @@ MRTEffect::~MRTEffect ()
 }
 //----------------------------------------------------------------------------
 VisualEffectInstance* MRTEffect::CreateInstance (Texture2D* texture0,
-    Texture2D* texture1)
+        Texture2D* texture1)
 {
-    VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
-    instance->SetVertexConstant(0, 0, new0 PVWMatrixConstant());
-    instance->SetPixelTexture(0, 0, texture0);
-    instance->SetPixelTexture(0, 1, texture1);
-    return instance;
+	VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
+	instance->SetVertexConstant(0, 0, new0 PVWMatrixConstant());
+	instance->SetPixelTexture(0, 0, texture0);
+	instance->SetPixelTexture(0, 1, texture1);
+	return instance;
 }
 //----------------------------------------------------------------------------

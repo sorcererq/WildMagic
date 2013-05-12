@@ -32,53 +32,53 @@ using namespace Wm5;
 Mutex::Mutex ()
 {
 #ifdef WM5_USE_CRITICAL_SECTIONS
-    // The MSVS2010 documentation mentioned that the heap manager spin lock
-    // was set to approximately 4000.  Let's see how 4096 does.
-    mMutex = new CRITICAL_SECTION;
-    BOOL success = InitializeCriticalSectionAndSpinCount(
-        (CRITICAL_SECTION*)mMutex, 4096);
-    assertion(success == TRUE, "Failed to initialize critical section.\n");
-    WM5_UNUSED(success);
+	// The MSVS2010 documentation mentioned that the heap manager spin lock
+	// was set to approximately 4000.  Let's see how 4096 does.
+	mMutex = new CRITICAL_SECTION;
+	BOOL success = InitializeCriticalSectionAndSpinCount(
+	                   (CRITICAL_SECTION*)mMutex, 4096);
+	assertion(success == TRUE, "Failed to initialize critical section.\n");
+	WM5_UNUSED(success);
 #else
-    mMutex = CreateMutex(NULL, FALSE, NULL);
-    assertion(mMutex != 0, "Failed to create mutex\n");
+	mMutex = CreateMutex(NULL, FALSE, NULL);
+	assertion(mMutex != 0, "Failed to create mutex\n");
 #endif
 }
 //----------------------------------------------------------------------------
 Mutex::~Mutex ()
 {
 #ifdef WM5_USE_CRITICAL_SECTIONS
-    DeleteCriticalSection((CRITICAL_SECTION*)mMutex);
-    delete mMutex;
+	DeleteCriticalSection((CRITICAL_SECTION*)mMutex);
+	delete mMutex;
 #else
-    BOOL closed = CloseHandle((HANDLE)mMutex);
-    assertion(closed == TRUE, "Failed to destroy mutex\n");
-    WM5_UNUSED(closed);
+	BOOL closed = CloseHandle((HANDLE)mMutex);
+	assertion(closed == TRUE, "Failed to destroy mutex\n");
+	WM5_UNUSED(closed);
 #endif
 }
 //----------------------------------------------------------------------------
 void Mutex::Enter ()
 {
 #ifdef WM5_USE_CRITICAL_SECTIONS
-    EnterCriticalSection((CRITICAL_SECTION*)mMutex);
+	EnterCriticalSection((CRITICAL_SECTION*)mMutex);
 #else
-    DWORD result = WaitForSingleObject((HANDLE)mMutex, INFINITE);
-    WM5_UNUSED(result);
-    // result:
-    //   WAIT_ABANDONED (0x00000080)
-    //   WAIT_OBJECT_0  (0x00000000), signaled
-    //   WAIT_TIMEOUT   (0x00000102), [not possible with INFINITE]
-    //   WAIT_FAILED    (0xFFFFFFFF), not signaled
+	DWORD result = WaitForSingleObject((HANDLE)mMutex, INFINITE);
+	WM5_UNUSED(result);
+	// result:
+	//   WAIT_ABANDONED (0x00000080)
+	//   WAIT_OBJECT_0  (0x00000000), signaled
+	//   WAIT_TIMEOUT   (0x00000102), [not possible with INFINITE]
+	//   WAIT_FAILED    (0xFFFFFFFF), not signaled
 #endif
 }
 //----------------------------------------------------------------------------
 void Mutex::Leave ()
 {
 #ifdef WM5_USE_CRITICAL_SECTIONS
-    LeaveCriticalSection((CRITICAL_SECTION*)mMutex);
+	LeaveCriticalSection((CRITICAL_SECTION*)mMutex);
 #else
-    BOOL released = ReleaseMutex((HANDLE)mMutex);
-    WM5_UNUSED(released);
+	BOOL released = ReleaseMutex((HANDLE)mMutex);
+	WM5_UNUSED(released);
 #endif
 }
 //----------------------------------------------------------------------------
@@ -86,50 +86,50 @@ void Mutex::Leave ()
 //----------------------------------------------------------------------------
 Mutex::Mutex ()
 {
-    int result;
-    WM5_UNUSED(result);
-    
-    result = pthread_mutexattr_init(&mMutex.Attribute);
-    // successful = 0
-    // errors = ENOMEM
+	int result;
+	WM5_UNUSED(result);
 
-    result = pthread_mutexattr_settype(&mMutex.Attribute,
-         PTHREAD_MUTEX_RECURSIVE);
-    // successful = 0
-    
-    result = pthread_mutex_init(&mMutex.Mutex, &mMutex.Attribute);
-    // successful = 0
-    // errors = EAGAIN, ENOMEM, EPERM, EBUSY, EINVAL
+	result = pthread_mutexattr_init(&mMutex.Attribute);
+	// successful = 0
+	// errors = ENOMEM
+
+	result = pthread_mutexattr_settype(&mMutex.Attribute,
+	                                   PTHREAD_MUTEX_RECURSIVE);
+	// successful = 0
+
+	result = pthread_mutex_init(&mMutex.Mutex, &mMutex.Attribute);
+	// successful = 0
+	// errors = EAGAIN, ENOMEM, EPERM, EBUSY, EINVAL
 }
 //----------------------------------------------------------------------------
 Mutex::~Mutex ()
 {
-    int result;
-    WM5_UNUSED(result);
+	int result;
+	WM5_UNUSED(result);
 
-    result = pthread_mutex_destroy(&mMutex.Mutex);
-    // successful = 0
-    // errors = EINVAL
+	result = pthread_mutex_destroy(&mMutex.Mutex);
+	// successful = 0
+	// errors = EINVAL
 
-    result = pthread_mutexattr_destroy(&mMutex.Attribute);
-    // successful = 0
-    // errors = EBUSY, EINVAL
+	result = pthread_mutexattr_destroy(&mMutex.Attribute);
+	// successful = 0
+	// errors = EBUSY, EINVAL
 }
 //----------------------------------------------------------------------------
 void Mutex::Enter ()
 {
-    int result = pthread_mutex_lock(&mMutex.Mutex);
-    WM5_UNUSED(result);
-    // successful = 0
-    // errors = EINVAL, EDEADLK
+	int result = pthread_mutex_lock(&mMutex.Mutex);
+	WM5_UNUSED(result);
+	// successful = 0
+	// errors = EINVAL, EDEADLK
 }
 //----------------------------------------------------------------------------
 void Mutex::Leave ()
 {
-    int result = pthread_mutex_unlock(&mMutex.Mutex);
-    WM5_UNUSED(result);
-    // successful = 0
-    // errors = EINVAL, EPERM
+	int result = pthread_mutex_unlock(&mMutex.Mutex);
+	WM5_UNUSED(result);
+	// successful = 0
+	// errors = EINVAL, EPERM
 }
 //----------------------------------------------------------------------------
 #else

@@ -19,35 +19,35 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrLine3Plane3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrLine3Plane3 (const Line3<Real>& line, const Plane3<Real>& plane);
+	IntrLine3Plane3 (const Line3<Real>& line, const Plane3<Real>& plane);
 
-    // Object access.
-    const Line3<Real>& GetLine () const;
-    const Plane3<Real>& GetPlane () const;
+	// Object access.
+	const Line3<Real>& GetLine () const;
+	const Plane3<Real>& GetPlane () const;
 
-    // Test-intersection query.
-    virtual bool Test ();
+	// Test-intersection query.
+	virtual bool Test ();
 
-    // Find-intersection query.  The point of intersection is
-    // P = origin + t*direction.
-    virtual bool Find ();
-    Real GetLineParameter () const;
+	// Find-intersection query.  The point of intersection is
+	// P = origin + t*direction.
+	virtual bool Find ();
+	Real GetLineParameter () const;
 
 private:
-    using Intersector<Real,Vector3<Real> >::IT_EMPTY;
-    using Intersector<Real,Vector3<Real> >::IT_POINT;
-    using Intersector<Real,Vector3<Real> >::IT_LINE;
-    using Intersector<Real,Vector3<Real> >::mIntersectionType;
+	using Intersector<Real,Vector3<Real> >::IT_EMPTY;
+	using Intersector<Real,Vector3<Real> >::IT_POINT;
+	using Intersector<Real,Vector3<Real> >::IT_LINE;
+	using Intersector<Real,Vector3<Real> >::mIntersectionType;
 
-    // The objects to intersect.
-    const Line3<Real>* mLine;
-    const Plane3<Real>* mPlane;
+	// The objects to intersect.
+	const Line3<Real>* mLine;
+	const Plane3<Real>* mPlane;
 
-    // Information about the intersection set.
-    Real mLineParameter;
+	// Information about the intersection set.
+	Real mLineParameter;
 };
 
 typedef IntrLine3Plane3<float> IntrLine3Plane3f;

@@ -9,31 +9,31 @@
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetTime () const
 {
-    return mTime;
+	return mTime;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetDeltaTime () const
 {
-    return mDeltaTime;
+	return mDeltaTime;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetY1 () const
 {
-    return mState[0];
+	return mState[0];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetY1Dot () const
 {
-    return mState[1];
+	return mState[1];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetY2 () const
 {
-    return mState[2];
+	return mState[2];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetY2Dot () const
 {
-    return mState[3];
+	return mState[3];
 }
 //----------------------------------------------------------------------------

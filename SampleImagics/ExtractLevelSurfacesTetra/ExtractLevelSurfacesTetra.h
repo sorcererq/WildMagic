@@ -14,25 +14,25 @@ using namespace Wm5;
 
 class ExtractLevelSurfacesTetra : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    ExtractLevelSurfacesTetra ();
+	ExtractLevelSurfacesTetra ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
+	void CreateScene ();
 
-    NodePtr mScene, mTrnNode;
-    WireStatePtr mWireState;
-    Culler mCuller;
+	NodePtr mScene, mTrnNode;
+	WireStatePtr mWireState;
+	Culler mCuller;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(ExtractLevelSurfacesTetra);

@@ -15,72 +15,72 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 OdeRungeKutta4<Real>::OdeRungeKutta4 (int dim, Real step,
-    typename OdeSolver<Real>::Function function, void* userData)
-    :
-    OdeSolver<Real>(dim, step, function, userData)
+                                      typename OdeSolver<Real>::Function function, void* userData)
+	:
+	OdeSolver<Real>(dim, step, function, userData)
 {
-    mHalfStep = ((Real)0.5)*step;
-    mSixthStep = step/((Real)6);
-    mTemp1 = new1<Real>(mDim);
-    mTemp2 = new1<Real>(mDim);
-    mTemp3 = new1<Real>(mDim);
-    mTemp4 = new1<Real>(mDim);
-    mXTemp = new1<Real>(mDim);
+	mHalfStep = ((Real)0.5)*step;
+	mSixthStep = step/((Real)6);
+	mTemp1 = new1<Real>(mDim);
+	mTemp2 = new1<Real>(mDim);
+	mTemp3 = new1<Real>(mDim);
+	mTemp4 = new1<Real>(mDim);
+	mXTemp = new1<Real>(mDim);
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 OdeRungeKutta4<Real>::~OdeRungeKutta4 ()
 {
-    delete1(mTemp1);
-    delete1(mTemp2);
-    delete1(mTemp3);
-    delete1(mTemp4);
-    delete1(mXTemp);
+	delete1(mTemp1);
+	delete1(mTemp2);
+	delete1(mTemp3);
+	delete1(mTemp4);
+	delete1(mXTemp);
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 void OdeRungeKutta4<Real>::Update (Real tIn, Real* xIn, Real& tOut,
-    Real* xOut)
+                                   Real* xOut)
 {
-    // first step
-    mFunction(tIn, xIn, mUserData, mTemp1);
-    int i;
-    for (i = 0; i < mDim; ++i)
-    {
-        mXTemp[i] = xIn[i] + mHalfStep*mTemp1[i];
-    }
+	// first step
+	mFunction(tIn, xIn, mUserData, mTemp1);
+	int i;
+	for (i = 0; i < mDim; ++i)
+	{
+		mXTemp[i] = xIn[i] + mHalfStep*mTemp1[i];
+	}
 
-    // second step
-    Real halfT = tIn + mHalfStep;
-    mFunction(halfT, mXTemp, mUserData, mTemp2);
-    for (i = 0; i < mDim; ++i)
-    {
-        mXTemp[i] = xIn[i] + mHalfStep*mTemp2[i];
-    }
+	// second step
+	Real halfT = tIn + mHalfStep;
+	mFunction(halfT, mXTemp, mUserData, mTemp2);
+	for (i = 0; i < mDim; ++i)
+	{
+		mXTemp[i] = xIn[i] + mHalfStep*mTemp2[i];
+	}
 
-    // third step
-    mFunction(halfT, mXTemp, mUserData, mTemp3);
-    for (i = 0; i < mDim; ++i)
-    {
-        mXTemp[i] = xIn[i] + mStep*mTemp3[i];
-    }
+	// third step
+	mFunction(halfT, mXTemp, mUserData, mTemp3);
+	for (i = 0; i < mDim; ++i)
+	{
+		mXTemp[i] = xIn[i] + mStep*mTemp3[i];
+	}
 
-    // fourth step
-    tOut = tIn + mStep;
-    mFunction(tOut, mXTemp, mUserData, mTemp4);
-    for (i = 0; i < mDim; ++i)
-    {
-        xOut[i] = xIn[i] + mSixthStep*(mTemp1[i] +
-            ((Real)2)*(mTemp2[i] + mTemp3[i]) + mTemp4[i]);
-    }
+	// fourth step
+	tOut = tIn + mStep;
+	mFunction(tOut, mXTemp, mUserData, mTemp4);
+	for (i = 0; i < mDim; ++i)
+	{
+		xOut[i] = xIn[i] + mSixthStep*(mTemp1[i] +
+		                               ((Real)2)*(mTemp2[i] + mTemp3[i]) + mTemp4[i]);
+	}
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 void OdeRungeKutta4<Real>::SetStepSize (Real step)
 {
-    mStep = step;
-    mHalfStep = ((Real)0.5)*step;
-    mSixthStep = step/((Real)6);
+	mStep = step;
+	mHalfStep = ((Real)0.5)*step;
+	mSixthStep = step/((Real)6);
 }
 //----------------------------------------------------------------------------
 

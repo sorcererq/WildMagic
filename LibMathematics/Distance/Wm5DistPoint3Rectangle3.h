@@ -18,39 +18,39 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM DistPoint3Rectangle3
-    : public Distance<Real,Vector3<Real> >
+	: public Distance<Real,Vector3<Real> >
 {
 public:
-    DistPoint3Rectangle3 (const Vector3<Real>& point,
-        const Rectangle3<Real>& rectangle);
+	DistPoint3Rectangle3 (const Vector3<Real>& point,
+	                      const Rectangle3<Real>& rectangle);
 
-    // Object access.
-    const Vector3<Real>& GetPoint () const;
-    const Rectangle3<Real>& GetRectangle () const;
+	// Object access.
+	const Vector3<Real>& GetPoint () const;
+	const Rectangle3<Real>& GetRectangle () const;
 
-    // Static distance queries.
-    virtual Real Get ();
-    virtual Real GetSquared ();
+	// Static distance queries.
+	virtual Real Get ();
+	virtual Real GetSquared ();
 
-    // Function calculations for dynamic distance queries.
-    virtual Real Get (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
-    virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	// Function calculations for dynamic distance queries.
+	virtual Real Get (Real t, const Vector3<Real>& velocity0,
+	                  const Vector3<Real>& velocity1);
+	virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
+	                         const Vector3<Real>& velocity1);
 
-    // Information about the closest rectangle point.
-    Real GetRectangleCoordinate (int i) const;
+	// Information about the closest rectangle point.
+	Real GetRectangleCoordinate (int i) const;
 
 private:
-    using Distance<Real,Vector3<Real> >::mClosestPoint0;
-    using Distance<Real,Vector3<Real> >::mClosestPoint1;
+	using Distance<Real,Vector3<Real> >::mClosestPoint0;
+	using Distance<Real,Vector3<Real> >::mClosestPoint1;
 
-    const Vector3<Real>* mPoint;
-    const Rectangle3<Real>* mRectangle;
+	const Vector3<Real>* mPoint;
+	const Rectangle3<Real>* mRectangle;
 
-    // Information about the closest rectangle point.
-    // closest1 = rect.center + param0*rect.dir0 + param1*rect.dir1
-    Real mRectCoord[2];
+	// Information about the closest rectangle point.
+	// closest1 = rect.center + param0*rect.dir0 + param1*rect.dir1
+	Real mRectCoord[2];
 };
 
 typedef DistPoint3Rectangle3<float> DistPoint3Rectangle3f;

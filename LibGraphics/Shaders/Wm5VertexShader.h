@@ -17,33 +17,33 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM VertexShader : public Shader
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(VertexShader);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(VertexShader);
 
 public:
-    // Construction and destruction.  See comments in Wm5Shader.h about
-    // constructing shader programs.
-    VertexShader (const std::string& programName, int numInputs,
-        int numOutputs, int numConstants, int numSamplers, bool profileOwner);
+	// Construction and destruction.  See comments in Wm5Shader.h about
+	// constructing shader programs.
+	VertexShader (const std::string& programName, int numInputs,
+	              int numOutputs, int numConstants, int numSamplers, bool profileOwner);
 
-    virtual ~VertexShader ();
+	virtual ~VertexShader ();
 
-    // Vertex shader profile information.
-    enum WM5_GRAPHICS_ITEM Profile
-    {
-        VP_NONE,
-        VP_VS_1_1,
-        VP_VS_2_0,
-        VP_VS_3_0,
-        VP_ARBVP1
-    };
+	// Vertex shader profile information.
+	enum WM5_GRAPHICS_ITEM Profile
+	{
+		VP_NONE,
+		VP_VS_1_1,
+		VP_VS_2_0,
+		VP_VS_3_0,
+		VP_ARBVP1
+	};
 
-    static void SetProfile (Profile profile);
-    static Profile GetProfile ();
+	static void SetProfile (Profile profile);
+	static Profile GetProfile ();
 
 protected:
-    static Profile msProfile;
+	static Profile msProfile;
 };
 
 WM5_REGISTER_STREAM(VertexShader);

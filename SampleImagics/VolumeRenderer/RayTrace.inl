@@ -9,16 +9,16 @@
 //----------------------------------------------------------------------------
 inline Ergb8 RayTrace::GetRendered (int x, int y)
 {
-    return (*mRender)(x,y);
+	return (*mRender)(x,y);
 }
 //----------------------------------------------------------------------------
 inline Ergb8 RayTrace::GetRendered (int i)
 {
-    return (*mRender)[i];
+	return (*mRender)[i];
 }
 //----------------------------------------------------------------------------
 inline float& RayTrace::Frame (int row, int col)
 {
-    return mFrame[row][col];
+	return mFrame[row][col];
 }
 //----------------------------------------------------------------------------

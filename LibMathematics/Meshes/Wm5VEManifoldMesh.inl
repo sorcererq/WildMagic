@@ -9,11 +9,11 @@
 //----------------------------------------------------------------------------
 inline const VEManifoldMesh::VMap& VEManifoldMesh::GetVertices () const
 {
-    return mVMap;
+	return mVMap;
 }
 //----------------------------------------------------------------------------
 inline const VEManifoldMesh::EMap& VEManifoldMesh::GetEdges () const
 {
-    return mEMap;
+	return mEMap;
 }
 //----------------------------------------------------------------------------

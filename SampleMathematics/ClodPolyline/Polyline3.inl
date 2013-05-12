@@ -9,41 +9,41 @@
 //----------------------------------------------------------------------------
 inline int Polyline3::GetNumVertices () const
 {
-    return mNumVertices;
+	return mNumVertices;
 }
 //----------------------------------------------------------------------------
 inline const Vector3f* Polyline3::GetVertices () const
 {
-    return mVertices;
+	return mVertices;
 }
 //----------------------------------------------------------------------------
 inline bool Polyline3::GetClosed () const
 {
-    return mClosed;
+	return mClosed;
 }
 //----------------------------------------------------------------------------
 inline int Polyline3::GetNumEdges () const
 {
-    return mNumEdges;
+	return mNumEdges;
 }
 //----------------------------------------------------------------------------
 inline const int* Polyline3::GetEdges () const
 {
-    return mEdges;
+	return mEdges;
 }
 //----------------------------------------------------------------------------
 inline int Polyline3::GetMinLevelOfDetail () const
 {
-    return mVMin;
+	return mVMin;
 }
 //----------------------------------------------------------------------------
 inline int Polyline3::GetMaxLevelOfDetail () const
 {
-    return mVMax;
+	return mVMax;
 }
 //----------------------------------------------------------------------------
 inline int Polyline3::GetLevelOfDetail () const
 {
-    return mNumVertices;
+	return mNumVertices;
 }
 //----------------------------------------------------------------------------

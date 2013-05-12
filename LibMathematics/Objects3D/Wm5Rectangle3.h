@@ -19,32 +19,32 @@ template <typename Real>
 class Rectangle3
 {
 public:
-    // Points are R(s,t) = C+s0*U0+s1*U1, where C is the center of the
-    // rectangle, U0 and U1 are unit-length and perpendicular axes.  The
-    // parameters s0 and s1 are constrained by |s0| <= e0 and |s1| <= e1,
-    // where e0 > 0 and e1 > 0 are called the extents of the rectangle.
+	// Points are R(s,t) = C+s0*U0+s1*U1, where C is the center of the
+	// rectangle, U0 and U1 are unit-length and perpendicular axes.  The
+	// parameters s0 and s1 are constrained by |s0| <= e0 and |s1| <= e1,
+	// where e0 > 0 and e1 > 0 are called the extents of the rectangle.
 
-    // Construction and destruction.
-    Rectangle3 ();  // uninitialized
-    ~Rectangle3 ();
+	// Construction and destruction.
+	Rectangle3 ();  // uninitialized
+	~Rectangle3 ();
 
-    Rectangle3 (const Vector3<Real>& center, const Vector3<Real> axis[2],
-        const Real extent[2]);
+	Rectangle3 (const Vector3<Real>& center, const Vector3<Real> axis[2],
+	            const Real extent[2]);
 
-    Rectangle3 (const Vector3<Real>& center, const Vector3<Real>& axis0,
-        const Vector3<Real>& axis1, Real extent0, Real extent1);
+	Rectangle3 (const Vector3<Real>& center, const Vector3<Real>& axis0,
+	            const Vector3<Real>& axis1, Real extent0, Real extent1);
 
-    void ComputeVertices (Vector3<Real> vertex[4]) const;
+	void ComputeVertices (Vector3<Real> vertex[4]) const;
 
-    // Get the rectangle corners.
-    Vector3<Real> GetPPCorner () const;  // C + e0*A0 + e1*A1
-    Vector3<Real> GetPMCorner () const;  // C + e0*A0 - e1*A1
-    Vector3<Real> GetMPCorner () const;  // C - e0*A0 + e1*A1
-    Vector3<Real> GetMMCorner () const;  // C - e0*A0 - e1*A1
+	// Get the rectangle corners.
+	Vector3<Real> GetPPCorner () const;  // C + e0*A0 + e1*A1
+	Vector3<Real> GetPMCorner () const;  // C + e0*A0 - e1*A1
+	Vector3<Real> GetMPCorner () const;  // C - e0*A0 + e1*A1
+	Vector3<Real> GetMMCorner () const;  // C - e0*A0 - e1*A1
 
-    Vector3<Real> Center;
-    Vector3<Real> Axis[2];
-    Real Extent[2];
+	Vector3<Real> Center;
+	Vector3<Real> Axis[2];
+	Real Extent[2];
 };
 
 #include "Wm5Rectangle3.inl"

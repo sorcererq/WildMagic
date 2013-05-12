@@ -19,11 +19,11 @@ Cylinder3<Real>::~Cylinder3 ()
 //----------------------------------------------------------------------------
 template <typename Real>
 Cylinder3<Real>::Cylinder3 (const Line3<Real>& axis, Real radius,
-    Real height)
-    :
-    Axis(axis),
-    Radius(radius),
-    Height(height)
+                            Real height)
+	:
+	Axis(axis),
+	Radius(radius),
+	Height(height)
 {
 }
 //----------------------------------------------------------------------------

@@ -15,37 +15,37 @@ using namespace Wm5;
 
 class FlowingSkirt : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    FlowingSkirt ();
-    virtual ~FlowingSkirt ();
+	FlowingSkirt ();
+	virtual ~FlowingSkirt ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    void UpdateSkirt ();
-    void ModifyCurves ();
+	void CreateScene ();
+	void UpdateSkirt ();
+	void ModifyCurves ();
 
-    // The scene graph.
-    NodePtr mScene, mTrnNode;
-    TriMeshPtr mSkirt;
-    WireStatePtr mWireState;
-    Culler mCuller;
+	// The scene graph.
+	NodePtr mScene, mTrnNode;
+	TriMeshPtr mSkirt;
+	WireStatePtr mWireState;
+	Culler mCuller;
 
-    // The skirt is a generalized Bezier cylinder.
-    int mNumCtrl, mDegree;
-    float mATop, mBTop, mABot, mBBot;
-    BSplineCurve3f* mSkirtTop;
-    BSplineCurve3f* mSkirtBot;
-    float* mFrequencies;
+	// The skirt is a generalized Bezier cylinder.
+	int mNumCtrl, mDegree;
+	float mATop, mBTop, mABot, mBBot;
+	BSplineCurve3f* mSkirtTop;
+	BSplineCurve3f* mSkirtBot;
+	float* mFrequencies;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(FlowingSkirt);

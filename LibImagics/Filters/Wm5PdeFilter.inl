@@ -9,26 +9,26 @@
 //----------------------------------------------------------------------------
 inline int PdeFilter::GetQuantity () const
 {
-    return mQuantity;
+	return mQuantity;
 }
 //----------------------------------------------------------------------------
 inline float PdeFilter::GetBorderValue () const
 {
-    return mBorderValue;
+	return mBorderValue;
 }
 //----------------------------------------------------------------------------
 inline PdeFilter::ScaleType PdeFilter::GetScaleType () const
 {
-    return mScaleType;
+	return mScaleType;
 }
 //----------------------------------------------------------------------------
 inline void PdeFilter::SetTimeStep (float timeStep)
 {
-    mTimeStep = timeStep;
+	mTimeStep = timeStep;
 }
 //----------------------------------------------------------------------------
 inline float PdeFilter::GetTimeStep () const
 {
-    return mTimeStep;
+	return mTimeStep;
 }
 //----------------------------------------------------------------------------

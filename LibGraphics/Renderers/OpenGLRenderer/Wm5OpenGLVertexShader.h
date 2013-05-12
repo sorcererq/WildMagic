@@ -21,18 +21,18 @@ class Renderer;
 class PdrVertexShader : public PdrShader
 {
 public:
-    // Construction and destruction
-    PdrVertexShader (Renderer* renderer, const VertexShader* vshader);
-    ~PdrVertexShader ();
+	// Construction and destruction
+	PdrVertexShader (Renderer* renderer, const VertexShader* vshader);
+	~PdrVertexShader ();
 
-    // Vertex shader operations.
-    void Enable (Renderer* renderer, const VertexShader* vshader,
-        const ShaderParameters* parameters);
-    void Disable (Renderer* renderer, const VertexShader* vshader,
-        const ShaderParameters* parameters);
+	// Vertex shader operations.
+	void Enable (Renderer* renderer, const VertexShader* vshader,
+	             const ShaderParameters* parameters);
+	void Disable (Renderer* renderer, const VertexShader* vshader,
+	              const ShaderParameters* parameters);
 
 private:
-    GLuint mShader;
+	GLuint mShader;
 };
 
 }

@@ -19,28 +19,28 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrPlane3Lozenge3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrPlane3Lozenge3 (const Plane3<Real>& plane,
-        const Lozenge3<Real>& lozenge);
+	IntrPlane3Lozenge3 (const Plane3<Real>& plane,
+	                    const Lozenge3<Real>& lozenge);
 
-    // Object access.
-    const Plane3<Real>& GetPlane () const;
-    const Lozenge3<Real>& GetLozenge () const;
+	// Object access.
+	const Plane3<Real>& GetPlane () const;
+	const Lozenge3<Real>& GetLozenge () const;
 
-    // Static intersection query.
-    virtual bool Test ();
+	// Static intersection query.
+	virtual bool Test ();
 
-    // Culling support.  The view frustum is assumed to be on the positive
-    // side of the plane.  The lozenge is culled if it is on the negative
-    // side of the plane.
-    bool LozengeIsCulled () const;
+	// Culling support.  The view frustum is assumed to be on the positive
+	// side of the plane.  The lozenge is culled if it is on the negative
+	// side of the plane.
+	bool LozengeIsCulled () const;
 
 protected:
-    // The objects to intersect.
-    const Plane3<Real>* mPlane;
-    const Lozenge3<Real>* mLozenge;
+	// The objects to intersect.
+	const Plane3<Real>* mPlane;
+	const Lozenge3<Real>* mLozenge;
 };
 
 typedef IntrPlane3Lozenge3<float> IntrPlane3Lozenge3f;

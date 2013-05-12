@@ -14,40 +14,40 @@
 class GpuEvaluate2
 {
 protected:
-    // Abstract base class.  The return 'success' is 'true' iff the solver is
-    // successfully created.
-    GpuEvaluate2 (const GLchar* declarations, const GLchar* equation,
-        int dimension0, int dimension1, int numInputs, int numOutputs,
-        bool& success);
+	// Abstract base class.  The return 'success' is 'true' iff the solver is
+	// successfully created.
+	GpuEvaluate2 (const GLchar* declarations, const GLchar* equation,
+	              int dimension0, int dimension1, int numInputs, int numOutputs,
+	              bool& success);
 
 public:
-    virtual ~GpuEvaluate2 ();
+	virtual ~GpuEvaluate2 ();
 
-    // Evaluate the function at each texel.
-    bool Evaluate (GLuint inTexture, GLuint outFrameBuffer);
+	// Evaluate the function at each texel.
+	bool Evaluate (GLuint inTexture, GLuint outFrameBuffer);
 
 protected:
-    // Support for construction.
-    bool CreateGraphicsObjects (const GLchar* declarations,
-        const GLchar* equation, int numInputs, int numOutputs);
+	// Support for construction.
+	bool CreateGraphicsObjects (const GLchar* declarations,
+	                            const GLchar* equation, int numInputs, int numOutputs);
 
-    // Overrides to be specialized by derived classes.
-    virtual bool OnPreEvaluation (GLuint inTexture, GLuint outFrameBuffer);
-    virtual bool OnPostEvaluation (GLuint inTexture, GLuint outFrameBuffer);
+	// Overrides to be specialized by derived classes.
+	virtual bool OnPreEvaluation (GLuint inTexture, GLuint outFrameBuffer);
+	virtual bool OnPostEvaluation (GLuint inTexture, GLuint outFrameBuffer);
 
-    int mDimension[2], mNumTexels;
-    GLuint mVertexBuffer, mVertexShader, mFragmentShader, mProgram;
-    GLuint mModelPositionAttribute;
-    GLint mInputSamplerLocation;
+	int mDimension[2], mNumTexels;
+	GLuint mVertexBuffer, mVertexShader, mFragmentShader, mProgram;
+	GLuint mModelPositionAttribute;
+	GLint mInputSamplerLocation;
 
-    static const float msSquare[4][2];
-    static const GLchar* msVertexText;
-    static const GLchar* msFragmentDeclareText;
-    static const GLchar* msFragmentPrefix;
-    static const GLchar* msFragmentInputText[4];
-    static const GLchar* msFragmentOutputDeclareText[4];
-    static const GLchar* msFragmentOutputText[4];
-    static const GLchar* msFragmentSuffix;
+	static const float msSquare[4][2];
+	static const GLchar* msVertexText;
+	static const GLchar* msFragmentDeclareText;
+	static const GLchar* msFragmentPrefix;
+	static const GLchar* msFragmentInputText[4];
+	static const GLchar* msFragmentOutputDeclareText[4];
+	static const GLchar* msFragmentOutputText[4];
+	static const GLchar* msFragmentSuffix;
 };
 
 #endif

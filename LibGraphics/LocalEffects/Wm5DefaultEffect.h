@@ -17,24 +17,24 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM DefaultEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(DefaultEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(DefaultEffect);
 
 public:
-    // Construction and destruction.
-    DefaultEffect ();
-    virtual ~DefaultEffect ();
+	// Construction and destruction.
+	DefaultEffect ();
+	virtual ~DefaultEffect ();
 
-    // Create an instance of the effect with unique parameters.
-    VisualEffectInstance* CreateInstance () const;
+	// Create an instance of the effect with unique parameters.
+	VisualEffectInstance* CreateInstance () const;
 
 private:
-    static int msDx9VRegisters[1];
-    static int msOglVRegisters[1];
-    static int* msVRegisters[Shader::MAX_PROFILES];
-    static std::string msVPrograms[Shader::MAX_PROFILES];
-    static std::string msPPrograms[Shader::MAX_PROFILES];
+	static int msDx9VRegisters[1];
+	static int msOglVRegisters[1];
+	static int* msVRegisters[Shader::MAX_PROFILES];
+	static std::string msVPrograms[Shader::MAX_PROFILES];
+	static std::string msPPrograms[Shader::MAX_PROFILES];
 };
 
 WM5_REGISTER_STREAM(DefaultEffect);

@@ -17,38 +17,38 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM Texture2D : public Texture
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(Texture2D);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(Texture2D);
 
 public:
-    // Construction and destruction.
-    Texture2D (Format tformat, int dimension0, int dimension1,
-        int numLevels, Buffer::Usage usage = Buffer::BU_TEXTURE);
+	// Construction and destruction.
+	Texture2D (Format tformat, int dimension0, int dimension1,
+	           int numLevels, Buffer::Usage usage = Buffer::BU_TEXTURE);
 
-    virtual ~Texture2D ();
+	virtual ~Texture2D ();
 
-    // Get the dimensions of the zero-th level mipmap.
-    inline int GetWidth () const;
-    inline int GetHeight () const;
+	// Get the dimensions of the zero-th level mipmap.
+	inline int GetWidth () const;
+	inline int GetHeight () const;
 
-    // Support for mipmap generation.
-    void GenerateMipmaps ();
-    bool HasMipmaps () const;
+	// Support for mipmap generation.
+	void GenerateMipmaps ();
+	bool HasMipmaps () const;
 
-    // Access the texture data.
-    char* GetData (int level) const;
+	// Access the texture data.
+	char* GetData (int level) const;
 
 protected:
-    // Support for mipmap generation.
-    void ComputeNumLevelBytes ();
-    void GenerateNextMipmap (int width, int height, const char* texels,
-        int widthNext, int heightNext, char* texelsNext, Float4* rgba);
+	// Support for mipmap generation.
+	void ComputeNumLevelBytes ();
+	void GenerateNextMipmap (int width, int height, const char* texels,
+	                         int widthNext, int heightNext, char* texelsNext, Float4* rgba);
 
 // Support for the raw load of Texture2D.  Raw save is in Texture.
 public:
-    static Texture2D* LoadWMTF (const std::string& name,
-        int mode = FileIO::FM_DEFAULT_READ);
+	static Texture2D* LoadWMTF (const std::string& name,
+	                            int mode = FileIO::FM_DEFAULT_READ);
 // End support for raw load.
 };
 

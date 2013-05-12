@@ -18,15 +18,15 @@ WM5_IMPLEMENT_ABSTRACT_FACTORY(Controller);
 
 //----------------------------------------------------------------------------
 Controller::Controller ()
-    :
-    Repeat(RT_CLAMP),
-    MinTime(0.0),
-    MaxTime(0.0),
-    Phase(0.0),
-    Frequency(1.0),
-    Active(true),
-    mObject(0),
-    mApplicationTime(-Mathd::MAX_REAL)
+	:
+	Repeat(RT_CLAMP),
+	MinTime(0.0),
+	MaxTime(0.0),
+	Phase(0.0),
+	Frequency(1.0),
+	Active(true),
+	mObject(0),
+	mApplicationTime(-Mathd::MAX_REAL)
 {
 }
 //----------------------------------------------------------------------------
@@ -36,63 +36,63 @@ Controller::~Controller ()
 //----------------------------------------------------------------------------
 bool Controller::Update (double applicationTime)
 {
-    if (Active)
-    {
-        mApplicationTime = applicationTime;
-        return true;
-    }
-    return false;
+	if (Active)
+	{
+		mApplicationTime = applicationTime;
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void Controller::SetObject (ControlledObject* object)
 {
-    mObject = object;
+	mObject = object;
 }
 //----------------------------------------------------------------------------
 double Controller::GetControlTime (double applicationTime)
 {
-    double controlTime = Frequency*applicationTime + Phase;
+	double controlTime = Frequency*applicationTime + Phase;
 
-    if (Repeat == RT_CLAMP)
-    {
-        // Clamp the time to the [min,max] interval.
-        if (controlTime < MinTime)
-        {
-            return MinTime;
-        }
-        if (controlTime > MaxTime)
-        {
-            return MaxTime;
-        }
-        return controlTime;
-    }
+	if (Repeat == RT_CLAMP)
+	{
+		// Clamp the time to the [min,max] interval.
+		if (controlTime < MinTime)
+		{
+			return MinTime;
+		}
+		if (controlTime > MaxTime)
+		{
+			return MaxTime;
+		}
+		return controlTime;
+	}
 
-    double timeRange = MaxTime - MinTime;
-    if (timeRange > 0.0)
-    {
-        double multiples = (controlTime - MinTime)/timeRange;
-        double integerTime = Mathd::Floor(multiples);
-        double fractionTime = multiples - integerTime;
-        if (Repeat == RT_WRAP)
-        {
-            return MinTime + fractionTime*timeRange;
-        }
+	double timeRange = MaxTime - MinTime;
+	if (timeRange > 0.0)
+	{
+		double multiples = (controlTime - MinTime)/timeRange;
+		double integerTime = Mathd::Floor(multiples);
+		double fractionTime = multiples - integerTime;
+		if (Repeat == RT_WRAP)
+		{
+			return MinTime + fractionTime*timeRange;
+		}
 
-        // Repeat == WM5_RT_CYCLE
-        if (((int)integerTime) & 1)
-        {
-            // Go backward in time.
-            return MaxTime - fractionTime*timeRange;
-        }
-        else
-        {
-            // Go forward in time.
-            return MinTime + fractionTime*timeRange;
-        }
-    }
+		// Repeat == WM5_RT_CYCLE
+		if (((int)integerTime) & 1)
+		{
+			// Go backward in time.
+			return MaxTime - fractionTime*timeRange;
+		}
+		else
+		{
+			// Go forward in time.
+			return MinTime + fractionTime*timeRange;
+		}
+	}
 
-    // The minimum and maximum times are the same, so return the minimum.
-    return MinTime;
+	// The minimum and maximum times are the same, so return the minimum.
+	return MinTime;
 }
 //----------------------------------------------------------------------------
 
@@ -101,15 +101,15 @@ double Controller::GetControlTime (double applicationTime)
 //----------------------------------------------------------------------------
 Object* Controller::GetObjectByName (const std::string& name)
 {
-    // mObject is not searched to avoid a cycle in the Object graph.
-    return Object::GetObjectByName(name);
+	// mObject is not searched to avoid a cycle in the Object graph.
+	return Object::GetObjectByName(name);
 }
 //----------------------------------------------------------------------------
 void Controller::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+                                      std::vector<Object*>& objects)
 {
-    // mObject is not searched to avoid a cycle in the Object graph.
-    Object::GetAllObjectsByName(name, objects);
+	// mObject is not searched to avoid a cycle in the Object graph.
+	Object::GetAllObjectsByName(name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -117,87 +117,87 @@ void Controller::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 Controller::Controller (LoadConstructor value)
-    :
-    Object(value),
-    Repeat(RT_CLAMP),
-    MinTime(0.0),
-    MaxTime(0.0),
-    Phase(0.0),
-    Frequency(1.0),
-    Active(true),
-    mObject(0),
-    mApplicationTime(-Mathd::MAX_REAL)
+	:
+	Object(value),
+	Repeat(RT_CLAMP),
+	MinTime(0.0),
+	MaxTime(0.0),
+	Phase(0.0),
+	Frequency(1.0),
+	Active(true),
+	mObject(0),
+	mApplicationTime(-Mathd::MAX_REAL)
 {
 }
 //----------------------------------------------------------------------------
 void Controller::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    Object::Load(source);
+	Object::Load(source);
 
-    source.ReadEnum(Repeat);
-    source.Read(MinTime);
-    source.Read(MaxTime);
-    source.Read(Phase);
-    source.Read(Frequency);
-    source.ReadBool(Active);
-    source.ReadPointer(mObject);
+	source.ReadEnum(Repeat);
+	source.Read(MinTime);
+	source.Read(MaxTime);
+	source.Read(Phase);
+	source.Read(Frequency);
+	source.ReadBool(Active);
+	source.ReadPointer(mObject);
 
-    mApplicationTime = -Mathd::MAX_REAL;
+	mApplicationTime = -Mathd::MAX_REAL;
 
-    WM5_END_DEBUG_STREAM_LOAD(Controller, source);
+	WM5_END_DEBUG_STREAM_LOAD(Controller, source);
 }
 //----------------------------------------------------------------------------
 void Controller::Link (InStream& source)
 {
-    Object::Link(source);
+	Object::Link(source);
 
-    source.ResolveLink(mObject);
+	source.ResolveLink(mObject);
 }
 //----------------------------------------------------------------------------
 void Controller::PostLink ()
 {
-    Object::PostLink();
+	Object::PostLink();
 }
 //----------------------------------------------------------------------------
 bool Controller::Register (OutStream& target) const
 {
-    if (Object::Register(target))
-    {
-        target.Register(mObject);
-        return true;
-    }
-    return false;
+	if (Object::Register(target))
+	{
+		target.Register(mObject);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void Controller::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    Object::Save(target);
+	Object::Save(target);
 
-    target.WriteEnum(Repeat);
-    target.Write(MinTime);
-    target.Write(MaxTime);
-    target.Write(Phase);
-    target.Write(Frequency);
-    target.WriteBool(Active);
-    target.WritePointer(mObject);
+	target.WriteEnum(Repeat);
+	target.Write(MinTime);
+	target.Write(MaxTime);
+	target.Write(Phase);
+	target.Write(Frequency);
+	target.WriteBool(Active);
+	target.WritePointer(mObject);
 
-    WM5_END_DEBUG_STREAM_SAVE(Controller, target);
+	WM5_END_DEBUG_STREAM_SAVE(Controller, target);
 }
 //----------------------------------------------------------------------------
 int Controller::GetStreamingSize () const
 {
-    int size = Object::GetStreamingSize();
-    size += WM5_ENUMSIZE(Repeat);
-    size += sizeof(MinTime);
-    size += sizeof(MaxTime);
-    size += sizeof(Phase);
-    size += sizeof(Frequency);
-    size += WM5_BOOLSIZE(Active);
-    size += WM5_POINTERSIZE(mObject);
-    return size;
+	int size = Object::GetStreamingSize();
+	size += WM5_ENUMSIZE(Repeat);
+	size += sizeof(MinTime);
+	size += sizeof(MaxTime);
+	size += sizeof(Phase);
+	size += sizeof(Frequency);
+	size += WM5_BOOLSIZE(Active);
+	size += WM5_POINTERSIZE(mObject);
+	return size;
 }
 //----------------------------------------------------------------------------

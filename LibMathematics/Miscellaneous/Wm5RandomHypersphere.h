@@ -33,7 +33,7 @@ namespace Wm5
 // on the partitioned components.
 
 WM5_MATHEMATICS_ITEM void RandomPointOnHypersphere (int dimension,
-    double* point);
+        double* point);
 
 // An attempt to determine the uniformity of N randomly generated
 // points P[0] through P[N-1] on the hypersphere.  Select a positive
@@ -45,7 +45,7 @@ WM5_MATHEMATICS_ITEM void RandomPointOnHypersphere (int dimension,
 // points to get the axes and, well, you can see the problem...
 
 WM5_MATHEMATICS_ITEM void Histogram (int dimension, double angle,
-    int numPoints, double** points, int* histogram);
+                                     int numPoints, double** points, int* histogram);
 
 //An example of how to use these functions.
 //

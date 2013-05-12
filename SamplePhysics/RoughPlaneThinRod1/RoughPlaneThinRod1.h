@@ -15,21 +15,21 @@ using namespace Wm5;
 
 class RoughPlaneThinRod1 : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    RoughPlaneThinRod1 ();
+	RoughPlaneThinRod1 ();
 
-    virtual bool OnInitialize ();
-    virtual void OnIdle ();
-    virtual void OnDisplay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnIdle ();
+	virtual void OnDisplay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    PhysicsModule mModule;
-    int mIteration, mMaxIteration;
-    int mSize;
+	PhysicsModule mModule;
+	int mIteration, mMaxIteration;
+	int mSize;
 };
 
 WM5_REGISTER_INITIALIZE(RoughPlaneThinRod1);

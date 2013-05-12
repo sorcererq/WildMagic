@@ -14,34 +14,34 @@ using namespace Wm5;
 
 class SkinnedBiped : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    SkinnedBiped ();
+	SkinnedBiped ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    Node* GetNode (const std::string& name);
-    TriMesh* GetMesh (const std::string& name, Node* biped);
+	void CreateScene ();
+	Node* GetNode (const std::string& name);
+	TriMesh* GetMesh (const std::string& name, Node* biped);
 
-    // The scene graph.
-    NodePtr mScene;
-    WireStatePtr mWireState;
-    Culler mCuller;
-    VertexFormatPtr mVFormat;
+	// The scene graph.
+	NodePtr mScene;
+	WireStatePtr mWireState;
+	Culler mCuller;
+	VertexFormatPtr mVFormat;
 
-    // The light for the LightEffect shared by all the TriMesh objects in the
-    // biped.
-    LightPtr mLight;
+	// The light for the LightEffect shared by all the TriMesh objects in the
+	// biped.
+	LightPtr mLight;
 
-    double mAnimTime, mAnimTimeDelta;
-    Float4 mTextColor;
+	double mAnimTime, mAnimTimeDelta;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(SkinnedBiped);

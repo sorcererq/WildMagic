@@ -22,36 +22,36 @@ template <typename T>
 class UnorderedSet
 {
 public:
-    UnorderedSet (int maxNumElements = 0, int grow = 0);
-    UnorderedSet (const UnorderedSet& uset);
-    ~UnorderedSet ();
+	UnorderedSet (int maxNumElements = 0, int grow = 0);
+	UnorderedSet (const UnorderedSet& uset);
+	~UnorderedSet ();
 
-    void Reset (int maxNumElements = 0, int grow = 0);
-    void Clear ();
-    UnorderedSet& operator= (const UnorderedSet& uset);
+	void Reset (int maxNumElements = 0, int grow = 0);
+	void Clear ();
+	UnorderedSet& operator= (const UnorderedSet& uset);
 
-    int GetMaxNumElements () const;
-    int GetGrow () const;
+	int GetMaxNumElements () const;
+	int GetGrow () const;
 
-    int GetNumElements () const;
-    const T& Get (int i) const;
-    T& operator[] (int i);
+	int GetNumElements () const;
+	const T& Get (int i) const;
+	T& operator[] (int i);
 
-    bool Exists (const T& element) const;
-    bool Insert (const T& element);
-    int Append (const T& element);
-    bool Remove (const T& element, int* oldIndex = 0, int* newIndex = 0);
-    bool RemoveAt (int i, int* oldIndex = 0, int* newIndex = 0);
-    void Compactify ();
+	bool Exists (const T& element) const;
+	bool Insert (const T& element);
+	int Append (const T& element);
+	bool Remove (const T& element, int* oldIndex = 0, int* newIndex = 0);
+	bool RemoveAt (int i, int* oldIndex = 0, int* newIndex = 0);
+	void Compactify ();
 
-    enum { DEFAULT_GROW = 8 };
+	enum { DEFAULT_GROW = 8 };
 
 protected:
-    void GrowArray ();
-    void RemoveElement (int i, int* oldIndex, int* newIndex);
+	void GrowArray ();
+	void RemoveElement (int i, int* oldIndex, int* newIndex);
 
-    int mMaxNumElements, mGrow, mNumElements;
-    T* mElements;
+	int mMaxNumElements, mGrow, mNumElements;
+	T* mElements;
 };
 
 #include "UnorderedSet.inl"

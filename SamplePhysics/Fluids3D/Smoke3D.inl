@@ -10,42 +10,42 @@
 template <typename Real>
 inline int Smoke3D<Real>::GetNumVortices () const
 {
-    return mNumVortices;
+	return mNumVortices;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 inline Vector3<Real> Smoke3D<Real>::GetVortexCenter (int i) const
 {
-    return mVortexCenter[i];
+	return mVortexCenter[i];
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 inline Vector3<Real> Smoke3D<Real>::GetVortexNormal (int i) const
 {
-    return mVortexNormal[i];
+	return mVortexNormal[i];
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 inline Real Smoke3D<Real>::GetVortexVariance (int i) const
 {
-    return mVortexVariance[i];
+	return mVortexVariance[i];
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 inline Real Smoke3D<Real>::GetVortexAmplitude (int i) const
 {
-    return mVortexAmplitude[i];
+	return mVortexAmplitude[i];
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 inline int Smoke3D<Real>::GetNumActiveVortices () const
 {
-    return mNumActive;
+	return mNumActive;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 inline Real Smoke3D<Real>::GetGravity () const
 {
-    return mGravity;
+	return mGravity;
 }
 //----------------------------------------------------------------------------

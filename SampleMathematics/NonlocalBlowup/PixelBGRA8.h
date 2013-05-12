@@ -12,29 +12,29 @@
 class PixelBGRA8
 {
 public:
-    inline PixelBGRA8 ()
-    {
-        // Uninitialized;
-    }
+	inline PixelBGRA8 ()
+	{
+		// Uninitialized;
+	}
 
-    inline PixelBGRA8 (unsigned char inB, unsigned char inG,
-        unsigned char inR, unsigned char inA)
-        :
-        b(inB), g(inG), r(inR), a(inA)
-    {
-    }
+	inline PixelBGRA8 (unsigned char inB, unsigned char inG,
+	                   unsigned char inR, unsigned char inA)
+		:
+		b(inB), g(inG), r(inR), a(inA)
+	{
+	}
 
-    inline bool operator== (const PixelBGRA8& color) const
-    {
-        return b == color.b && g == color.g && r == color.r && a == color.a;
-    }
+	inline bool operator== (const PixelBGRA8& color) const
+	{
+		return b == color.b && g == color.g && r == color.r && a == color.a;
+	}
 
-    inline bool operator!= (const PixelBGRA8& color) const
-    {
-        return b != color.b || g != color.g || r != color.r || a != color.a;
-    }
+	inline bool operator!= (const PixelBGRA8& color) const
+	{
+		return b != color.b || g != color.g || r != color.r || a != color.a;
+	}
 
-    unsigned char b, g, r, a;
+	unsigned char b, g, r, a;
 };
 
 #endif

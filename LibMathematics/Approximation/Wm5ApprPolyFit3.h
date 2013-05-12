@@ -42,7 +42,7 @@ namespace Wm5
 
 template <typename Real> WM5_MATHEMATICS_ITEM
 Real* PolyFit3 (int numSamples, const Real* xSamples, const Real* ySamples,
-    const Real* wSamples, int xDegree, int yDegree);
+                const Real* wSamples, int xDegree, int yDegree);
 
 }
 

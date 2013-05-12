@@ -9,46 +9,46 @@
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetTime () const
 {
-    return mTime;
+	return mTime;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetDeltaTime () const
 {
-    return mDeltaTime;
+	return mDeltaTime;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetTheta () const
 {
-    return mState[0];
+	return mState[0];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetThetaDot () const
 {
-    return mState[1];
+	return mState[1];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetRadius () const
 {
-    return mState[2];
+	return mState[2];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetRadiusDot () const
 {
-    return mState[3];
+	return mState[3];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetEccentricity () const
 {
-    return mEccentricity;
+	return mEccentricity;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetMajorAxis () const
 {
-    return mMajorAxis;
+	return mMajorAxis;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetMinorAxis () const
 {
-    return mMinorAxis;
+	return mMinorAxis;
 }
 //----------------------------------------------------------------------------

@@ -18,54 +18,54 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM ParticleController : public Controller
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(ParticleController);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(ParticleController);
 
 protected:
-    // Abstract base class.  Construction and destruction.  The object to
-    // which this is attached must be Particles.
-    ParticleController ();
+	// Abstract base class.  Construction and destruction.  The object to
+	// which this is attached must be Particles.
+	ParticleController ();
 public:
-    virtual ~ParticleController ();
+	virtual ~ParticleController ();
 
-    // The system motion, in local coordinates.  The velocity vectors should
-    // be unit length.
-    float SystemLinearSpeed;
-    float SystemAngularSpeed;
-    AVector SystemLinearAxis;
-    AVector SystemAngularAxis;
-    float SystemSizeChange;
+	// The system motion, in local coordinates.  The velocity vectors should
+	// be unit length.
+	float SystemLinearSpeed;
+	float SystemAngularSpeed;
+	AVector SystemLinearAxis;
+	AVector SystemAngularAxis;
+	float SystemSizeChange;
 
-    // Particle motion, in the model space of the system.  The velocity
-    // vectors should be unit length.  In applications where the points
-    // represent a rigid body, you might choose the origin of the system to
-    // be the center of mass of the particles and the coordinate axes to
-    // correspond to the principal directions of the inertia tensor.
-    inline int GetNumParticles () const;
-    inline float* GetParticleLinearSpeed () const;
-    inline AVector* GetParticleLinearAxis () const;
-    inline float* GetParticleSizeChange () const;
+	// Particle motion, in the model space of the system.  The velocity
+	// vectors should be unit length.  In applications where the points
+	// represent a rigid body, you might choose the origin of the system to
+	// be the center of mass of the particles and the coordinate axes to
+	// correspond to the principal directions of the inertia tensor.
+	inline int GetNumParticles () const;
+	inline float* GetParticleLinearSpeed () const;
+	inline AVector* GetParticleLinearAxis () const;
+	inline float* GetParticleSizeChange () const;
 
-    // The animation update.  The application time is in milliseconds.
-    virtual bool Update (double applicationTime);
+	// The animation update.  The application time is in milliseconds.
+	virtual bool Update (double applicationTime);
 
 protected:
-    // For deferred allocation of the particle motion arrays.
-    void Reallocate (int numParticles);
-    virtual void SetObject (ControlledObject* object);
+	// For deferred allocation of the particle motion arrays.
+	void Reallocate (int numParticles);
+	virtual void SetObject (ControlledObject* object);
 
-    // This class computes the new positions and orientations from the motion
-    // parameters.  Derived classes should update the motion parameters and
-    // then either call the base class update methods or provide its own
-    // update methods for position and orientation.
-    virtual void UpdateSystemMotion (float ctrlTime);
-    virtual void UpdatePointMotion (float ctrlTime);
+	// This class computes the new positions and orientations from the motion
+	// parameters.  Derived classes should update the motion parameters and
+	// then either call the base class update methods or provide its own
+	// update methods for position and orientation.
+	virtual void UpdateSystemMotion (float ctrlTime);
+	virtual void UpdatePointMotion (float ctrlTime);
 
-    int mNumParticles;
-    float* mParticleLinearSpeed;
-    AVector* mParticleLinearAxis;
-    float* mParticleSizeChange;
+	int mNumParticles;
+	float* mParticleLinearSpeed;
+	AVector* mParticleLinearAxis;
+	float* mParticleSizeChange;
 };
 
 WM5_REGISTER_STREAM(ParticleController);

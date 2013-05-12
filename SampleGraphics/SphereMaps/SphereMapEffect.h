@@ -18,17 +18,17 @@ namespace Wm5
 
 class SphereMapEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(SphereMapEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(SphereMapEffect);
 
 public:
-    // Construction and destruction.
-    SphereMapEffect (const std::string& effectFile);
-    virtual ~SphereMapEffect ();
+	// Construction and destruction.
+	SphereMapEffect (const std::string& effectFile);
+	virtual ~SphereMapEffect ();
 
-    // Create an instance of the effect with unique parameters.
-    VisualEffectInstance* CreateInstance (Texture2D* environmentTexture);
+	// Create an instance of the effect with unique parameters.
+	VisualEffectInstance* CreateInstance (Texture2D* environmentTexture);
 };
 
 WM5_REGISTER_STREAM(SphereMapEffect);

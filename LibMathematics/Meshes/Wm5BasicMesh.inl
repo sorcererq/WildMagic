@@ -9,46 +9,46 @@
 //----------------------------------------------------------------------------
 inline bool BasicMesh::IsValid () const
 {
-    return mIsValid;
+	return mIsValid;
 }
 //----------------------------------------------------------------------------
 inline int BasicMesh::GetNumVertices () const
 {
-    return mNumVertices;
+	return mNumVertices;
 }
 //----------------------------------------------------------------------------
 inline int BasicMesh::GetNumEdges () const
 {
-    return mNumEdges;
+	return mNumEdges;
 }
 //----------------------------------------------------------------------------
 inline int BasicMesh::GetNumTriangles () const
 {
-    return mNumTriangles;
+	return mNumTriangles;
 }
 //----------------------------------------------------------------------------
 inline const void* BasicMesh::GetPoints () const
 {
-    return mPoints;
+	return mPoints;
 }
 //----------------------------------------------------------------------------
 inline const int* BasicMesh::GetIndices () const
 {
-    return mIndices;
+	return mIndices;
 }
 //----------------------------------------------------------------------------
 inline const BasicMesh::Vertex* BasicMesh::GetVertices () const
 {
-    return mVertices;
+	return mVertices;
 }
 //----------------------------------------------------------------------------
 inline const BasicMesh::Edge* BasicMesh::GetEdges () const
 {
-    return mEdges;
+	return mEdges;
 }
 //----------------------------------------------------------------------------
 inline const BasicMesh::Triangle* BasicMesh::GetTriangles () const
 {
-    return mTriangles;
+	return mTriangles;
 }
 //----------------------------------------------------------------------------

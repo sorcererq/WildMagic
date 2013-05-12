@@ -17,44 +17,44 @@ using namespace Wm5;
 
 class BillboardNodes : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BillboardNodes ();
+	BillboardNodes ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
+	void CreateScene ();
 
-    NodePtr mScene;
-    Culler mCuller;
+	NodePtr mScene;
+	Culler mCuller;
 
-    // Override of shader cull and wireframe state.
-    CullStatePtr mCullState;
-    WireStatePtr mWireState;
+	// Override of shader cull and wireframe state.
+	CullStatePtr mCullState;
+	WireStatePtr mWireState;
 
-    // ground
-    TriMeshPtr mGround;
+	// ground
+	TriMeshPtr mGround;
 
-    // billboard0 (rectangle attached)
-    BillboardNodePtr mBillboard0;
-    TriMeshPtr mRectangle;
+	// billboard0 (rectangle attached)
+	BillboardNodePtr mBillboard0;
+	TriMeshPtr mRectangle;
 
-    // billboard1 (torus attached)
-    BillboardNodePtr mBillboard1;
-    TriMeshPtr mTorus;
+	// billboard1 (torus attached)
+	BillboardNodePtr mBillboard1;
+	TriMeshPtr mTorus;
 
 #ifdef DEMONSTRATE_VIEWPORT_BOUNDING_RECTANGLE
-    CameraPtr mSSCamera;
-    TriMeshPtr mSSRectangle;
+	CameraPtr mSSCamera;
+	TriMeshPtr mSSRectangle;
 #endif
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(BillboardNodes);

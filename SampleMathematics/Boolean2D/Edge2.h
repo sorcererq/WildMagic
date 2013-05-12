@@ -12,14 +12,14 @@
 class Edge2
 {
 public:
-    // Construction.
-    Edge2 ();
-    Edge2 (int i0, int i1);
+	// Construction.
+	Edge2 ();
+	Edge2 (int i0, int i1);
 
-    // Comparison to support STL sorting.
-    bool operator< (const Edge2& edge) const;
+	// Comparison to support STL sorting.
+	bool operator< (const Edge2& edge) const;
 
-    int I0, I1;
+	int I0, I1;
 };
 
 #endif

@@ -17,35 +17,35 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM VisualTechnique : public Object
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(VisualTechnique);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(VisualTechnique);
 
 public:
-    // Construction and destruction.
-    VisualTechnique ();
-    virtual ~VisualTechnique ();
+	// Construction and destruction.
+	VisualTechnique ();
+	virtual ~VisualTechnique ();
 
-    // Support for deferred creation.  The function appends the new pass to
-    // the end of the array.
-    void InsertPass (VisualPass* pass);
+	// Support for deferred creation.  The function appends the new pass to
+	// the end of the array.
+	void InsertPass (VisualPass* pass);
 
-    // Member access.
-    inline int GetNumPasses () const;
-    VisualPass* GetPass (int passIndex) const;
+	// Member access.
+	inline int GetNumPasses () const;
+	VisualPass* GetPass (int passIndex) const;
 
-    // Access to components of the pass.
-    VertexShader* GetVertexShader (int passIndex) const;
-    PixelShader* GetPixelShader (int passIndex) const;
-    AlphaState* GetAlphaState (int passIndex) const;
-    CullState* GetCullState (int passIndex) const;
-    DepthState* GetDepthState (int passIndex) const;
-    OffsetState* GetOffsetState (int passIndex) const;
-    StencilState* GetStencilState (int passIndex) const;
-    WireState* GetWireState (int passIndex) const;
+	// Access to components of the pass.
+	VertexShader* GetVertexShader (int passIndex) const;
+	PixelShader* GetPixelShader (int passIndex) const;
+	AlphaState* GetAlphaState (int passIndex) const;
+	CullState* GetCullState (int passIndex) const;
+	DepthState* GetDepthState (int passIndex) const;
+	OffsetState* GetOffsetState (int passIndex) const;
+	StencilState* GetStencilState (int passIndex) const;
+	WireState* GetWireState (int passIndex) const;
 
 protected:
-    std::vector<VisualPassPtr> mPasses;
+	std::vector<VisualPassPtr> mPasses;
 };
 
 WM5_REGISTER_STREAM(VisualTechnique);

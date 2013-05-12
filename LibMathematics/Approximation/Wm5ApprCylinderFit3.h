@@ -16,7 +16,7 @@
 // disk at C+(h/2)*U if Dot(U,X-C) = h/2 and (X-C)^T*(I-U*U^T)*(X-C) <= r^2.
 // A point X is on the end disk at C-(h/2)*U if Dot(U,X-C) = -h/2 and
 // (X-C)^T*(I-U*U^T)*(X-C) <= r^2.
-  
+
 // The inputs are the quantity of points and the point array.  The outputs
 // are the center C, unit-length axis direction U, radius R, and height H.
 // You can supply initial guesses for C and U.  In this case you need to set
@@ -46,27 +46,27 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM CylinderFit3
 {
 public:
-    CylinderFit3 (int numPoints, const Vector3<Real>* points,
-        Vector3<Real>& center, Vector3<Real>& axis, Real& radius,
-        Real& height, bool inputsAreInitialGuess);
+	CylinderFit3 (int numPoints, const Vector3<Real>* points,
+	              Vector3<Real>& center, Vector3<Real>& axis, Real& radius,
+	              Real& height, bool inputsAreInitialGuess);
 
-    // Return the error value.
-    operator Real ();
+	// Return the error value.
+	operator Real ();
 
 private:
-    static Real UpdateInvRSqr (int numPoints, const Vector3<Real>* points,
-        const Vector3<Real>& center, const Vector3<Real>& axis,
-        Real& invRadiusSqr);
+	static Real UpdateInvRSqr (int numPoints, const Vector3<Real>* points,
+	                           const Vector3<Real>& center, const Vector3<Real>& axis,
+	                           Real& invRadiusSqr);
 
-    static Real UpdateDirection (int numPoints, const Vector3<Real>* points,
-        const Vector3<Real>& center, Vector3<Real>& axis,
-        Real& invRadiusSqr);
+	static Real UpdateDirection (int numPoints, const Vector3<Real>* points,
+	                             const Vector3<Real>& center, Vector3<Real>& axis,
+	                             Real& invRadiusSqr);
 
-    static Real UpdateCenter (int numPoints, const Vector3<Real>* points,
-        Vector3<Real>& center, const Vector3<Real>& axis,
-        const Real& invRadiusSqr);
+	static Real UpdateCenter (int numPoints, const Vector3<Real>* points,
+	                          Vector3<Real>& center, const Vector3<Real>& axis,
+	                          const Real& invRadiusSqr);
 
-    Real mError;
+	Real mError;
 };
 
 typedef CylinderFit3<float> CylinderFit3f;

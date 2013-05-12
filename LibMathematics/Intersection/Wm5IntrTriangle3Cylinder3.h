@@ -19,29 +19,29 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrTriangle3Cylinder3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrTriangle3Cylinder3 (const Triangle3<Real>& triangle,
-        const Cylinder3<Real>& cylinder);
+	IntrTriangle3Cylinder3 (const Triangle3<Real>& triangle,
+	                        const Cylinder3<Real>& cylinder);
 
-    // Object access.
-    const Triangle3<Real>& GetTriangle () const;
-    const Cylinder3<Real>& GetCylinder () const;
+	// Object access.
+	const Triangle3<Real>& GetTriangle () const;
+	const Cylinder3<Real>& GetCylinder () const;
 
-    // Static query.
-    virtual bool Test ();
+	// Static query.
+	virtual bool Test ();
 
 private:
-    // Support for the static test query.
-    bool DiskOverlapsPoint (const Vector2<Real>& Q) const;
-    bool DiskOverlapsSegment (const Vector2<Real>& Q0,
-        const Vector2<Real>& Q1) const;
-    bool DiskOverlapsPolygon (int numVertices, const Vector2<Real>* Q) const;
+	// Support for the static test query.
+	bool DiskOverlapsPoint (const Vector2<Real>& Q) const;
+	bool DiskOverlapsSegment (const Vector2<Real>& Q0,
+	                          const Vector2<Real>& Q1) const;
+	bool DiskOverlapsPolygon (int numVertices, const Vector2<Real>* Q) const;
 
-    // The objects to intersect.
-    const Triangle3<Real>* mTriangle;
-    const Cylinder3<Real>* mCylinder;
+	// The objects to intersect.
+	const Triangle3<Real>* mTriangle;
+	const Cylinder3<Real>* mCylinder;
 };
 
 typedef IntrTriangle3Cylinder3<float> IntrTriangle3Cylinder3f;

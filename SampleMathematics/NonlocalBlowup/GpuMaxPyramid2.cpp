@@ -9,24 +9,24 @@
 #include "GpuMaxPyramid2.h"
 
 const GLchar* GpuMaxPyramid2::msQuadMaximum =
-"float result = max(max(f00, f10), max(f01, f11));";
+    "float result = max(max(f00, f10), max(f01, f11));";
 
 //----------------------------------------------------------------------------
 GpuMaxPyramid2::GpuMaxPyramid2 (int dimension0, int dimension1,
-    const Image2<float>& initial, bool& success)
-    :
-    GpuPyramid2("", msQuadMaximum, dimension0, dimension1, initial, success),
-    mMaximum(0.0f)
+                                const Image2<float>& initial, bool& success)
+	:
+	GpuPyramid2("", msQuadMaximum, dimension0, dimension1, initial, success),
+	mMaximum(0.0f)
 {
 }
 //----------------------------------------------------------------------------
 GpuMaxPyramid2::GpuMaxPyramid2 (int dimension0, int dimension1,
-    GLuint texture0, GLuint texture1, GLuint frameBuffer0,
-    GLuint frameBuffer1, bool& success)
-    :
-    GpuPyramid2("", msQuadMaximum, dimension0, dimension1, texture0, texture1,
-        frameBuffer0, frameBuffer1, success),
-    mMaximum(0.0f)
+                                GLuint texture0, GLuint texture1, GLuint frameBuffer0,
+                                GLuint frameBuffer1, bool& success)
+	:
+	GpuPyramid2("", msQuadMaximum, dimension0, dimension1, texture0, texture1,
+	            frameBuffer0, frameBuffer1, success),
+	mMaximum(0.0f)
 {
 }
 //----------------------------------------------------------------------------
@@ -36,19 +36,19 @@ GpuMaxPyramid2::~GpuMaxPyramid2 ()
 //----------------------------------------------------------------------------
 float GpuMaxPyramid2::GetMaximum () const
 {
-    return mMaximum;
+	return mMaximum;
 }
 //----------------------------------------------------------------------------
 bool GpuMaxPyramid2::OnPostDraw (int level, int, int frameBuffer)
 {
-    if (level + 1 == mNumLevels)
-    {
-        glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, mFrameBuffer[frameBuffer]);
-        glReadBuffer(GL_COLOR_ATTACHMENT0_EXT);
-        glReadPixels(0, 0, 1, 1, GL_RED, GL_FLOAT, &mMaximum);
-        glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
-        glReadBuffer(GL_BACK);
-    }
-    return true;
+	if (level + 1 == mNumLevels)
+	{
+		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, mFrameBuffer[frameBuffer]);
+		glReadBuffer(GL_COLOR_ATTACHMENT0_EXT);
+		glReadPixels(0, 0, 1, 1, GL_RED, GL_FLOAT, &mMaximum);
+		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
+		glReadBuffer(GL_BACK);
+	}
+	return true;
 }
 //----------------------------------------------------------------------------

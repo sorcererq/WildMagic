@@ -9,36 +9,36 @@
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetInitialY1 () const
 {
-    return mY1;
+	return mY1;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetCurrentY1 () const
 {
-    return mY1Curr;
+	return mY1Curr;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetCurrentY2 () const
 {
-    return mY2Curr;
+	return mY2Curr;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetCurrentY3 () const
 {
-    return mY3Curr;
+	return mY3Curr;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetAngle () const
 {
-    return (mY1 - mY1Curr)/Radius;
+	return (mY1 - mY1Curr)/Radius;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetCableFraction1 () const
 {
-    return (mY1Curr - mY3Curr)/WireLength;
+	return (mY1Curr - mY3Curr)/WireLength;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetCableFraction2 () const
 {
-    return (mY2Curr - mY3Curr)/WireLength;
+	return (mY2Curr - mY3Curr)/WireLength;
 }
 //----------------------------------------------------------------------------

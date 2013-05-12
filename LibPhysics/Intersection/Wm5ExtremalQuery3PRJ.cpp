@@ -15,10 +15,10 @@ namespace Wm5
 template <typename Real>
 ExtremalQuery3PRJ<Real>::ExtremalQuery3PRJ (
     const ConvexPolyhedron3<Real>* polytope)
-    :
-    ExtremalQuery3<Real>(polytope)
+	:
+	ExtremalQuery3<Real>(polytope)
 {
-    mCentroid = mPolytope->ComputeVertexAverage();
+	mCentroid = mPolytope->ComputeVertexAverage();
 }
 //----------------------------------------------------------------------------
 template <typename Real>
@@ -31,28 +31,28 @@ void ExtremalQuery3PRJ<Real>::GetExtremeVertices (
     const Vector3<Real>& direction, int& positiveDirection,
     int& negativeDirection)
 {
-    Vector3<Real> diff = mPolytope->GetVertex(0) - mCentroid;
-    Real minValue = direction.Dot(diff);
-    Real maxValue = minValue;
-    negativeDirection = 0;
-    positiveDirection = 0;
+	Vector3<Real> diff = mPolytope->GetVertex(0) - mCentroid;
+	Real minValue = direction.Dot(diff);
+	Real maxValue = minValue;
+	negativeDirection = 0;
+	positiveDirection = 0;
 
-    const int numVertices = mPolytope->GetNumVertices();
-    for (int i = 1; i < numVertices; ++i)
-    {
-        diff = mPolytope->GetVertex(i) - mCentroid;
-        Real dot = direction.Dot(diff);
-        if (dot < minValue)
-        {
-            negativeDirection = i;
-            minValue = dot;
-        }
-        else if (dot > maxValue)
-        {
-            positiveDirection = i;
-            maxValue = dot;
-        }
-    }
+	const int numVertices = mPolytope->GetNumVertices();
+	for (int i = 1; i < numVertices; ++i)
+	{
+		diff = mPolytope->GetVertex(i) - mCentroid;
+		Real dot = direction.Dot(diff);
+		if (dot < minValue)
+		{
+			negativeDirection = i;
+			minValue = dot;
+		}
+		else if (dot > maxValue)
+		{
+			positiveDirection = i;
+			maxValue = dot;
+		}
+	}
 }
 //----------------------------------------------------------------------------
 

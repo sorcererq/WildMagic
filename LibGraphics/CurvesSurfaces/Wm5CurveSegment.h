@@ -18,38 +18,38 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM CurveSegment : public Object
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(CurveSegment);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(CurveSegment);
 
 protected:
-    // Construction.
-    CurveSegment (float umin, float umax);
+	// Construction.
+	CurveSegment (float umin, float umax);
 public:
-    // Abstract base class.
-    virtual ~CurveSegment ();
+	// Abstract base class.
+	virtual ~CurveSegment ();
 
-    // The parametric domain is umin <= u <= umax.
-    float GetUMin () const;
-    float GetUMax () const;
+	// The parametric domain is umin <= u <= umax.
+	float GetUMin () const;
+	float GetUMax () const;
 
-    // Position and derivatives up to third order.
-    virtual APoint P (float u) const = 0;
-    virtual AVector PU (float u) const = 0;
-    virtual AVector PUU (float u) const = 0;
-    virtual AVector PUUU (float u) const = 0;
+	// Position and derivatives up to third order.
+	virtual APoint P (float u) const = 0;
+	virtual AVector PU (float u) const = 0;
+	virtual AVector PUU (float u) const = 0;
+	virtual AVector PUUU (float u) const = 0;
 
-    // Differential geometric quantities.
-    AVector Tangent (float u) const;
-    AVector Normal (float u) const;
-    AVector Binormal (float u) const;
-    void GetFrame (float u, APoint& position, AVector& tangent,
-        AVector& normal, AVector& binormal) const;
-    float Curvature (float u) const;
-    float Torsion (float u) const;
+	// Differential geometric quantities.
+	AVector Tangent (float u) const;
+	AVector Normal (float u) const;
+	AVector Binormal (float u) const;
+	void GetFrame (float u, APoint& position, AVector& tangent,
+	               AVector& normal, AVector& binormal) const;
+	float Curvature (float u) const;
+	float Torsion (float u) const;
 
 protected:
-    float mUMin, mUMax;
+	float mUMin, mUMax;
 };
 
 WM5_REGISTER_STREAM(CurveSegment);

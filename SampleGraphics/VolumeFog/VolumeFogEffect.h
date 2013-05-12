@@ -18,17 +18,17 @@ namespace Wm5
 
 class VolumeFogEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(VolumeFogEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(VolumeFogEffect);
 
 public:
-    // Construction and destruction.
-    VolumeFogEffect (const std::string& effectFile);
-    virtual ~VolumeFogEffect ();
+	// Construction and destruction.
+	VolumeFogEffect (const std::string& effectFile);
+	virtual ~VolumeFogEffect ();
 
-    // Create an instance of the effect with unique parameters.
-    VisualEffectInstance* CreateInstance (Texture2D* baseTexture);
+	// Create an instance of the effect with unique parameters.
+	VisualEffectInstance* CreateInstance (Texture2D* baseTexture);
 };
 
 WM5_REGISTER_STREAM(VolumeFogEffect);

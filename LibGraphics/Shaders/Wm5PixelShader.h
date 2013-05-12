@@ -17,33 +17,33 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM PixelShader : public Shader
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(PixelShader);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(PixelShader);
 
 public:
-    // Construction and destruction.  See comments in Wm5Shader.h about
-    // constructing shader programs.
-    PixelShader (const std::string& programName, int numInputs,
-        int numOutputs, int numConstants, int numSamplers, bool profileOwner);
+	// Construction and destruction.  See comments in Wm5Shader.h about
+	// constructing shader programs.
+	PixelShader (const std::string& programName, int numInputs,
+	             int numOutputs, int numConstants, int numSamplers, bool profileOwner);
 
-    virtual ~PixelShader ();
+	virtual ~PixelShader ();
 
-    // Pixel shader profile information.
-    enum WM5_GRAPHICS_ITEM Profile
-    {
-        PP_NONE,
-        PP_PS_1_1,
-        PP_PS_2_0,
-        PP_PS_3_0,
-        PP_ARBFP1
-    };
+	// Pixel shader profile information.
+	enum WM5_GRAPHICS_ITEM Profile
+	{
+		PP_NONE,
+		PP_PS_1_1,
+		PP_PS_2_0,
+		PP_PS_3_0,
+		PP_ARBFP1
+	};
 
-    static void SetProfile (Profile profile);
-    static Profile GetProfile ();
+	static void SetProfile (Profile profile);
+	static Profile GetProfile ();
 
 protected:
-    static Profile msProfile;
+	static Profile msProfile;
 };
 
 WM5_REGISTER_STREAM(PixelShader);

@@ -17,55 +17,55 @@ using namespace Wm5;
 
 class Fluids3D : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    Fluids3D ();
+	Fluids3D ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void PhysicsTick ();
-    void GraphicsTick ();
-    void CreateScene ();
-    void UpdateVertexBuffer ();
-    void UpdateIndexBuffer ();
+	void PhysicsTick ();
+	void GraphicsTick ();
+	void CreateScene ();
+	void UpdateVertexBuffer ();
+	void UpdateIndexBuffer ();
 
-    NodePtr mScene;
+	NodePtr mScene;
 #ifdef USE_PARTICLES
-    ParticlesPtr mCube;
+	ParticlesPtr mCube;
 #else
-    TriMeshPtr mCube;
+	TriMeshPtr mCube;
 #endif
-    int mNumIndices;
-    int* mIndices;
+	int mNumIndices;
+	int* mIndices;
 
-    // Support for sorting the triangles by distance from the camera
-    // position.
-    class Triangle
-    {
-    public:
-        float mNegSqrDistance;
-        int mIndex0, mIndex1, mIndex2;
+	// Support for sorting the triangles by distance from the camera
+	// position.
+	class Triangle
+	{
+	public:
+		float mNegSqrDistance;
+		int mIndex0, mIndex1, mIndex2;
 
-        bool operator< (const Triangle& triangle) const
-        {
-            return mNegSqrDistance < triangle.mNegSqrDistance;
-        }
-    };
-    std::multiset<Triangle> mTriangles;
+		bool operator< (const Triangle& triangle) const
+		{
+			return mNegSqrDistance < triangle.mNegSqrDistance;
+		}
+	};
+	std::multiset<Triangle> mTriangles;
 
-    Smoke3D<float>* mSmoke;
-    Vector3f mColor[256];
-    bool mSingleStep;
-    bool mUseColor;
-    bool mIndexBufferNeedsUpdate;
+	Smoke3D<float>* mSmoke;
+	Vector3f mColor[256];
+	bool mSingleStep;
+	bool mUseColor;
+	bool mIndexBufferNeedsUpdate;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(Fluids3D);

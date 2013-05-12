@@ -9,36 +9,36 @@
 //----------------------------------------------------------------------------
 inline int MorphController::GetNumVertices () const
 {
-    return mNumVertices;
+	return mNumVertices;
 }
 //----------------------------------------------------------------------------
 inline int MorphController::GetNumTargets () const
 {
-    return mNumTargets;
+	return mNumTargets;
 }
 //----------------------------------------------------------------------------
 inline int MorphController::GetNumKeys () const
 {
-    return mNumKeys;
+	return mNumKeys;
 }
 //----------------------------------------------------------------------------
 inline APoint* MorphController::GetBaseVertices () const
 {
-    return mVertices[0];
+	return mVertices[0];
 }
 //----------------------------------------------------------------------------
 inline AVector* MorphController::GetDeltaVertices (int target) const
 {
-    return (AVector*)mVertices[target];
+	return (AVector*)mVertices[target];
 }
 //----------------------------------------------------------------------------
 inline float* MorphController::GetTimes () const
 {
-    return mTimes;
+	return mTimes;
 }
 //----------------------------------------------------------------------------
 inline float* MorphController::GetWeights (int key) const
 {
-    return mWeights[key];
+	return mWeights[key];
 }
 //----------------------------------------------------------------------------

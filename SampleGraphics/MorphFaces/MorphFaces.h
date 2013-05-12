@@ -15,50 +15,50 @@ using namespace Wm5;
 
 class MorphFaces : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    MorphFaces ();
+	MorphFaces ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    void CreateMorphResult ();
-    void CreateBaseTarget ();
-    void LoadTarget (int i, const std::string& targetName);
-    void UpdateMorph (float time);
+	void CreateScene ();
+	void CreateMorphResult ();
+	void CreateBaseTarget ();
+	void LoadTarget (int i, const std::string& targetName);
+	void UpdateMorph (float time);
 
-    Float4 mTextColor;
-    NodePtr mScene, mMorphResult;
-    WireStatePtr mWireState;
-    LightPtr mLight;
-    VisibleSet mVisibleSet;
+	Float4 mTextColor;
+	NodePtr mScene, mMorphResult;
+	WireStatePtr mWireState;
+	LightPtr mLight;
+	VisibleSet mVisibleSet;
 
-    enum { NUM_TARGETS = 12 };
+	enum { NUM_TARGETS = 12 };
 
-    struct InVertex
-    {
-        Vector3f Position;
-        Vector3f Normal;
-    };
+	struct InVertex
+	{
+		Vector3f Position;
+		Vector3f Normal;
+	};
 
-    struct OutVertex
-    {
-        Vector3f Position;
-        Vector3f Normal;
-        Vector2f TCoord;
-    };
+	struct OutVertex
+	{
+		Vector3f Position;
+		Vector3f Normal;
+		Vector2f TCoord;
+	};
 
-    int mNumVertices;
-    InVertex* mVertices[NUM_TARGETS];
-    CubicInterpolator<1,float>* mWeightInterpolator[NUM_TARGETS];
-    CubicInterpolator<3,float>* mColorInterpolator;
-    float mAnimStartTime;
+	int mNumVertices;
+	InVertex* mVertices[NUM_TARGETS];
+	CubicInterpolator<1,float>* mWeightInterpolator[NUM_TARGETS];
+	CubicInterpolator<3,float>* mColorInterpolator;
+	float mAnimStartTime;
 };
 
 WM5_REGISTER_INITIALIZE(MorphFaces);

@@ -9,31 +9,31 @@
 //----------------------------------------------------------------------------
 inline int MTEdge::GetLabel () const
 {
-    return mLabel;
+	return mLabel;
 }
 //----------------------------------------------------------------------------
 inline int& MTEdge::Label ()
 {
-    return mLabel;
+	return mLabel;
 }
 //----------------------------------------------------------------------------
 inline int MTEdge::GetVertex (int i) const
 {
-    return mVertex[i];
+	return mVertex[i];
 }
 //----------------------------------------------------------------------------
 inline int& MTEdge::Vertex (int i)
 {
-    return mVertex[i];
+	return mVertex[i];
 }
 //----------------------------------------------------------------------------
 inline int MTEdge::GetTriangle (int i) const
 {
-    return mTriangle[i];
+	return mTriangle[i];
 }
 //----------------------------------------------------------------------------
 inline int& MTEdge::Triangle (int i)
 {
-    return mTriangle[i];
+	return mTriangle[i];
 }
 //----------------------------------------------------------------------------

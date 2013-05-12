@@ -17,8 +17,8 @@ WM5_IMPLEMENT_DEFAULT_NAMES(Node, SwitchNode);
 
 //----------------------------------------------------------------------------
 SwitchNode::SwitchNode ()
-    :
-    mActiveChild(SN_INVALID_CHILD)
+	:
+	mActiveChild(SN_INVALID_CHILD)
 {
 }
 //----------------------------------------------------------------------------
@@ -28,17 +28,17 @@ SwitchNode::~SwitchNode ()
 //----------------------------------------------------------------------------
 void SwitchNode::GetVisibleSet (Culler& culler, bool noCull)
 {
-    if (mActiveChild == SN_INVALID_CHILD)
-    {
-        return;
-    }
+	if (mActiveChild == SN_INVALID_CHILD)
+	{
+		return;
+	}
 
-    // All Visual objects in the active subtree are added to the visible set.
-    Spatial* child = mChild[mActiveChild];
-    if (child)
-    {
-        child->OnGetVisibleSet(culler, noCull);
-    }
+	// All Visual objects in the active subtree are added to the visible set.
+	Spatial* child = mChild[mActiveChild];
+	if (child)
+	{
+		child->OnGetVisibleSet(culler, noCull);
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -46,53 +46,53 @@ void SwitchNode::GetVisibleSet (Culler& culler, bool noCull)
 // Streaming support.
 //----------------------------------------------------------------------------
 SwitchNode::SwitchNode (LoadConstructor value)
-    :
-    Node(value),
-    mActiveChild(SN_INVALID_CHILD)
+	:
+	Node(value),
+	mActiveChild(SN_INVALID_CHILD)
 {
 }
 //----------------------------------------------------------------------------
 void SwitchNode::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    Node::Load(source);
+	Node::Load(source);
 
-    source.Read(mActiveChild);
+	source.Read(mActiveChild);
 
-    WM5_END_DEBUG_STREAM_LOAD(SwitchNode, source);
+	WM5_END_DEBUG_STREAM_LOAD(SwitchNode, source);
 }
 //----------------------------------------------------------------------------
 void SwitchNode::Link (InStream& source)
 {
-    Node::Link(source);
+	Node::Link(source);
 }
 //----------------------------------------------------------------------------
 void SwitchNode::PostLink ()
 {
-    Node::PostLink();
+	Node::PostLink();
 }
 //----------------------------------------------------------------------------
 bool SwitchNode::Register (OutStream& target) const
 {
-    return Node::Register(target);
+	return Node::Register(target);
 }
 //----------------------------------------------------------------------------
 void SwitchNode::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    Node::Save(target);
+	Node::Save(target);
 
-    target.Write(mActiveChild);
+	target.Write(mActiveChild);
 
-    WM5_END_DEBUG_STREAM_SAVE(SwitchNode, target);
+	WM5_END_DEBUG_STREAM_SAVE(SwitchNode, target);
 }
 //----------------------------------------------------------------------------
 int SwitchNode::GetStreamingSize () const
 {
-    int size = Node::GetStreamingSize();
-    size += sizeof(mActiveChild);
-    return size;
+	int size = Node::GetStreamingSize();
+	size += sizeof(mActiveChild);
+	return size;
 }
 //----------------------------------------------------------------------------

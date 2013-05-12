@@ -19,14 +19,14 @@ template <typename Real>
 class Circle2
 {
 public:
-    // Construction and destruction.
-    Circle2 ();  // uninitialized
-    ~Circle2 ();
+	// Construction and destruction.
+	Circle2 ();  // uninitialized
+	~Circle2 ();
 
-    Circle2 (const Vector2<Real>& center, Real radius);
+	Circle2 (const Vector2<Real>& center, Real radius);
 
-    Vector2<Real> Center;
-    Real Radius;
+	Vector2<Real> Center;
+	Real Radius;
 };
 
 #include "Wm5Circle2.inl"

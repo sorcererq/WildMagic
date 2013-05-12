@@ -19,40 +19,40 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM DistRay3Triangle3
-    : public Distance<Real,Vector3<Real> >
+	: public Distance<Real,Vector3<Real> >
 {
 public:
-    DistRay3Triangle3 (const Ray3<Real>& ray,
-        const Triangle3<Real>& triangle);
+	DistRay3Triangle3 (const Ray3<Real>& ray,
+	                   const Triangle3<Real>& triangle);
 
-    // Object access.
-    const Ray3<Real>& GetRay () const;
-    const Triangle3<Real>& GetTriangle () const;
+	// Object access.
+	const Ray3<Real>& GetRay () const;
+	const Triangle3<Real>& GetTriangle () const;
 
-    // Static distance queries.
-    virtual Real Get ();
-    virtual Real GetSquared ();
+	// Static distance queries.
+	virtual Real Get ();
+	virtual Real GetSquared ();
 
-    // Function calculations for dynamic distance queries.
-    virtual Real Get (Real fT, const Vector3<Real>& rkVelocity0,
-        const Vector3<Real>& rkVelocity1);
-    virtual Real GetSquared (Real fT, const Vector3<Real>& rkVelocity0,
-        const Vector3<Real>& rkVelocity1);
+	// Function calculations for dynamic distance queries.
+	virtual Real Get (Real fT, const Vector3<Real>& rkVelocity0,
+	                  const Vector3<Real>& rkVelocity1);
+	virtual Real GetSquared (Real fT, const Vector3<Real>& rkVelocity0,
+	                         const Vector3<Real>& rkVelocity1);
 
-    // Information about the closest points.
-    Real GetRayParameter () const;
-    Real GetTriangleBary (int i) const;
+	// Information about the closest points.
+	Real GetRayParameter () const;
+	Real GetTriangleBary (int i) const;
 
 private:
-    using Distance<Real,Vector3<Real> >::mClosestPoint0;
-    using Distance<Real,Vector3<Real> >::mClosestPoint1;
+	using Distance<Real,Vector3<Real> >::mClosestPoint0;
+	using Distance<Real,Vector3<Real> >::mClosestPoint1;
 
-    const Ray3<Real>* mRay;
-    const Triangle3<Real>* mTriangle;
+	const Ray3<Real>* mRay;
+	const Triangle3<Real>* mTriangle;
 
-    // Information about the closest points.
-    Real mRayParameter;  // closest0 = ray.origin+param*ray.direction
-    Real mTriangleBary[3];  // closest1 = sum_{i=0}^2 bary[i]*tri.vertex[i]
+	// Information about the closest points.
+	Real mRayParameter;  // closest0 = ray.origin+param*ray.direction
+	Real mTriangleBary[3];  // closest1 = sum_{i=0}^2 bary[i]*tri.vertex[i]
 };
 
 typedef DistRay3Triangle3<float> DistRay3Triangle3f;

@@ -15,33 +15,33 @@ using namespace Wm5;
 
 class Boolean2D : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    Boolean2D ();
+	Boolean2D ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    BspPolygon2* ConstructInvertedEll ();
-    BspPolygon2* ConstructPentagon ();
-    BspPolygon2* ConstructSquare ();
-    BspPolygon2* ConstructSShape ();
-    BspPolygon2* ConstructPolyWithHoles ();
+	BspPolygon2* ConstructInvertedEll ();
+	BspPolygon2* ConstructPentagon ();
+	BspPolygon2* ConstructSquare ();
+	BspPolygon2* ConstructSShape ();
+	BspPolygon2* ConstructPolyWithHoles ();
 
-    void DoBoolean ();
-    void DrawPolySolid (BspPolygon2& polygon, ColorRGB color);
+	void DoBoolean ();
+	void DrawPolySolid (BspPolygon2& polygon, ColorRGB color);
 
-    BspPolygon2 mIntersection, mUnion, mDiff01, mDiff10, mXor;
-    BspPolygon2* mPoly0;
-    BspPolygon2* mPoly1;
-    BspPolygon2* mActive;
-    int mChoice;
-    int mSize;
+	BspPolygon2 mIntersection, mUnion, mDiff01, mDiff10, mXor;
+	BspPolygon2* mPoly0;
+	BspPolygon2* mPoly1;
+	BspPolygon2* mActive;
+	int mChoice;
+	int mSize;
 };
 
 WM5_REGISTER_INITIALIZE(Boolean2D);

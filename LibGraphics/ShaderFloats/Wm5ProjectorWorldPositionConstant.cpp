@@ -17,11 +17,11 @@ WM5_IMPLEMENT_FACTORY(ProjectorWorldPositionConstant);
 //----------------------------------------------------------------------------
 ProjectorWorldPositionConstant::ProjectorWorldPositionConstant (
     Projector* projector)
-    :
-    ShaderFloat(1),
-    mProjector(projector)
+	:
+	ShaderFloat(1),
+	mProjector(projector)
 {
-    mAllowUpdater = true;
+	mAllowUpdater = true;
 }
 //----------------------------------------------------------------------------
 ProjectorWorldPositionConstant::~ProjectorWorldPositionConstant ()
@@ -30,19 +30,19 @@ ProjectorWorldPositionConstant::~ProjectorWorldPositionConstant ()
 //----------------------------------------------------------------------------
 Projector* ProjectorWorldPositionConstant::GetProjector ()
 {
-    return mProjector;
+	return mProjector;
 }
 //----------------------------------------------------------------------------
 void ProjectorWorldPositionConstant::Update (const Visual*, const Camera*)
 {
-    const APoint& worldPosition = mProjector->GetPosition();
+	const APoint& worldPosition = mProjector->GetPosition();
 
-    const float* source = (const float*)worldPosition;
-    float* target = mData;
-    for (int i = 0; i < 4; ++i)
-    {
-        *target++ = *source++;
-    }
+	const float* source = (const float*)worldPosition;
+	float* target = mData;
+	for (int i = 0; i < 4; ++i)
+	{
+		*target++ = *source++;
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -52,22 +52,22 @@ void ProjectorWorldPositionConstant::Update (const Visual*, const Camera*)
 Object* ProjectorWorldPositionConstant::GetObjectByName (
     const std::string& name)
 {
-    Object* found = ShaderFloat::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = ShaderFloat::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    WM5_GET_OBJECT_BY_NAME(mProjector, name, found);
-    return 0;
+	WM5_GET_OBJECT_BY_NAME(mProjector, name, found);
+	return 0;
 }
 //----------------------------------------------------------------------------
 void ProjectorWorldPositionConstant::GetAllObjectsByName (
     const std::string& name, std::vector<Object*>& objects)
 {
-    ShaderFloat::GetAllObjectsByName(name, objects);
+	ShaderFloat::GetAllObjectsByName(name, objects);
 
-    WM5_GET_ALL_OBJECTS_BY_NAME(mProjector, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mProjector, name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -76,59 +76,59 @@ void ProjectorWorldPositionConstant::GetAllObjectsByName (
 //----------------------------------------------------------------------------
 ProjectorWorldPositionConstant::ProjectorWorldPositionConstant (
     LoadConstructor value)
-    :
-    ShaderFloat(value)
+	:
+	ShaderFloat(value)
 {
 }
 //----------------------------------------------------------------------------
 void ProjectorWorldPositionConstant::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    ShaderFloat::Load(source);
+	ShaderFloat::Load(source);
 
-    source.ReadPointer(mProjector);
+	source.ReadPointer(mProjector);
 
-    WM5_END_DEBUG_STREAM_LOAD(ProjectorWorldPositionConstant, source);
+	WM5_END_DEBUG_STREAM_LOAD(ProjectorWorldPositionConstant, source);
 }
 //----------------------------------------------------------------------------
 void ProjectorWorldPositionConstant::Link (InStream& source)
 {
-    ShaderFloat::Link(source);
+	ShaderFloat::Link(source);
 
-    source.ResolveLink(mProjector);
+	source.ResolveLink(mProjector);
 }
 //----------------------------------------------------------------------------
 void ProjectorWorldPositionConstant::PostLink ()
 {
-    ShaderFloat::PostLink();
+	ShaderFloat::PostLink();
 }
 //----------------------------------------------------------------------------
 bool ProjectorWorldPositionConstant::Register (OutStream& target) const
 {
-    if (ShaderFloat::Register(target))
-    {
-        target.Register(mProjector);
-        return true;
-    }
-    return false;
+	if (ShaderFloat::Register(target))
+	{
+		target.Register(mProjector);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void ProjectorWorldPositionConstant::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    ShaderFloat::Save(target);
+	ShaderFloat::Save(target);
 
-    target.WritePointer(mProjector);
+	target.WritePointer(mProjector);
 
-    WM5_END_DEBUG_STREAM_SAVE(ProjectorWorldPositionConstant, target);
+	WM5_END_DEBUG_STREAM_SAVE(ProjectorWorldPositionConstant, target);
 }
 //----------------------------------------------------------------------------
 int ProjectorWorldPositionConstant::GetStreamingSize () const
 {
-    int size = ShaderFloat::GetStreamingSize();
-    size += WM5_POINTERSIZE(mProjector);
-    return size;
+	int size = ShaderFloat::GetStreamingSize();
+	size += WM5_POINTERSIZE(mProjector);
+	return size;
 }
 //----------------------------------------------------------------------------

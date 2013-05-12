@@ -29,37 +29,37 @@ VisualPass::~VisualPass ()
 //----------------------------------------------------------------------------
 Object* VisualPass::GetObjectByName (const std::string& name)
 {
-    Object* found = Object::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = Object::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    WM5_GET_OBJECT_BY_NAME(mVShader, name, found);
-    WM5_GET_OBJECT_BY_NAME(mPShader, name, found);
-    WM5_GET_OBJECT_BY_NAME(mAlphaState, name, found);
-    WM5_GET_OBJECT_BY_NAME(mCullState, name, found);
-    WM5_GET_OBJECT_BY_NAME(mDepthState, name, found);
-    WM5_GET_OBJECT_BY_NAME(mOffsetState, name, found);
-    WM5_GET_OBJECT_BY_NAME(mStencilState, name, found);
-    WM5_GET_OBJECT_BY_NAME(mWireState, name, found);
+	WM5_GET_OBJECT_BY_NAME(mVShader, name, found);
+	WM5_GET_OBJECT_BY_NAME(mPShader, name, found);
+	WM5_GET_OBJECT_BY_NAME(mAlphaState, name, found);
+	WM5_GET_OBJECT_BY_NAME(mCullState, name, found);
+	WM5_GET_OBJECT_BY_NAME(mDepthState, name, found);
+	WM5_GET_OBJECT_BY_NAME(mOffsetState, name, found);
+	WM5_GET_OBJECT_BY_NAME(mStencilState, name, found);
+	WM5_GET_OBJECT_BY_NAME(mWireState, name, found);
 
-    return 0;
+	return 0;
 }
 //----------------------------------------------------------------------------
 void VisualPass::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+                                      std::vector<Object*>& objects)
 {
-    Object::GetAllObjectsByName(name, objects);
+	Object::GetAllObjectsByName(name, objects);
 
-    WM5_GET_ALL_OBJECTS_BY_NAME(mVShader, name, objects);
-    WM5_GET_ALL_OBJECTS_BY_NAME(mPShader, name, objects);
-    WM5_GET_ALL_OBJECTS_BY_NAME(mAlphaState, name, objects);
-    WM5_GET_ALL_OBJECTS_BY_NAME(mCullState, name, objects);
-    WM5_GET_ALL_OBJECTS_BY_NAME(mDepthState, name, objects);
-    WM5_GET_ALL_OBJECTS_BY_NAME(mOffsetState, name, objects);
-    WM5_GET_ALL_OBJECTS_BY_NAME(mStencilState, name, objects);
-    WM5_GET_ALL_OBJECTS_BY_NAME(mWireState, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mVShader, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mPShader, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mAlphaState, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mCullState, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mDepthState, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mOffsetState, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mStencilState, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mWireState, name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -67,94 +67,94 @@ void VisualPass::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 VisualPass::VisualPass (LoadConstructor value)
-    :
-    Object(value)
+	:
+	Object(value)
 {
 }
 //----------------------------------------------------------------------------
 void VisualPass::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    Object::Load(source);
+	Object::Load(source);
 
-    source.ReadPointer(mVShader);
-    source.ReadPointer(mPShader);
-    source.ReadPointer(mAlphaState);
-    source.ReadPointer(mCullState);
-    source.ReadPointer(mDepthState);
-    source.ReadPointer(mOffsetState);
-    source.ReadPointer(mStencilState);
-    source.ReadPointer(mWireState);
+	source.ReadPointer(mVShader);
+	source.ReadPointer(mPShader);
+	source.ReadPointer(mAlphaState);
+	source.ReadPointer(mCullState);
+	source.ReadPointer(mDepthState);
+	source.ReadPointer(mOffsetState);
+	source.ReadPointer(mStencilState);
+	source.ReadPointer(mWireState);
 
-    WM5_END_DEBUG_STREAM_LOAD(VisualPass, source);
+	WM5_END_DEBUG_STREAM_LOAD(VisualPass, source);
 }
 //----------------------------------------------------------------------------
 void VisualPass::Link (InStream& source)
 {
-    Object::Link(source);
+	Object::Link(source);
 
-    source.ResolveLink(mVShader);
-    source.ResolveLink(mPShader);
-    source.ResolveLink(mAlphaState);
-    source.ResolveLink(mCullState);
-    source.ResolveLink(mDepthState);
-    source.ResolveLink(mOffsetState);
-    source.ResolveLink(mStencilState);
-    source.ResolveLink(mWireState);
+	source.ResolveLink(mVShader);
+	source.ResolveLink(mPShader);
+	source.ResolveLink(mAlphaState);
+	source.ResolveLink(mCullState);
+	source.ResolveLink(mDepthState);
+	source.ResolveLink(mOffsetState);
+	source.ResolveLink(mStencilState);
+	source.ResolveLink(mWireState);
 }
 //----------------------------------------------------------------------------
 void VisualPass::PostLink ()
 {
-    Object::PostLink();
+	Object::PostLink();
 }
 //----------------------------------------------------------------------------
 bool VisualPass::Register (OutStream& target) const
 {
-    if (Object::Register(target))
-    {
-        target.Register(mVShader);
-        target.Register(mPShader);
-        target.Register(mAlphaState);
-        target.Register(mCullState);
-        target.Register(mDepthState);
-        target.Register(mOffsetState);
-        target.Register(mStencilState);
-        target.Register(mWireState);
-        return true;
-    }
-    return false;
+	if (Object::Register(target))
+	{
+		target.Register(mVShader);
+		target.Register(mPShader);
+		target.Register(mAlphaState);
+		target.Register(mCullState);
+		target.Register(mDepthState);
+		target.Register(mOffsetState);
+		target.Register(mStencilState);
+		target.Register(mWireState);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void VisualPass::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    Object::Save(target);
+	Object::Save(target);
 
-    target.WritePointer(mVShader);
-    target.WritePointer(mPShader);
-    target.WritePointer(mAlphaState);
-    target.WritePointer(mCullState);
-    target.WritePointer(mDepthState);
-    target.WritePointer(mOffsetState);
-    target.WritePointer(mStencilState);
-    target.WritePointer(mWireState);
+	target.WritePointer(mVShader);
+	target.WritePointer(mPShader);
+	target.WritePointer(mAlphaState);
+	target.WritePointer(mCullState);
+	target.WritePointer(mDepthState);
+	target.WritePointer(mOffsetState);
+	target.WritePointer(mStencilState);
+	target.WritePointer(mWireState);
 
-    WM5_END_DEBUG_STREAM_SAVE(VisualPass, target);
+	WM5_END_DEBUG_STREAM_SAVE(VisualPass, target);
 }
 //----------------------------------------------------------------------------
 int VisualPass::GetStreamingSize () const
 {
-    int size = Object::GetStreamingSize();
-    size += WM5_POINTERSIZE(mVShader);
-    size += WM5_POINTERSIZE(mPShader);
-    size += WM5_POINTERSIZE(mAlphaState);
-    size += WM5_POINTERSIZE(mCullState);
-    size += WM5_POINTERSIZE(mDepthState);
-    size += WM5_POINTERSIZE(mOffsetState);
-    size += WM5_POINTERSIZE(mStencilState);
-    size += WM5_POINTERSIZE(mWireState);
-    return size;
+	int size = Object::GetStreamingSize();
+	size += WM5_POINTERSIZE(mVShader);
+	size += WM5_POINTERSIZE(mPShader);
+	size += WM5_POINTERSIZE(mAlphaState);
+	size += WM5_POINTERSIZE(mCullState);
+	size += WM5_POINTERSIZE(mDepthState);
+	size += WM5_POINTERSIZE(mOffsetState);
+	size += WM5_POINTERSIZE(mStencilState);
+	size += WM5_POINTERSIZE(mWireState);
+	return size;
 }
 //----------------------------------------------------------------------------

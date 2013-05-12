@@ -27,7 +27,7 @@ extern "C"
 //----------------------------------------------------------------------------
 // GLX 1.0
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlx10;
+	GT_EXTERN int GTExistsGlx10;
 
 #define GLX_USE_GL                                                  1
 #define GLX_BUFFER_SIZE                                             2
@@ -54,9 +54,9 @@ GT_EXTERN int GTExistsGlx10;
 #define GLX_BAD_VALUE                                               6
 #define GLX_BAD_ENUM                                                7
 
-typedef XID GLXDrawable;
-typedef XID GLXPixmap;
-typedef struct __GLXcontextRec* GLXContext;
+	typedef XID GLXDrawable;
+	typedef XID GLXPixmap;
+	typedef struct __GLXcontextRec* GLXContext;
 
 #define glXQueryExtension GTglXQueryExtension
 #define glXQueryVersion GTglXQueryVersion
@@ -76,38 +76,38 @@ typedef struct __GLXcontextRec* GLXContext;
 #define glXSwapBuffers GTglXSwapBuffers
 #define glXUseXFont GTglXUseXFont
 
-GT_EXTERN Bool GTglXQueryExtension (Display* pkDisplay, int* piErrorBase,
-    int* piEventBase);
-GT_EXTERN Bool GTglXQueryVersion (Display* pkDisplay, int* piMajor,
-    int* piMinor);
-GT_EXTERN int GTglXGetConfig (Display* pkDisplay, XVisualInfo* pkVisual,
-    int iAttribute, int* piValue);
-GT_EXTERN XVisualInfo* GTglXChooseVisual (Display* pkDisplay, int iScreen,
-    int* aiAttributeList);
-GT_EXTERN GLXPixmap GTglXCreateGLXPixmap (Display* pkDisplay,
-    XVisualInfo* pkVisual, Pixmap kPixmap);
-GT_EXTERN void GTglXDestroyGLXPixmap (Display* pkDisplay, GLXPixmap kPixmap);
-GT_EXTERN GLXContext GTglXCreateContext (Display* pkDisplay,
-    XVisualInfo* pkVisual, GLXContext kShareList, Bool bDirect);
-GT_EXTERN void GTglXDestroyContext (Display* pkDisplay, GLXContext kContext);
-GT_EXTERN Bool GTglXIsDirect (Display* pkDisplay, GLXContext kContext);
-GT_EXTERN void GTglXCopyContext (Display* pkDisplay, GLXContext kSrcContext,
-    GLXContext kDstContext, GLuint uiMask);  /* RHLinux has "unsigned long" */
-GT_EXTERN Bool GTglXMakeCurrent (Display* pkDisplay, GLXDrawable kDrawable,
-    GLXContext kContext);
-GT_EXTERN GLXContext GTglXGetCurrentContext ();
-GT_EXTERN GLXDrawable GTglXGetCurrentDrawable ();
-GT_EXTERN void GTglXWaitGL ();
-GT_EXTERN void GTglXWaitX ();
-GT_EXTERN void GTglXSwapBuffers (Display* pkDisplay, GLXDrawable kDrawable);
-GT_EXTERN void GTglXUseXFont (Font kFont, int iFirst, int iCount,
-    int iListBase);
+	GT_EXTERN Bool GTglXQueryExtension (Display* pkDisplay, int* piErrorBase,
+	                                    int* piEventBase);
+	GT_EXTERN Bool GTglXQueryVersion (Display* pkDisplay, int* piMajor,
+	                                  int* piMinor);
+	GT_EXTERN int GTglXGetConfig (Display* pkDisplay, XVisualInfo* pkVisual,
+	                              int iAttribute, int* piValue);
+	GT_EXTERN XVisualInfo* GTglXChooseVisual (Display* pkDisplay, int iScreen,
+	        int* aiAttributeList);
+	GT_EXTERN GLXPixmap GTglXCreateGLXPixmap (Display* pkDisplay,
+	        XVisualInfo* pkVisual, Pixmap kPixmap);
+	GT_EXTERN void GTglXDestroyGLXPixmap (Display* pkDisplay, GLXPixmap kPixmap);
+	GT_EXTERN GLXContext GTglXCreateContext (Display* pkDisplay,
+	        XVisualInfo* pkVisual, GLXContext kShareList, Bool bDirect);
+	GT_EXTERN void GTglXDestroyContext (Display* pkDisplay, GLXContext kContext);
+	GT_EXTERN Bool GTglXIsDirect (Display* pkDisplay, GLXContext kContext);
+	GT_EXTERN void GTglXCopyContext (Display* pkDisplay, GLXContext kSrcContext,
+	                                 GLXContext kDstContext, GLuint uiMask);  /* RHLinux has "unsigned long" */
+	GT_EXTERN Bool GTglXMakeCurrent (Display* pkDisplay, GLXDrawable kDrawable,
+	                                 GLXContext kContext);
+	GT_EXTERN GLXContext GTglXGetCurrentContext ();
+	GT_EXTERN GLXDrawable GTglXGetCurrentDrawable ();
+	GT_EXTERN void GTglXWaitGL ();
+	GT_EXTERN void GTglXWaitX ();
+	GT_EXTERN void GTglXSwapBuffers (Display* pkDisplay, GLXDrawable kDrawable);
+	GT_EXTERN void GTglXUseXFont (Font kFont, int iFirst, int iCount,
+	                              int iListBase);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // GLX 1.1
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlx11;
+	GT_EXTERN int GTExistsGlx11;
 
 #define GLX_VENDOR                                                  1
 #define GLX_VERSION                                                 2
@@ -117,27 +117,27 @@ GT_EXTERN int GTExistsGlx11;
 #define glXGetClientString GTglXGetClientString
 #define glXQueryServerString GTglXQueryServerString
 
-GT_EXTERN const char* GTglXQueryExtensionsString (Display* pkDisplay,
-    int iScreen);
-GT_EXTERN const char* GTglXGetClientString (Display* pkDisplay, int iName);
-GT_EXTERN const char* GTglXQueryServerString (Display* pkDisplay,
-    int iScreen, int iName);
+	GT_EXTERN const char* GTglXQueryExtensionsString (Display* pkDisplay,
+	        int iScreen);
+	GT_EXTERN const char* GTglXGetClientString (Display* pkDisplay, int iName);
+	GT_EXTERN const char* GTglXQueryServerString (Display* pkDisplay,
+	        int iScreen, int iName);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // GLX 1.2
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlx12;
+	GT_EXTERN int GTExistsGlx12;
 
 #define glXGetCurrentDisplay GTglXGetCurrentDisplay
 
-GT_EXTERN Display* GTglXGetCurrentDisplay ();
+	GT_EXTERN Display* GTglXGetCurrentDisplay ();
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // GLX 1.3
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlx13;
+	GT_EXTERN int GTExistsGlx13;
 
 #define GLX_WINDOW_BIT                                              0x00000001
 #define GLX_PIXMAP_BIT                                              0x00000002
@@ -196,9 +196,9 @@ GT_EXTERN int GTExistsGlx13;
 #define GLX_PBUFFER_HEIGHT                                          0x8040
 #define GLX_PBUFFER_WIDTH                                           0x8041
 
-typedef struct __GLXFBConfigRec* GLXFBConfig;
-typedef XID GLXWindow;
-typedef XID GLXPbuffer;
+	typedef struct __GLXFBConfigRec* GLXFBConfig;
+	typedef XID GLXWindow;
+	typedef XID GLXPbuffer;
 
 #define glXGetFBConfigs GTglXGetFBConfigs
 #define glXChooseFBConfig GTglXChooseFBConfig
@@ -218,48 +218,48 @@ typedef XID GLXPbuffer;
 #define glXSelectEvent GTglXSelectEvent
 #define glXGetSelectedEvent GTglXGetSelectedEvent
 
-GT_EXTERN GLXFBConfig* GTglXGetFBConfigs (Display* pkDisplay, int iScreen,
-    int* piNumElements);
-GT_EXTERN GLXFBConfig* GTglXChooseFBConfig (Display* pkDisplay, int iScreen,
-    const int* aiAttributeList, int* piNumElements);
-GT_EXTERN int GTglXGetFBConfigAttrib (Display* pkDisplay, GLXFBConfig kConfig,
-    int iAttribute, int* piValue);
-GT_EXTERN XVisualInfo* GTglXGetVisualFromFBConfig (Display* pkDisplay,
-    GLXFBConfig kConfig);
-GT_EXTERN GLXWindow GTglXCreateWindow (Display* pkDisplay,
-    GLXFBConfig kConfig, Window iWindow, const int* aiAttributeList);
-GT_EXTERN void GTglXDestroyWindow (Display* pkDisplay, GLXWindow iWindow);
-GT_EXTERN GLXPixmap GTglXCreatePixmap (Display* pkDisplay,
-    GLXFBConfig kConfig, Pixmap kPixmap, const int* aiAttributeList);
-GT_EXTERN void GTglXDestroyPixmap (Display* pkDisplay, GLXPixmap kPixmap);
-GT_EXTERN GLXPbuffer GTglXCreatePbuffer (Display* pkDisplay,
-    GLXFBConfig kConfig, const int* aiAttributeList);
-GT_EXTERN void GTglXDestroyPbuffer (Display* pkDisplay, GLXPbuffer kPBuffer);
-GT_EXTERN void GTglXQueryDrawable (Display* pkDisplay, GLXDrawable kDrawable,
-    int iAttribute, unsigned int* puiValue);
-GT_EXTERN GLXContext GTglXCreateNewContext (Display* pkDisplay,
-    GLXFBConfig kConfig, int iRenderType, GLXContext kShareList,
-    Bool bDirect);
-GT_EXTERN Bool GTglXMakeContextCurrent (Display* pkDisplay, GLXDrawable kDraw,
-    GLXDrawable kRead, GLXContext kContext);
-GT_EXTERN GLXDrawable GTglXGetCurrentReadDrawable ();
-GT_EXTERN int GTglXQueryContext (Display* pkDisplay, GLXContext kContext,
-    int iAttribute, int* piValue);
-GT_EXTERN void GTglXSelectEvent (Display* pkDisplay, GLXDrawable kDrawable,
-    unsigned long ulEventMask);
-GT_EXTERN void GTglXGetSelectedEvent (Display* pkDisplay,
-    GLXDrawable kDrawable, unsigned long* puiEventMask);
+	GT_EXTERN GLXFBConfig* GTglXGetFBConfigs (Display* pkDisplay, int iScreen,
+	        int* piNumElements);
+	GT_EXTERN GLXFBConfig* GTglXChooseFBConfig (Display* pkDisplay, int iScreen,
+	        const int* aiAttributeList, int* piNumElements);
+	GT_EXTERN int GTglXGetFBConfigAttrib (Display* pkDisplay, GLXFBConfig kConfig,
+	                                      int iAttribute, int* piValue);
+	GT_EXTERN XVisualInfo* GTglXGetVisualFromFBConfig (Display* pkDisplay,
+	        GLXFBConfig kConfig);
+	GT_EXTERN GLXWindow GTglXCreateWindow (Display* pkDisplay,
+	                                       GLXFBConfig kConfig, Window iWindow, const int* aiAttributeList);
+	GT_EXTERN void GTglXDestroyWindow (Display* pkDisplay, GLXWindow iWindow);
+	GT_EXTERN GLXPixmap GTglXCreatePixmap (Display* pkDisplay,
+	                                       GLXFBConfig kConfig, Pixmap kPixmap, const int* aiAttributeList);
+	GT_EXTERN void GTglXDestroyPixmap (Display* pkDisplay, GLXPixmap kPixmap);
+	GT_EXTERN GLXPbuffer GTglXCreatePbuffer (Display* pkDisplay,
+	        GLXFBConfig kConfig, const int* aiAttributeList);
+	GT_EXTERN void GTglXDestroyPbuffer (Display* pkDisplay, GLXPbuffer kPBuffer);
+	GT_EXTERN void GTglXQueryDrawable (Display* pkDisplay, GLXDrawable kDrawable,
+	                                   int iAttribute, unsigned int* puiValue);
+	GT_EXTERN GLXContext GTglXCreateNewContext (Display* pkDisplay,
+	        GLXFBConfig kConfig, int iRenderType, GLXContext kShareList,
+	        Bool bDirect);
+	GT_EXTERN Bool GTglXMakeContextCurrent (Display* pkDisplay, GLXDrawable kDraw,
+	                                        GLXDrawable kRead, GLXContext kContext);
+	GT_EXTERN GLXDrawable GTglXGetCurrentReadDrawable ();
+	GT_EXTERN int GTglXQueryContext (Display* pkDisplay, GLXContext kContext,
+	                                 int iAttribute, int* piValue);
+	GT_EXTERN void GTglXSelectEvent (Display* pkDisplay, GLXDrawable kDrawable,
+	                                 unsigned long ulEventMask);
+	GT_EXTERN void GTglXGetSelectedEvent (Display* pkDisplay,
+	                                      GLXDrawable kDrawable, unsigned long* puiEventMask);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // GLX 1.4
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlx14;
+	GT_EXTERN int GTExistsGlx14;
 
 #define GLX_SAMPLE_BUFFERS                                          100000
 #define GLX_SAMPLES                                                 100001
 
-extern void (*glXGetProcAddress (const GLubyte*))(void);
+	extern void (*glXGetProcAddress (const GLubyte*))(void);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
@@ -269,15 +269,15 @@ extern void (*glXGetProcAddress (const GLubyte*))(void);
 //----------------------------------------------------------------------------
 // (ARB 02) GLX_ARB_get_proc_address
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlxArbGetProcAddress;
+	GT_EXTERN int GTExistsGlxArbGetProcAddress;
 
-extern void (*glXGetProcAddressARB (const GLubyte*))(void);
+	extern void (*glXGetProcAddressARB (const GLubyte*))(void);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 05) GLX_ARB_multisample
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlxArbMultisample;
+	GT_EXTERN int GTExistsGlxArbMultisample;
 
 #define GLX_SAMPLE_BUFFERS_ARB                                      100000
 #define GLX_SAMPLES_ARB                                             100001
@@ -286,7 +286,7 @@ GT_EXTERN int GTExistsGlxArbMultisample;
 //----------------------------------------------------------------------------
 // (ARB 39) GLX_ARB_fbconfig_float
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlxArbFBConfigFloat;
+	GT_EXTERN int GTExistsGlxArbFBConfigFloat;
 
 #define GLX_RGBA_FLOAT_TYPE_ARB                                     0x20B9
 #define GLX_RGBA_FLOAT_BIT_ARB                                      0x00000004
@@ -299,7 +299,7 @@ GT_EXTERN int GTExistsGlxArbFBConfigFloat;
 //----------------------------------------------------------------------------
 // (EXT 028) GLX_EXT_visual_info
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlxExtVisualInfo;
+	GT_EXTERN int GTExistsGlxExtVisualInfo;
 
 #define GLX_X_VISUAL_TYPE_EXT                                       0x22
 #define GLX_TRANSPARENT_TYPE_EXT                                    0x23
@@ -322,7 +322,7 @@ GT_EXTERN int GTExistsGlxExtVisualInfo;
 //----------------------------------------------------------------------------
 // (EXT 044) GLX_EXT_visual_rating
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlxExtVisualRating;
+	GT_EXTERN int GTExistsGlxExtVisualRating;
 
 #define GLX_VISUAL_CAVEAT_EXT                                       0x20
 #define GLX_SLOW_VISUAL_EXT                                         0x8001
@@ -332,13 +332,13 @@ GT_EXTERN int GTExistsGlxExtVisualRating;
 //----------------------------------------------------------------------------
 // (EXT 047) GLX_EXT_import_context
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlxExtImportContext;
+	GT_EXTERN int GTExistsGlxExtImportContext;
 
 #define GLX_SHARE_CONTEXT_EXT                                       0x800A
 #define GLX_VISUAL_ID_EXT                                           0x800B
 #define GLX_SCREEN_EXT                                              0x800C
 
-typedef XID GLXContextID;
+	typedef XID GLXContextID;
 
 #define glXGetCurrentDisplayEXT GTglXGetCurrentDisplayEXT
 #define glXQueryContextInfoEXT GTglXQueryContextInfoEXT
@@ -346,13 +346,13 @@ typedef XID GLXContextID;
 #define glXImportContextEXT GTglXImportContextEXT
 #define glXFreeContextEXT GTglXFreeContextEXT
 
-GT_EXTERN Display* GTglXGetCurrentDisplayEXT ();
-GT_EXTERN int GTglXQueryContextInfoEXT (Display* pkDisplay,
-    GLXContext kContext, int iAttribute, int* piValue);
-GT_EXTERN GLXContextID GTglXGetContextIDEXT (const GLXContext kContext);
-GT_EXTERN GLXContext GTglXImportContextEXT (Display* pkDisplay,
-    GLXContextID kContextID);
-GT_EXTERN void GTglXFreeContextEXT (Display* pkDisplay, GLXContext kContext);
+	GT_EXTERN Display* GTglXGetCurrentDisplayEXT ();
+	GT_EXTERN int GTglXQueryContextInfoEXT (Display* pkDisplay,
+	                                        GLXContext kContext, int iAttribute, int* piValue);
+	GT_EXTERN GLXContextID GTglXGetContextIDEXT (const GLXContext kContext);
+	GT_EXTERN GLXContext GTglXImportContextEXT (Display* pkDisplay,
+	        GLXContextID kContextID);
+	GT_EXTERN void GTglXFreeContextEXT (Display* pkDisplay, GLXContext kContext);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
@@ -362,7 +362,7 @@ GT_EXTERN void GTglXFreeContextEXT (Display* pkDisplay, GLXContext kContext);
 //----------------------------------------------------------------------------
 // (ARB 49) GLX_SGIX_fbconfig
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlxSgixFBConfig;
+	GT_EXTERN int GTExistsGlxSgixFBConfig;
 
 #define GLX_WINDOW_BIT_SGIX                                         0x00000001
 #define GLX_PIXMAP_BIT_SGIX                                         0x00000002
@@ -375,8 +375,8 @@ GT_EXTERN int GTExistsGlxSgixFBConfig;
 #define GLX_RGBA_TYPE_SGIX                                          0x8014
 #define GLX_COLOR_INDEX_TYPE_SGIX                                   0x8015
 
-typedef XID GLXFBConfigIDSGIX;
-typedef struct __GLXFBConfigRec* GLXFBConfigSGIX;
+	typedef XID GLXFBConfigIDSGIX;
+	typedef struct __GLXFBConfigRec* GLXFBConfigSGIX;
 
 #define glXGetFBConfigAttribSGIX GTglXGetFBConfigAttribSGIX
 #define glXChooseFBConfigSGIX GTglXChooseFBConfigSGIX
@@ -385,25 +385,25 @@ typedef struct __GLXFBConfigRec* GLXFBConfigSGIX;
 #define glXGetVisualFromFBConfigSGIX GTglXGetVisualFromFBConfigSGIX
 #define glXGetFBConfigFromVisualSGIX GTglXGetFBConfigFromVisualSGIX
 
-GT_EXTERN int GTglXGetFBConfigAttribSGIX (Display* pkDisplay,
-    GLXFBConfigSGIX kConfig, int iAttribute, int* piValue);
-GT_EXTERN GLXFBConfigSGIX* GTglXChooseFBConfigSGIX (Display* pkDisplay,
-    int iScreen, int* aiAttributeList, int* piNumElements);
-GT_EXTERN GLXPixmap GTglXCreateGLXPixmapWithConfigSGIX (Display* pkDisplay,
-    GLXFBConfigSGIX kConfig, Pixmap kPixmap);
-GT_EXTERN GLXContext GTglXCreateContextWithConfigSGIX (Display* pkDisplay,
-    GLXFBConfigSGIX kConfig, int iRenderType, GLXContext kShareList,
-    Bool bDirect);
-GT_EXTERN XVisualInfo* GTglXGetVisualFromFBConfigSGIX (Display* pkDisplay,
-    GLXFBConfigSGIX kConfig);
-GT_EXTERN GLXFBConfigSGIX GTglXGetFBConfigFromVisualSGIX (Display* pkDisplay,
-    XVisualInfo* pkVisual);
+	GT_EXTERN int GTglXGetFBConfigAttribSGIX (Display* pkDisplay,
+	        GLXFBConfigSGIX kConfig, int iAttribute, int* piValue);
+	GT_EXTERN GLXFBConfigSGIX* GTglXChooseFBConfigSGIX (Display* pkDisplay,
+	        int iScreen, int* aiAttributeList, int* piNumElements);
+	GT_EXTERN GLXPixmap GTglXCreateGLXPixmapWithConfigSGIX (Display* pkDisplay,
+	        GLXFBConfigSGIX kConfig, Pixmap kPixmap);
+	GT_EXTERN GLXContext GTglXCreateContextWithConfigSGIX (Display* pkDisplay,
+	        GLXFBConfigSGIX kConfig, int iRenderType, GLXContext kShareList,
+	        Bool bDirect);
+	GT_EXTERN XVisualInfo* GTglXGetVisualFromFBConfigSGIX (Display* pkDisplay,
+	        GLXFBConfigSGIX kConfig);
+	GT_EXTERN GLXFBConfigSGIX GTglXGetFBConfigFromVisualSGIX (Display* pkDisplay,
+	        XVisualInfo* pkVisual);
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 // (ARB 50) GLX_SGIX_pbuffer
 //----------------------------------------------------------------------------
-GT_EXTERN int GTExistsGlxSgixPBuffer;
+	GT_EXTERN int GTExistsGlxSgixPBuffer;
 
 #define GLX_PBUFFER_BIT_SGIX                                        0x00000004
 #define GLX_BUFFER_CLOBBER_MASK_SGIX                                0x08000000
@@ -431,22 +431,22 @@ GT_EXTERN int GTExistsGlxSgixPBuffer;
 #define GLX_WINDOW_SGIX                                             0x8022
 #define GLX_PBUFFER_SGIX                                            0x8023
 
-typedef XID GLXPbufferSGIX;
-typedef struct
-{
-    int type;
-    unsigned long serial;
-    Bool send_event;
-    Display *display;
-    GLXDrawable drawable;
-    int event_type;
-    int draw_type;
-    unsigned int mask;
-    int x, y;
-    int width, height;
-    int count;
-}
-GLXBufferClobberEventSGIX;
+	typedef XID GLXPbufferSGIX;
+	typedef struct
+	{
+		int type;
+		unsigned long serial;
+		Bool send_event;
+		Display *display;
+		GLXDrawable drawable;
+		int event_type;
+		int draw_type;
+		unsigned int mask;
+		int x, y;
+		int width, height;
+		int count;
+	}
+	GLXBufferClobberEventSGIX;
 
 #define glXCreateGLXPbufferSGIX GTglXCreateGLXPbufferSGIX
 #define glXDestroyGLXPbufferSGIX GTglXDestroyGLXPbufferSGIX
@@ -454,20 +454,20 @@ GLXBufferClobberEventSGIX;
 #define glXSelectEventSGIX GTglXSelectEventSGIX
 #define glXGetSelectedEventSGIX GTglXGetSelectedEventSGIX
 
-GT_EXTERN GLXPbufferSGIX GTglXCreateGLXPbufferSGIX (Display* pkDisplay,
-    GLXFBConfigSGIX kConfig, unsigned int uiWidth, unsigned int uiHeight,
-    int* aiAttributeList);
-GT_EXTERN void GTglXDestroyGLXPbufferSGIX (Display* pkDisplay,
-    GLXPbufferSGIX kPBuffer);
-GT_EXTERN int GTglXQueryGLXPbufferSGIX (Display* pkDisplay,
-    GLXPbufferSGIX kPBuffer, int iAttribute, unsigned int* auiValue);
-GT_EXTERN void GTglXSelectEventSGIX (Display* pkDisplay,
-    GLXDrawable kDrawable, unsigned long ulMask);
-GT_EXTERN void GTglXGetSelectedEventSGIX (Display* pkDisplay,
-    GLXDrawable kDrawable, unsigned long* pulMask);
+	GT_EXTERN GLXPbufferSGIX GTglXCreateGLXPbufferSGIX (Display* pkDisplay,
+	        GLXFBConfigSGIX kConfig, unsigned int uiWidth, unsigned int uiHeight,
+	        int* aiAttributeList);
+	GT_EXTERN void GTglXDestroyGLXPbufferSGIX (Display* pkDisplay,
+	        GLXPbufferSGIX kPBuffer);
+	GT_EXTERN int GTglXQueryGLXPbufferSGIX (Display* pkDisplay,
+	                                        GLXPbufferSGIX kPBuffer, int iAttribute, unsigned int* auiValue);
+	GT_EXTERN void GTglXSelectEventSGIX (Display* pkDisplay,
+	                                     GLXDrawable kDrawable, unsigned long ulMask);
+	GT_EXTERN void GTglXGetSelectedEventSGIX (Display* pkDisplay,
+	        GLXDrawable kDrawable, unsigned long* pulMask);
 //----------------------------------------------------------------------------
 
-GT_EXTERN void GTInitGLX (const char* acInfoFile);
+	GT_EXTERN void GTInitGLX (const char* acInfoFile);
 
 } // extern "C"
 

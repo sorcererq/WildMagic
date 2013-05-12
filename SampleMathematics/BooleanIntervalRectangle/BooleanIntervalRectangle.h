@@ -14,13 +14,13 @@ using namespace Wm5;
 
 class BooleanIntervalRectangle : public ConsoleApplication
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BooleanIntervalRectangle ();
-    virtual ~BooleanIntervalRectangle ();
-    virtual int Main (int numArguments, char** arguments);
+	BooleanIntervalRectangle ();
+	virtual ~BooleanIntervalRectangle ();
+	virtual int Main (int numArguments, char** arguments);
 };
 
 WM5_REGISTER_INITIALIZE(BooleanIntervalRectangle);

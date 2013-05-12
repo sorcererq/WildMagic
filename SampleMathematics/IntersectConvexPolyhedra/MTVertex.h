@@ -14,34 +14,34 @@
 class MTVertex
 {
 public:
-    // Construction and destruction.
-    MTVertex (int label = -1, int eGrow = 0, int tGrow = 0);
-    MTVertex (const MTVertex& V);
-    virtual ~MTVertex ();
+	// Construction and destruction.
+	MTVertex (int label = -1, int eGrow = 0, int tGrow = 0);
+	MTVertex (const MTVertex& V);
+	virtual ~MTVertex ();
 
-    MTVertex& operator= (const MTVertex& vertex);
+	MTVertex& operator= (const MTVertex& vertex);
 
-    // Vertex labels are read-only since they are used for maps in the MTMesh
-    // class for inverse look-up.
-    inline int GetLabel () const;
+	// Vertex labels are read-only since they are used for maps in the MTMesh
+	// class for inverse look-up.
+	inline int GetLabel () const;
 
-    inline int GetNumEdges () const;
-    inline int GetEdge (int e) const;
-    inline bool InsertEdge (int e);
-    inline bool RemoveEdge (int e);
-    bool ReplaceEdge (int eOld, int eNew);
+	inline int GetNumEdges () const;
+	inline int GetEdge (int e) const;
+	inline bool InsertEdge (int e);
+	inline bool RemoveEdge (int e);
+	bool ReplaceEdge (int eOld, int eNew);
 
-    inline int GetNumTriangles () const;
-    inline int GetTriangle (int t) const;
-    inline bool InsertTriangle (int t);
-    inline bool RemoveTriangle (int t);
-    bool ReplaceTriangle(int tOld, int tNew);
+	inline int GetNumTriangles () const;
+	inline int GetTriangle (int t) const;
+	inline bool InsertTriangle (int t);
+	inline bool RemoveTriangle (int t);
+	bool ReplaceTriangle(int tOld, int tNew);
 
-    inline bool operator== (const MTVertex& vertex) const;
+	inline bool operator== (const MTVertex& vertex) const;
 
 protected:
-    int mLabel;
-    UnorderedSet<int> mESet, mTSet;
+	int mLabel;
+	UnorderedSet<int> mESet, mTSet;
 };
 
 #include "MTVertex.inl"

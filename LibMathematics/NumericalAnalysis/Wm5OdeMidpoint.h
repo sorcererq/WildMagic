@@ -19,23 +19,23 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM OdeMidpoint : public OdeSolver<Real>
 {
 public:
-    // Construction and destruction.
-    OdeMidpoint (int dim, Real step,
-        typename OdeSolver<Real>::Function function, void* userData = 0);
-    virtual ~OdeMidpoint ();
+	// Construction and destruction.
+	OdeMidpoint (int dim, Real step,
+	             typename OdeSolver<Real>::Function function, void* userData = 0);
+	virtual ~OdeMidpoint ();
 
-    virtual void Update (Real tIn, Real* xIn, Real& tOut, Real* xOut);
-    virtual void SetStepSize (Real step);
+	virtual void Update (Real tIn, Real* xIn, Real& tOut, Real* xOut);
+	virtual void SetStepSize (Real step);
 
 protected:
-    using OdeSolver<Real>::mDim;
-    using OdeSolver<Real>::mStep;
-    using OdeSolver<Real>::mFunction;
-    using OdeSolver<Real>::mUserData;
-    using OdeSolver<Real>::mFValue;
+	using OdeSolver<Real>::mDim;
+	using OdeSolver<Real>::mStep;
+	using OdeSolver<Real>::mFunction;
+	using OdeSolver<Real>::mUserData;
+	using OdeSolver<Real>::mFValue;
 
-    Real mHalfStep;
-    Real* mXTemp;
+	Real mHalfStep;
+	Real* mXTemp;
 };
 
 typedef OdeMidpoint<float> OdeMidpointf;

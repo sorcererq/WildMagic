@@ -12,12 +12,12 @@
 class TemplateXC44
 {
 public:
-    TemplateXC44 (const char* projectName);
-    ~TemplateXC44 ();
+	TemplateXC44 (const char* projectName);
+	~TemplateXC44 ();
 
 private:
-    enum { NUM_LINES = 574 };
-    static char* msLines[NUM_LINES];
+	enum { NUM_LINES = 574 };
+	static char* msLines[NUM_LINES];
 };
 
 #endif

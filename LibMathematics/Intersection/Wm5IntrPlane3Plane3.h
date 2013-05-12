@@ -19,45 +19,45 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrPlane3Plane3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrPlane3Plane3 (const Plane3<Real>& plane0, const Plane3<Real>& plane1);
+	IntrPlane3Plane3 (const Plane3<Real>& plane0, const Plane3<Real>& plane1);
 
-    // Object access.
-    const Plane3<Real>& GetPlane0 () const;
-    const Plane3<Real>& GetPlane1 () const;
+	// Object access.
+	const Plane3<Real>& GetPlane0 () const;
+	const Plane3<Real>& GetPlane1 () const;
 
-    // Static intersection queries.
-    virtual bool Test ();
-    virtual bool Find ();
+	// Static intersection queries.
+	virtual bool Test ();
+	virtual bool Find ();
 
-    // Dynamic intersection queries.
-    virtual bool Test (Real tmax, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
-    virtual bool Find (Real tmax, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	// Dynamic intersection queries.
+	virtual bool Test (Real tmax, const Vector3<Real>& velocity0,
+	                   const Vector3<Real>& velocity1);
+	virtual bool Find (Real tmax, const Vector3<Real>& velocity0,
+	                   const Vector3<Real>& velocity1);
 
-    // Information about the intersection set.  Only get the specific object
-    // of intersection corresponding to the intersection type (IT_LINE or
-    // IT_PLANE).
-    const Line3<Real>& GetIntersectionLine () const;
-    const Plane3<Real>& GetIntersectionPlane () const;
+	// Information about the intersection set.  Only get the specific object
+	// of intersection corresponding to the intersection type (IT_LINE or
+	// IT_PLANE).
+	const Line3<Real>& GetIntersectionLine () const;
+	const Plane3<Real>& GetIntersectionPlane () const;
 
 protected:
-    using Intersector<Real,Vector3<Real> >::IT_EMPTY;
-    using Intersector<Real,Vector3<Real> >::IT_LINE;
-    using Intersector<Real,Vector3<Real> >::IT_PLANE;
-    using Intersector<Real,Vector3<Real> >::mIntersectionType;
-    using Intersector<Real,Vector3<Real> >::mContactTime;
+	using Intersector<Real,Vector3<Real> >::IT_EMPTY;
+	using Intersector<Real,Vector3<Real> >::IT_LINE;
+	using Intersector<Real,Vector3<Real> >::IT_PLANE;
+	using Intersector<Real,Vector3<Real> >::mIntersectionType;
+	using Intersector<Real,Vector3<Real> >::mContactTime;
 
-    // The objects to intersect.
-    const Plane3<Real>* mPlane0;
-    const Plane3<Real>* mPlane1;
+	// The objects to intersect.
+	const Plane3<Real>* mPlane0;
+	const Plane3<Real>* mPlane1;
 
-    // Information about the intersection set.
-    Line3<Real> mIntrLine;
-    Plane3<Real> mIntrPlane;
+	// Information about the intersection set.
+	Line3<Real> mIntrLine;
+	Plane3<Real> mIntrPlane;
 };
 
 typedef IntrPlane3Plane3<float> IntrPlane3Plane3f;

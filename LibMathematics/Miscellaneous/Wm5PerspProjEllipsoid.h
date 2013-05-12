@@ -34,9 +34,9 @@ namespace Wm5
 
 template <typename Real> WM5_MATHEMATICS_ITEM
 void PerspectiveProjectEllipsoid (const Ellipsoid3<Real>& ellipsoid,
-    const Vector3<Real>& eye, const Plane3<Real>& plane,
-    const Vector3<Real>& U, const Vector3<Real>& V, Vector3<Real>& P,
-    Ellipse2<Real>& ellipse);
+                                  const Vector3<Real>& eye, const Plane3<Real>& plane,
+                                  const Vector3<Real>& U, const Vector3<Real>& V, Vector3<Real>& P,
+                                  Ellipse2<Real>& ellipse);
 
 }
 

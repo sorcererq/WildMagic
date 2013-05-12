@@ -22,8 +22,8 @@ ConvexRegionManager::ConvexRegionManager ()
 }
 //----------------------------------------------------------------------------
 ConvexRegionManager::ConvexRegionManager (const HPlane& modelPlane)
-    :
-    BspNode(modelPlane)
+	:
+	BspNode(modelPlane)
 {
 }
 //----------------------------------------------------------------------------
@@ -33,54 +33,54 @@ ConvexRegionManager::~ConvexRegionManager ()
 //----------------------------------------------------------------------------
 SpatialPtr ConvexRegionManager::AttachOutside (Spatial* outside)
 {
-    return SetChild(1, outside);
+	return SetChild(1, outside);
 }
 //----------------------------------------------------------------------------
 SpatialPtr ConvexRegionManager::DetachOutside ()
 {
-    return DetachChildAt(1);
+	return DetachChildAt(1);
 }
 //----------------------------------------------------------------------------
 SpatialPtr ConvexRegionManager::GetOutside ()
 {
-    return GetChild(1);
+	return GetChild(1);
 }
 //----------------------------------------------------------------------------
 ConvexRegion* ConvexRegionManager::GetContainingRegion (const APoint& point)
 {
-    return DynamicCast<ConvexRegion>(GetContainingNode(point));
+	return DynamicCast<ConvexRegion>(GetContainingNode(point));
 }
 //----------------------------------------------------------------------------
 void ConvexRegionManager::GetVisibleSet (Culler& culler, bool noCull)
 {
-    ConvexRegion* region = GetContainingRegion(
-        culler.GetCamera()->GetPosition());
+	ConvexRegion* region = GetContainingRegion(
+	                           culler.GetCamera()->GetPosition());
 
-    if (region)
-    {
-        // Accumulate visible objects starting in the region containing the
-        // camera.  Use the CRMCuller to maintain a list of unique objects.
-        //pkRegion->GetVisibleSet(m_kCuller,bNoCull);
-        mCuller.SetCamera(culler.GetCamera());
-        mCuller.SetFrustum(culler.GetFrustum());
-        mCuller.ComputeVisibleSet(region);
+	if (region)
+	{
+		// Accumulate visible objects starting in the region containing the
+		// camera.  Use the CRMCuller to maintain a list of unique objects.
+		//pkRegion->GetVisibleSet(m_kCuller,bNoCull);
+		mCuller.SetCamera(culler.GetCamera());
+		mCuller.SetFrustum(culler.GetFrustum());
+		mCuller.ComputeVisibleSet(region);
 
-        // Copy the unique list to the scene culler.
-        VisibleSet& visibleSet = mCuller.GetVisibleSet();
-        const int numVisible = visibleSet.GetNumVisible();
-        for (int i = 0; i < numVisible; ++i)
-        {
-            culler.Insert(visibleSet.GetVisible(i));
-        }
-    }
-    else
-    {
-        // The camera is outside the set of regions.  Accumulate visible
-        // objects for the outside scene (if it exists).
-        if (GetOutside())
-        {
-            GetOutside()->GetVisibleSet(culler, noCull);
-        }
-    }
+		// Copy the unique list to the scene culler.
+		VisibleSet& visibleSet = mCuller.GetVisibleSet();
+		const int numVisible = visibleSet.GetNumVisible();
+		for (int i = 0; i < numVisible; ++i)
+		{
+			culler.Insert(visibleSet.GetVisible(i));
+		}
+	}
+	else
+	{
+		// The camera is outside the set of regions.  Accumulate visible
+		// objects for the outside scene (if it exists).
+		if (GetOutside())
+		{
+			GetOutside()->GetVisibleSet(culler, noCull);
+		}
+	}
 }
 //----------------------------------------------------------------------------

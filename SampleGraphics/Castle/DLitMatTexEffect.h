@@ -20,18 +20,18 @@ namespace Wm5
 
 class DLitMatTexEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(DLitMatTexEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(DLitMatTexEffect);
 
 public:
-    // Construction and destruction.
-    DLitMatTexEffect (const std::string& effectFile);
-    virtual ~DLitMatTexEffect ();
+	// Construction and destruction.
+	DLitMatTexEffect (const std::string& effectFile);
+	virtual ~DLitMatTexEffect ();
 
-    // Create an instance of the effect with unique parameters.
-    VisualEffectInstance* CreateInstance (Light* directionalLight,
-        Material* material, Texture2D* diffuseTexture);
+	// Create an instance of the effect with unique parameters.
+	VisualEffectInstance* CreateInstance (Light* directionalLight,
+	                                      Material* material, Texture2D* diffuseTexture);
 };
 
 WM5_REGISTER_STREAM(DLitMatTexEffect);

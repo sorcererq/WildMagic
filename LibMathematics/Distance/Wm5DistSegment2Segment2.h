@@ -18,32 +18,32 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM DistSegment2Segment2
-    : public Distance<Real,Vector2<Real> >
+	: public Distance<Real,Vector2<Real> >
 {
 public:
-    DistSegment2Segment2 (const Segment2<Real>& segment0,
-        const Segment2<Real>& segment1);
+	DistSegment2Segment2 (const Segment2<Real>& segment0,
+	                      const Segment2<Real>& segment1);
 
-    // Object access.
-    const Segment2<Real>& GetSegment0 () const;
-    const Segment2<Real>& GetSegment1 () const;
+	// Object access.
+	const Segment2<Real>& GetSegment0 () const;
+	const Segment2<Real>& GetSegment1 () const;
 
-    // Static distance queries.
-    virtual Real Get ();
-    virtual Real GetSquared ();
+	// Static distance queries.
+	virtual Real Get ();
+	virtual Real GetSquared ();
 
-    // Function calculations for dynamic distance queries.
-    virtual Real Get (Real t, const Vector2<Real>& velocity0,
-        const Vector2<Real>& velocity1);
-    virtual Real GetSquared (Real t, const Vector2<Real>& velocity0,
-        const Vector2<Real>& velocity1);
+	// Function calculations for dynamic distance queries.
+	virtual Real Get (Real t, const Vector2<Real>& velocity0,
+	                  const Vector2<Real>& velocity1);
+	virtual Real GetSquared (Real t, const Vector2<Real>& velocity0,
+	                         const Vector2<Real>& velocity1);
 
 private:
-    using Distance<Real,Vector2<Real> >::mClosestPoint0;
-    using Distance<Real,Vector2<Real> >::mClosestPoint1;
+	using Distance<Real,Vector2<Real> >::mClosestPoint0;
+	using Distance<Real,Vector2<Real> >::mClosestPoint1;
 
-    const Segment2<Real>* mSegment0;
-    const Segment2<Real>* mSegment1;
+	const Segment2<Real>* mSegment0;
+	const Segment2<Real>* mSegment1;
 };
 
 typedef DistSegment2Segment2<float> DistSegment2Segment2f;

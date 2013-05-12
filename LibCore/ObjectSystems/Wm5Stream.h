@@ -20,16 +20,16 @@ namespace Wm5
 class WM5_CORE_ITEM Stream
 {
 public:
-    // This function returns the number of bytes required to store a string.
-    // The string length is stored first, as an integer, followed by its
-    // characters.  The string is padded with zeros so that the total storage
-    // uses a multiple of four bytes.
-    static int GetStreamingSize (const std::string& input);
+	// This function returns the number of bytes required to store a string.
+	// The string length is stored first, as an integer, followed by its
+	// characters.  The string is padded with zeros so that the total storage
+	// uses a multiple of four bytes.
+	static int GetStreamingSize (const std::string& input);
 
 protected:
-    // Abstract base class.
-    Stream ();
-    virtual ~Stream ();
+	// Abstract base class.
+	Stream ();
+	virtual ~Stream ();
 };
 
 }

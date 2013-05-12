@@ -17,9 +17,9 @@ WM5_IMPLEMENT_DEFAULT_NAMES(Object, CullState);
 
 //----------------------------------------------------------------------------
 CullState::CullState ()
-    :
-    Enabled(true),
-    CCWOrder(true)
+	:
+	Enabled(true),
+	CCWOrder(true)
 {
 }
 //----------------------------------------------------------------------------
@@ -32,57 +32,57 @@ CullState::~CullState ()
 // Streaming support.
 //----------------------------------------------------------------------------
 CullState::CullState (LoadConstructor value)
-    :
-    Object(value),
-    Enabled(false),
-    CCWOrder(false)
+	:
+	Object(value),
+	Enabled(false),
+	CCWOrder(false)
 {
 }
 //----------------------------------------------------------------------------
 void CullState::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    Object::Load(source);
+	Object::Load(source);
 
-    source.ReadBool(Enabled);
-    source.ReadBool(CCWOrder);
+	source.ReadBool(Enabled);
+	source.ReadBool(CCWOrder);
 
-    WM5_END_DEBUG_STREAM_LOAD(CullState, source);
+	WM5_END_DEBUG_STREAM_LOAD(CullState, source);
 }
 //----------------------------------------------------------------------------
 void CullState::Link (InStream& source)
 {
-    Object::Link(source);
+	Object::Link(source);
 }
 //----------------------------------------------------------------------------
 void CullState::PostLink ()
 {
-    Object::PostLink();
+	Object::PostLink();
 }
 //----------------------------------------------------------------------------
 bool CullState::Register (OutStream& target) const
 {
-    return Object::Register(target);
+	return Object::Register(target);
 }
 //----------------------------------------------------------------------------
 void CullState::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    Object::Save(target);
+	Object::Save(target);
 
-    target.WriteBool(Enabled);
-    target.WriteBool(CCWOrder);
+	target.WriteBool(Enabled);
+	target.WriteBool(CCWOrder);
 
-    WM5_END_DEBUG_STREAM_SAVE(CullState, target);
+	WM5_END_DEBUG_STREAM_SAVE(CullState, target);
 }
 //----------------------------------------------------------------------------
 int CullState::GetStreamingSize () const
 {
-    int size = Object::GetStreamingSize();
-    size += WM5_BOOLSIZE(Enabled);
-    size += WM5_BOOLSIZE(CCWOrder);
-    return size;
+	int size = Object::GetStreamingSize();
+	size += WM5_BOOLSIZE(Enabled);
+	size += WM5_BOOLSIZE(CCWOrder);
+	return size;
 }
 //----------------------------------------------------------------------------

@@ -15,20 +15,20 @@ using namespace Wm5;
 
 class ClodPolyline : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    ClodPolyline ();
+	ClodPolyline ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    Polyline3* mPolyline;
-    int mSize;
+	Polyline3* mPolyline;
+	int mSize;
 };
 
 WM5_REGISTER_INITIALIZE(ClodPolyline);

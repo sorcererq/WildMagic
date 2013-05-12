@@ -17,16 +17,16 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM CameraModelPositionConstant : public ShaderFloat
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(CameraModelPositionConstant);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(CameraModelPositionConstant);
 
 public:
-    // Construction and destruction.
-    CameraModelPositionConstant ();
-    virtual ~CameraModelPositionConstant ();
+	// Construction and destruction.
+	CameraModelPositionConstant ();
+	virtual ~CameraModelPositionConstant ();
 
-    virtual void Update (const Visual* visual, const Camera* camera);
+	virtual void Update (const Visual* visual, const Camera* camera);
 };
 
 WM5_REGISTER_STREAM(CameraModelPositionConstant);

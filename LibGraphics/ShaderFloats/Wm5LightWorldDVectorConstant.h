@@ -18,22 +18,22 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM LightWorldDVectorConstant : public ShaderFloat
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(LightWorldDVectorConstant);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(LightWorldDVectorConstant);
 
 public:
-    // Construction and destruction.
-    LightWorldDVectorConstant (Light* light);
-    virtual ~LightWorldDVectorConstant ();
+	// Construction and destruction.
+	LightWorldDVectorConstant (Light* light);
+	virtual ~LightWorldDVectorConstant ();
 
-    // Member access.
-    Light* GetLight ();
+	// Member access.
+	Light* GetLight ();
 
-    virtual void Update (const Visual* visual, const Camera* camera);
+	virtual void Update (const Visual* visual, const Camera* camera);
 
 protected:
-    LightPtr mLight;
+	LightPtr mLight;
 };
 
 WM5_REGISTER_STREAM(LightWorldDVectorConstant);

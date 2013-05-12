@@ -19,27 +19,27 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrPlane3Box3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrPlane3Box3 (const Plane3<Real>& plane, const Box3<Real>& box);
+	IntrPlane3Box3 (const Plane3<Real>& plane, const Box3<Real>& box);
 
-    // Object access.
-    const Plane3<Real>& GetPlane () const;
-    const Box3<Real>& GetBox () const;
+	// Object access.
+	const Plane3<Real>& GetPlane () const;
+	const Box3<Real>& GetBox () const;
 
-    // Static intersection query.
-    virtual bool Test ();
+	// Static intersection query.
+	virtual bool Test ();
 
-    // Culling support.  The view frustum is assumed to be on the positive
-    // side of the plane.  The box is culled if it is on the negative side
-    // of the plane.
-    bool BoxIsCulled () const;
+	// Culling support.  The view frustum is assumed to be on the positive
+	// side of the plane.  The box is culled if it is on the negative side
+	// of the plane.
+	bool BoxIsCulled () const;
 
 protected:
-    // The objects to intersect.
-    const Plane3<Real>* mPlane;
-    const Box3<Real>* mBox;
+	// The objects to intersect.
+	const Plane3<Real>* mPlane;
+	const Box3<Real>* mBox;
 };
 
 typedef IntrPlane3Box3<float> IntrPlane3Box3f;

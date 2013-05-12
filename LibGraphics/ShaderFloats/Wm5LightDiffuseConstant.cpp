@@ -18,11 +18,11 @@ WM5_IMPLEMENT_FACTORY(LightDiffuseConstant);
 
 //----------------------------------------------------------------------------
 LightDiffuseConstant::LightDiffuseConstant (Light* light)
-    :
-    ShaderFloat(1),
-    mLight(light)
+	:
+	ShaderFloat(1),
+	mLight(light)
 {
-    EnableUpdater();
+	EnableUpdater();
 }
 //----------------------------------------------------------------------------
 LightDiffuseConstant::~LightDiffuseConstant ()
@@ -31,17 +31,17 @@ LightDiffuseConstant::~LightDiffuseConstant ()
 //----------------------------------------------------------------------------
 Light* LightDiffuseConstant::GetLight ()
 {
-    return mLight;
+	return mLight;
 }
 //----------------------------------------------------------------------------
 void LightDiffuseConstant::Update (const Visual*, const Camera*)
 {
-    const float* source = (const float*)mLight->Diffuse;
-    float* target = mData;
-    for (int i = 0; i < 4; ++i)
-    {
-        *target++ = *source++;
-    }
+	const float* source = (const float*)mLight->Diffuse;
+	float* target = mData;
+	for (int i = 0; i < 4; ++i)
+	{
+		*target++ = *source++;
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -50,22 +50,22 @@ void LightDiffuseConstant::Update (const Visual*, const Camera*)
 //----------------------------------------------------------------------------
 Object* LightDiffuseConstant::GetObjectByName (const std::string& name)
 {
-    Object* found = ShaderFloat::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = ShaderFloat::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    WM5_GET_OBJECT_BY_NAME(mLight, name, found);
-    return 0;
+	WM5_GET_OBJECT_BY_NAME(mLight, name, found);
+	return 0;
 }
 //----------------------------------------------------------------------------
 void LightDiffuseConstant::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+        std::vector<Object*>& objects)
 {
-    ShaderFloat::GetAllObjectsByName(name, objects);
+	ShaderFloat::GetAllObjectsByName(name, objects);
 
-    WM5_GET_ALL_OBJECTS_BY_NAME(mLight, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mLight, name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -73,59 +73,59 @@ void LightDiffuseConstant::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 LightDiffuseConstant::LightDiffuseConstant (LoadConstructor value)
-    :
-    ShaderFloat(value)
+	:
+	ShaderFloat(value)
 {
 }
 //----------------------------------------------------------------------------
 void LightDiffuseConstant::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    ShaderFloat::Load(source);
+	ShaderFloat::Load(source);
 
-    source.ReadPointer(mLight);
+	source.ReadPointer(mLight);
 
-    WM5_END_DEBUG_STREAM_LOAD(LightDiffuseConstant, source);
+	WM5_END_DEBUG_STREAM_LOAD(LightDiffuseConstant, source);
 }
 //----------------------------------------------------------------------------
 void LightDiffuseConstant::Link (InStream& source)
 {
-    ShaderFloat::Link(source);
+	ShaderFloat::Link(source);
 
-    source.ResolveLink(mLight);
+	source.ResolveLink(mLight);
 }
 //----------------------------------------------------------------------------
 void LightDiffuseConstant::PostLink ()
 {
-    ShaderFloat::PostLink();
+	ShaderFloat::PostLink();
 }
 //----------------------------------------------------------------------------
 bool LightDiffuseConstant::Register (OutStream& target) const
 {
-    if (ShaderFloat::Register(target))
-    {
-        target.Register(mLight);
-        return true;
-    }
-    return false;
+	if (ShaderFloat::Register(target))
+	{
+		target.Register(mLight);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void LightDiffuseConstant::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    ShaderFloat::Save(target);
+	ShaderFloat::Save(target);
 
-    target.WritePointer(mLight);
+	target.WritePointer(mLight);
 
-    WM5_END_DEBUG_STREAM_SAVE(LightDiffuseConstant, target);
+	WM5_END_DEBUG_STREAM_SAVE(LightDiffuseConstant, target);
 }
 //----------------------------------------------------------------------------
 int LightDiffuseConstant::GetStreamingSize () const
 {
-    int size = ShaderFloat::GetStreamingSize();
-    size += WM5_POINTERSIZE(mLight);
-    return size;
+	int size = ShaderFloat::GetStreamingSize();
+	size += WM5_POINTERSIZE(mLight);
+	return size;
 }
 //----------------------------------------------------------------------------

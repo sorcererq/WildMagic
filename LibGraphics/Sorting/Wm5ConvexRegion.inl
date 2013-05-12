@@ -9,11 +9,11 @@
 //----------------------------------------------------------------------------
 inline int ConvexRegion::GetNumPortals () const
 {
-    return mNumPortals;
+	return mNumPortals;
 }
 //----------------------------------------------------------------------------
 inline Portal* ConvexRegion::GetPortal (int i) const
 {
-    return mPortals[i];
+	return mPortals[i];
 }
 //----------------------------------------------------------------------------

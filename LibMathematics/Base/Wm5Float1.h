@@ -18,14 +18,14 @@ namespace Wm5
 class Float1 : public Tuple<1,float>
 {
 public:
-    // Construction and destruction.
-    inline Float1 ();   // uninitialized
-    inline ~Float1 ();  // hides ~Tuple<1,float>
-    inline Float1 (float f0);
-    inline Float1 (const Float1& tuple);
+	// Construction and destruction.
+	inline Float1 ();   // uninitialized
+	inline ~Float1 ();  // hides ~Tuple<1,float>
+	inline Float1 (float f0);
+	inline Float1 (const Float1& tuple);
 
-    // Assignment.
-    inline Float1& operator= (const Float1& tuple);
+	// Assignment.
+	inline Float1& operator= (const Float1& tuple);
 };
 
 #include "Wm5Float1.inl"

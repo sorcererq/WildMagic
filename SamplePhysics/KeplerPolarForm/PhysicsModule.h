@@ -15,47 +15,47 @@ using namespace Wm5;
 class PhysicsModule
 {
 public:
-    // Construction and destruction.
-    PhysicsModule ();
-    ~PhysicsModule ();
+	// Construction and destruction.
+	PhysicsModule ();
+	~PhysicsModule ();
 
-    // Initialize the differential equation solver.
-    void Initialize (double time, double deltaTime, double radius,
-        double theta, double radiusDot, double thetaDot);
+	// Initialize the differential equation solver.
+	void Initialize (double time, double deltaTime, double radius,
+	                 double theta, double radiusDot, double thetaDot);
 
-    // Apply a single step of the solver.
-    void Update ();
+	// Apply a single step of the solver.
+	void Update ();
 
-    // Access the current state.
-    inline double GetTime () const;
-    inline double GetDeltaTime () const;
-    inline double GetTheta () const;
-    inline double GetThetaDot () const;
-    inline double GetRadius () const;
-    inline double GetRadiusDot () const;
+	// Access the current state.
+	inline double GetTime () const;
+	inline double GetDeltaTime () const;
+	inline double GetTheta () const;
+	inline double GetThetaDot () const;
+	inline double GetRadius () const;
+	inline double GetRadiusDot () const;
 
-    // physical constants
-    double Gravity;
-    double Mass;
+	// physical constants
+	double Gravity;
+	double Mass;
 
-    // ellipse parameters
-    inline double GetEccentricity () const;
-    inline double GetMajorAxis () const;
-    inline double GetMinorAxis () const;
-    double GetPeriod () const;
+	// ellipse parameters
+	inline double GetEccentricity () const;
+	inline double GetMajorAxis () const;
+	inline double GetMinorAxis () const;
+	double GetPeriod () const;
 
 private:
-    // state and auxiliary variables
-    double mTime, mDeltaTime;
-    double mState[4], mAux[5];
+	// state and auxiliary variables
+	double mTime, mDeltaTime;
+	double mState[4], mAux[5];
 
-    // ellipse parameters
-    double mEccentricity, mRho, mMajorAxis, mMinorAxis;
+	// ellipse parameters
+	double mEccentricity, mRho, mMajorAxis, mMinorAxis;
 
-    // ODE solver (specific solver assigned in the cpp file)
-    OdeSolverd* mSolver;
-    static void OdeFunction (double time, const double* state, void* data,
-        double* output);
+	// ODE solver (specific solver assigned in the cpp file)
+	OdeSolverd* mSolver;
+	static void OdeFunction (double time, const double* state, void* data,
+	                         double* output);
 };
 
 #include "PhysicsModule.inl"

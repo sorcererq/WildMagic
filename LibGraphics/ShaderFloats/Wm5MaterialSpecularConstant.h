@@ -18,22 +18,22 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM MaterialSpecularConstant : public ShaderFloat
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(MaterialSpecularConstant);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(MaterialSpecularConstant);
 
 public:
-    // Construction and destruction.
-    MaterialSpecularConstant (Material* material);
-    virtual ~MaterialSpecularConstant ();
+	// Construction and destruction.
+	MaterialSpecularConstant (Material* material);
+	virtual ~MaterialSpecularConstant ();
 
-    // Member access.
-    Material* GetMaterial ();
+	// Member access.
+	Material* GetMaterial ();
 
-    virtual void Update (const Visual* visual, const Camera* camera);
+	virtual void Update (const Visual* visual, const Camera* camera);
 
 protected:
-    MaterialPtr mMaterial;
+	MaterialPtr mMaterial;
 };
 
 WM5_REGISTER_STREAM(MaterialSpecularConstant);

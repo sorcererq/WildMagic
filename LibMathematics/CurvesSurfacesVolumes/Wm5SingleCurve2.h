@@ -19,21 +19,21 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM SingleCurve2 : public Curve2<Real>
 {
 public:
-    // Abstract base class.
-    SingleCurve2 (Real tmin, Real tmax);
+	// Abstract base class.
+	SingleCurve2 (Real tmin, Real tmax);
 
-    // Length-from-time and time-from-length.
-    virtual Real GetLength (Real t0, Real t1) const;
-    virtual Real GetTime (Real length, int iterations = 32,
-        Real tolerance = (Real)1e-06) const;
+	// Length-from-time and time-from-length.
+	virtual Real GetLength (Real t0, Real t1) const;
+	virtual Real GetTime (Real length, int iterations = 32,
+	                      Real tolerance = (Real)1e-06) const;
 
 protected:
-    using Curve2<Real>::mTMin;
-    using Curve2<Real>::mTMax;
-    using Curve2<Real>::GetSpeed;
-    using Curve2<Real>::GetTotalLength;
+	using Curve2<Real>::mTMin;
+	using Curve2<Real>::mTMax;
+	using Curve2<Real>::GetSpeed;
+	using Curve2<Real>::GetTotalLength;
 
-    static Real GetSpeedWithData (Real t, void* data);
+	static Real GetSpeedWithData (Real t, void* data);
 };
 
 typedef SingleCurve2<float> SingleCurve2f;

@@ -17,17 +17,17 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM CullState : public Object
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(CullState);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(CullState);
 
 public:
-    // Construction and destruction.
-    CullState ();
-    virtual ~CullState ();
+	// Construction and destruction.
+	CullState ();
+	virtual ~CullState ();
 
-    bool Enabled;   // default: true
-    bool CCWOrder;  // default: true
+	bool Enabled;   // default: true
+	bool CCWOrder;  // default: true
 };
 
 WM5_REGISTER_STREAM(CullState);

@@ -19,45 +19,45 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrTriangle3Box3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrTriangle3Box3 (const Triangle3<Real>& triangle,
-        const Box3<Real>& box);
+	IntrTriangle3Box3 (const Triangle3<Real>& triangle,
+	                   const Box3<Real>& box);
 
-    // Object access.
-    const Triangle3<Real>& GetTriangle () const;
-    const Box3<Real>& GetBox () const;
+	// Object access.
+	const Triangle3<Real>& GetTriangle () const;
+	const Box3<Real>& GetBox () const;
 
-    // Static test-intersection query.
-    virtual bool Test ();
+	// Static test-intersection query.
+	virtual bool Test ();
 
-    // Static test-intersection query.
-    virtual bool Find ();
+	// Static test-intersection query.
+	virtual bool Find ();
 
-    // Dynamic test-intersection query.
-    virtual bool Test (Real tmax, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	// Dynamic test-intersection query.
+	virtual bool Test (Real tmax, const Vector3<Real>& velocity0,
+	                   const Vector3<Real>& velocity1);
 
-    // Dynamic find-intersection query.
-    virtual bool Find (Real tmax, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	// Dynamic find-intersection query.
+	virtual bool Find (Real tmax, const Vector3<Real>& velocity0,
+	                   const Vector3<Real>& velocity1);
 
-    // The intersection set.
-    int GetQuantity () const;
-    const Vector3<Real>& GetPoint (int i) const;
+	// The intersection set.
+	int GetQuantity () const;
+	const Vector3<Real>& GetPoint (int i) const;
 
 private:
-    using Intersector<Real,Vector3<Real> >::mContactTime;
+	using Intersector<Real,Vector3<Real> >::mContactTime;
 
-    // The objects to intersect.
-    const Triangle3<Real>* mTriangle;
-    const Box3<Real>* mBox;
+	// The objects to intersect.
+	const Triangle3<Real>* mTriangle;
+	const Box3<Real>* mBox;
 
-    // The intersections for static query.  A triangle can intersect a box
-    // in at most 7 vertices.
-    int mQuantity;
-    Vector3<Real> mPoint[7];
+	// The intersections for static query.  A triangle can intersect a box
+	// in at most 7 vertices.
+	int mQuantity;
+	Vector3<Real> mPoint[7];
 };
 
 typedef IntrTriangle3Box3<float> IntrTriangle3Box3f;

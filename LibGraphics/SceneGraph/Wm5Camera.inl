@@ -9,117 +9,117 @@
 //----------------------------------------------------------------------------
 inline APoint Camera::GetPosition () const
 {
-    return mPosition;
+	return mPosition;
 }
 //----------------------------------------------------------------------------
 inline AVector Camera::GetDVector () const
 {
-    return mDVector;
+	return mDVector;
 }
 //----------------------------------------------------------------------------
 inline AVector Camera::GetUVector () const
 {
-    return mUVector;
+	return mUVector;
 }
 //----------------------------------------------------------------------------
 inline AVector Camera::GetRVector () const
 {
-    return mRVector;
+	return mRVector;
 }
 //----------------------------------------------------------------------------
 inline const HMatrix& Camera::GetViewMatrix () const
 {
-    return mViewMatrix;
+	return mViewMatrix;
 }
 //----------------------------------------------------------------------------
 inline bool Camera::IsPerspective () const
 {
-    return mIsPerspective;
+	return mIsPerspective;
 }
 //----------------------------------------------------------------------------
 inline const float* Camera::GetFrustum () const
 {
-    return mFrustum;
+	return mFrustum;
 }
 //----------------------------------------------------------------------------
 inline float Camera::GetDMin () const
 {
-    return mFrustum[VF_DMIN];
+	return mFrustum[VF_DMIN];
 }
 //----------------------------------------------------------------------------
 inline float Camera::GetDMax () const
 {
-    return mFrustum[VF_DMAX];
+	return mFrustum[VF_DMAX];
 }
 //----------------------------------------------------------------------------
 inline float Camera::GetUMin () const
 {
-    return mFrustum[VF_UMIN];
+	return mFrustum[VF_UMIN];
 }
 //----------------------------------------------------------------------------
 inline float Camera::GetUMax () const
 {
-    return mFrustum[VF_UMAX];
+	return mFrustum[VF_UMAX];
 }
 //----------------------------------------------------------------------------
 inline float Camera::GetRMin () const
 {
-    return mFrustum[VF_RMIN];
+	return mFrustum[VF_RMIN];
 }
 //----------------------------------------------------------------------------
 inline float Camera::GetRMax () const
 {
-    return mFrustum[VF_RMAX];
+	return mFrustum[VF_RMAX];
 }
 //----------------------------------------------------------------------------
 inline Camera::DepthType Camera::GetDepthType () const
 {
-    return mDepthType;
+	return mDepthType;
 }
 //----------------------------------------------------------------------------
 inline const HMatrix& Camera::GetProjectionMatrix () const
 {
-    return mProjectionMatrix[mDepthType];
+	return mProjectionMatrix[mDepthType];
 }
 //----------------------------------------------------------------------------
 inline void Camera::SetProjectionMatrix (const HMatrix& projMatrix)
 {
-    mProjectionMatrix[mDepthType] = projMatrix;
-    UpdatePVMatrix();
+	mProjectionMatrix[mDepthType] = projMatrix;
+	UpdatePVMatrix();
 }
 //----------------------------------------------------------------------------
 inline const HMatrix& Camera::GetProjectionViewMatrix () const
 {
-    return mProjectionViewMatrix[mDepthType];
+	return mProjectionViewMatrix[mDepthType];
 }
 //----------------------------------------------------------------------------
 inline const HMatrix& Camera::GetPreViewMatrix () const
 {
-    return mPreViewMatrix;
+	return mPreViewMatrix;
 }
 //----------------------------------------------------------------------------
 inline bool Camera::PreViewIsIdentity () const
 {
-    return mPreViewIsIdentity;
+	return mPreViewIsIdentity;
 }
 //----------------------------------------------------------------------------
 inline const HMatrix& Camera::GetPostProjectionMatrix () const
 {
-    return mPostProjectionMatrix;
+	return mPostProjectionMatrix;
 }
 //----------------------------------------------------------------------------
 inline bool Camera::PostProjectionIsIdentity () const
 {
-    return mPostProjectionIsIdentity;
+	return mPostProjectionIsIdentity;
 }
 //----------------------------------------------------------------------------
 inline void Camera::SetDefaultDepthType (DepthType type)
 {
-    msDefaultDepthType = type;
+	msDefaultDepthType = type;
 }
 //----------------------------------------------------------------------------
 inline Camera::DepthType Camera::GetDefaultDepthType ()
 {
-    return msDefaultDepthType;
+	return msDefaultDepthType;
 }
 //----------------------------------------------------------------------------

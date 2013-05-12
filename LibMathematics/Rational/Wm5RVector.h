@@ -19,54 +19,54 @@ template <int VSIZE, int ISIZE>
 class RVector
 {
 public:
-    // Construction.
-    RVector ();
-    RVector (const RVector& vec);
+	// Construction.
+	RVector ();
+	RVector (const RVector& vec);
 
-    // Coordinate access.
-    inline operator const Rational<ISIZE>* () const;
-    inline operator Rational<ISIZE>* ();
-    inline const Rational<ISIZE>& operator[] (int i) const;
-    inline Rational<ISIZE>& operator[] (int i);
+	// Coordinate access.
+	inline operator const Rational<ISIZE>* () const;
+	inline operator Rational<ISIZE>* ();
+	inline const Rational<ISIZE>& operator[] (int i) const;
+	inline Rational<ISIZE>& operator[] (int i);
 
-    // Assignment.
-    RVector& operator= (const RVector& vec);
+	// Assignment.
+	RVector& operator= (const RVector& vec);
 
-    // Comparison.
-    bool operator== (const RVector& vec) const;
-    bool operator!= (const RVector& vec) const;
-    bool operator<  (const RVector& vec) const;
-    bool operator<= (const RVector& vec) const;
-    bool operator>  (const RVector& vec) const;
-    bool operator>= (const RVector& vec) const;
+	// Comparison.
+	bool operator== (const RVector& vec) const;
+	bool operator!= (const RVector& vec) const;
+	bool operator<  (const RVector& vec) const;
+	bool operator<= (const RVector& vec) const;
+	bool operator>  (const RVector& vec) const;
+	bool operator>= (const RVector& vec) const;
 
-    // Arithmetic operations.
-    RVector operator+ (const RVector& vec) const;
-    RVector operator- (const RVector& vec) const;
-    RVector operator* (const Rational<ISIZE>& scalar) const;
-    RVector operator/ (const Rational<ISIZE>& scalar) const;
-    RVector operator- () const;
+	// Arithmetic operations.
+	RVector operator+ (const RVector& vec) const;
+	RVector operator- (const RVector& vec) const;
+	RVector operator* (const Rational<ISIZE>& scalar) const;
+	RVector operator/ (const Rational<ISIZE>& scalar) const;
+	RVector operator- () const;
 
-    // Arithmetic updates.
-    RVector& operator+= (const RVector& vec);
-    RVector& operator-= (const RVector& vec);
-    RVector& operator*= (const Rational<ISIZE>& scalar);
-    RVector& operator/= (const Rational<ISIZE>& scalar);
+	// Arithmetic updates.
+	RVector& operator+= (const RVector& vec);
+	RVector& operator-= (const RVector& vec);
+	RVector& operator*= (const Rational<ISIZE>& scalar);
+	RVector& operator/= (const Rational<ISIZE>& scalar);
 
-    // Vector operations.
-    Rational<ISIZE> SquaredLength () const;
-    Rational<ISIZE> Dot (const RVector& vec) const;
+	// Vector operations.
+	Rational<ISIZE> SquaredLength () const;
+	Rational<ISIZE> Dot (const RVector& vec) const;
 
 protected:
-    // Support for comparisons.
-    int CompareArrays (const RVector& vec) const;
+	// Support for comparisons.
+	int CompareArrays (const RVector& vec) const;
 
-    Rational<ISIZE> mTuple[VSIZE];
+	Rational<ISIZE> mTuple[VSIZE];
 };
 
 template <int VSIZE, int ISIZE>
 RVector<VSIZE,ISIZE> operator* (const Rational<ISIZE>& scalar,
-    const RVector<VSIZE,ISIZE>& vec);
+                                const RVector<VSIZE,ISIZE>& vec);
 
 #include "Wm5RVector.inl"
 

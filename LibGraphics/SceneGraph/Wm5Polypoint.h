@@ -17,24 +17,24 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM Polypoint : public Visual
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(Polypoint);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(Polypoint);
 
 public:
-    // Construction and destruction.
-    Polypoint (VertexFormat* vformat, VertexBuffer* vbuffer);
-    virtual ~Polypoint ();
+	// Construction and destruction.
+	Polypoint (VertexFormat* vformat, VertexBuffer* vbuffer);
+	virtual ~Polypoint ();
 
-    // Member access.  Allow the application to specify fewer than the maximum
-    // number of point to draw.
-    int GetMaxNumPoints () const;
-    void SetNumPoints (int numPoints);
-    inline int GetNumPoints () const;
+	// Member access.  Allow the application to specify fewer than the maximum
+	// number of point to draw.
+	int GetMaxNumPoints () const;
+	void SetNumPoints (int numPoints);
+	inline int GetNumPoints () const;
 
 protected:
-    // The number of points currently active.
-    int mNumPoints;
+	// The number of points currently active.
+	int mNumPoints;
 };
 
 WM5_REGISTER_STREAM(Polypoint);

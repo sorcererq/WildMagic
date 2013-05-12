@@ -20,17 +20,17 @@ class Renderer;
 class PdrVertexFormat
 {
 public:
-    // Construction and destruction.
-    PdrVertexFormat (Renderer* renderer, const VertexFormat* vformat);
-    ~PdrVertexFormat ();
+	// Construction and destruction.
+	PdrVertexFormat (Renderer* renderer, const VertexFormat* vformat);
+	~PdrVertexFormat ();
 
-    // Vertex format operations.
-    void Enable (Renderer* renderer);
-    void Disable (Renderer* renderer);
+	// Vertex format operations.
+	void Enable (Renderer* renderer);
+	void Disable (Renderer* renderer);
 
 private:
-    D3DVERTEXELEMENT9 mElements[VertexFormat::AM_MAX_ATTRIBUTES + 1];
-    IDirect3DVertexDeclaration9* mDeclaration;
+	D3DVERTEXELEMENT9 mElements[VertexFormat::AM_MAX_ATTRIBUTES + 1];
+	IDirect3DVertexDeclaration9* mDeclaration;
 };
 
 }

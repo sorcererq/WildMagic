@@ -15,52 +15,52 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 IntpVectorField2<Real>::IntpVectorField2 (int quantity,
-    Vector2<Real>* domain, Vector2<Real>* range, bool owner,
-    Query::Type queryType)
+        Vector2<Real>* domain, Vector2<Real>* range, bool owner,
+        Query::Type queryType)
 {
-    // Repackage the output vectors into individual components.  This is
-    // required because of the format that the quadratic interpolator expects
-    // for its input data.
-    Real* xOutput = new1<Real>(quantity);
-    Real* yOutput = new1<Real>(quantity);
-    for (int i = 0; i < quantity; ++i)
-    {
-        xOutput[i] = range[i].X();
-        yOutput[i] = range[i].Y();
-    }
+	// Repackage the output vectors into individual components.  This is
+	// required because of the format that the quadratic interpolator expects
+	// for its input data.
+	Real* xOutput = new1<Real>(quantity);
+	Real* yOutput = new1<Real>(quantity);
+	for (int i = 0; i < quantity; ++i)
+	{
+		xOutput[i] = range[i].X();
+		yOutput[i] = range[i].Y();
+	}
 
-    if (owner)
-    {
-        delete1(range);
-    }
+	if (owner)
+	{
+		delete1(range);
+	}
 
-    // Common triangulator for the interpolators.
-    mDT = new0 Delaunay2<Real>(quantity, domain, (Real)0.001, owner,
-        queryType);
+	// Common triangulator for the interpolators.
+	mDT = new0 Delaunay2<Real>(quantity, domain, (Real)0.001, owner,
+	                           queryType);
 
-    // Create interpolator for x-coordinate of vector field.
-    mXInterp = new0 IntpQdrNonuniform2<Real>(*mDT, xOutput, true);
+	// Create interpolator for x-coordinate of vector field.
+	mXInterp = new0 IntpQdrNonuniform2<Real>(*mDT, xOutput, true);
 
-    // Create interpolator for y-coordinate of vector field, but share the
-    // already created triangulation for the x-interpolator.
-    mYInterp = new0 IntpQdrNonuniform2<Real>(*mDT, yOutput, true);
+	// Create interpolator for y-coordinate of vector field, but share the
+	// already created triangulation for the x-interpolator.
+	mYInterp = new0 IntpQdrNonuniform2<Real>(*mDT, yOutput, true);
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 IntpVectorField2<Real>::~IntpVectorField2 ()
 {
-    delete0(mDT);
-    delete0(mXInterp);
-    delete0(mYInterp);
+	delete0(mDT);
+	delete0(mXInterp);
+	delete0(mYInterp);
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntpVectorField2<Real>::Evaluate (const Vector2<Real>& input,
-    Vector2<Real>& output)
+                                       Vector2<Real>& output)
 {
-    Real xDeriv, yDeriv;
-    return mXInterp->Evaluate(input, output.X(), xDeriv, yDeriv)
-        && mYInterp->Evaluate(input, output.Y(), xDeriv, yDeriv);
+	Real xDeriv, yDeriv;
+	return mXInterp->Evaluate(input, output.X(), xDeriv, yDeriv)
+	       && mYInterp->Evaluate(input, output.Y(), xDeriv, yDeriv);
 }
 //----------------------------------------------------------------------------
 

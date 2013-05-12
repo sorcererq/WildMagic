@@ -16,15 +16,15 @@ namespace Wm5
 
 class RandomController : public PointController
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(RandomController);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(RandomController);
 
 public:
-    RandomController ();
+	RandomController ();
 
 protected:
-    virtual void UpdatePointMotion (float ctrlTime);
+	virtual void UpdatePointMotion (float ctrlTime);
 };
 
 WM5_REGISTER_STREAM(RandomController);

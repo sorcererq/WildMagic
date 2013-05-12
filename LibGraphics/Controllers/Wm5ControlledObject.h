@@ -17,29 +17,29 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM ControlledObject : public Object
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(ControlledObject);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(ControlledObject);
 
 protected:
-    // Abstract base class.  Construction and destruction.
-    ControlledObject ();
+	// Abstract base class.  Construction and destruction.
+	ControlledObject ();
 public:
-    virtual ~ControlledObject ();
+	virtual ~ControlledObject ();
 
-    // Access to the controllers that control this object.
-    inline int GetNumControllers () const;
-    inline Controller* GetController (int i) const;
-    void AttachController (Controller* controller);
-    void DetachController (Controller* controller);
-    void DetachAllControllers ();
-    bool UpdateControllers (double applicationTime);
+	// Access to the controllers that control this object.
+	inline int GetNumControllers () const;
+	inline Controller* GetController (int i) const;
+	void AttachController (Controller* controller);
+	void DetachController (Controller* controller);
+	void DetachAllControllers ();
+	bool UpdateControllers (double applicationTime);
 
 private:
-    // The array of controllers that control this object.
-    enum { CO_GROW_BY = 4 };
-    int mNumControllers, mCapacity;
-    ControllerPtr* mControllers;
+	// The array of controllers that control this object.
+	enum { CO_GROW_BY = 4 };
+	int mNumControllers, mCapacity;
+	ControllerPtr* mControllers;
 };
 
 WM5_REGISTER_STREAM(ControlledObject);

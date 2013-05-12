@@ -32,7 +32,7 @@ bool InSphere (const Vector3<Real>& point, const Sphere3<Real>& sphere);
 // Compute the smallest sphere that contains the input spheres.
 template <typename Real> WM5_MATHEMATICS_ITEM
 Sphere3<Real> MergeSpheres (const Sphere3<Real>& sphere0,
-    const Sphere3<Real>& sphere1);
+                            const Sphere3<Real>& sphere1);
 
 }
 

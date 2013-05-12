@@ -18,22 +18,22 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM MaterialEmissiveConstant : public ShaderFloat
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(MaterialEmissiveConstant);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(MaterialEmissiveConstant);
 
 public:
-    // Construction and destruction.
-    MaterialEmissiveConstant (Material* material);
-    virtual ~MaterialEmissiveConstant ();
+	// Construction and destruction.
+	MaterialEmissiveConstant (Material* material);
+	virtual ~MaterialEmissiveConstant ();
 
-    // Member access.
-    Material* GetMaterial ();
+	// Member access.
+	Material* GetMaterial ();
 
-    virtual void Update (const Visual* visual, const Camera* camera);
+	virtual void Update (const Visual* visual, const Camera* camera);
 
 protected:
-    MaterialPtr mMaterial;
+	MaterialPtr mMaterial;
 };
 
 WM5_REGISTER_STREAM(MaterialEmissiveConstant);

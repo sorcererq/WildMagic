@@ -9,21 +9,21 @@
 //----------------------------------------------------------------------------
 inline void RectangleSurface::SetSurface (ParametricSurfacef* surface)
 {
-    mSurface = surface;
+	mSurface = surface;
 }
 //----------------------------------------------------------------------------
 inline const ParametricSurfacef* RectangleSurface::GetSurface () const
 {
-    return mSurface;
+	return mSurface;
 }
 //----------------------------------------------------------------------------
 inline int RectangleSurface::GetNumUSamples () const
 {
-    return mNumUSamples;
+	return mNumUSamples;
 }
 //----------------------------------------------------------------------------
 inline int RectangleSurface::GetNumVSamples () const
 {
-    return mNumVSamples;
+	return mNumVSamples;
 }
 //----------------------------------------------------------------------------

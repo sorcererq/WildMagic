@@ -18,44 +18,44 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrLine2Line2
-    : public Intersector<Real,Vector2<Real> >
+	: public Intersector<Real,Vector2<Real> >
 {
 public:
-    IntrLine2Line2 (const Line2<Real>& line0, const Line2<Real>& line1);
+	IntrLine2Line2 (const Line2<Real>& line0, const Line2<Real>& line1);
 
-    // Object access.
-    const Line2<Real>& GetLine0 () const;
-    const Line2<Real>& GetLine1 () const;
+	// Object access.
+	const Line2<Real>& GetLine0 () const;
+	const Line2<Real>& GetLine1 () const;
 
-    // Static intersection query.
-    virtual bool Test ();
-    virtual bool Find ();
+	// Static intersection query.
+	virtual bool Test ();
+	virtual bool Find ();
 
-    // The intersection set.  If the lines do not intersect, GetQuantity()
-    // returns 0.  If the lines intersect in a single point, GetQuantity()
-    // returns 1, in which case GetPoint() returns the point of intersection
-    // and Intersector::GetIntersectionType() returns IT_POINT.  If the lines
-    // are the same geometric entity, GetQuantity() returns INT_MAX and
-    // Intersector::GetIntersectionType() returns IT_LINE.
-    int GetQuantity () const;
-    const Vector2<Real>& GetPoint () const;
+	// The intersection set.  If the lines do not intersect, GetQuantity()
+	// returns 0.  If the lines intersect in a single point, GetQuantity()
+	// returns 1, in which case GetPoint() returns the point of intersection
+	// and Intersector::GetIntersectionType() returns IT_POINT.  If the lines
+	// are the same geometric entity, GetQuantity() returns INT_MAX and
+	// Intersector::GetIntersectionType() returns IT_LINE.
+	int GetQuantity () const;
+	const Vector2<Real>& GetPoint () const;
 
 private:
-    using Intersector<Real,Vector2<Real> >::IT_EMPTY;
-    using Intersector<Real,Vector2<Real> >::IT_POINT;
-    using Intersector<Real,Vector2<Real> >::IT_LINE;
-    using Intersector<Real,Vector2<Real> >::mIntersectionType;
+	using Intersector<Real,Vector2<Real> >::IT_EMPTY;
+	using Intersector<Real,Vector2<Real> >::IT_POINT;
+	using Intersector<Real,Vector2<Real> >::IT_LINE;
+	using Intersector<Real,Vector2<Real> >::mIntersectionType;
 
-    // Determine the relationship between the two lines.
-    int Classify (Real* s, Vector2<Real>* diff, Vector2<Real>* diffN);
+	// Determine the relationship between the two lines.
+	int Classify (Real* s, Vector2<Real>* diff, Vector2<Real>* diffN);
 
-    // The objects to intersect.
-    const Line2<Real>* mLine0;
-    const Line2<Real>* mLine1;
+	// The objects to intersect.
+	const Line2<Real>* mLine0;
+	const Line2<Real>* mLine1;
 
-    // Information about the intersection set.
-    int mQuantity;
-    Vector2<Real> mPoint;
+	// Information about the intersection set.
+	int mQuantity;
+	Vector2<Real> mPoint;
 };
 
 typedef IntrLine2Line2<float> IntrLine2Line2f;

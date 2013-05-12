@@ -15,22 +15,22 @@ using namespace Wm5;
 
 class DrawImplicitSurface : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    DrawImplicitSurface ();
+	DrawImplicitSurface ();
 
-    virtual bool OnInitialize ();
-    virtual void OnDisplay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
-    virtual bool OnSpecialKeyDown (int key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnDisplay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnSpecialKeyDown (int key, int x, int y);
 
 protected:
-    RayTracer mTracer;
-    int mNumSamples;
-    bool mBlur;
-    int mSize;
+	RayTracer mTracer;
+	int mNumSamples;
+	bool mBlur;
+	int mSize;
 };
 
 WM5_REGISTER_INITIALIZE(DrawImplicitSurface);

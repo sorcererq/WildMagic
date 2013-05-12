@@ -18,26 +18,26 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM Float2Array : public Object
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(Float2Array);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(Float2Array);
 
 public:
-    // Construction and destruction.
-    Float2Array (int numElements = 0, Float2* elements = 0);
-    virtual ~Float2Array ();
+	// Construction and destruction.
+	Float2Array (int numElements = 0, Float2* elements = 0);
+	virtual ~Float2Array ();
 
-    // Member access.
-    inline int GetNumElements () const;
-    inline Float2* GetData () const;
-    inline operator const Float2* () const;
-    inline operator Float2* ();
-    inline const Float2& operator[] (int i) const;
-    inline Float2& operator[] (int i);
+	// Member access.
+	inline int GetNumElements () const;
+	inline Float2* GetData () const;
+	inline operator const Float2* () const;
+	inline operator Float2* ();
+	inline const Float2& operator[] (int i) const;
+	inline Float2& operator[] (int i);
 
 protected:
-    int mNumElements;
-    Float2* mElements;
+	int mNumElements;
+	Float2* mElements;
 };
 
 WM5_REGISTER_STREAM(Float2Array);

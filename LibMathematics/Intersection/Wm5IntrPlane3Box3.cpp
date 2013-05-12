@@ -14,57 +14,57 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 IntrPlane3Box3<Real>::IntrPlane3Box3 (const Plane3<Real>& plane,
-    const Box3<Real>& box)
-    :
-    mPlane(&plane),
-    mBox(&box)
+                                      const Box3<Real>& box)
+	:
+	mPlane(&plane),
+	mBox(&box)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Plane3<Real>& IntrPlane3Box3<Real>::GetPlane () const
 {
-    return *mPlane;
+	return *mPlane;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Box3<Real>& IntrPlane3Box3<Real>::GetBox () const
 {
-    return *mBox;
+	return *mBox;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrPlane3Box3<Real>::Test ()
 {
-    Real tmp[3] =
-    {
-        mBox->Extent[0]*(mPlane->Normal.Dot(mBox->Axis[0])),
-        mBox->Extent[1]*(mPlane->Normal.Dot(mBox->Axis[1])),
-        mBox->Extent[2]*(mPlane->Normal.Dot(mBox->Axis[2]))
-    };
+	Real tmp[3] =
+	{
+		mBox->Extent[0]*(mPlane->Normal.Dot(mBox->Axis[0])),
+		mBox->Extent[1]*(mPlane->Normal.Dot(mBox->Axis[1])),
+		mBox->Extent[2]*(mPlane->Normal.Dot(mBox->Axis[2]))
+	};
 
-    Real radius = Math<Real>::FAbs(tmp[0]) + Math<Real>::FAbs(tmp[1]) +
-        Math<Real>::FAbs(tmp[2]);
+	Real radius = Math<Real>::FAbs(tmp[0]) + Math<Real>::FAbs(tmp[1]) +
+	              Math<Real>::FAbs(tmp[2]);
 
-    Real signedDistance = mPlane->DistanceTo(mBox->Center);
-    return Math<Real>::FAbs(signedDistance) <= radius;
+	Real signedDistance = mPlane->DistanceTo(mBox->Center);
+	return Math<Real>::FAbs(signedDistance) <= radius;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrPlane3Box3<Real>::BoxIsCulled () const
 {
-    Real tmp[3] =
-    {
-        mBox->Extent[0]*(mPlane->Normal.Dot(mBox->Axis[0])),
-        mBox->Extent[1]*(mPlane->Normal.Dot(mBox->Axis[1])),
-        mBox->Extent[2]*(mPlane->Normal.Dot(mBox->Axis[2]))
-    };
+	Real tmp[3] =
+	{
+		mBox->Extent[0]*(mPlane->Normal.Dot(mBox->Axis[0])),
+		mBox->Extent[1]*(mPlane->Normal.Dot(mBox->Axis[1])),
+		mBox->Extent[2]*(mPlane->Normal.Dot(mBox->Axis[2]))
+	};
 
-    Real radius = Math<Real>::FAbs(tmp[0]) + Math<Real>::FAbs(tmp[1]) +
-        Math<Real>::FAbs(tmp[2]);
+	Real radius = Math<Real>::FAbs(tmp[0]) + Math<Real>::FAbs(tmp[1]) +
+	              Math<Real>::FAbs(tmp[2]);
 
-    Real signedDistance = mPlane->DistanceTo(mBox->Center);
-    return signedDistance <= -radius;
+	Real signedDistance = mPlane->DistanceTo(mBox->Center);
+	return signedDistance <= -radius;
 }
 //----------------------------------------------------------------------------
 

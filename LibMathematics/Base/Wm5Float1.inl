@@ -17,17 +17,17 @@ inline Float1::~Float1 ()
 //----------------------------------------------------------------------------
 inline Float1::Float1 (float f0)
 {
-    mTuple[0] = f0;
+	mTuple[0] = f0;
 }
 //----------------------------------------------------------------------------
 inline Float1::Float1 (const Float1& tuple)
 {
-    mTuple[0] = tuple.mTuple[0];
+	mTuple[0] = tuple.mTuple[0];
 }
 //----------------------------------------------------------------------------
 inline Float1& Float1::operator= (const Float1& tuple)
 {
-    mTuple[0] = tuple.mTuple[0];
-    return *this;
+	mTuple[0] = tuple.mTuple[0];
+	return *this;
 }
 //----------------------------------------------------------------------------

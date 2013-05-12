@@ -15,37 +15,37 @@ using namespace Wm5;
 
 class FoucaultPendulum : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    FoucaultPendulum ();
+	FoucaultPendulum ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    TriMesh* CreateFloor ();
-    Polypoint* CreatePath ();
-    Node* CreatePendulum ();
-    void PhysicsTick ();
-    void GraphicsTick ();
+	void CreateScene ();
+	TriMesh* CreateFloor ();
+	Polypoint* CreatePath ();
+	Node* CreatePendulum ();
+	void PhysicsTick ();
+	void GraphicsTick ();
 
-    // The scene graph.
-    NodePtr mScene, mPendulum;
-    WireStatePtr mWireState;
-    PolypointPtr mPath;
-    int mNextPoint;
-    float mColorDiff;
-    Culler mCuller;
+	// The scene graph.
+	NodePtr mScene, mPendulum;
+	WireStatePtr mWireState;
+	PolypointPtr mPath;
+	int mNextPoint;
+	float mColorDiff;
+	Culler mCuller;
 
-    // The physics system for the Foucault pendulum.
-    PhysicsModule mModule;
+	// The physics system for the Foucault pendulum.
+	PhysicsModule mModule;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(FoucaultPendulum);

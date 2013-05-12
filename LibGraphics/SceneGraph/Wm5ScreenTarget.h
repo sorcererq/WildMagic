@@ -19,28 +19,28 @@ namespace Wm5
 class WM5_GRAPHICS_ITEM ScreenTarget
 {
 public:
-    // Create a screen-space camera for use with render targets.
-    static Camera* CreateCamera ();
+	// Create a screen-space camera for use with render targets.
+	static Camera* CreateCamera ();
 
-    // Create a screen-space rectangle for a render target of the specified
-    // dimensions.  The vertex format must have 3-tuple positions and 2-tuple
-    // texture coordinates in unit 0.  These attributes are filled in by the
-    // function.  Any other attributes are not processed.  The rectangle
-    // [xmin,xmax]x[ymin,ymax] must be contained in [0,1]x[0,1].
-    static TriMesh* CreateRectangle (VertexFormat* vformat, int rtWidth,
-        int rtHeight, float xmin, float xmax, float ymin, float ymax,
-        float zValue);
+	// Create a screen-space rectangle for a render target of the specified
+	// dimensions.  The vertex format must have 3-tuple positions and 2-tuple
+	// texture coordinates in unit 0.  These attributes are filled in by the
+	// function.  Any other attributes are not processed.  The rectangle
+	// [xmin,xmax]x[ymin,ymax] must be contained in [0,1]x[0,1].
+	static TriMesh* CreateRectangle (VertexFormat* vformat, int rtWidth,
+	                                 int rtHeight, float xmin, float xmax, float ymin, float ymax,
+	                                 float zValue);
 
-    // Copy the screen-space rectangle positions to the input array.
-    static bool CreatePositions (int rtWidth, int rtHeight, float xmin,
-        float xmax, float ymin, float ymax, float zValue, Float3* positions);
+	// Copy the screen-space rectangle positions to the input array.
+	static bool CreatePositions (int rtWidth, int rtHeight, float xmin,
+	                             float xmax, float ymin, float ymax, float zValue, Float3* positions);
 
-    // Copy the screen-space rectangle texture coordinates to the input array.
-    static void CreateTCoords (Float2* tcoords);
+	// Copy the screen-space rectangle texture coordinates to the input array.
+	static void CreateTCoords (Float2* tcoords);
 
 private:
-    static bool ValidSizes (int rtWidth, int rtHeight);
-    static bool ValidFormat (VertexFormat* vformat);
+	static bool ValidSizes (int rtWidth, int rtHeight);
+	static bool ValidFormat (VertexFormat* vformat);
 };
 
 }

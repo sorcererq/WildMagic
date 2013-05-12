@@ -15,26 +15,26 @@ using namespace Wm5;
 
 class Skinning : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    Skinning ();
+	Skinning ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
 
 protected:
-    void CreateScene ();
-    Float4 ComputeWeights (int a);
-    void UpdateConstants (float time);
+	void CreateScene ();
+	Float4 ComputeWeights (int a);
+	void UpdateConstants (float time);
 
-    NodePtr mScene, mTrnNode;
-    Culler mCuller;
-    float* mSkinningMatrix[4];
+	NodePtr mScene, mTrnNode;
+	Culler mCuller;
+	float* mSkinningMatrix[4];
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(Skinning);

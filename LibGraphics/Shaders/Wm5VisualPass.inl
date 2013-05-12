@@ -9,81 +9,81 @@
 //----------------------------------------------------------------------------
 inline void VisualPass::SetVertexShader (VertexShader* vshader)
 {
-    mVShader = vshader;
+	mVShader = vshader;
 }
 //----------------------------------------------------------------------------
 inline void VisualPass::SetPixelShader (PixelShader* pshader)
 {
-    mPShader = pshader;
+	mPShader = pshader;
 }
 //----------------------------------------------------------------------------
 inline void VisualPass::SetAlphaState (AlphaState* alphaState)
 {
-    mAlphaState = alphaState;
+	mAlphaState = alphaState;
 }
 //----------------------------------------------------------------------------
 inline void VisualPass::SetCullState (CullState* cullState)
 {
-    mCullState = cullState;
+	mCullState = cullState;
 }
 //----------------------------------------------------------------------------
 inline void VisualPass::SetDepthState (DepthState* depthState)
 {
-    mDepthState = depthState;
+	mDepthState = depthState;
 }
 //----------------------------------------------------------------------------
 inline void VisualPass::SetOffsetState (OffsetState* offsetState)
 {
-    mOffsetState = offsetState;
+	mOffsetState = offsetState;
 }
 //----------------------------------------------------------------------------
 inline void VisualPass::SetStencilState (StencilState* stencilState)
 {
-    mStencilState = stencilState;
+	mStencilState = stencilState;
 }
 //----------------------------------------------------------------------------
 inline void VisualPass::SetWireState (WireState* wireState)
 {
-    mWireState = wireState;
+	mWireState = wireState;
 }
 //----------------------------------------------------------------------------
 inline VertexShader* VisualPass::GetVertexShader () const
 {
-    return mVShader;
+	return mVShader;
 }
 //----------------------------------------------------------------------------
 inline PixelShader* VisualPass::GetPixelShader () const
 {
-    return mPShader;
+	return mPShader;
 }
 //----------------------------------------------------------------------------
 inline AlphaState* VisualPass::GetAlphaState () const
 {
-    return mAlphaState;
+	return mAlphaState;
 }
 //----------------------------------------------------------------------------
 inline CullState* VisualPass::GetCullState () const
 {
-    return mCullState;
+	return mCullState;
 }
 //----------------------------------------------------------------------------
 inline DepthState* VisualPass::GetDepthState () const
 {
-    return mDepthState;
+	return mDepthState;
 }
 //----------------------------------------------------------------------------
 inline OffsetState* VisualPass::GetOffsetState () const
 {
-    return mOffsetState;
+	return mOffsetState;
 }
 //----------------------------------------------------------------------------
 inline StencilState* VisualPass::GetStencilState () const
 {
-    return mStencilState;
+	return mStencilState;
 }
 //----------------------------------------------------------------------------
 inline WireState* VisualPass::GetWireState () const
 {
-    return mWireState;
+	return mWireState;
 }
 //----------------------------------------------------------------------------

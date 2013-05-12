@@ -15,47 +15,47 @@ using namespace Wm5;
 
 class BallHill : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    BallHill ();
+	BallHill ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void InitializeModule ();
-    void CreateScene ();
-    TriMesh* CreateGround ();
-    TriMesh* CreateHill ();
-    TriMesh* CreateBall ();
-    Polysegment* CreatePath ();
+	void InitializeModule ();
+	void CreateScene ();
+	TriMesh* CreateGround ();
+	TriMesh* CreateHill ();
+	TriMesh* CreateBall ();
+	Polysegment* CreatePath ();
 
-    APoint UpdateBall ();
-    void PhysicsTick ();
-    void GraphicsTick ();
+	APoint UpdateBall ();
+	void PhysicsTick ();
+	void GraphicsTick ();
 
-    NodePtr mScene;
-    WireStatePtr mWireState;
-    Culler mCuller;
+	NodePtr mScene;
+	WireStatePtr mWireState;
+	Culler mCuller;
 
-    TriMeshPtr mGround;
-    TriMeshPtr mHill;
+	TriMeshPtr mGround;
+	TriMeshPtr mHill;
 
-    float mRadius;
-    TriMeshPtr mBall;
+	float mRadius;
+	TriMeshPtr mBall;
 
-    // polyline path of ball
-    PolysegmentPtr mPath;
-    int mNextPoint;
+	// polyline path of ball
+	PolysegmentPtr mPath;
+	int mNextPoint;
 
-    // physics
-    PhysicsModule mModule;
+	// physics
+	PhysicsModule mModule;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(BallHill);

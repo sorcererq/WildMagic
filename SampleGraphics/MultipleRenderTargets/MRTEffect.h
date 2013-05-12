@@ -18,18 +18,18 @@ namespace Wm5
 
 class MRTEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(MRTEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(MRTEffect);
 
 public:
-    // Construction and destruction.
-    MRTEffect (const std::string& effectFile);
-    virtual ~MRTEffect ();
+	// Construction and destruction.
+	MRTEffect (const std::string& effectFile);
+	virtual ~MRTEffect ();
 
-    // Create an instance of the effect with unique parameters.
-    VisualEffectInstance* CreateInstance (Texture2D* texture0,
-        Texture2D* texture1);
+	// Create an instance of the effect with unique parameters.
+	VisualEffectInstance* CreateInstance (Texture2D* texture0,
+	                                      Texture2D* texture1);
 };
 
 WM5_REGISTER_STREAM(MRTEffect);

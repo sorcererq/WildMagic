@@ -22,7 +22,7 @@ namespace Wm5
 // case, A and B are returned as MAX_REAL.
 template <typename Real> WM5_MATHEMATICS_ITEM
 bool HeightLineFit2 (int numPoints, const Vector2<Real>* points,
-    Real& coeffA, Real& coeffB);
+                     Real& coeffA, Real& coeffB);
 
 // Least-squares fit of a line to (x,y,z) data by using distance measurements
 // orthogonal to the proposed line.

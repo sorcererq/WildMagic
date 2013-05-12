@@ -14,20 +14,20 @@ using namespace Wm5;
 
 class DistancePointEllipseEllipsoid : public ConsoleApplication
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    DistancePointEllipseEllipsoid ();
-    virtual ~DistancePointEllipseEllipsoid ();
+	DistancePointEllipseEllipsoid ();
+	virtual ~DistancePointEllipseEllipsoid ();
 
-    virtual int Main (int numArguments, char** arguments);
+	virtual int Main (int numArguments, char** arguments);
 
 private:
-    void GenerateDistance2 (ImageDouble2D& distance);
-    void GenerateDistance3 (ImageDouble3D& distance);
-    void HyperGenerateDistance2 (ImageDouble2D& distance);
-    void HyperGenerateDistance3 (ImageDouble3D& distance);
+	void GenerateDistance2 (ImageDouble2D& distance);
+	void GenerateDistance3 (ImageDouble3D& distance);
+	void HyperGenerateDistance2 (ImageDouble2D& distance);
+	void HyperGenerateDistance3 (ImageDouble3D& distance);
 };
 
 WM5_REGISTER_INITIALIZE(DistancePointEllipseEllipsoid);

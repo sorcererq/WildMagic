@@ -15,34 +15,34 @@ using namespace Wm5;
 class PhysicsModule
 {
 public:
-    // Construction and destruction.
-    PhysicsModule ();
-    ~PhysicsModule ();
+	// Construction and destruction.
+	PhysicsModule ();
+	~PhysicsModule ();
 
-    // Initialize the differential equation solver.
-    void Initialize (double time, double deltaTime, double q, double qDot);
+	// Initialize the differential equation solver.
+	void Initialize (double time, double deltaTime, double q, double qDot);
 
-    // Take a single step of the solver.
-    void Update ();
+	// Take a single step of the solver.
+	void Update ();
 
-    // Access the current state.
-    inline double GetTime () const;
-    inline double GetDeltaTime () const;
-    inline double GetQ () const;
-    inline double GetQDot () const;
+	// Access the current state.
+	inline double GetTime () const;
+	inline double GetDeltaTime () const;
+	inline double GetQ () const;
+	inline double GetQDot () const;
 
-    // Physical constants.
-    double Gravity;
-    double Mass;
+	// Physical constants.
+	double Gravity;
+	double Mass;
 
 private:
-    // State and auxiliary variables.
-    double mTime, mDeltaTime, mState[2], mAux[1];
+	// State and auxiliary variables.
+	double mTime, mDeltaTime, mState[2], mAux[1];
 
-    // ODE solver (specific solver assigned in the cpp file).
-    OdeSolverd* mSolver;
-    static void OdeFunction (double time, const double* input, void* data,
-        double* output);
+	// ODE solver (specific solver assigned in the cpp file).
+	OdeSolverd* mSolver;
+	static void OdeFunction (double time, const double* input, void* data,
+	                         double* output);
 };
 
 #include "PhysicsModule.inl"

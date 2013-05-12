@@ -19,27 +19,27 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM BezierCurve2 : public SingleCurve2<Real>
 {
 public:
-    // Construction and destruction.  BezierCurve2 accepts responsibility for
-    // deleting the input array.
-    BezierCurve2 (int degree, Vector2<Real>* ctrlPoint);
-    virtual ~BezierCurve2 ();
+	// Construction and destruction.  BezierCurve2 accepts responsibility for
+	// deleting the input array.
+	BezierCurve2 (int degree, Vector2<Real>* ctrlPoint);
+	virtual ~BezierCurve2 ();
 
-    int GetDegree () const;
-    const Vector2<Real>* GetControlPoints () const;
+	int GetDegree () const;
+	const Vector2<Real>* GetControlPoints () const;
 
-    virtual Vector2<Real> GetPosition (Real t) const;
-    virtual Vector2<Real> GetFirstDerivative (Real t) const;
-    virtual Vector2<Real> GetSecondDerivative (Real t) const;
-    virtual Vector2<Real> GetThirdDerivative (Real t) const;
+	virtual Vector2<Real> GetPosition (Real t) const;
+	virtual Vector2<Real> GetFirstDerivative (Real t) const;
+	virtual Vector2<Real> GetSecondDerivative (Real t) const;
+	virtual Vector2<Real> GetThirdDerivative (Real t) const;
 
 protected:
-    int mDegree;
-    int mNumCtrlPoints;
-    Vector2<Real>* mCtrlPoint;
-    Vector2<Real>* mDer1CtrlPoint;
-    Vector2<Real>* mDer2CtrlPoint;
-    Vector2<Real>* mDer3CtrlPoint;
-    Real** mChoose;
+	int mDegree;
+	int mNumCtrlPoints;
+	Vector2<Real>* mCtrlPoint;
+	Vector2<Real>* mDer1CtrlPoint;
+	Vector2<Real>* mDer2CtrlPoint;
+	Vector2<Real>* mDer3CtrlPoint;
+	Real** mChoose;
 };
 
 typedef BezierCurve2<float> BezierCurve2f;

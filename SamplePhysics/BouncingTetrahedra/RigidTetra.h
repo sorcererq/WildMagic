@@ -16,18 +16,18 @@ using namespace Wm5;
 class RigidTetra : public RigidBodyf
 {
 public:
-    RigidTetra (float size, float mass, const Vector3f& position,
-        const Vector3f& linearMomentum, const Vector3f& angularMomentum);
+	RigidTetra (float size, float mass, const Vector3f& position,
+	            const Vector3f& linearMomentum, const Vector3f& angularMomentum);
 
-    TriMeshPtr Mesh () const;
-    float GetRadius () const;
-    void GetVertices (Vector3f* akVertex) const;
+	TriMeshPtr Mesh () const;
+	float GetRadius () const;
+	void GetVertices (Vector3f* akVertex) const;
 
-    bool Moved;
+	bool Moved;
 
 private:
-    TriMeshPtr mMesh;
-    float mRadius;
+	TriMeshPtr mMesh;
+	float mRadius;
 };
 
 #endif

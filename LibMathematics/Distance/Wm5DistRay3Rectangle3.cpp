@@ -16,94 +16,94 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 DistRay3Rectangle3<Real>::DistRay3Rectangle3 (const Ray3<Real>& ray,
-    const Rectangle3<Real>& rectangle)
-    :
-    mRay(&ray),
-    mRectangle(&rectangle)
+        const Rectangle3<Real>& rectangle)
+	:
+	mRay(&ray),
+	mRectangle(&rectangle)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Ray3<Real>& DistRay3Rectangle3<Real>::GetRay () const
 {
-    return *mRay;
+	return *mRay;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Rectangle3<Real>& DistRay3Rectangle3<Real>::GetRectangle () const
 {
-    return *mRectangle;
+	return *mRectangle;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistRay3Rectangle3<Real>::Get ()
 {
-    return Math<Real>::Sqrt(GetSquared());
+	return Math<Real>::Sqrt(GetSquared());
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistRay3Rectangle3<Real>::GetSquared ()
 {
-    DistLine3Rectangle3<Real> queryLR(Line3<Real>(mRay->Origin,
-        mRay->Direction), *mRectangle);
-    Real sqrDist = queryLR.GetSquared();
-    mRayParameter = queryLR.GetLineParameter();
+	DistLine3Rectangle3<Real> queryLR(Line3<Real>(mRay->Origin,
+	                                  mRay->Direction), *mRectangle);
+	Real sqrDist = queryLR.GetSquared();
+	mRayParameter = queryLR.GetLineParameter();
 
-    if (mRayParameter >= (Real)0)
-    {
-        mClosestPoint0 = queryLR.GetClosestPoint0();
-        mClosestPoint1 = queryLR.GetClosestPoint1();
-        mRectCoord[0] = queryLR.GetRectangleCoordinate(0);
-        mRectCoord[1] = queryLR.GetRectangleCoordinate(1);
-    }
-    else
-    {
-        mClosestPoint0 = mRay->Origin;
-        DistPoint3Rectangle3<Real> queryPR(mClosestPoint0, *mRectangle);
-        sqrDist = queryPR.GetSquared();
-        mClosestPoint1 = queryPR.GetClosestPoint1();
-        mRayParameter = (Real)0;
-        mRectCoord[0] = queryPR.GetRectangleCoordinate(0);
-        mRectCoord[1] = queryPR.GetRectangleCoordinate(1);
-    }
+	if (mRayParameter >= (Real)0)
+	{
+		mClosestPoint0 = queryLR.GetClosestPoint0();
+		mClosestPoint1 = queryLR.GetClosestPoint1();
+		mRectCoord[0] = queryLR.GetRectangleCoordinate(0);
+		mRectCoord[1] = queryLR.GetRectangleCoordinate(1);
+	}
+	else
+	{
+		mClosestPoint0 = mRay->Origin;
+		DistPoint3Rectangle3<Real> queryPR(mClosestPoint0, *mRectangle);
+		sqrDist = queryPR.GetSquared();
+		mClosestPoint1 = queryPR.GetClosestPoint1();
+		mRayParameter = (Real)0;
+		mRectCoord[0] = queryPR.GetRectangleCoordinate(0);
+		mRectCoord[1] = queryPR.GetRectangleCoordinate(1);
+	}
 
-    return sqrDist;
+	return sqrDist;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistRay3Rectangle3<Real>::Get (Real t,
-    const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
+                                    const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
 {
-    Vector3<Real> movedOrigin = mRay->Origin + t*velocity0;
-    Vector3<Real> movedCenter = mRectangle->Center + t*velocity1;
-    Ray3<Real> movedRay(movedOrigin, mRay->Direction);
-    Rectangle3<Real> movedRectangle(movedCenter, mRectangle->Axis,
-        mRectangle->Extent);
-    return DistRay3Rectangle3<Real>(movedRay, movedRectangle).Get();
+	Vector3<Real> movedOrigin = mRay->Origin + t*velocity0;
+	Vector3<Real> movedCenter = mRectangle->Center + t*velocity1;
+	Ray3<Real> movedRay(movedOrigin, mRay->Direction);
+	Rectangle3<Real> movedRectangle(movedCenter, mRectangle->Axis,
+	                                mRectangle->Extent);
+	return DistRay3Rectangle3<Real>(movedRay, movedRectangle).Get();
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistRay3Rectangle3<Real>::GetSquared (Real t,
-    const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
+        const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
 {
-    Vector3<Real> movedOrigin = mRay->Origin + t*velocity0;
-    Vector3<Real> movedCenter = mRectangle->Center + t*velocity1;
-    Ray3<Real> movedRay(movedOrigin, mRay->Direction);
-    Rectangle3<Real> movedRectangle(movedCenter, mRectangle->Axis,
-        mRectangle->Extent);
-    return DistRay3Rectangle3<Real>(movedRay, movedRectangle).GetSquared();
+	Vector3<Real> movedOrigin = mRay->Origin + t*velocity0;
+	Vector3<Real> movedCenter = mRectangle->Center + t*velocity1;
+	Ray3<Real> movedRay(movedOrigin, mRay->Direction);
+	Rectangle3<Real> movedRectangle(movedCenter, mRectangle->Axis,
+	                                mRectangle->Extent);
+	return DistRay3Rectangle3<Real>(movedRay, movedRectangle).GetSquared();
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistRay3Rectangle3<Real>::GetRayParameter () const
 {
-    return mRayParameter;
+	return mRayParameter;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistRay3Rectangle3<Real>::GetRectangleCoordinate (int i) const
 {
-    return mRectCoord[i];
+	return mRectCoord[i];
 }
 //----------------------------------------------------------------------------
 

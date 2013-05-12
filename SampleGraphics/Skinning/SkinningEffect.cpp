@@ -18,8 +18,8 @@ WM5_IMPLEMENT_DEFAULT_STREAM(VisualEffect, SkinningEffect);
 
 //----------------------------------------------------------------------------
 SkinningEffect::SkinningEffect (const std::string& effectFile)
-    :
-    VisualEffect(effectFile)
+	:
+	VisualEffect(effectFile)
 {
 }
 //----------------------------------------------------------------------------
@@ -30,12 +30,12 @@ SkinningEffect::~SkinningEffect ()
 VisualEffectInstance* SkinningEffect::CreateInstance (
     ShaderFloat* skinningMatrix[4])
 {
-    VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
-    instance->SetVertexConstant(0, 0, new0 PVWMatrixConstant());
-    for (int i = 0; i < 4; ++i)
-    {
-        instance->SetVertexConstant(0, i + 1, skinningMatrix[i]);
-    }
-    return instance;
+	VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
+	instance->SetVertexConstant(0, 0, new0 PVWMatrixConstant());
+	for (int i = 0; i < 4; ++i)
+	{
+		instance->SetVertexConstant(0, i + 1, skinningMatrix[i]);
+	}
+	return instance;
 }
 //----------------------------------------------------------------------------

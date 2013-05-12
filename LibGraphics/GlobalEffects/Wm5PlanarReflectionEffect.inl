@@ -9,30 +9,30 @@
 //----------------------------------------------------------------------------
 inline int PlanarReflectionEffect::GetNumPlanes () const
 {
-    return mNumPlanes;
+	return mNumPlanes;
 }
 //----------------------------------------------------------------------------
 inline void PlanarReflectionEffect::SetPlane (int i, TriMesh* plane)
 {
-    // The culling flag is set to "always" because this effect is responsible
-    // for drawing the TriMesh.  This prevents drawing attempts by another
-    // scene graph for which 'plane' is a leaf node.
-    mPlanes[i] = plane;
-    mPlanes[i]->Culling = Spatial::CULL_ALWAYS;
+	// The culling flag is set to "always" because this effect is responsible
+	// for drawing the TriMesh.  This prevents drawing attempts by another
+	// scene graph for which 'plane' is a leaf node.
+	mPlanes[i] = plane;
+	mPlanes[i]->Culling = Spatial::CULL_ALWAYS;
 }
 //----------------------------------------------------------------------------
 inline TriMesh* PlanarReflectionEffect::GetPlane (int i) const
 {
-    return mPlanes[i];
+	return mPlanes[i];
 }
 //----------------------------------------------------------------------------
 inline void PlanarReflectionEffect::SetReflectance (int i, float reflectance)
 {
-    mReflectances[i] = reflectance;
+	mReflectances[i] = reflectance;
 }
 //----------------------------------------------------------------------------
 inline float PlanarReflectionEffect::GetReflectance (int i) const
 {
-    return mReflectances[i];
+	return mReflectances[i];
 }
 //----------------------------------------------------------------------------

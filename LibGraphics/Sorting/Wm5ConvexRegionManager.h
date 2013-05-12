@@ -19,33 +19,33 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM ConvexRegionManager : public BspNode
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(ConvexRegionManager);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(ConvexRegionManager);
 
 public:
-    // Construction and destruction.  The BSP tree should be built so that
-    // the leaf nodes are where the ConvexRegion objects are located.
-    ConvexRegionManager ();
-    ConvexRegionManager (const HPlane& modelPlane);
-    virtual ~ConvexRegionManager ();
+	// Construction and destruction.  The BSP tree should be built so that
+	// the leaf nodes are where the ConvexRegion objects are located.
+	ConvexRegionManager ();
+	ConvexRegionManager (const HPlane& modelPlane);
+	virtual ~ConvexRegionManager ();
 
-    // The middle child of ConvexRegionManager is where the representation
-    // of the outside of the set of regions is stored.  This can be an
-    // arbitrary subgraph, not just drawable geometry.
-    SpatialPtr AttachOutside (Spatial* outside);
-    SpatialPtr DetachOutside ();
-    SpatialPtr GetOutside ();
+	// The middle child of ConvexRegionManager is where the representation
+	// of the outside of the set of regions is stored.  This can be an
+	// arbitrary subgraph, not just drawable geometry.
+	SpatialPtr AttachOutside (Spatial* outside);
+	SpatialPtr DetachOutside ();
+	SpatialPtr GetOutside ();
 
-    // Determine region that contains the point.  If the point is outside
-    // the set of regions, the return values is null.
-    ConvexRegion* GetContainingRegion (const APoint& point);
+	// Determine region that contains the point.  If the point is outside
+	// the set of regions, the return values is null.
+	ConvexRegion* GetContainingRegion (const APoint& point);
 
 protected:
-    // Support for culling.
-    virtual void GetVisibleSet (Culler& culler, bool noCull);
+	// Support for culling.
+	virtual void GetVisibleSet (Culler& culler, bool noCull);
 
-    CRMCuller mCuller;
+	CRMCuller mCuller;
 };
 
 WM5_REGISTER_STREAM(ConvexRegionManager);

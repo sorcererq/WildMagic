@@ -15,32 +15,32 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 IntrRay3Lozenge3<Real>::IntrRay3Lozenge3 (const Ray3<Real>& ray,
-    const Lozenge3<Real>& lozenge)
-    :
-    mRay(&ray),
-    mLozenge(&lozenge)
+        const Lozenge3<Real>& lozenge)
+	:
+	mRay(&ray),
+	mLozenge(&lozenge)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Ray3<Real>& IntrRay3Lozenge3<Real>::GetRay () const
 {
-    return *mRay;
+	return *mRay;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Lozenge3<Real>& IntrRay3Lozenge3<Real>::GetLozenge () const
 {
-    return *mLozenge;
+	return *mLozenge;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrRay3Lozenge3<Real>::Test ()
 {
-    Real distance = DistRay3Rectangle3<Real>(*mRay,
-        mLozenge->Rectangle).Get();
+	Real distance = DistRay3Rectangle3<Real>(*mRay,
+	                mLozenge->Rectangle).Get();
 
-    return distance <= mLozenge->Radius;
+	return distance <= mLozenge->Radius;
 }
 //----------------------------------------------------------------------------
 

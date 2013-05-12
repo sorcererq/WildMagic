@@ -18,44 +18,44 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrRay2Ray2
-    : public Intersector<Real,Vector2<Real> >
+	: public Intersector<Real,Vector2<Real> >
 {
 public:
-    IntrRay2Ray2 (const Ray2<Real>& ray0, const Ray2<Real>& ray1);
+	IntrRay2Ray2 (const Ray2<Real>& ray0, const Ray2<Real>& ray1);
 
-    // Object access.
-    const Ray2<Real>& GetRay0 () const;
-    const Ray2<Real>& GetRay1 () const;
+	// Object access.
+	const Ray2<Real>& GetRay0 () const;
+	const Ray2<Real>& GetRay1 () const;
 
-    // Static intersection query.
-    virtual bool Test ();
-    virtual bool Find ();
+	// Static intersection query.
+	virtual bool Test ();
+	virtual bool Find ();
 
-    // The intersection set.  If the rays do not intersect, GetQuantity()
-    // returns 0.  If the rays intersect in a single point, GetQuantity()
-    // returns 1, in which case GetPoint() returns the point of intersection
-    // and Intersector::GetIntersectionType() returns IT_POINT.  If the rayd
-    // are collinear, GetQuantity() returns INT_MAX and
-    // Intersector::GetIntersectionType() returns IT_RAY.
-    int GetQuantity () const;
-    const Vector2<Real>& GetPoint () const;
+	// The intersection set.  If the rays do not intersect, GetQuantity()
+	// returns 0.  If the rays intersect in a single point, GetQuantity()
+	// returns 1, in which case GetPoint() returns the point of intersection
+	// and Intersector::GetIntersectionType() returns IT_POINT.  If the rayd
+	// are collinear, GetQuantity() returns INT_MAX and
+	// Intersector::GetIntersectionType() returns IT_RAY.
+	int GetQuantity () const;
+	const Vector2<Real>& GetPoint () const;
 
 private:
-    using Intersector<Real,Vector2<Real> >::IT_EMPTY;
-    using Intersector<Real,Vector2<Real> >::IT_POINT;
-    using Intersector<Real,Vector2<Real> >::IT_RAY;
-    using Intersector<Real,Vector2<Real> >::mIntersectionType;
+	using Intersector<Real,Vector2<Real> >::IT_EMPTY;
+	using Intersector<Real,Vector2<Real> >::IT_POINT;
+	using Intersector<Real,Vector2<Real> >::IT_RAY;
+	using Intersector<Real,Vector2<Real> >::mIntersectionType;
 
-    // Determine the relationship between the lines that contain the rays.
-    int Classify (Real* s, Vector2<Real>* diff, Vector2<Real>* diffN);
+	// Determine the relationship between the lines that contain the rays.
+	int Classify (Real* s, Vector2<Real>* diff, Vector2<Real>* diffN);
 
-    // The objects to intersect.
-    const Ray2<Real>* mRay0;
-    const Ray2<Real>* mRay1;
+	// The objects to intersect.
+	const Ray2<Real>* mRay0;
+	const Ray2<Real>* mRay1;
 
-    // Information about the intersection set.
-    int mQuantity;
-    Vector2<Real> mPoint;
+	// Information about the intersection set.
+	int mQuantity;
+	Vector2<Real> mPoint;
 };
 
 typedef IntrRay2Ray2<float> IntrRay2Ray2f;

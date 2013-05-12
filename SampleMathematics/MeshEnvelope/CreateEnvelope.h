@@ -16,19 +16,19 @@ using namespace Wm5;
 class CreateEnvelope
 {
 public:
-    CreateEnvelope (int numVertices, const Vector2f* vertices,
-        int numIndices, const int* indices, int& numEnvelopeVertices,
-        Vector2f*& envelopeVertices);
+	CreateEnvelope (int numVertices, const Vector2f* vertices,
+	                int numIndices, const int* indices, int& numEnvelopeVertices,
+	                Vector2f*& envelopeVertices);
 
 private:
-    typedef std::map<RScalar,RPoint2> EdgeMap;
+	typedef std::map<RScalar,RPoint2> EdgeMap;
 
-    void InsertParameter (EdgeMap& edgeMap, const RScalar& t);
-    void UpdateEdges (EdgeMap& edgeMap0, EdgeMap& edgeMap1);
-    void UpdateAllEdges (int numEdges, EdgeMap** edgeMaps);
+	void InsertParameter (EdgeMap& edgeMap, const RScalar& t);
+	void UpdateEdges (EdgeMap& edgeMap0, EdgeMap& edgeMap1);
+	void UpdateAllEdges (int numEdges, EdgeMap** edgeMaps);
 
-    static const RScalar ZERO;
-    static const RScalar ONE;
+	static const RScalar ZERO;
+	static const RScalar ONE;
 };
 
 #endif

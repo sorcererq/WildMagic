@@ -19,34 +19,34 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrRay2Circle2
-    : public Intersector<Real,Vector2<Real> >
+	: public Intersector<Real,Vector2<Real> >
 {
 public:
-    IntrRay2Circle2 (const Ray2<Real>& ray, const Circle2<Real>& circle);
+	IntrRay2Circle2 (const Ray2<Real>& ray, const Circle2<Real>& circle);
 
-    // Object access.
-    const Ray2<Real>& GetRay () const;
-    const Circle2<Real>& GetCircle () const;
+	// Object access.
+	const Ray2<Real>& GetRay () const;
+	const Circle2<Real>& GetCircle () const;
 
-    // Static intersection query.
-    virtual bool Find ();
+	// Static intersection query.
+	virtual bool Find ();
 
-    // The intersection set.
-    int GetQuantity () const;
-    const Vector2<Real>& GetPoint (int i) const;
+	// The intersection set.
+	int GetQuantity () const;
+	const Vector2<Real>& GetPoint (int i) const;
 
 private:
-    using Intersector<Real,Vector2<Real> >::IT_EMPTY;
-    using Intersector<Real,Vector2<Real> >::IT_POINT;
-    using Intersector<Real,Vector2<Real> >::mIntersectionType;
+	using Intersector<Real,Vector2<Real> >::IT_EMPTY;
+	using Intersector<Real,Vector2<Real> >::IT_POINT;
+	using Intersector<Real,Vector2<Real> >::mIntersectionType;
 
-    // The objects to intersect.
-    const Ray2<Real>* mRay;
-    const Circle2<Real>* mCircle;
+	// The objects to intersect.
+	const Ray2<Real>* mRay;
+	const Circle2<Real>* mCircle;
 
-    // Information about the intersection set.
-    int mQuantity;
-    Vector2<Real> mPoint[2];
+	// Information about the intersection set.
+	int mQuantity;
+	Vector2<Real> mPoint[2];
 };
 
 typedef IntrRay2Circle2<float> IntrRay2Circle2f;

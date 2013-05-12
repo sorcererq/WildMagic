@@ -15,37 +15,37 @@ using namespace Wm5;
 
 class RoughPlaneSolidBox : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    RoughPlaneSolidBox ();
+	RoughPlaneSolidBox ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    Node* CreateBox ();
-    TriMesh* CreateRamp ();
-    TriMesh* CreateGround();
-    void InitializeModule ();
-    void MoveBox ();
-    void PhysicsTick ();
-    void GraphicsTick ();
+	void CreateScene ();
+	Node* CreateBox ();
+	TriMesh* CreateRamp ();
+	TriMesh* CreateGround();
+	void InitializeModule ();
+	void MoveBox ();
+	void PhysicsTick ();
+	void GraphicsTick ();
 
-    // The scene graph.
-    NodePtr mScene, mBox;
-    WireStatePtr mWireState;
-    Culler mCuller;
+	// The scene graph.
+	NodePtr mScene, mBox;
+	WireStatePtr mWireState;
+	Culler mCuller;
 
-    // The physics system.
-    PhysicsModule mModule;
-    bool mDoUpdate;
+	// The physics system.
+	PhysicsModule mModule;
+	bool mDoUpdate;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(RoughPlaneSolidBox);

@@ -19,10 +19,10 @@ namespace Wm5
 // are used for the mantissa.
 
 WM5_MATHEMATICS_ITEM void CompressNormal (double x, double y, double z,
-    unsigned short& index);
+        unsigned short& index);
 
 WM5_MATHEMATICS_ITEM void UncompressNormal (unsigned short index,
-    double& x, double& y, double& z);
+        double& x, double& y, double& z);
 
 // An example of how to use the compression.  This shows the maximum error is
 // about 10-degrees between the original and the compressed-then-uncompressed

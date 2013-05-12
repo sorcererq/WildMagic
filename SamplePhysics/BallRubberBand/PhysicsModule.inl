@@ -9,26 +9,26 @@
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetTime () const
 {
-    return mTime;
+	return mTime;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetDeltaTime () const
 {
-    return mDeltaTime;
+	return mDeltaTime;
 }
 //----------------------------------------------------------------------------
 inline const Vector2d& PhysicsModule::GetPosition () const
 {
-    return mPosition;
+	return mPosition;
 }
 //----------------------------------------------------------------------------
 inline const Vector2d& PhysicsModule::GetVelocity () const
 {
-    return mVelocity;
+	return mVelocity;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetFrequency () const
 {
-    return mFrequency;
+	return mFrequency;
 }
 //----------------------------------------------------------------------------

@@ -13,14 +13,14 @@
 
 // Begin Microsoft Windows DLL support.
 #if defined(WM5_MATHEMATICS_DLL_EXPORT)
-    // For the DLL library.
-    #define WM5_MATHEMATICS_ITEM __declspec(dllexport)
+// For the DLL library.
+#define WM5_MATHEMATICS_ITEM __declspec(dllexport)
 #elif defined(WM5_MATHEMATICS_DLL_IMPORT)
-    // For a client of the DLL library.
-    #define WM5_MATHEMATICS_ITEM __declspec(dllimport)
+// For a client of the DLL library.
+#define WM5_MATHEMATICS_ITEM __declspec(dllimport)
 #else
-    // For the static library and for Apple/Linux.
-    #define WM5_MATHEMATICS_ITEM
+// For the static library and for Apple/Linux.
+#define WM5_MATHEMATICS_ITEM
 #endif
 // End Microsoft Windows DLL support.
 

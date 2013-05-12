@@ -13,14 +13,14 @@
 
 // Begin Microsoft Windows DLL support.
 #if defined(WM5_IMAGICS_DLL_EXPORT)
-    // For the DLL library.
-    #define WM5_IMAGICS_ITEM __declspec(dllexport)
+// For the DLL library.
+#define WM5_IMAGICS_ITEM __declspec(dllexport)
 #elif defined(WM5_IMAGICS_DLL_IMPORT)
-    // For a client of the DLL library.
-    #define WM5_IMAGICS_ITEM __declspec(dllimport)
+// For a client of the DLL library.
+#define WM5_IMAGICS_ITEM __declspec(dllimport)
 #else
-    // For the static library and for Apple/Linux.
-    #define WM5_IMAGICS_ITEM
+// For the static library and for Apple/Linux.
+#define WM5_IMAGICS_ITEM
 #endif
 // End Microsoft Windows DLL support.
 

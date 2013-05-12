@@ -18,46 +18,46 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrSegment2Segment2
-    : public Intersector<Real,Vector2<Real> >
+	: public Intersector<Real,Vector2<Real> >
 {
 public:
-    IntrSegment2Segment2 (const Segment2<Real>& segment0,
-        const Segment2<Real>& segment1);
+	IntrSegment2Segment2 (const Segment2<Real>& segment0,
+	                      const Segment2<Real>& segment1);
 
-    // Object access.
-    const Segment2<Real>& GetSegment0 () const;
-    const Segment2<Real>& GetSegment1 () const;
+	// Object access.
+	const Segment2<Real>& GetSegment0 () const;
+	const Segment2<Real>& GetSegment1 () const;
 
-    // Static intersection query.
-    virtual bool Test ();
-    virtual bool Find ();
+	// Static intersection query.
+	virtual bool Test ();
+	virtual bool Find ();
 
-    // The intersection set.  If the segment dos not intersect, GetQuantity()
-    // returns 0.  If the segments intersect in a single point, GetQuantity()
-    // returns 1, in which case GetPoint() returns the point of intersection
-    // and Intersector::GetIntersectionType() returns IT_POINT.  If the
-    // segments are collinear and intersect in a segment, GetQuantity()
-    // returns INT_MAX and Intersector::GetIntersectionType() returns
-    // IT_SEGMENT.
-    int GetQuantity () const;
-    const Vector2<Real>& GetPoint () const;
+	// The intersection set.  If the segment dos not intersect, GetQuantity()
+	// returns 0.  If the segments intersect in a single point, GetQuantity()
+	// returns 1, in which case GetPoint() returns the point of intersection
+	// and Intersector::GetIntersectionType() returns IT_POINT.  If the
+	// segments are collinear and intersect in a segment, GetQuantity()
+	// returns INT_MAX and Intersector::GetIntersectionType() returns
+	// IT_SEGMENT.
+	int GetQuantity () const;
+	const Vector2<Real>& GetPoint () const;
 
 private:
-    using Intersector<Real,Vector2<Real> >::IT_EMPTY;
-    using Intersector<Real,Vector2<Real> >::IT_POINT;
-    using Intersector<Real,Vector2<Real> >::IT_SEGMENT;
-    using Intersector<Real,Vector2<Real> >::mIntersectionType;
+	using Intersector<Real,Vector2<Real> >::IT_EMPTY;
+	using Intersector<Real,Vector2<Real> >::IT_POINT;
+	using Intersector<Real,Vector2<Real> >::IT_SEGMENT;
+	using Intersector<Real,Vector2<Real> >::mIntersectionType;
 
-    // Determine the relationship between the lines that contain the segments.
-    int Classify (Real* s, Vector2<Real>* diff, Vector2<Real>* diffN);
+	// Determine the relationship between the lines that contain the segments.
+	int Classify (Real* s, Vector2<Real>* diff, Vector2<Real>* diffN);
 
-    // The objects to intersect.
-    const Segment2<Real>* mSegment0;
-    const Segment2<Real>* mSegment1;
+	// The objects to intersect.
+	const Segment2<Real>* mSegment0;
+	const Segment2<Real>* mSegment1;
 
-    // Information about the intersection set.
-    int mQuantity;
-    Vector2<Real> mPoint;
+	// Information about the intersection set.
+	int mQuantity;
+	Vector2<Real> mPoint;
 };
 
 typedef IntrSegment2Segment2<float> IntrSegment2Segment2f;

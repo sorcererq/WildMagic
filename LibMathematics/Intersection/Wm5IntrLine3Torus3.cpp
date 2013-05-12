@@ -15,70 +15,70 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 IntrLine3Torus3<Real>::IntrLine3Torus3 (const Line3<Real>& line,
-    const Torus3<Real>& torus)
-    :
-    mLine(&line),
-    mTorus(&torus)
+                                        const Torus3<Real>& torus)
+	:
+	mLine(&line),
+	mTorus(&torus)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Line3<Real>& IntrLine3Torus3<Real>::GetLine () const
 {
-    return *mLine;
+	return *mLine;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Torus3<Real>& IntrLine3Torus3<Real>::GetTorus () const
 {
-    return *mTorus;
+	return *mTorus;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrLine3Torus3<Real>::Find ()
 {
-    // Compute coefficients of quartic polynomial.
-    Real ro2 = mTorus->OuterRadius*mTorus->OuterRadius;
-    Real ri2 = mTorus->InnerRadius*mTorus->InnerRadius;
-    Real dd = mLine->Direction.Dot(mLine->Direction);
-    Real de = mLine->Origin.Dot(mLine->Direction);
-    Real value = mLine->Origin.Dot(mLine->Origin) - (ro2 + ri2);
+	// Compute coefficients of quartic polynomial.
+	Real ro2 = mTorus->OuterRadius*mTorus->OuterRadius;
+	Real ri2 = mTorus->InnerRadius*mTorus->InnerRadius;
+	Real dd = mLine->Direction.Dot(mLine->Direction);
+	Real de = mLine->Origin.Dot(mLine->Direction);
+	Real value = mLine->Origin.Dot(mLine->Origin) - (ro2 + ri2);
 
-    Polynomial1<Real> poly(4);
-    Real zOrigin = mLine->Origin.Z();
-    Real zDir = mLine->Direction.Z();
-    poly[0] = value*value - ((Real)4)*ro2*(ri2 - zOrigin*zOrigin);
-    poly[1] = ((Real)4)*de*value + ((Real)8)*ro2*zDir*zOrigin;
-    poly[2] = ((Real)2)*dd*value + ((Real)4)*de*de + ((Real)4)*ro2*zDir*zDir;
-    poly[3] = ((Real)4)*dd*de;
-    poly[4] = dd*dd;
+	Polynomial1<Real> poly(4);
+	Real zOrigin = mLine->Origin.Z();
+	Real zDir = mLine->Direction.Z();
+	poly[0] = value*value - ((Real)4)*ro2*(ri2 - zOrigin*zOrigin);
+	poly[1] = ((Real)4)*de*value + ((Real)8)*ro2*zDir*zOrigin;
+	poly[2] = ((Real)2)*dd*value + ((Real)4)*de*de + ((Real)4)*ro2*zDir*zDir;
+	poly[3] = ((Real)4)*dd*de;
+	poly[4] = dd*dd;
 
-    // Solve the quartic.
-    PolynomialRoots<Real> proots(Math<Real>::ZERO_TOLERANCE);
-    proots.FindB(poly, 6);
-    mQuantity = proots.GetCount();
-    const Real* root = proots.GetRoots();
+	// Solve the quartic.
+	PolynomialRoots<Real> proots(Math<Real>::ZERO_TOLERANCE);
+	proots.FindB(poly, 6);
+	mQuantity = proots.GetCount();
+	const Real* root = proots.GetRoots();
 
-    // Get the intersection points.
-    for (int i = 0; i < mQuantity; ++i)
-    {
-        mPoint[i] = mLine->Origin + root[i]*mLine->Direction;
-    }
+	// Get the intersection points.
+	for (int i = 0; i < mQuantity; ++i)
+	{
+		mPoint[i] = mLine->Origin + root[i]*mLine->Direction;
+	}
 
-    mIntersectionType = (mQuantity > 0 ? IT_POINT : IT_EMPTY);
-    return mIntersectionType != IT_EMPTY;
+	mIntersectionType = (mQuantity > 0 ? IT_POINT : IT_EMPTY);
+	return mIntersectionType != IT_EMPTY;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 int IntrLine3Torus3<Real>::GetQuantity () const
 {
-    return mQuantity;
+	return mQuantity;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Vector3<Real>& IntrLine3Torus3<Real>::GetPoint (int i) const
 {
-    return mPoint[i];
+	return mPoint[i];
 }
 //----------------------------------------------------------------------------
 

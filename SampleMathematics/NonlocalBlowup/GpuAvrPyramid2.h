@@ -14,26 +14,26 @@
 class GpuAvrPyramid2 : public GpuPyramid2
 {
 public:
-    // Construction and destruction.  The return 'success' is 'true' iff the
-    // solver is successfully created.
-    GpuAvrPyramid2 (int dimension0, int dimension1,
-        const Image2<float>& initial, bool& success);
+	// Construction and destruction.  The return 'success' is 'true' iff the
+	// solver is successfully created.
+	GpuAvrPyramid2 (int dimension0, int dimension1,
+	                const Image2<float>& initial, bool& success);
 
-    GpuAvrPyramid2 (int dimension0, int dimension1, GLuint texture0,
-        GLuint texture1, GLuint frameBuffer0, GLuint frameBuffer1,
-        bool& success);
+	GpuAvrPyramid2 (int dimension0, int dimension1, GLuint texture0,
+	                GLuint texture1, GLuint frameBuffer0, GLuint frameBuffer1,
+	                bool& success);
 
-    virtual ~GpuAvrPyramid2 ();
+	virtual ~GpuAvrPyramid2 ();
 
-    // Member access.
-    float GetAverage () const;
+	// Member access.
+	float GetAverage () const;
 
 protected:
-    // Read back the texel from the largest level.
-    virtual bool OnPostDraw (int level, int texture, int frameBuffer);
+	// Read back the texel from the largest level.
+	virtual bool OnPostDraw (int level, int texture, int frameBuffer);
 
-    float mAverage;
-    static const GLchar* msQuadAverage;
+	float mAverage;
+	static const GLchar* msQuadAverage;
 };
 
 #endif

@@ -15,20 +15,20 @@ using namespace Wm5;
 
 class DoublePendulum : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    DoublePendulum ();
+	DoublePendulum ();
 
-    virtual bool OnInitialize ();
-    virtual void OnIdle ();
-    virtual void OnDisplay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnIdle ();
+	virtual void OnDisplay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    PhysicsModule mModule;
-    int mSize;
+	PhysicsModule mModule;
+	int mSize;
 };
 
 WM5_REGISTER_INITIALIZE(DoublePendulum);

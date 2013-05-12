@@ -16,18 +16,18 @@ WM5_IMPLEMENT_FACTORY(CameraNode);
 
 //----------------------------------------------------------------------------
 CameraNode::CameraNode (Camera* camera)
-    :
-    mCamera(camera)
+	:
+	mCamera(camera)
 {
-    if (mCamera)
-    {
-        LocalTransform.SetTranslate(mCamera->GetPosition());
+	if (mCamera)
+	{
+		LocalTransform.SetTranslate(mCamera->GetPosition());
 
-        HMatrix rotate(mCamera->GetDVector(), mCamera->GetUVector(),
-            mCamera->GetRVector(), APoint::ORIGIN, true);
+		HMatrix rotate(mCamera->GetDVector(), mCamera->GetUVector(),
+		               mCamera->GetRVector(), APoint::ORIGIN, true);
 
-        LocalTransform.SetRotate(rotate);
-    }
+		LocalTransform.SetRotate(rotate);
+	}
 }
 //----------------------------------------------------------------------------
 CameraNode::~CameraNode ()
@@ -36,34 +36,34 @@ CameraNode::~CameraNode ()
 //----------------------------------------------------------------------------
 void CameraNode::SetCamera (Camera* camera)
 {
-    mCamera = camera;
+	mCamera = camera;
 
-    if (mCamera)
-    {
-        LocalTransform.SetTranslate(mCamera->GetPosition());
+	if (mCamera)
+	{
+		LocalTransform.SetTranslate(mCamera->GetPosition());
 
-        HMatrix rotate(mCamera->GetDVector(), mCamera->GetUVector(),
-            mCamera->GetRVector(), APoint::ORIGIN, true);
+		HMatrix rotate(mCamera->GetDVector(), mCamera->GetUVector(),
+		               mCamera->GetRVector(), APoint::ORIGIN, true);
 
-        LocalTransform.SetRotate(rotate);
+		LocalTransform.SetRotate(rotate);
 
-        Update();
-    }
+		Update();
+	}
 }
 //----------------------------------------------------------------------------
 void CameraNode::UpdateWorldData (double applicationTime)
 {
-    Node::UpdateWorldData(applicationTime);
+	Node::UpdateWorldData(applicationTime);
 
-    if (mCamera)
-    {
-        APoint camPosition = WorldTransform.GetTranslate();
-        AVector camDVector, camUVector, camRVector;
-        WorldTransform.GetRotate().GetColumn(0, camDVector);
-        WorldTransform.GetRotate().GetColumn(1, camUVector);
-        WorldTransform.GetRotate().GetColumn(2, camRVector);
-        mCamera->SetFrame(camPosition, camDVector, camUVector, camRVector);
-    }
+	if (mCamera)
+	{
+		APoint camPosition = WorldTransform.GetTranslate();
+		AVector camDVector, camUVector, camRVector;
+		WorldTransform.GetRotate().GetColumn(0, camDVector);
+		WorldTransform.GetRotate().GetColumn(1, camUVector);
+		WorldTransform.GetRotate().GetColumn(2, camRVector);
+		mCamera->SetFrame(camPosition, camDVector, camUVector, camRVector);
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -72,22 +72,22 @@ void CameraNode::UpdateWorldData (double applicationTime)
 //----------------------------------------------------------------------------
 Object* CameraNode::GetObjectByName (const std::string& name)
 {
-    Object* found = Node::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = Node::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    WM5_GET_OBJECT_BY_NAME(mCamera, name, found);
-    return 0;
+	WM5_GET_OBJECT_BY_NAME(mCamera, name, found);
+	return 0;
 }
 //----------------------------------------------------------------------------
 void CameraNode::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+                                      std::vector<Object*>& objects)
 {
-    Node::GetAllObjectsByName(name, objects);
+	Node::GetAllObjectsByName(name, objects);
 
-    WM5_GET_ALL_OBJECTS_BY_NAME(mCamera, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mCamera, name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -95,59 +95,59 @@ void CameraNode::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 CameraNode::CameraNode (LoadConstructor value)
-    :
-    Node(value)
+	:
+	Node(value)
 {
 }
 //----------------------------------------------------------------------------
 void CameraNode::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    Node::Load(source);
+	Node::Load(source);
 
-    source.ReadPointer(mCamera);
+	source.ReadPointer(mCamera);
 
-    WM5_END_DEBUG_STREAM_LOAD(CameraNode, source);
+	WM5_END_DEBUG_STREAM_LOAD(CameraNode, source);
 }
 //----------------------------------------------------------------------------
 void CameraNode::Link (InStream& source)
 {
-    Node::Link(source);
+	Node::Link(source);
 
-    source.ResolveLink(mCamera);
+	source.ResolveLink(mCamera);
 }
 //----------------------------------------------------------------------------
 void CameraNode::PostLink ()
 {
-    Node::PostLink();
+	Node::PostLink();
 }
 //----------------------------------------------------------------------------
 bool CameraNode::Register (OutStream& target) const
 {
-    if (Node::Register(target))
-    {
-        target.Register(mCamera);
-        return true;
-    }
-    return false;
+	if (Node::Register(target))
+	{
+		target.Register(mCamera);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void CameraNode::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    Node::Save(target);
+	Node::Save(target);
 
-    target.WritePointer(mCamera);
+	target.WritePointer(mCamera);
 
-    WM5_END_DEBUG_STREAM_SAVE(CameraNode, target);
+	WM5_END_DEBUG_STREAM_SAVE(CameraNode, target);
 }
 //----------------------------------------------------------------------------
 int CameraNode::GetStreamingSize () const
 {
-    int size = Node::GetStreamingSize();
-    size += WM5_POINTERSIZE(mCamera);
-    return size;
+	int size = Node::GetStreamingSize();
+	size += WM5_POINTERSIZE(mCamera);
+	return size;
 }
 //----------------------------------------------------------------------------

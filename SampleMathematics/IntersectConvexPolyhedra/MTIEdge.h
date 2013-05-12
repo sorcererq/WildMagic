@@ -12,16 +12,16 @@
 class MTIEdge
 {
 public:
-    MTIEdge (int label0, int label1);
+	MTIEdge (int label0, int label1);
 
-    bool operator< (const MTIEdge& edge) const;
-    bool operator== (const MTIEdge& edge) const;
-    bool operator!= (const MTIEdge& edge) const;
+	bool operator< (const MTIEdge& edge) const;
+	bool operator== (const MTIEdge& edge) const;
+	bool operator!= (const MTIEdge& edge) const;
 
-    int GetLabel (int i) const;
+	int GetLabel (int i) const;
 
 protected:
-    int mLabel[2];
+	int mLabel[2];
 };
 
 #endif

@@ -22,21 +22,21 @@ class Renderer;
 class PdrShader
 {
 public:
-    // Construction and destruction.  The derived classes are
-    // PdrVertexShader and PdrPixelShader.  Both classes hide the
-    // base-class destructor.  This is not a problem because the
-    // derived-class destructors are called explicitly when the shaders
-    // are destroyed by Renderer.
-    PdrShader ();
-    ~PdrShader ();
+	// Construction and destruction.  The derived classes are
+	// PdrVertexShader and PdrPixelShader.  Both classes hide the
+	// base-class destructor.  This is not a problem because the
+	// derived-class destructors are called explicitly when the shaders
+	// are destroyed by Renderer.
+	PdrShader ();
+	~PdrShader ();
 
 protected:
-    void SetSamplerState (Renderer* renderer, const Shader* shader,
-        int profile, const ShaderParameters* parameters, int maxSamplers,
-        RendererData::SamplerState* currentSS);
+	void SetSamplerState (Renderer* renderer, const Shader* shader,
+	                      int profile, const ShaderParameters* parameters, int maxSamplers,
+	                      RendererData::SamplerState* currentSS);
 
-    void DisableTextures (Renderer* renderer, const Shader* shader,
-        int profile, const ShaderParameters* parameters, int maxSamplers);
+	void DisableTextures (Renderer* renderer, const Shader* shader,
+	                      int profile, const ShaderParameters* parameters, int maxSamplers);
 };
 
 }

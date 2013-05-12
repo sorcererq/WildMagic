@@ -19,25 +19,25 @@ Cone3<Real>::~Cone3 ()
 //----------------------------------------------------------------------------
 template <typename Real>
 Cone3<Real>::Cone3 (const Vector3<Real>& vertex, const Vector3<Real>& axis,
-    const Real angle, const Real height)
-    :
-    Vertex(vertex),
-    Axis(axis),
-    Height(height)
+                    const Real angle, const Real height)
+	:
+	Vertex(vertex),
+	Axis(axis),
+	Height(height)
 {
-    CosAngle = Math<Real>::Cos(angle);
-    SinAngle = Math<Real>::Sin(angle);
+	CosAngle = Math<Real>::Cos(angle);
+	SinAngle = Math<Real>::Sin(angle);
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Cone3<Real>::Cone3 (const Vector3<Real>& vertex, const Vector3<Real>& axis,
-    const Real cosAngle, const Real sinAngle, const Real height)
-    :
-    Vertex(vertex),
-    Axis(axis),
-    CosAngle(cosAngle),
-    SinAngle(sinAngle),
-    Height(height)
+                    const Real cosAngle, const Real sinAngle, const Real height)
+	:
+	Vertex(vertex),
+	Axis(axis),
+	CosAngle(cosAngle),
+	SinAngle(sinAngle),
+	Height(height)
 {
 }
 //----------------------------------------------------------------------------

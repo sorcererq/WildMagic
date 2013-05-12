@@ -19,15 +19,15 @@ template <typename Real>
 class Lozenge3
 {
 public:
-    // Construction and destruction.  A lozenge is the set of points that are
-    // equidistant from a rectangle, the common distance called the radius.
-    Lozenge3 ();  // uninitialized
-    ~Lozenge3 ();
+	// Construction and destruction.  A lozenge is the set of points that are
+	// equidistant from a rectangle, the common distance called the radius.
+	Lozenge3 ();  // uninitialized
+	~Lozenge3 ();
 
-    Lozenge3 (const Rectangle3<Real>& rectangle, Real radius);
+	Lozenge3 (const Rectangle3<Real>& rectangle, Real radius);
 
-    Rectangle3<Real> Rectangle;
-    Real Radius;
+	Rectangle3<Real> Rectangle;
+	Real Radius;
 };
 
 #include "Wm5Lozenge3.inl"

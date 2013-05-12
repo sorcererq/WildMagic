@@ -9,31 +9,31 @@
 //----------------------------------------------------------------------------
 inline int Buffer::GetNumElements () const
 {
-    return mNumElements;
+	return mNumElements;
 }
 //----------------------------------------------------------------------------
 inline int Buffer::GetElementSize () const
 {
-    return mElementSize;
+	return mElementSize;
 }
 //----------------------------------------------------------------------------
 inline Buffer::Usage Buffer::GetUsage () const
 {
-    return mUsage;
+	return mUsage;
 }
 //----------------------------------------------------------------------------
 inline void Buffer::SetNumElements (int numElements)
 {
-    mNumElements = numElements;
+	mNumElements = numElements;
 }
 //----------------------------------------------------------------------------
 inline int Buffer::GetNumBytes () const
 {
-    return mNumBytes;
+	return mNumBytes;
 }
 //----------------------------------------------------------------------------
 inline const char* Buffer::GetData () const
 {
-    return mData;
+	return mData;
 }
 //----------------------------------------------------------------------------

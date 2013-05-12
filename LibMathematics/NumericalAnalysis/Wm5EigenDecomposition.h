@@ -22,73 +22,73 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM EigenDecomposition
 {
 public:
-    // Construction and destruction.  The matrix of an eigensystem must be
-    // symmetric.
-    EigenDecomposition (int size);
-    EigenDecomposition (const Matrix2<Real>& mat);
-    EigenDecomposition (const Matrix3<Real>& mat);
-    EigenDecomposition (const GMatrix<Real>& mat);
-    ~EigenDecomposition ();
+	// Construction and destruction.  The matrix of an eigensystem must be
+	// symmetric.
+	EigenDecomposition (int size);
+	EigenDecomposition (const Matrix2<Real>& mat);
+	EigenDecomposition (const Matrix3<Real>& mat);
+	EigenDecomposition (const GMatrix<Real>& mat);
+	~EigenDecomposition ();
 
-    // Set the matrix for the eigensystem.
-    Real& operator() (int row, int column);
-    EigenDecomposition& operator= (const Matrix2<Real>& mat);
-    EigenDecomposition& operator= (const Matrix3<Real>& mat);
-    EigenDecomposition& operator= (const GMatrix<Real>& mat);
+	// Set the matrix for the eigensystem.
+	Real& operator() (int row, int column);
+	EigenDecomposition& operator= (const Matrix2<Real>& mat);
+	EigenDecomposition& operator= (const Matrix3<Real>& mat);
+	EigenDecomposition& operator= (const GMatrix<Real>& mat);
 
-    // Solve the eigensystem.  Set 'increasingSort' to 'true' when you want
-    // the eigenvalues to be sorted in increasing order; otherwise, the
-    // eigenvalues are sorted in decreasing order.
-    void Solve (bool increasingSort);
+	// Solve the eigensystem.  Set 'increasingSort' to 'true' when you want
+	// the eigenvalues to be sorted in increasing order; otherwise, the
+	// eigenvalues are sorted in decreasing order.
+	void Solve (bool increasingSort);
 
-    // Get the results.  The calls to GetEigenvector2, GetEigenvectors2,
-    // GetEigenvector3, and GetEigenvector3 should be made only if you know
-    // that the eigensystem is of the corresponding size.
-    Real GetEigenvalue (int i) const;
-    const Real* GetEigenvalues () const;
-    Vector2<Real> GetEigenvector2 (int i) const;
-    Matrix2<Real> GetEigenvectors2 () const;
-    Vector3<Real> GetEigenvector3 (int i) const;
-    Matrix3<Real> GetEigenvectors3 () const;
-    GVector<Real> GetEigenvector (int i) const;
-    const GMatrix<Real>& GetEigenvectors () const;
+	// Get the results.  The calls to GetEigenvector2, GetEigenvectors2,
+	// GetEigenvector3, and GetEigenvector3 should be made only if you know
+	// that the eigensystem is of the corresponding size.
+	Real GetEigenvalue (int i) const;
+	const Real* GetEigenvalues () const;
+	Vector2<Real> GetEigenvector2 (int i) const;
+	Matrix2<Real> GetEigenvectors2 () const;
+	Vector3<Real> GetEigenvector3 (int i) const;
+	Matrix3<Real> GetEigenvectors3 () const;
+	GVector<Real> GetEigenvector (int i) const;
+	const GMatrix<Real>& GetEigenvectors () const;
 
 private:
-    int mSize;
-    GMatrix<Real> mMatrix;
-    Real* mDiagonal;
-    Real* mSubdiagonal;
+	int mSize;
+	GMatrix<Real> mMatrix;
+	Real* mDiagonal;
+	Real* mSubdiagonal;
 
-    // For odd size matrices, the Householder reduction involves an odd
-    // number of reflections.  The product of these is a reflection.  The
-    // QL algorithm uses rotations for further reductions.  The final
-    // orthogonal matrix whose columns are the eigenvectors is a reflection,
-    // so its determinant is -1.  For even size matrices, the Householder
-    // reduction involves an even number of reflections whose product is a
-    // rotation.  The final orthogonal matrix has determinant +1.  Many
-    // algorithms that need an eigendecomposition want a rotation matrix.
-    // We want to guarantee this is the case, so mRotation keeps track of
-    // this.  The DecrSort and IncrSort further complicate the issue since
-    // they swap columns of the orthogonal matrix, causing the matrix to
-    // toggle between rotation and reflection.  The value mRotation must
-    // be toggled accordingly.
-    bool mIsRotation;
-    void GuaranteeRotation ();
+	// For odd size matrices, the Householder reduction involves an odd
+	// number of reflections.  The product of these is a reflection.  The
+	// QL algorithm uses rotations for further reductions.  The final
+	// orthogonal matrix whose columns are the eigenvectors is a reflection,
+	// so its determinant is -1.  For even size matrices, the Householder
+	// reduction involves an even number of reflections whose product is a
+	// rotation.  The final orthogonal matrix has determinant +1.  Many
+	// algorithms that need an eigendecomposition want a rotation matrix.
+	// We want to guarantee this is the case, so mRotation keeps track of
+	// this.  The DecrSort and IncrSort further complicate the issue since
+	// they swap columns of the orthogonal matrix, causing the matrix to
+	// toggle between rotation and reflection.  The value mRotation must
+	// be toggled accordingly.
+	bool mIsRotation;
+	void GuaranteeRotation ();
 
-    // Householder reduction to tridiagonal form.
-    void Tridiagonal2 ();
-    void Tridiagonal3 ();
-    void TridiagonalN ();
+	// Householder reduction to tridiagonal form.
+	void Tridiagonal2 ();
+	void Tridiagonal3 ();
+	void TridiagonalN ();
 
-    // QL algorithm with implicit shifting.  This function is called for
-    // tridiagonal matrices.
-    bool QLAlgorithm ();
+	// QL algorithm with implicit shifting.  This function is called for
+	// tridiagonal matrices.
+	bool QLAlgorithm ();
 
-    // Sort eigenvalues from largest to smallest.
-    void DecreasingSort ();
+	// Sort eigenvalues from largest to smallest.
+	void DecreasingSort ();
 
-    // Sort eigenvalues from smallest to largest.
-    void IncreasingSort ();
+	// Sort eigenvalues from smallest to largest.
+	void IncreasingSort ();
 };
 
 typedef EigenDecomposition<float> EigenDecompositionf;

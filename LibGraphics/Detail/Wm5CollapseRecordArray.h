@@ -18,22 +18,22 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM CollapseRecordArray : public Object
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(CollapseRecordArray);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(CollapseRecordArray);
 
 public:
-    // Construction and destruction.
-    CollapseRecordArray (int numRecords = 0, CollapseRecord* records = 0);
-    virtual ~CollapseRecordArray ();
+	// Construction and destruction.
+	CollapseRecordArray (int numRecords = 0, CollapseRecord* records = 0);
+	virtual ~CollapseRecordArray ();
 
-    // Member access.
-    inline int GetNumRecords () const;
-    inline CollapseRecord* GetRecords () const;
+	// Member access.
+	inline int GetNumRecords () const;
+	inline CollapseRecord* GetRecords () const;
 
 protected:
-    int mNumRecords;
-    CollapseRecord* mRecords;
+	int mNumRecords;
+	CollapseRecord* mRecords;
 };
 
 WM5_REGISTER_STREAM(CollapseRecordArray);

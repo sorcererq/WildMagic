@@ -17,30 +17,30 @@ namespace Wm5
 class WM5_CORE_ITEM InitTerm
 {
 public:
-    typedef void (*Initializer)(void);
-    static void AddInitializer (Initializer function);
-    static void ExecuteInitializers ();
+	typedef void (*Initializer)(void);
+	static void AddInitializer (Initializer function);
+	static void ExecuteInitializers ();
 
-    typedef void (*Terminator)(void);
-    static void AddTerminator (Terminator function);
-    static void ExecuteTerminators ();
+	typedef void (*Terminator)(void);
+	static void AddTerminator (Terminator function);
+	static void ExecuteTerminators ();
 
 private:
-    // This number must be large enough to support your application.  If your
-    // application triggers an assert about exceeding this, change this number
-    // and recompile.  The goal is to avoid dynamic allocation during premain
-    // and postmain execution, thus making it easier to manage and track
-    // memory usage.
-    enum
-    {
-        MAX_ELEMENTS = 512
-    };
+	// This number must be large enough to support your application.  If your
+	// application triggers an assert about exceeding this, change this number
+	// and recompile.  The goal is to avoid dynamic allocation during premain
+	// and postmain execution, thus making it easier to manage and track
+	// memory usage.
+	enum
+	{
+		MAX_ELEMENTS = 512
+	};
 
-    static int msNumInitializers;
-    static Initializer msInitializers[MAX_ELEMENTS];
+	static int msNumInitializers;
+	static Initializer msInitializers[MAX_ELEMENTS];
 
-    static int msNumTerminators;
-    static Terminator msTerminators[MAX_ELEMENTS];
+	static int msNumTerminators;
+	static Terminator msTerminators[MAX_ELEMENTS];
 };
 
 }

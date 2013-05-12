@@ -17,46 +17,46 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM DlodNode : public SwitchNode
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(DlodNode);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(DlodNode);
 
 public:
-    // Construction and destruction.
-    DlodNode (int numLevelsOfDetail);
-    virtual ~DlodNode ();
+	// Construction and destruction.
+	DlodNode (int numLevelsOfDetail);
+	virtual ~DlodNode ();
 
-    // Access to the center for level of detail (LOD).
-    inline APoint& ModelCenter ();
-    inline const APoint& GetModelCenter () const;
-    inline const APoint& GetWorldCenter () const;
+	// Access to the center for level of detail (LOD).
+	inline APoint& ModelCenter ();
+	inline const APoint& GetModelCenter () const;
+	inline const APoint& GetWorldCenter () const;
 
-    // Access to the distance intervals for children.
-    inline int GetNumLevelsOfDetail () const;
-    inline float GetModelMinDistance (int i) const;
-    inline float GetModelMaxDistance (int i) const;
-    inline float GetWorldMinDistance (int i) const;
-    inline float GetWorldMaxDistance (int i) const;
-    void SetModelDistance (int i, float minDist, float maxDist);
+	// Access to the distance intervals for children.
+	inline int GetNumLevelsOfDetail () const;
+	inline float GetModelMinDistance (int i) const;
+	inline float GetModelMaxDistance (int i) const;
+	inline float GetWorldMinDistance (int i) const;
+	inline float GetWorldMaxDistance (int i) const;
+	void SetModelDistance (int i, float minDist, float maxDist);
 
 protected:
-    // Switch the child based on distance from world LOD center to camera.
-    void SelectLevelOfDetail (const Camera* camera);
+	// Switch the child based on distance from world LOD center to camera.
+	void SelectLevelOfDetail (const Camera* camera);
 
-    // Support for hierarchical culling.
-    virtual void GetVisibleSet (Culler& culler, bool noCull);
+	// Support for hierarchical culling.
+	virtual void GetVisibleSet (Culler& culler, bool noCull);
 
-    // The point whose distance to the camera determines the correct child to
-    // activate.
-    APoint mModelLodCenter;
-    APoint mWorldLodCenter;
+	// The point whose distance to the camera determines the correct child to
+	// activate.
+	APoint mModelLodCenter;
+	APoint mWorldLodCenter;
 
-    // Squared distances for each LOD interval.
-    int mNumLevelsOfDetail;  // same as number of children of node
-    float* mModelMinDist;
-    float* mModelMaxDist;
-    float* mWorldMinDist;
-    float* mWorldMaxDist;
+	// Squared distances for each LOD interval.
+	int mNumLevelsOfDetail;  // same as number of children of node
+	float* mModelMinDist;
+	float* mModelMaxDist;
+	float* mWorldMinDist;
+	float* mWorldMaxDist;
 };
 
 WM5_REGISTER_STREAM(DlodNode);

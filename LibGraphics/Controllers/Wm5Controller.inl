@@ -9,16 +9,16 @@
 //----------------------------------------------------------------------------
 inline ControlledObject* Controller::GetObject () const
 {
-    return mObject;
+	return mObject;
 }
 //----------------------------------------------------------------------------
 inline void Controller::SetApplicationTime (double applicationTime)
 {
-    mApplicationTime = applicationTime;
+	mApplicationTime = applicationTime;
 }
 //----------------------------------------------------------------------------
 inline double Controller::GetApplicationTime () const
 {
-    return mApplicationTime;
+	return mApplicationTime;
 }
 //----------------------------------------------------------------------------

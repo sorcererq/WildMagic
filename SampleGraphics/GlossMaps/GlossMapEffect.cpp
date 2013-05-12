@@ -27,17 +27,17 @@ WM5_IMPLEMENT_DEFAULT_STREAM(VisualEffect, GlossMapEffect);
 
 //----------------------------------------------------------------------------
 GlossMapEffect::GlossMapEffect (const std::string& effectFile)
-    :
-    VisualEffect(effectFile)
+	:
+	VisualEffect(effectFile)
 {
-    // TODO:  Once WmfxCompiler parses the Cg FX files, we will not need to
-    // set the sampler state.
-    PixelShader* pshader = GetPixelShader(0, 0);
+	// TODO:  Once WmfxCompiler parses the Cg FX files, we will not need to
+	// set the sampler state.
+	PixelShader* pshader = GetPixelShader(0, 0);
 
-    // BaseSampler
-    pshader->SetFilter(0, Shader::SF_LINEAR);
-    pshader->SetCoordinate(0, 0, Shader::SC_CLAMP_EDGE);
-    pshader->SetCoordinate(0, 1, Shader::SC_CLAMP_EDGE);
+	// BaseSampler
+	pshader->SetFilter(0, Shader::SF_LINEAR);
+	pshader->SetCoordinate(0, 0, Shader::SC_CLAMP_EDGE);
+	pshader->SetCoordinate(0, 1, Shader::SC_CLAMP_EDGE);
 }
 //----------------------------------------------------------------------------
 GlossMapEffect::~GlossMapEffect ()
@@ -45,20 +45,20 @@ GlossMapEffect::~GlossMapEffect ()
 }
 //----------------------------------------------------------------------------
 VisualEffectInstance* GlossMapEffect::CreateInstance (Texture2D* texture,
-    Light* light, Material* material)
+        Light* light, Material* material)
 {
-    VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
-    instance->SetVertexConstant(0, 0, new0 PVWMatrixConstant());
-    instance->SetVertexConstant(0, 1, new0 CameraModelPositionConstant());
-    instance->SetVertexConstant(0, 2, new0 MaterialEmissiveConstant(material));
-    instance->SetVertexConstant(0, 3, new0 MaterialAmbientConstant(material));
-    instance->SetVertexConstant(0, 4, new0 MaterialDiffuseConstant(material));
-    instance->SetVertexConstant(0, 5, new0 MaterialSpecularConstant(material));
-    instance->SetVertexConstant(0, 6, new0 LightModelDVectorConstant(light));
-    instance->SetVertexConstant(0, 7, new0 LightAmbientConstant(light));
-    instance->SetVertexConstant(0, 8, new0 LightDiffuseConstant(light));
-    instance->SetVertexConstant(0, 9, new0 LightSpecularConstant(light));
-    instance->SetPixelTexture(0, 0, texture);
-    return instance;
+	VisualEffectInstance* instance = new0 VisualEffectInstance(this, 0);
+	instance->SetVertexConstant(0, 0, new0 PVWMatrixConstant());
+	instance->SetVertexConstant(0, 1, new0 CameraModelPositionConstant());
+	instance->SetVertexConstant(0, 2, new0 MaterialEmissiveConstant(material));
+	instance->SetVertexConstant(0, 3, new0 MaterialAmbientConstant(material));
+	instance->SetVertexConstant(0, 4, new0 MaterialDiffuseConstant(material));
+	instance->SetVertexConstant(0, 5, new0 MaterialSpecularConstant(material));
+	instance->SetVertexConstant(0, 6, new0 LightModelDVectorConstant(light));
+	instance->SetVertexConstant(0, 7, new0 LightAmbientConstant(light));
+	instance->SetVertexConstant(0, 8, new0 LightDiffuseConstant(light));
+	instance->SetVertexConstant(0, 9, new0 LightSpecularConstant(light));
+	instance->SetPixelTexture(0, 0, texture);
+	return instance;
 }
 //----------------------------------------------------------------------------

@@ -9,24 +9,24 @@
 #include "GpuAvrPyramid2.h"
 
 const GLchar* GpuAvrPyramid2::msQuadAverage =
-"float result = 0.25*(f00 + f10 + f01 + f11);";
+    "float result = 0.25*(f00 + f10 + f01 + f11);";
 
 //----------------------------------------------------------------------------
 GpuAvrPyramid2::GpuAvrPyramid2 (int dimension0, int dimension1,
-    const Image2<float>& initial, bool& success)
-    :
-    GpuPyramid2("", msQuadAverage, dimension0, dimension1, initial, success),
-    mAverage(0.0f)
+                                const Image2<float>& initial, bool& success)
+	:
+	GpuPyramid2("", msQuadAverage, dimension0, dimension1, initial, success),
+	mAverage(0.0f)
 {
 }
 //----------------------------------------------------------------------------
 GpuAvrPyramid2::GpuAvrPyramid2 (int dimension0, int dimension1,
-    GLuint texture0, GLuint texture1, GLuint frameBuffer0,
-    GLuint frameBuffer1, bool& success)
-    :
-    GpuPyramid2("", msQuadAverage, dimension0, dimension1, texture0, texture1,
-        frameBuffer0, frameBuffer1, success),
-    mAverage(0.0f)
+                                GLuint texture0, GLuint texture1, GLuint frameBuffer0,
+                                GLuint frameBuffer1, bool& success)
+	:
+	GpuPyramid2("", msQuadAverage, dimension0, dimension1, texture0, texture1,
+	            frameBuffer0, frameBuffer1, success),
+	mAverage(0.0f)
 {
 }
 //----------------------------------------------------------------------------
@@ -36,19 +36,19 @@ GpuAvrPyramid2::~GpuAvrPyramid2 ()
 //----------------------------------------------------------------------------
 float GpuAvrPyramid2::GetAverage () const
 {
-    return mAverage;
+	return mAverage;
 }
 //----------------------------------------------------------------------------
 bool GpuAvrPyramid2::OnPostDraw (int level, int, int frameBuffer)
 {
-    if (level + 1 == mNumLevels)
-    {
-        glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, mFrameBuffer[frameBuffer]);
-        glReadBuffer(GL_COLOR_ATTACHMENT0_EXT);
-        glReadPixels(0, 0, 1, 1, GL_RED, GL_FLOAT, &mAverage);
-        glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
-        glReadBuffer(GL_BACK);
-    }
-    return true;
+	if (level + 1 == mNumLevels)
+	{
+		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, mFrameBuffer[frameBuffer]);
+		glReadBuffer(GL_COLOR_ATTACHMENT0_EXT);
+		glReadPixels(0, 0, 1, 1, GL_RED, GL_FLOAT, &mAverage);
+		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
+		glReadBuffer(GL_BACK);
+	}
+	return true;
 }
 //----------------------------------------------------------------------------

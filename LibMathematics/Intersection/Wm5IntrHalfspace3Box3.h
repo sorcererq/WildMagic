@@ -25,40 +25,40 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrHalfspace3Box3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrHalfspace3Box3 (const Plane3<Real>& halfspace, const Box3<Real>& box);
+	IntrHalfspace3Box3 (const Plane3<Real>& halfspace, const Box3<Real>& box);
 
-    // Object access.
-    const Plane3<Real>& GetHalfspace () const;
-    const Box3<Real>& GetBox () const;
+	// Object access.
+	const Plane3<Real>& GetHalfspace () const;
+	const Box3<Real>& GetBox () const;
 
-    // Static queries.
-    virtual bool Test ();
+	// Static queries.
+	virtual bool Test ();
 
-    // Dynamic queries.
-    virtual bool Test (Real tmax, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	// Dynamic queries.
+	virtual bool Test (Real tmax, const Vector3<Real>& velocity0,
+	                   const Vector3<Real>& velocity1);
 
-    virtual bool Find (Real tmax, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	virtual bool Find (Real tmax, const Vector3<Real>& velocity0,
+	                   const Vector3<Real>& velocity1);
 
-    // The contact set is empty, a point, a segment, or a rectangle.  The
-    // function GetQuantity() returns 0, 1, 2, or 4.
-    int GetQuantity () const;
-    const Vector3<Real>& GetPoint (int i) const;
+	// The contact set is empty, a point, a segment, or a rectangle.  The
+	// function GetQuantity() returns 0, 1, 2, or 4.
+	int GetQuantity () const;
+	const Vector3<Real>& GetPoint (int i) const;
 
 protected:
-    using Intersector<Real,Vector3<Real> >::mContactTime;
+	using Intersector<Real,Vector3<Real> >::mContactTime;
 
-    // The objects to intersect.
-    const Plane3<Real>* mHalfspace;
-    const Box3<Real>* mBox;
+	// The objects to intersect.
+	const Plane3<Real>* mHalfspace;
+	const Box3<Real>* mBox;
 
-    // Information about the intersection set.
-    int mQuantity;
-    Vector3<Real> mPoint[4];
+	// Information about the intersection set.
+	int mQuantity;
+	Vector3<Real> mPoint[4];
 };
 
 typedef IntrHalfspace3Box3<float> IntrHalfspace3Box3f;

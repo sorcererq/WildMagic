@@ -18,31 +18,31 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM DistPoint2Line2
-    : public Distance<Real,Vector2<Real> >
+	: public Distance<Real,Vector2<Real> >
 {
 public:
-    DistPoint2Line2 (const Vector2<Real>& point, const Line2<Real>& line);
+	DistPoint2Line2 (const Vector2<Real>& point, const Line2<Real>& line);
 
-    // Object access.
-    const Vector2<Real>& GetPoint () const;
-    const Line2<Real>& GetLine () const;
+	// Object access.
+	const Vector2<Real>& GetPoint () const;
+	const Line2<Real>& GetLine () const;
 
-    // Static distance queries.
-    virtual Real Get ();
-    virtual Real GetSquared ();
+	// Static distance queries.
+	virtual Real Get ();
+	virtual Real GetSquared ();
 
-    // Function calculations for dynamic distance queries.
-    virtual Real Get (Real t, const Vector2<Real>& velocity0,
-        const Vector2<Real>& velocity1);
-    virtual Real GetSquared (Real t, const Vector2<Real>& velocity0,
-        const Vector2<Real>& velocity1);
+	// Function calculations for dynamic distance queries.
+	virtual Real Get (Real t, const Vector2<Real>& velocity0,
+	                  const Vector2<Real>& velocity1);
+	virtual Real GetSquared (Real t, const Vector2<Real>& velocity0,
+	                         const Vector2<Real>& velocity1);
 
 private:
-    using Distance<Real,Vector2<Real> >::mClosestPoint0;
-    using Distance<Real,Vector2<Real> >::mClosestPoint1;
+	using Distance<Real,Vector2<Real> >::mClosestPoint0;
+	using Distance<Real,Vector2<Real> >::mClosestPoint1;
 
-    const Vector2<Real>* mPoint;
-    const Line2<Real>* mLine;
+	const Vector2<Real>* mPoint;
+	const Line2<Real>* mLine;
 };
 
 typedef DistPoint2Line2<float> DistPoint2Line2f;

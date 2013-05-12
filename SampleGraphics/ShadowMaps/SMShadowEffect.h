@@ -17,21 +17,21 @@ namespace Wm5
 
 class SMShadowEffect : public GlobalEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(SMShadowEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(SMShadowEffect);
 
 public:
-    // Construction and destruction.
-    SMShadowEffect (const std::string& effectName,
-        ShaderFloat* lightPVMatrix);
+	// Construction and destruction.
+	SMShadowEffect (const std::string& effectName,
+	                ShaderFloat* lightPVMatrix);
 
-    virtual ~SMShadowEffect ();
+	virtual ~SMShadowEffect ();
 
-    virtual void Draw (Renderer* renderer, const VisibleSet& visibleSet);
+	virtual void Draw (Renderer* renderer, const VisibleSet& visibleSet);
 
 private:
-    VisualEffectInstancePtr mInstance;
+	VisualEffectInstancePtr mInstance;
 };
 
 WM5_REGISTER_STREAM(SMShadowEffect);

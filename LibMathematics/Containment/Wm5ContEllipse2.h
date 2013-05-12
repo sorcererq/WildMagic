@@ -32,12 +32,12 @@ Ellipse2<Real> ContEllipse (int numPoints, const Vector2<Real>* points);
 // and corresponds to the line segment P+s*D, where smin <= s <= smax.
 template <typename Real> WM5_MATHEMATICS_ITEM
 void ProjectEllipse (const Ellipse2<Real>& ellipse,
-    const Line2<Real>& line, Real& smin, Real& smax);
+                     const Line2<Real>& line, Real& smin, Real& smax);
 
 // Construct a bounding ellipse for the two input ellipses.
 template <typename Real> WM5_MATHEMATICS_ITEM
 const Ellipse2<Real> MergeEllipses (const Ellipse2<Real>& ellipse0,
-    const Ellipse2<Real>& ellipse1);
+                                    const Ellipse2<Real>& ellipse1);
 
 }
 

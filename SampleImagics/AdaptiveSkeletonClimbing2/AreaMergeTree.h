@@ -17,34 +17,34 @@
 class AreaMergeTree
 {
 public:
-    // Construction and destruction.
-    AreaMergeTree (int N, LinearMergeTree** xMerge,
-        LinearMergeTree** yMerge);
-    ~AreaMergeTree ();
+	// Construction and destruction.
+	AreaMergeTree (int N, LinearMergeTree** xMerge,
+	               LinearMergeTree** yMerge);
+	~AreaMergeTree ();
 
-    // Member access.
-    int GetQuantity () const;
-    const QuadNode& GetNode (int i) const;
+	// Member access.
+	int GetQuantity () const;
+	const QuadNode& GetNode (int i) const;
 
-    void ConstructMono (int A, int LX, int LY, int xOrigin, int yOrigin,
-        int stride, int depth);
+	void ConstructMono (int A, int LX, int LY, int xOrigin, int yOrigin,
+	                    int stride, int depth);
 
-    void GetRectangles (int A, int LX, int LY, int xOrigin, int yOrigin,
-        int xtride, std::vector<Rectangle2>& rectangles);
+	void GetRectangles (int A, int LX, int LY, int xOrigin, int yOrigin,
+	                    int xtride, std::vector<Rectangle2>& rectangles);
 
 private:
-    void DoXMerge (QuadRectangle& r0, QuadRectangle& r1, int ellX,
-        int yOrigin);
+	void DoXMerge (QuadRectangle& r0, QuadRectangle& r1, int ellX,
+	               int yOrigin);
 
-    void DoYMerge (QuadRectangle& r0, QuadRectangle& r1, int xOrigin,
-        int ellY);
+	void DoYMerge (QuadRectangle& r0, QuadRectangle& r1, int xOrigin,
+	               int ellY);
 
-    Rectangle2 GetRectangle (const QuadRectangle& qrect, int ellX, int ellY);
+	Rectangle2 GetRectangle (const QuadRectangle& qrect, int ellX, int ellY);
 
-    int mN, mQuantity;
-    LinearMergeTree** mXMerge;
-    LinearMergeTree** mYMerge;
-    QuadNode* mNodes;
+	int mN, mQuantity;
+	LinearMergeTree** mXMerge;
+	LinearMergeTree** mYMerge;
+	QuadNode* mNodes;
 };
 
 #endif

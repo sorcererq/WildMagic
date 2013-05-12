@@ -19,20 +19,20 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM OdeEuler : public OdeSolver<Real>
 {
 public:
-    // Construction and destruction.
-    OdeEuler (int dim, Real step,
-        typename OdeSolver<Real>::Function function, void* userData = 0);
-    virtual ~OdeEuler ();
+	// Construction and destruction.
+	OdeEuler (int dim, Real step,
+	          typename OdeSolver<Real>::Function function, void* userData = 0);
+	virtual ~OdeEuler ();
 
-    virtual void Update (Real tIn, Real* xIn, Real& tOut, Real* xOut);
-    virtual void SetStepSize (Real step);
+	virtual void Update (Real tIn, Real* xIn, Real& tOut, Real* xOut);
+	virtual void SetStepSize (Real step);
 
 protected:
-    using OdeSolver<Real>::mDim;
-    using OdeSolver<Real>::mStep;
-    using OdeSolver<Real>::mFunction;
-    using OdeSolver<Real>::mUserData;
-    using OdeSolver<Real>::mFValue;
+	using OdeSolver<Real>::mDim;
+	using OdeSolver<Real>::mStep;
+	using OdeSolver<Real>::mFunction;
+	using OdeSolver<Real>::mUserData;
+	using OdeSolver<Real>::mFValue;
 };
 
 typedef OdeEuler<float> OdeEulerf;

@@ -30,7 +30,7 @@ namespace Wm5
 
 template <typename Real> WM5_MATHEMATICS_ITEM
 bool CircleFit2 (int numPoints, const Vector2<Real>* points,
-    int maxIterations, Circle2<Real>& circle, bool initialCenterIsAverage);
+                 int maxIterations, Circle2<Real>& circle, bool initialCenterIsAverage);
 
 }
 

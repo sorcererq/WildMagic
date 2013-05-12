@@ -19,26 +19,26 @@ template <typename Real>
 class Arc2
 {
 public:
-    // The arc is defined by two points End0 and End1 on the circle so that
-    // End1 is obtained from End0 by traversing counterclockwise.  The
-    // application is responsible for ensuring that End0 and End1 are on the
-    // circle and that they are properly ordered.
+	// The arc is defined by two points End0 and End1 on the circle so that
+	// End1 is obtained from End0 by traversing counterclockwise.  The
+	// application is responsible for ensuring that End0 and End1 are on the
+	// circle and that they are properly ordered.
 
-    // Construction and destruction.
-    Arc2 ();  // uninitialized
-    ~Arc2 ();
+	// Construction and destruction.
+	Arc2 ();  // uninitialized
+	~Arc2 ();
 
-    Arc2 (const Vector2<Real>& center, Real radius,
-        const Vector2<Real>& end0, const Vector2<Real>& end1);
+	Arc2 (const Vector2<Real>& center, Real radius,
+	      const Vector2<Real>& end0, const Vector2<Real>& end1);
 
-    // Test whether P is on the arc.  The application must ensure that P is on
-    // the circle; that is, |P-C| = R.  This test works for any angle between
-    // B-C and A-C, not just those between 0 and pi radians.
-    bool Contains (const Vector2<Real>& p) const;
+	// Test whether P is on the arc.  The application must ensure that P is on
+	// the circle; that is, |P-C| = R.  This test works for any angle between
+	// B-C and A-C, not just those between 0 and pi radians.
+	bool Contains (const Vector2<Real>& p) const;
 
-    Vector2<Real> Center;
-    Real Radius;
-    Vector2<Real> End0, End1;
+	Vector2<Real> Center;
+	Real Radius;
+	Vector2<Real> End0, End1;
 };
 
 #include "Wm5Arc2.inl"

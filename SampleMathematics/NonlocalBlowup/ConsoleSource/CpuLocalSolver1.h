@@ -14,23 +14,23 @@
 class CpuLocalSolver1 : public CpuPdeSolver1<float>
 {
 public:
-    CpuLocalSolver1 (int dimension, const Image1<float>* initial,
-        const Image1<unsigned char>* domain, float dt, float dx,
-        const std::string& folder, bool& success);
+	CpuLocalSolver1 (int dimension, const Image1<float>* initial,
+	                 const Image1<unsigned char>* domain, float dt, float dx,
+	                 const std::string& folder, bool& success);
 
-    virtual ~CpuLocalSolver1 ();
+	virtual ~CpuLocalSolver1 ();
 
 private:
-    void GetIntegral (float& umax, float& integral);
+	void GetIntegral (float& umax, float& integral);
 
-    virtual float Equation (int i0, const Image1<float>& u0,
-        const Image1<float>& u1);
+	virtual float Equation (int i0, const Image1<float>& u0,
+	                        const Image1<float>& u1);
 
-    virtual bool OnPreIteration (uint64_t iteration);
-    virtual bool OnPostIteration (uint64_t iteration);
+	virtual bool OnPreIteration (uint64_t iteration);
+	virtual bool OnPostIteration (uint64_t iteration);
 
-    float* mReadBack;
-    std::string mFolder;
+	float* mReadBack;
+	std::string mFolder;
 };
 
 #endif

@@ -19,9 +19,9 @@ Capsule3<Real>::~Capsule3 ()
 //----------------------------------------------------------------------------
 template <typename Real>
 Capsule3<Real>::Capsule3 (const Segment3<Real>& segment, Real radius)
-    :
-    Segment(segment),
-    Radius(radius)
+	:
+	Segment(segment),
+	Radius(radius)
 {
 }
 //----------------------------------------------------------------------------

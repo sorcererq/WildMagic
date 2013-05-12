@@ -36,64 +36,64 @@ template <class Mesh, class Bound>
 class CollisionGroup
 {
 public:
-    CollisionGroup ();
-    ~CollisionGroup ();
+	CollisionGroup ();
+	~CollisionGroup ();
 
-    // CollisionGroup assumes responsibility for deleting the collision
-    // records, so the input records should be dynamically allocated.
-    bool Add (CollisionRecord<Mesh,Bound>* record);
-    bool Remove (CollisionRecord<Mesh,Bound>* record);
+	// CollisionGroup assumes responsibility for deleting the collision
+	// records, so the input records should be dynamically allocated.
+	bool Add (CollisionRecord<Mesh,Bound>* record);
+	bool Remove (CollisionRecord<Mesh,Bound>* record);
 
-    // Intersection queries.  If two objects in the group collide, the
-    // corresponding records process the information accordingly.
+	// Intersection queries.  If two objects in the group collide, the
+	// corresponding records process the information accordingly.
 
-    // The objects are assumed to be stationary (velocities are ignored) and
-    // all pairs of objects are compared.
-    void TestIntersection ();
-    void FindIntersection ();
-    
-    // The objects are assumed to be moving.  Objects are compared when at
-    // least one of them has a velocity vector associated with it (that
-    // vector is allowed to be the zero vector).
-    void TestIntersection (float tmax);
-    void FindIntersection (float tmax);
+	// The objects are assumed to be stationary (velocities are ignored) and
+	// all pairs of objects are compared.
+	void TestIntersection ();
+	void FindIntersection ();
 
-    // The CollisionRecord callback function is executed for each pair of
-    // intersecting triangles.  The Intersector<float,Vector3f> used in the
-    // collision system is passed to the application via the callback.  The
-    // following information is available from the intersector.
-    //
-    // TestIntersection() calls:
-    //   int type = intersector.GetIntersectionType();
-    //   <type is IT_OTHER for nonparallel triangles>;
-    //   <type is IT_PLANE for parallel triangles>;
-    //
-    // FindIntersection() calls:
-    //   int type = intersector.GetIntersectionType();
-    //   <type is IT_POINT for a single point of intersection>;
-    //   <type is IT_SEGMENT for a segment of intersection points>;
-    //   <type is IT_PLANE for a polygon of intersection points>;
-    //   int numPoints = intersector.GetQuantity();
-    //   Vector3f point = intersector.GetPoint(i);  // 0 <= i < numPoints
-    //
-    // TestIntersection(tmax) calls:
-    //   float contactTime = intersector.GetContactTime(); // in [0,tmax]
-    //   int type = intersector.GetIntersectionType();
-    //   <type is IT_OTHER for nonparallel triangles>;
-    //   <type is IT_PLANE for parallel triangles>;
-    //
-    // FindIntersection(tmax) calls:
-    //   float contactTime = intersector.GetContactTime(); // in [0,tmax]
-    //   int type = intersector.GetIntersectionType();
-    //   <type is IT_POINT for a single point of intersection>;
-    //   <type is IT_SEGMENT for a segment of intersection points>;
-    //   <type is IT_PLANE for a polygon of intersection points>;
-    //   int numPoints = intersector.GetQuantity();
-    //   Vector3f point = intersector.GetPoint(i);  // 0 <= i < numPoints
+	// The objects are assumed to be moving.  Objects are compared when at
+	// least one of them has a velocity vector associated with it (that
+	// vector is allowed to be the zero vector).
+	void TestIntersection (float tmax);
+	void FindIntersection (float tmax);
+
+	// The CollisionRecord callback function is executed for each pair of
+	// intersecting triangles.  The Intersector<float,Vector3f> used in the
+	// collision system is passed to the application via the callback.  The
+	// following information is available from the intersector.
+	//
+	// TestIntersection() calls:
+	//   int type = intersector.GetIntersectionType();
+	//   <type is IT_OTHER for nonparallel triangles>;
+	//   <type is IT_PLANE for parallel triangles>;
+	//
+	// FindIntersection() calls:
+	//   int type = intersector.GetIntersectionType();
+	//   <type is IT_POINT for a single point of intersection>;
+	//   <type is IT_SEGMENT for a segment of intersection points>;
+	//   <type is IT_PLANE for a polygon of intersection points>;
+	//   int numPoints = intersector.GetQuantity();
+	//   Vector3f point = intersector.GetPoint(i);  // 0 <= i < numPoints
+	//
+	// TestIntersection(tmax) calls:
+	//   float contactTime = intersector.GetContactTime(); // in [0,tmax]
+	//   int type = intersector.GetIntersectionType();
+	//   <type is IT_OTHER for nonparallel triangles>;
+	//   <type is IT_PLANE for parallel triangles>;
+	//
+	// FindIntersection(tmax) calls:
+	//   float contactTime = intersector.GetContactTime(); // in [0,tmax]
+	//   int type = intersector.GetIntersectionType();
+	//   <type is IT_POINT for a single point of intersection>;
+	//   <type is IT_SEGMENT for a segment of intersection points>;
+	//   <type is IT_PLANE for a polygon of intersection points>;
+	//   int numPoints = intersector.GetQuantity();
+	//   Vector3f point = intersector.GetPoint(i);  // 0 <= i < numPoints
 
 protected:
-    typedef CollisionRecord<Mesh,Bound>* CollisionRecordPtr;
-    std::vector<CollisionRecordPtr> mRecords;
+	typedef CollisionRecord<Mesh,Bound>* CollisionRecordPtr;
+	std::vector<CollisionRecordPtr> mRecords;
 };
 
 #include "Wm5CollisionGroup.inl"

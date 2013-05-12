@@ -12,57 +12,57 @@
 class PhysicsModule
 {
 public:
-    // Construction and destruction.
-    PhysicsModule ();
-    ~PhysicsModule ();
+	// Construction and destruction.
+	PhysicsModule ();
+	~PhysicsModule ();
 
-    // Initialize the numerical solver.
-    void Initialize (double time, double deltaTime, double y1, double dy1,
-        double dy3);
+	// Initialize the numerical solver.
+	void Initialize (double time, double deltaTime, double y1, double dy1,
+	                 double dy3);
 
-    // Apply a single step of the solver.
-    void Update ();
+	// Apply a single step of the solver.
+	void Update ();
 
-    // The gravitational constant.
-    double Gravity;
+	// The gravitational constant.
+	double Gravity;
 
-    // The left mass in Figure 3.13.
-    double Mass1;
+	// The left mass in Figure 3.13.
+	double Mass1;
 
-    // The right mass in Figure 3.13.
-    double Mass2;
+	// The right mass in Figure 3.13.
+	double Mass2;
 
-    // The length of rigid wire connecting mass 1 to mass 2.
-    double WireLength;
+	// The length of rigid wire connecting mass 1 to mass 2.
+	double WireLength;
 
-    // The pulley parameters.
-    double Mass3, Radius, Inertia;
+	// The pulley parameters.
+	double Mass3, Radius, Inertia;
 
-    // The spring parameters.
-    double SpringLength, SpringConstant;
+	// The spring parameters.
+	double SpringLength, SpringConstant;
 
-    // Member access.
-    inline double GetInitialY1 () const;
-    inline double GetCurrentY1 () const;
-    inline double GetCurrentY2 () const;
-    inline double GetCurrentY3 () const;
-    inline double GetAngle () const;
-    inline double GetCableFraction1 () const;
-    inline double GetCableFraction2 () const;
+	// Member access.
+	inline double GetInitialY1 () const;
+	inline double GetCurrentY1 () const;
+	inline double GetCurrentY2 () const;
+	inline double GetCurrentY3 () const;
+	inline double GetAngle () const;
+	inline double GetCableFraction1 () const;
+	inline double GetCableFraction2 () const;
 
 private:
-    // time information
-    double mTime, mDeltaTime;
+	// time information
+	double mTime, mDeltaTime;
 
-    // derived parameters
-    double mAlpha, mBeta, mGamma, mDelta, mOmega, mGDivOmegaSqr;
+	// derived parameters
+	double mAlpha, mBeta, mGamma, mDelta, mOmega, mGDivOmegaSqr;
 
-    // initial conditions
-    double mY1, mY2, mY3, mDY1, mDY2, mDY3;
+	// initial conditions
+	double mY1, mY2, mY3, mDY1, mDY2, mDY3;
 
-    // solution parameters
-    double mLPlusGDivOmegaSqr, mK1, mK2, mTCoeff, mTSqrCoeff;
-    double mDeltaDivOmegaSqr, mY1Curr, mY2Curr, mY3Curr;
+	// solution parameters
+	double mLPlusGDivOmegaSqr, mK1, mK2, mTCoeff, mTSqrCoeff;
+	double mDeltaDivOmegaSqr, mY1Curr, mY2Curr, mY3Curr;
 };
 
 #include "PhysicsModule.inl"

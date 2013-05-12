@@ -14,35 +14,35 @@ using namespace Wm5;
 
 class PointInPolyhedron : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    PointInPolyhedron ();
+	PointInPolyhedron ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    void CreateQuery (TriMesh* mesh);
-    void DeleteQuery ();
+	void CreateScene ();
+	void CreateQuery (TriMesh* mesh);
+	void DeleteQuery ();
 
-    NodePtr mScene;
-    WireStatePtr mWireState;
-    PolypointPtr mPoints;
-    Culler mCuller;
+	NodePtr mScene;
+	WireStatePtr mWireState;
+	PolypointPtr mPoints;
+	Culler mCuller;
 
-    PointInPolyhedron3f* mQuery;
-    PointInPolyhedron3f::TriangleFace* mTFaces;
-    PointInPolyhedron3f::ConvexFace* mCFaces;
-    PointInPolyhedron3f::SimpleFace* mSFaces;
-    int mNumRays;
-    Vector3f* mRayDirections;
+	PointInPolyhedron3f* mQuery;
+	PointInPolyhedron3f::TriangleFace* mTFaces;
+	PointInPolyhedron3f::ConvexFace* mCFaces;
+	PointInPolyhedron3f::SimpleFace* mSFaces;
+	int mNumRays;
+	Vector3f* mRayDirections;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(PointInPolyhedron);

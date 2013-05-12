@@ -19,51 +19,51 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM TCBSpline3 : public MultipleCurve3<Real>
 {
 public:
-    // Construction and destruction.  TCBSpline3 accepts responsibility for
-    // deleting the input arrays.
-    TCBSpline3 (int numSegments, Real* times, Vector3<Real>* points,
-        Real* tension, Real* continuity, Real* bias);
+	// Construction and destruction.  TCBSpline3 accepts responsibility for
+	// deleting the input arrays.
+	TCBSpline3 (int numSegments, Real* times, Vector3<Real>* points,
+	            Real* tension, Real* continuity, Real* bias);
 
-    virtual ~TCBSpline3 ();
+	virtual ~TCBSpline3 ();
 
-    const Vector3<Real>* GetPoints () const;
-    const Real* GetTensions () const;
-    const Real* GetContinuities () const;
-    const Real* GetBiases () const;
+	const Vector3<Real>* GetPoints () const;
+	const Real* GetTensions () const;
+	const Real* GetContinuities () const;
+	const Real* GetBiases () const;
 
-    virtual Vector3<Real> GetPosition (Real t) const;
-    virtual Vector3<Real> GetFirstDerivative (Real t) const;
-    virtual Vector3<Real> GetSecondDerivative (Real t) const;
-    virtual Vector3<Real> GetThirdDerivative (Real t) const;
+	virtual Vector3<Real> GetPosition (Real t) const;
+	virtual Vector3<Real> GetFirstDerivative (Real t) const;
+	virtual Vector3<Real> GetSecondDerivative (Real t) const;
+	virtual Vector3<Real> GetThirdDerivative (Real t) const;
 
 protected:
-    using MultipleCurve3<Real>::mNumSegments;
-    using MultipleCurve3<Real>::mTimes;
-    using MultipleCurve3<Real>::GetKeyInfo;
-    using MultipleCurve3<Real>::GetSpeedWithData;
+	using MultipleCurve3<Real>::mNumSegments;
+	using MultipleCurve3<Real>::mTimes;
+	using MultipleCurve3<Real>::GetKeyInfo;
+	using MultipleCurve3<Real>::GetSpeedWithData;
 
-    void ComputePoly (int i0, int i1, int i2, int i3);
+	void ComputePoly (int i0, int i1, int i2, int i3);
 
-    virtual Real GetSpeedKey (int key, Real t) const;
-    virtual Real GetLengthKey (int key, Real t0, Real t1) const;
+	virtual Real GetSpeedKey (int key, Real t) const;
+	virtual Real GetLengthKey (int key, Real t0, Real t1) const;
 
-    Vector3<Real>* mPoints;
-    Real* mTension;
-    Real* mContinuity;
-    Real* mBias;
-    Vector3<Real>* mA;
-    Vector3<Real>* mB;
-    Vector3<Real>* mC;
-    Vector3<Real>* mD;
+	Vector3<Real>* mPoints;
+	Real* mTension;
+	Real* mContinuity;
+	Real* mBias;
+	Vector3<Real>* mA;
+	Vector3<Real>* mB;
+	Vector3<Real>* mC;
+	Vector3<Real>* mD;
 
-    class WM5_MATHEMATICS_ITEM SplineKey
-    {
-    public:
-        SplineKey (const TCBSpline3* spline, int key);
+	class WM5_MATHEMATICS_ITEM SplineKey
+	{
+	public:
+		SplineKey (const TCBSpline3* spline, int key);
 
-        const TCBSpline3* Spline;
-        int Key;
-    };
+		const TCBSpline3* Spline;
+		int Key;
+	};
 };
 
 typedef TCBSpline3<float> TCBSpline3f;

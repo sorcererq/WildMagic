@@ -30,17 +30,17 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM ContEllipsoid3MinCR
 {
 public:
-    ContEllipsoid3MinCR (int numPoints, const Vector3<Real>* points,
-        const Vector3<Real>& C, const Matrix3<Real>& R, Real D[3]);
+	ContEllipsoid3MinCR (int numPoints, const Vector3<Real>* points,
+	                     const Vector3<Real>& C, const Matrix3<Real>& R, Real D[3]);
 
 private:
-    void FindEdgeMax (std::vector<Vector3<Real> >& A, int& plane0,
-        int& plane1, Real D[3]);
+	void FindEdgeMax (std::vector<Vector3<Real> >& A, int& plane0,
+	                  int& plane1, Real D[3]);
 
-    void FindFacetMax (std::vector<Vector3<Real> >& A, int& plane0,
-        Real D[3]);
+	void FindFacetMax (std::vector<Vector3<Real> >& A, int& plane0,
+	                   Real D[3]);
 
-    void MaxProduct (std::vector<Vector3<Real> >& A, Real D[3]);
+	void MaxProduct (std::vector<Vector3<Real> >& A, Real D[3]);
 };
 
 typedef ContEllipsoid3MinCR<float> ContEllipsoid3MinCRf;

@@ -30,15 +30,15 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM ContEllipse2MinCR
 {
 public:
-    ContEllipse2MinCR (int numPoints, const Vector2<Real>* points,
-        const Vector2<Real>& C, const Matrix2<Real>& R, Real D[2]);
+	ContEllipse2MinCR (int numPoints, const Vector2<Real>* points,
+	                   const Vector2<Real>& C, const Matrix2<Real>& R, Real D[2]);
 
 private:
-    static bool XGreater (const Vector2<Real>& P0, const Vector2<Real>& P1);
-    static bool XEqual (const Vector2<Real>& P0, const Vector2<Real>& P1);
-    static bool YGreater (const Vector2<Real>& P0, const Vector2<Real>& P1);
-    static bool YEqual (const Vector2<Real>& P0, const Vector2<Real>& P1);
-    static void MaxProduct (std::vector<Vector2<Real> >& A, Real D[2]);
+	static bool XGreater (const Vector2<Real>& P0, const Vector2<Real>& P1);
+	static bool XEqual (const Vector2<Real>& P0, const Vector2<Real>& P1);
+	static bool YGreater (const Vector2<Real>& P0, const Vector2<Real>& P1);
+	static bool YEqual (const Vector2<Real>& P0, const Vector2<Real>& P1);
+	static void MaxProduct (std::vector<Vector2<Real> >& A, Real D[2]);
 };
 
 typedef ContEllipse2MinCR<float> ContEllipse2MinCRf;

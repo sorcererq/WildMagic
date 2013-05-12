@@ -24,44 +24,44 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM PolynomialFit2
 {
 public:
-    // Construction and destruction.  The constructor is for data of the form
-    // (x[i],w[i]), where 0 <= i < numSamples.
-    PolynomialFit2 (int numSamples, const Real* xSamples,
-        const Real* wSamples, int numPowers, const int* powers);
+	// Construction and destruction.  The constructor is for data of the form
+	// (x[i],w[i]), where 0 <= i < numSamples.
+	PolynomialFit2 (int numSamples, const Real* xSamples,
+	                const Real* wSamples, int numPowers, const int* powers);
 
-    virtual ~PolynomialFit2 ();
+	virtual ~PolynomialFit2 ();
 
-    // This is a function class that returns 'true' iff the linear system
-    // solver was successful.  If it is not successful, then the polynomial
-    // evaluation is invalid and always returns zero.
-    operator bool () const;
+	// This is a function class that returns 'true' iff the linear system
+	// solver was successful.  If it is not successful, then the polynomial
+	// evaluation is invalid and always returns zero.
+	operator bool () const;
 
-    // Member access.
-    Real GetXMin () const;
-    Real GetXMax () const;
-    Real GetWMin () const;
-    Real GetWMax () const;
+	// Member access.
+	Real GetXMin () const;
+	Real GetXMax () const;
+	Real GetWMin () const;
+	Real GetWMax () const;
 
-    // Evaluation of the fitted polynomial.  A derived class may override this
-    // to implement an efficient method based on knowledge about the specific
-    // powers passed to the constructor.
-    virtual Real operator() (Real x) const;
+	// Evaluation of the fitted polynomial.  A derived class may override this
+	// to implement an efficient method based on knowledge about the specific
+	// powers passed to the constructor.
+	virtual Real operator() (Real x) const;
 
 protected:
-    // Support for construction.
-    void InitializePowers (int numPowers, const int* powers);
-    void TransformToUnit (int numSamples, const Real* srcSamples[2],
-        Real* trgSamples[2]);
-    void DoLeastSquaresFit (int numSamples, Real* trgSamples[2]);
+	// Support for construction.
+	void InitializePowers (int numPowers, const int* powers);
+	void TransformToUnit (int numSamples, const Real* srcSamples[2],
+	                      Real* trgSamples[2]);
+	void DoLeastSquaresFit (int numSamples, Real* trgSamples[2]);
 
-    int mNumPowers;
-    int* mPowers;
-    int mMaxXPower;
-    mutable Real* mXPowers;
+	int mNumPowers;
+	int* mPowers;
+	int mMaxXPower;
+	mutable Real* mXPowers;
 
-    Real mMin[2], mMax[2], mScale[2], mInvTwoWScale;
-    Real* mCoefficients;
-    bool mSolved;
+	Real mMin[2], mMax[2], mScale[2], mInvTwoWScale;
+	Real* mCoefficients;
+	bool mSolved;
 };
 
 }

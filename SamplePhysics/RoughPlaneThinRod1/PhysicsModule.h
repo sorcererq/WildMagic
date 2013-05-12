@@ -15,51 +15,51 @@ using namespace Wm5;
 class PhysicsModule
 {
 public:
-    // Construction and destruction.
-    PhysicsModule ();
-    ~PhysicsModule ();
+	// Construction and destruction.
+	PhysicsModule ();
+	~PhysicsModule ();
 
-    // Initialize the differential equation solver.
-    void Initialize (double time, double deltaTime, double x, double y,
-        double theta, double xDot, double yDot, double thetaDot);
+	// Initialize the differential equation solver.
+	void Initialize (double time, double deltaTime, double x, double y,
+	                 double theta, double xDot, double yDot, double thetaDot);
 
-    // Access the current state.
-    inline double GetTime () const;
-    inline double GetDeltaTime () const;
-    inline double GetX () const;
-    inline double GetXDot () const;
-    inline double GetY () const;
-    inline double GetYDot () const;
-    inline double GetTheta () const;
-    inline double GetThetaDot () const;
-    void Get (double& x1, double& y1, double& x2, double& y2) const;
+	// Access the current state.
+	inline double GetTime () const;
+	inline double GetDeltaTime () const;
+	inline double GetX () const;
+	inline double GetXDot () const;
+	inline double GetY () const;
+	inline double GetYDot () const;
+	inline double GetTheta () const;
+	inline double GetThetaDot () const;
+	void Get (double& x1, double& y1, double& x2, double& y2) const;
 
-    // Apply a single step of the solver.
-    void Update ();
+	// Apply a single step of the solver.
+	void Update ();
 
-    // physical constants   // symbols used in the Game Physics book
-    double Length;          // L1 = L2 = L/2
-    double MassDensity;     // delta0
-    double Friction;        // c
+	// physical constants   // symbols used in the Game Physics book
+	double Length;          // L1 = L2 = L/2
+	double MassDensity;     // delta0
+	double Friction;        // c
 
 protected:
-    // state and auxiliary variables
-    double mTime, mDeltaTime;
-    double mState[6], mAux[9];
-    double mHalfLength;
+	// state and auxiliary variables
+	double mTime, mDeltaTime;
+	double mState[6], mAux[9];
+	double mHalfLength;
 
-    // Integrands for the generalized forces.
-    static double FXIntegrand (double ell, void* data);
-    static double FYIntegrand (double ell, void* data);
-    static double FThetaIntegrand (double ell, void* data);
+	// Integrands for the generalized forces.
+	static double FXIntegrand (double ell, void* data);
+	static double FYIntegrand (double ell, void* data);
+	static double FThetaIntegrand (double ell, void* data);
 
-    // ODE solver (specific solver assigned in the cpp file)
-    OdeSolverd* mSolver;
-    static void OdeFunction (double time, const double* state, void* data,
-        double* output);
+	// ODE solver (specific solver assigned in the cpp file)
+	OdeSolverd* mSolver;
+	static void OdeFunction (double time, const double* state, void* data,
+	                         double* output);
 
-    // Romberg integration parameter.
-    static int msOrder;
+	// Romberg integration parameter.
+	static int msOrder;
 };
 
 #include "PhysicsModule.inl"

@@ -17,28 +17,28 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM IndexBuffer : public Buffer
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(IndexBuffer);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(IndexBuffer);
 
 public:
-    // Construction and destruction.
-    IndexBuffer (int numIndices, int indexSize, Usage usage = BU_STATIC);
-    virtual ~IndexBuffer ();
+	// Construction and destruction.
+	IndexBuffer (int numIndices, int indexSize, Usage usage = BU_STATIC);
+	virtual ~IndexBuffer ();
 
-    // Access the buffer data.
-    inline char* GetData () const;
+	// Access the buffer data.
+	inline char* GetData () const;
 
-    // The offset into the indices is used by the renderer for drawing.  The
-    // ability to set this is useful when multiple geometric primitives share
-    // an index buffer, each primitive using a continguous set of indices.  In
-    // this case, SetNumElements and SetOffset will be called dynamically by
-    // the application for each such geometric primitive.
-    inline void SetOffset (int offset);
-    inline int GetOffset () const;
+	// The offset into the indices is used by the renderer for drawing.  The
+	// ability to set this is useful when multiple geometric primitives share
+	// an index buffer, each primitive using a continguous set of indices.  In
+	// this case, SetNumElements and SetOffset will be called dynamically by
+	// the application for each such geometric primitive.
+	inline void SetOffset (int offset);
+	inline int GetOffset () const;
 
 protected:
-    int mOffset;
+	int mOffset;
 };
 
 WM5_REGISTER_STREAM(IndexBuffer);

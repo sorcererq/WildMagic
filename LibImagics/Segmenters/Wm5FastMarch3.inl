@@ -9,36 +9,36 @@
 //----------------------------------------------------------------------------
 inline int FastMarch3::GetXBound () const
 {
-    return mXBound;
+	return mXBound;
 }
 //----------------------------------------------------------------------------
 inline int FastMarch3::GetYBound () const
 {
-    return mYBound;
+	return mYBound;
 }
 //----------------------------------------------------------------------------
 inline int FastMarch3::GetZBound () const
 {
-    return mZBound;
+	return mZBound;
 }
 //----------------------------------------------------------------------------
 inline float FastMarch3::GetXSpacing () const
 {
-    return mXSpacing;
+	return mXSpacing;
 }
 //----------------------------------------------------------------------------
 inline float FastMarch3::GetYSpacing () const
 {
-    return mYSpacing;
+	return mYSpacing;
 }
 //----------------------------------------------------------------------------
 inline float FastMarch3::GetZSpacing () const
 {
-    return mZSpacing;
+	return mZSpacing;
 }
 //----------------------------------------------------------------------------
 inline int FastMarch3::Index (int x, int y, int z) const
 {
-    return x + mXBound*(y + mYBound*z);
+	return x + mXBound*(y + mYBound*z);
 }
 //----------------------------------------------------------------------------

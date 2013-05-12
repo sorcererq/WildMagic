@@ -15,47 +15,47 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 OdeMidpoint<Real>::OdeMidpoint (int dim, Real step,
-    typename OdeSolver<Real>::Function function, void* userData)
-    :
-    OdeSolver<Real>(dim, step, function, userData)
+                                typename OdeSolver<Real>::Function function, void* userData)
+	:
+	OdeSolver<Real>(dim, step, function, userData)
 {
-    mHalfStep = ((Real)0.5)*step;
-    mXTemp = new1<Real>(mDim);
+	mHalfStep = ((Real)0.5)*step;
+	mXTemp = new1<Real>(mDim);
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 OdeMidpoint<Real>::~OdeMidpoint ()
 {
-    delete1(mXTemp);
+	delete1(mXTemp);
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 void OdeMidpoint<Real>::Update (Real tIn, Real* xIn, Real& tOut, Real* xOut)
 {
-    // first step
-    mFunction(tIn, xIn, mUserData, mFValue);
-    int i;
-    for (i = 0; i < mDim; ++i)
-    {
-        mXTemp[i] = xIn[i] + mHalfStep*mFValue[i];
-    }
+	// first step
+	mFunction(tIn, xIn, mUserData, mFValue);
+	int i;
+	for (i = 0; i < mDim; ++i)
+	{
+		mXTemp[i] = xIn[i] + mHalfStep*mFValue[i];
+	}
 
-    // second step
-    Real halfT = tIn + mHalfStep;
-    mFunction(halfT, mXTemp, mUserData, mFValue);
-    for (i = 0; i < mDim; ++i)
-    {
-        xOut[i] = xIn[i] + mStep*mFValue[i];
-    }
+	// second step
+	Real halfT = tIn + mHalfStep;
+	mFunction(halfT, mXTemp, mUserData, mFValue);
+	for (i = 0; i < mDim; ++i)
+	{
+		xOut[i] = xIn[i] + mStep*mFValue[i];
+	}
 
-    tOut = tIn + mStep;
+	tOut = tIn + mStep;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 void OdeMidpoint<Real>::SetStepSize (Real step)
 {
-    mStep = step;
-    mHalfStep = ((Real)0.5)*step;
+	mStep = step;
+	mHalfStep = ((Real)0.5)*step;
 }
 //----------------------------------------------------------------------------
 

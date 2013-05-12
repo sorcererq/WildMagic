@@ -19,29 +19,29 @@ using namespace Wm5;
 
 class CollisionsMovingSpheres : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    CollisionsMovingSpheres ();
+	CollisionsMovingSpheres ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
-    void UpdateSpheres ();
+	void CreateScene ();
+	void UpdateSpheres ();
 
-    NodePtr mScene;
-    Sphere3f mSphere0, mSphere1, mBoundingSphere;
-    Vector3f mVelocity0, mVelocity1;
-    TriMeshPtr mMesh0, mMesh1;
-    Culler mCuller;
-    SphereColliders mColliders;
-    float mSimTime, mSimDelta;
-    Float4 mTextColor;
+	NodePtr mScene;
+	Sphere3f mSphere0, mSphere1, mBoundingSphere;
+	Vector3f mVelocity0, mVelocity1;
+	TriMeshPtr mMesh0, mMesh1;
+	Culler mCuller;
+	SphereColliders mColliders;
+	float mSimTime, mSimDelta;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(CollisionsMovingSpheres);

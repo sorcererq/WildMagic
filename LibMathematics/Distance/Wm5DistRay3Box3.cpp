@@ -16,74 +16,74 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 DistRay3Box3<Real>::DistRay3Box3 (const Ray3<Real>& ray,
-    const Box3<Real>& box)
-    :
-    mRay(&ray),
-    mBox(&box)
+                                  const Box3<Real>& box)
+	:
+	mRay(&ray),
+	mBox(&box)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Ray3<Real>& DistRay3Box3<Real>::GetRay () const
 {
-    return *mRay;
+	return *mRay;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Box3<Real>& DistRay3Box3<Real>::GetBox () const
 {
-    return *mBox;
+	return *mBox;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistRay3Box3<Real>::Get ()
 {
-    return Math<Real>::Sqrt(GetSquared());
+	return Math<Real>::Sqrt(GetSquared());
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistRay3Box3<Real>::GetSquared ()
 {
-    Line3<Real> line(mRay->Origin, mRay->Direction);
-    DistLine3Box3<Real> queryLB(line, *mBox);
-    Real sqrDistance = queryLB.GetSquared();
-    Real lineParameter = queryLB.GetLineParameter();
+	Line3<Real> line(mRay->Origin, mRay->Direction);
+	DistLine3Box3<Real> queryLB(line, *mBox);
+	Real sqrDistance = queryLB.GetSquared();
+	Real lineParameter = queryLB.GetLineParameter();
 
-    if (lineParameter >= (Real)0)
-    {
-        mClosestPoint0 = queryLB.GetClosestPoint0();
-        mClosestPoint1 = queryLB.GetClosestPoint1();
-    }
-    else
-    {
-        DistPoint3Box3<Real> queryPB(mRay->Origin, *mBox);
-        sqrDistance = queryPB.GetSquared();
-        mClosestPoint0 = queryPB.GetClosestPoint0();
-        mClosestPoint1 = queryPB.GetClosestPoint1();
-    }
-    return sqrDistance;
+	if (lineParameter >= (Real)0)
+	{
+		mClosestPoint0 = queryLB.GetClosestPoint0();
+		mClosestPoint1 = queryLB.GetClosestPoint1();
+	}
+	else
+	{
+		DistPoint3Box3<Real> queryPB(mRay->Origin, *mBox);
+		sqrDistance = queryPB.GetSquared();
+		mClosestPoint0 = queryPB.GetClosestPoint0();
+		mClosestPoint1 = queryPB.GetClosestPoint1();
+	}
+	return sqrDistance;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistRay3Box3<Real>::Get (Real t, const Vector3<Real>& velocity0,
-    const Vector3<Real>& velocity1)
+                              const Vector3<Real>& velocity1)
 {
-    Vector3<Real> movedOrigin = mRay->Origin + t*velocity0;
-    Vector3<Real> movedCenter = mBox->Center + t*velocity1;
-    Ray3<Real> movedRay(movedOrigin, mRay->Direction);
-    Box3<Real> movedBox(movedCenter, mBox->Axis, mBox->Extent);
-    return DistRay3Box3<Real>(movedRay, movedBox).Get();
+	Vector3<Real> movedOrigin = mRay->Origin + t*velocity0;
+	Vector3<Real> movedCenter = mBox->Center + t*velocity1;
+	Ray3<Real> movedRay(movedOrigin, mRay->Direction);
+	Box3<Real> movedBox(movedCenter, mBox->Axis, mBox->Extent);
+	return DistRay3Box3<Real>(movedRay, movedBox).Get();
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistRay3Box3<Real>::GetSquared (Real t,
-    const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
+                                     const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
 {
-    Vector3<Real> movedOrigin = mRay->Origin + t*velocity0;
-    Vector3<Real> movedCenter = mBox->Center + t*velocity1;
-    Ray3<Real> movedRay(movedOrigin, mRay->Direction);
-    Box3<Real> movedBox(movedCenter, mBox->Axis, mBox->Extent);
-    return DistRay3Box3<Real>(movedRay, movedBox).GetSquared();
+	Vector3<Real> movedOrigin = mRay->Origin + t*velocity0;
+	Vector3<Real> movedCenter = mBox->Center + t*velocity1;
+	Ray3<Real> movedRay(movedOrigin, mRay->Direction);
+	Box3<Real> movedBox(movedCenter, mBox->Axis, mBox->Extent);
+	return DistRay3Box3<Real>(movedRay, movedBox).GetSquared();
 }
 //----------------------------------------------------------------------------
 

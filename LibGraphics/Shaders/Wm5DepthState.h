@@ -17,31 +17,31 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM DepthState : public Object
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(DepthState);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(DepthState);
 
 public:
-    // Construction and destruction.
-    DepthState ();
-    virtual ~DepthState ();
+	// Construction and destruction.
+	DepthState ();
+	virtual ~DepthState ();
 
-    enum WM5_GRAPHICS_ITEM CompareMode
-    {
-        CM_NEVER,
-        CM_LESS,
-        CM_EQUAL,
-        CM_LEQUAL,
-        CM_GREATER,
-        CM_NOTEQUAL,
-        CM_GEQUAL,
-        CM_ALWAYS,
-        CM_QUANTITY
-    };
+	enum WM5_GRAPHICS_ITEM CompareMode
+	{
+		CM_NEVER,
+		CM_LESS,
+		CM_EQUAL,
+		CM_LEQUAL,
+		CM_GREATER,
+		CM_NOTEQUAL,
+		CM_GEQUAL,
+		CM_ALWAYS,
+		CM_QUANTITY
+	};
 
-    bool Enabled;         // default: true
-    bool Writable;        // default: true
-    CompareMode Compare;  // default: CM_LEQUAL
+	bool Enabled;         // default: true
+	bool Writable;        // default: true
+	CompareMode Compare;  // default: CM_LEQUAL
 };
 
 WM5_REGISTER_STREAM(DepthState);

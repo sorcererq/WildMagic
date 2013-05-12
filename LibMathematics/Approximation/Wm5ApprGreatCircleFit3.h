@@ -36,19 +36,19 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM GreatArcFit3
 {
 public:
-    GreatArcFit3 (int numPoints, const Vector3<Real>* points,
-        Vector3<Real>& normal, Vector3<Real>& arcEnd0,
-        Vector3<Real>& arcEnd1);
+	GreatArcFit3 (int numPoints, const Vector3<Real>* points,
+	              Vector3<Real>& normal, Vector3<Real>& arcEnd0,
+	              Vector3<Real>& arcEnd1);
 
 private:
-    class Item
-    {
-    public:
-        Real U, V, Angle;
+	class Item
+	{
+	public:
+		Real U, V, Angle;
 
-        // Support for sorting.
-        bool operator< (const Item& item) const;
-    };
+		// Support for sorting.
+		bool operator< (const Item& item) const;
+	};
 };
 
 }

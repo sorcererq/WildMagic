@@ -21,144 +21,144 @@ std::vector<std::string>* Environment::msDirectories = 0;
 //----------------------------------------------------------------------------
 void Environment::Initialize ()
 {
-    if (!msDirectories)
-    {
-        msDirectories = new0 std::vector<std::string>();
-        return;
-    }
+	if (!msDirectories)
+	{
+		msDirectories = new0 std::vector<std::string>();
+		return;
+	}
 
-    assertion(false, "Directory list already allocated.\n");
+	assertion(false, "Directory list already allocated.\n");
 }
 //----------------------------------------------------------------------------
 void Environment::Terminate ()
 {
-    if (msDirectories)
-    {
-        delete0(msDirectories);
-        return;
-    }
+	if (msDirectories)
+	{
+		delete0(msDirectories);
+		return;
+	}
 
-    assertion(false, "No directory list to deallocate.\n");
+	assertion(false, "No directory list to deallocate.\n");
 }
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
 std::string Environment::GetVariable (const std::string& varName)
 {
-    const char* variable = getenv(varName.c_str());
-    return variable ? std::string(variable) : std::string("");
+	const char* variable = getenv(varName.c_str());
+	return variable ? std::string(variable) : std::string("");
 }
 //----------------------------------------------------------------------------
 int Environment::GetNumDirectories ()
 {
-    if (!msDirectories)
-    {
-        Initialize();
-    }
+	if (!msDirectories)
+	{
+		Initialize();
+	}
 
-    return (int)msDirectories->size();
+	return (int)msDirectories->size();
 }
 //----------------------------------------------------------------------------
 std::string Environment::GetDirectory (int i)
 {
-    if (!msDirectories)
-    {
-        Initialize();
-    }
+	if (!msDirectories)
+	{
+		Initialize();
+	}
 
-    if (0 <= i && i < (int)msDirectories->size())
-    {
-        return (*msDirectories)[i];
-    }
+	if (0 <= i && i < (int)msDirectories->size())
+	{
+		return (*msDirectories)[i];
+	}
 
-    return std::string("");
+	return std::string("");
 }
 //----------------------------------------------------------------------------
 bool Environment::InsertDirectory (const std::string& directory)
 {
-    if (!msDirectories)
-    {
-        Initialize();
-    }
+	if (!msDirectories)
+	{
+		Initialize();
+	}
 
-    std::vector<std::string>::iterator iter = msDirectories->begin();
-    std::vector<std::string>::iterator end = msDirectories->end();
-    for (/**/; iter != end; ++iter)
-    {
-        if (directory == *iter)
-        {
-            return false;
-        }
-    }
-    msDirectories->push_back(directory);
-    return true;
+	std::vector<std::string>::iterator iter = msDirectories->begin();
+	std::vector<std::string>::iterator end = msDirectories->end();
+	for (/**/; iter != end; ++iter)
+	{
+		if (directory == *iter)
+		{
+			return false;
+		}
+	}
+	msDirectories->push_back(directory);
+	return true;
 }
 //----------------------------------------------------------------------------
 bool Environment::RemoveDirectory (const std::string& directory)
 {
-    if (!msDirectories)
-    {
-        Initialize();
-    }
+	if (!msDirectories)
+	{
+		Initialize();
+	}
 
-    std::vector<std::string>::iterator iter = msDirectories->begin();
-    std::vector<std::string>::iterator end = msDirectories->end();
-    for (/**/; iter != end; ++iter)
-    {
-        if (directory == *iter)
-        {
-            msDirectories->erase(iter);
-            return true;
-        }
-    }
-    return false;
+	std::vector<std::string>::iterator iter = msDirectories->begin();
+	std::vector<std::string>::iterator end = msDirectories->end();
+	for (/**/; iter != end; ++iter)
+	{
+		if (directory == *iter)
+		{
+			msDirectories->erase(iter);
+			return true;
+		}
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void Environment::RemoveAllDirectories ()
 {
-    if (!msDirectories)
-    {
-        Initialize();
-    }
+	if (!msDirectories)
+	{
+		Initialize();
+	}
 
-    msDirectories->clear();
+	msDirectories->clear();
 }
 //----------------------------------------------------------------------------
 std::string Environment::GetPathR (const std::string& fileName)
 {
-    return GetPath(fileName, "r");
+	return GetPath(fileName, "r");
 }
 //----------------------------------------------------------------------------
 std::string Environment::GetPathW (const std::string& fileName)
 {
-    return GetPath(fileName, "w");
+	return GetPath(fileName, "w");
 }
 //----------------------------------------------------------------------------
 std::string Environment::GetPathRW (const std::string& fileName)
 {
-    return GetPath(fileName, "r+");
+	return GetPath(fileName, "r+");
 }
 //----------------------------------------------------------------------------
 std::string Environment::GetPath (const std::string& fileName,
-    const char* attributes)
+                                  const char* attributes)
 {
-    if (!msDirectories)
-    {
-        Initialize();
-    }
+	if (!msDirectories)
+	{
+		Initialize();
+	}
 
-    std::vector<std::string>::iterator iter = msDirectories->begin();
-    std::vector<std::string>::iterator end = msDirectories->end();
-    for (/**/; iter != end; ++iter)
-    {
-        std::string decorated = *iter + fileName;
-        FILE* testFile = fopen(decorated.c_str(), attributes);
-        if (testFile)
-        {
-            fclose(testFile);
-            return decorated;
-        }
-    }
-    return std::string("");
+	std::vector<std::string>::iterator iter = msDirectories->begin();
+	std::vector<std::string>::iterator end = msDirectories->end();
+	for (/**/; iter != end; ++iter)
+	{
+		std::string decorated = *iter + fileName;
+		FILE* testFile = fopen(decorated.c_str(), attributes);
+		if (testFile)
+		{
+			fclose(testFile);
+			return decorated;
+		}
+	}
+	return std::string("");
 }
 //----------------------------------------------------------------------------

@@ -19,9 +19,9 @@ Lozenge3<Real>::~Lozenge3 ()
 //----------------------------------------------------------------------------
 template <typename Real>
 Lozenge3<Real>::Lozenge3 (const Rectangle3<Real>& rectangle, Real radius)
-    :
-    Rectangle(rectangle),
-    Radius(radius)
+	:
+	Rectangle(rectangle),
+	Radius(radius)
 {
 }
 //----------------------------------------------------------------------------

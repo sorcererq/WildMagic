@@ -9,46 +9,46 @@
 //----------------------------------------------------------------------------
 inline int TerrainPage::GetSize () const
 {
-    return mSize;
+	return mSize;
 }
 //----------------------------------------------------------------------------
 inline const unsigned short* TerrainPage::GetHeights () const
 {
-    return mHeights;
+	return mHeights;
 }
 //----------------------------------------------------------------------------
 inline const Float2& TerrainPage::GetOrigin () const
 {
-    return mOrigin;
+	return mOrigin;
 }
 //----------------------------------------------------------------------------
 inline float TerrainPage::GetMinElevation () const
 {
-    return mMinElevation;
+	return mMinElevation;
 }
 //----------------------------------------------------------------------------
 inline float TerrainPage::GetMaxElevation () const
 {
-    return mMaxElevation;
+	return mMaxElevation;
 }
 //----------------------------------------------------------------------------
 inline float TerrainPage::GetSpacing () const
 {
-    return mSpacing;
+	return mSpacing;
 }
 //----------------------------------------------------------------------------
 inline float TerrainPage::GetX (int x) const
 {
-    return mOrigin[0] + mSpacing*(float)x;
+	return mOrigin[0] + mSpacing*(float)x;
 }
 //----------------------------------------------------------------------------
 inline float TerrainPage::GetY (int y) const
 {
-    return mOrigin[1] + mSpacing*(float)y;
+	return mOrigin[1] + mSpacing*(float)y;
 }
 //----------------------------------------------------------------------------
 inline float TerrainPage::GetHeight (int index) const
 {
-    return mMinElevation + mMultiplier*(float)mHeights[index];
+	return mMinElevation + mMultiplier*(float)mHeights[index];
 }
 //----------------------------------------------------------------------------

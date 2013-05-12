@@ -15,19 +15,19 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 OdeImplicitEuler<Real>::OdeImplicitEuler (int dim, Real step,
-    typename OdeSolver<Real>::Function function,
-    DerivativeFunction derFunction, void* userData)
-    :
-    OdeSolver<Real>(dim, step, function, userData),
-    mDF(dim, dim),
-    mF(dim),
-    mIdentity(dim, dim)
+        typename OdeSolver<Real>::Function function,
+        DerivativeFunction derFunction, void* userData)
+	:
+	OdeSolver<Real>(dim, step, function, userData),
+	mDF(dim, dim),
+	mF(dim),
+	mIdentity(dim, dim)
 {
-    mDerFunction = derFunction;
-    for (int i = 0; i < dim; ++i)
-    {
-        mIdentity[i][i] = (Real)1;
-    }
+	mDerFunction = derFunction;
+	for (int i = 0; i < dim; ++i)
+	{
+		mIdentity[i][i] = (Real)1;
+	}
 }
 //----------------------------------------------------------------------------
 template <typename Real>
@@ -37,34 +37,34 @@ OdeImplicitEuler<Real>::~OdeImplicitEuler ()
 //----------------------------------------------------------------------------
 template <typename Real>
 void OdeImplicitEuler<Real>::Update (Real tIn, Real* xIn, Real& tOut,
-    Real* xOut)
+                                     Real* xOut)
 {
-    mFunction(tIn, xIn, mUserData, mF);
-    mDerFunction(tIn, xIn, mUserData, mDF);
-    GMatrix<Real> DG = mIdentity - mStep*mDF;
-    GMatrix<Real> DGInverse(mDim, mDim);
-    bool invertible = LinearSystem<Real>().Inverse(DG, DGInverse);
+	mFunction(tIn, xIn, mUserData, mF);
+	mDerFunction(tIn, xIn, mUserData, mDF);
+	GMatrix<Real> DG = mIdentity - mStep*mDF;
+	GMatrix<Real> DGInverse(mDim, mDim);
+	bool invertible = LinearSystem<Real>().Inverse(DG, DGInverse);
 
-    if (invertible)
-    {
-        mF = DGInverse*mF;
-        for (int i = 0; i < mDim; ++i)
-        {
-            xOut[i] = xIn[i] + mStep*mF[i];
-        }
-    }
-    else
-    {
-        memcpy(xOut, xIn, mDim*sizeof(Real));
-    }
+	if (invertible)
+	{
+		mF = DGInverse*mF;
+		for (int i = 0; i < mDim; ++i)
+		{
+			xOut[i] = xIn[i] + mStep*mF[i];
+		}
+	}
+	else
+	{
+		memcpy(xOut, xIn, mDim*sizeof(Real));
+	}
 
-    tOut = tIn + mStep;
+	tOut = tIn + mStep;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 void OdeImplicitEuler<Real>::SetStepSize (Real step)
 {
-    mStep = step;
+	mStep = step;
 }
 //----------------------------------------------------------------------------
 

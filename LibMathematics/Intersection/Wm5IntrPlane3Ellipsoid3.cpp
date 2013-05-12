@@ -14,45 +14,45 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 IntrPlane3Ellipsoid3<Real>::IntrPlane3Ellipsoid3 (const Plane3<Real>& plane,
-    const Ellipsoid3<Real>& ellipsoid)
-    :
-    mPlane(&plane),
-    mEllipsoid(&ellipsoid)
+        const Ellipsoid3<Real>& ellipsoid)
+	:
+	mPlane(&plane),
+	mEllipsoid(&ellipsoid)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Plane3<Real>& IntrPlane3Ellipsoid3<Real>::GetPlane () const
 {
-    return *mPlane;
+	return *mPlane;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Ellipsoid3<Real>& IntrPlane3Ellipsoid3<Real>::GetEllipsoid () const
 {
-    return *mEllipsoid;
+	return *mEllipsoid;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrPlane3Ellipsoid3<Real>::Test ()
 {
-    Matrix3<Real> MInverse;
-    mEllipsoid->GetMInverse(MInverse);
-    Real discr = MInverse.QForm(mPlane->Normal,mPlane->Normal);
-    Real root = Math<Real>::Sqrt(Math<Real>::FAbs(discr));
-    Real sDist = mPlane->DistanceTo(mEllipsoid->Center);
-    return Math<Real>::FAbs(sDist) <= root;
+	Matrix3<Real> MInverse;
+	mEllipsoid->GetMInverse(MInverse);
+	Real discr = MInverse.QForm(mPlane->Normal,mPlane->Normal);
+	Real root = Math<Real>::Sqrt(Math<Real>::FAbs(discr));
+	Real sDist = mPlane->DistanceTo(mEllipsoid->Center);
+	return Math<Real>::FAbs(sDist) <= root;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrPlane3Ellipsoid3<Real>::EllipsoidIsCulled () const
 {
-    Matrix3<Real> MInverse;
-    mEllipsoid->GetMInverse(MInverse);
-    Real discr = MInverse.QForm(mPlane->Normal,mPlane->Normal);
-    Real root = Math<Real>::Sqrt(Math<Real>::FAbs(discr));
-    Real sDist = mPlane->DistanceTo(mEllipsoid->Center);
-    return sDist <= -root;
+	Matrix3<Real> MInverse;
+	mEllipsoid->GetMInverse(MInverse);
+	Real discr = MInverse.QForm(mPlane->Normal,mPlane->Normal);
+	Real root = Math<Real>::Sqrt(Math<Real>::FAbs(discr));
+	Real sDist = mPlane->DistanceTo(mEllipsoid->Center);
+	return sDist <= -root;
 }
 //----------------------------------------------------------------------------
 

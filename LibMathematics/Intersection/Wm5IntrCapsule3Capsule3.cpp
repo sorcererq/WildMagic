@@ -16,31 +16,31 @@ namespace Wm5
 template <typename Real>
 IntrCapsule3Capsule3<Real>::IntrCapsule3Capsule3 (
     const Capsule3<Real>& capsule0, const Capsule3<Real>& capsule1)
-    :
-    mCapsule0(&capsule0),
-    mCapsule1(&capsule1)
+	:
+	mCapsule0(&capsule0),
+	mCapsule1(&capsule1)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Capsule3<Real>& IntrCapsule3Capsule3<Real>::GetCapsule0 () const
 {
-    return *mCapsule0;
+	return *mCapsule0;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Capsule3<Real>& IntrCapsule3Capsule3<Real>::GetCapsule1 () const
 {
-    return *mCapsule1;
+	return *mCapsule1;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrCapsule3Capsule3<Real>::Test ()
 {
-    Real distance = DistSegment3Segment3<Real>(mCapsule0->Segment,
-        mCapsule1->Segment).Get();
-    Real rSum = mCapsule0->Radius + mCapsule1->Radius;
-    return distance <= rSum;
+	Real distance = DistSegment3Segment3<Real>(mCapsule0->Segment,
+	                mCapsule1->Segment).Get();
+	Real rSum = mCapsule0->Radius + mCapsule1->Radius;
+	return distance <= rSum;
 }
 //----------------------------------------------------------------------------
 

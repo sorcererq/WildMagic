@@ -22,26 +22,26 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM IntpVectorField2
 {
 public:
-    // Construction and destruction.  If you want IntpVectorField2 to delete
-    // the input arrays during destruction, set owner to 'true'.  Otherwise,
-    // you own the arrays and must delete them yourself.
-    //
-    // The computation type is for the Delaunay triangulation and should be
-    // one of Query::{QT_INT64,QT_INTEGER,QT_RATIONAL,QT_REAL}.
-    IntpVectorField2 (int quantity, Vector2<Real>* domain,
-        Vector2<Real>* range, bool owner, Query::Type queryType);
+	// Construction and destruction.  If you want IntpVectorField2 to delete
+	// the input arrays during destruction, set owner to 'true'.  Otherwise,
+	// you own the arrays and must delete them yourself.
+	//
+	// The computation type is for the Delaunay triangulation and should be
+	// one of Query::{QT_INT64,QT_INTEGER,QT_RATIONAL,QT_REAL}.
+	IntpVectorField2 (int quantity, Vector2<Real>* domain,
+	                  Vector2<Real>* range, bool owner, Query::Type queryType);
 
-    ~IntpVectorField2 ();
+	~IntpVectorField2 ();
 
-    // Return 'true' if and only if (xIn,yIn) is in the convex hull of the
-    // input points.  In this case, (xOut,yOut) is valid.  If the return
-    // value is 'false', (xOut,yOut) is invalid and should not be used.
-    bool Evaluate (const Vector2<Real>& input, Vector2<Real>& output); 
+	// Return 'true' if and only if (xIn,yIn) is in the convex hull of the
+	// input points.  In this case, (xOut,yOut) is valid.  If the return
+	// value is 'false', (xOut,yOut) is invalid and should not be used.
+	bool Evaluate (const Vector2<Real>& input, Vector2<Real>& output);
 
 protected:
-    Delaunay2<Real>* mDT;
-    IntpQdrNonuniform2<Real>* mXInterp;
-    IntpQdrNonuniform2<Real>* mYInterp;
+	Delaunay2<Real>* mDT;
+	IntpQdrNonuniform2<Real>* mXInterp;
+	IntpQdrNonuniform2<Real>* mYInterp;
 };
 
 typedef IntpVectorField2<float> IntpVectorField2f;

@@ -9,53 +9,53 @@
 //----------------------------------------------------------------------------
 inline APoint& DlodNode::ModelCenter ()
 {
-    return mModelLodCenter;
+	return mModelLodCenter;
 }
 //----------------------------------------------------------------------------
 inline const APoint& DlodNode::GetModelCenter () const
 {
-    return mModelLodCenter;
+	return mModelLodCenter;
 }
 //----------------------------------------------------------------------------
 inline const APoint& DlodNode::GetWorldCenter () const
 {
-    return mWorldLodCenter;
+	return mWorldLodCenter;
 }
 //----------------------------------------------------------------------------
 inline int DlodNode::GetNumLevelsOfDetail () const
 {
-    return mNumLevelsOfDetail;
+	return mNumLevelsOfDetail;
 }
 //----------------------------------------------------------------------------
 inline float DlodNode::GetModelMinDistance (int i) const
 {
-    assertion(0 <= i && i < mNumLevelsOfDetail, 
-        "Invalid index in GetModelMinDistance.\n");
+	assertion(0 <= i && i < mNumLevelsOfDetail,
+	          "Invalid index in GetModelMinDistance.\n");
 
-    return mModelMinDist[i];
+	return mModelMinDist[i];
 }
 //----------------------------------------------------------------------------
 inline float DlodNode::GetModelMaxDistance (int i) const
 {
-    assertion(0 <= i && i < mNumLevelsOfDetail, 
-        "Invalid index in GetModelMaxDistance.\n");
+	assertion(0 <= i && i < mNumLevelsOfDetail,
+	          "Invalid index in GetModelMaxDistance.\n");
 
-    return mModelMaxDist[i];
+	return mModelMaxDist[i];
 }
 //----------------------------------------------------------------------------
 inline float DlodNode::GetWorldMinDistance (int i) const
 {
-    assertion(0 <= i && i < mNumLevelsOfDetail, 
-        "Invalid index in GetWorldMinDistance.\n");
+	assertion(0 <= i && i < mNumLevelsOfDetail,
+	          "Invalid index in GetWorldMinDistance.\n");
 
-    return mWorldMinDist[i];
+	return mWorldMinDist[i];
 }
 //----------------------------------------------------------------------------
 inline float DlodNode::GetWorldMaxDistance (int i) const
 {
-    assertion(0 <= i && i < mNumLevelsOfDetail, 
-        "Invalid index in GetWorldMaxDistance.\n");
+	assertion(0 <= i && i < mNumLevelsOfDetail,
+	          "Invalid index in GetWorldMaxDistance.\n");
 
-    return mWorldMaxDist[i];
+	return mWorldMaxDist[i];
 }
 //----------------------------------------------------------------------------

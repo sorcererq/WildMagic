@@ -19,40 +19,40 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM DistSegment3Triangle3
-    : public Distance<Real,Vector3<Real> >
+	: public Distance<Real,Vector3<Real> >
 {
 public:
-    DistSegment3Triangle3 (const Segment3<Real>& segment,
-        const Triangle3<Real>& triangle);
+	DistSegment3Triangle3 (const Segment3<Real>& segment,
+	                       const Triangle3<Real>& triangle);
 
-    // Object access.
-    const Segment3<Real>& GetSegment () const;
-    const Triangle3<Real>& GetTriangle () const;
+	// Object access.
+	const Segment3<Real>& GetSegment () const;
+	const Triangle3<Real>& GetTriangle () const;
 
-    // Static distance queries.
-    virtual Real Get ();
-    virtual Real GetSquared ();
+	// Static distance queries.
+	virtual Real Get ();
+	virtual Real GetSquared ();
 
-    // Function calculations for dynamic distance queries.
-    virtual Real Get (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
-    virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
-        const Vector3<Real>& velocity1);
+	// Function calculations for dynamic distance queries.
+	virtual Real Get (Real t, const Vector3<Real>& velocity0,
+	                  const Vector3<Real>& velocity1);
+	virtual Real GetSquared (Real t, const Vector3<Real>& velocity0,
+	                         const Vector3<Real>& velocity1);
 
-    // Information about the closest points.
-    Real GetSegmentParameter () const;
-    Real GetTriangleBary (int i) const;
+	// Information about the closest points.
+	Real GetSegmentParameter () const;
+	Real GetTriangleBary (int i) const;
 
 private:
-    using Distance<Real,Vector3<Real> >::mClosestPoint0;
-    using Distance<Real,Vector3<Real> >::mClosestPoint1;
+	using Distance<Real,Vector3<Real> >::mClosestPoint0;
+	using Distance<Real,Vector3<Real> >::mClosestPoint1;
 
-    const Segment3<Real>* mSegment;
-    const Triangle3<Real>* mTriangle;
+	const Segment3<Real>* mSegment;
+	const Triangle3<Real>* mTriangle;
 
-    // Information about the closest points.
-    Real mSegmentParameter;  // closest0 = seg.origin+param*seg.direction
-    Real mTriangleBary[3];  // closest1 = sum_{i=0}^2 bary[i]*tri.vertex[i]
+	// Information about the closest points.
+	Real mSegmentParameter;  // closest0 = seg.origin+param*seg.direction
+	Real mTriangleBary[3];  // closest1 = sum_{i=0}^2 bary[i]*tri.vertex[i]
 };
 
 typedef DistSegment3Triangle3<float> DistSegment3Triangle3f;

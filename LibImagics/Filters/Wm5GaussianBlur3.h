@@ -18,18 +18,18 @@ namespace Wm5
 class WM5_IMAGICS_ITEM GaussianBlur3 : public PdeFilter3
 {
 public:
-    GaussianBlur3 (int xBound, int yBound, int zBound, float xSpacing,
-        float ySpacing, float zSpacing, const float* data,
-        const bool* mask, float borderValue, ScaleType scaleType);
+	GaussianBlur3 (int xBound, int yBound, int zBound, float xSpacing,
+	               float ySpacing, float zSpacing, const float* data,
+	               const bool* mask, float borderValue, ScaleType scaleType);
 
-    virtual ~GaussianBlur3 ();
+	virtual ~GaussianBlur3 ();
 
-    float GetMaximumTimeStep () const;
+	float GetMaximumTimeStep () const;
 
 protected:
-    virtual void OnUpdate (int x, int y, int z);
+	virtual void OnUpdate (int x, int y, int z);
 
-    float mMaximumTimeStep;
+	float mMaximumTimeStep;
 };
 
 }

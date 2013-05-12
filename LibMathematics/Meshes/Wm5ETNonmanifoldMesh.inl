@@ -9,21 +9,21 @@
 //----------------------------------------------------------------------------
 inline int ETNonmanifoldMesh::GetNumEdges () const
 {
-    return (int)mEMap.size();
+	return (int)mEMap.size();
 }
 //----------------------------------------------------------------------------
 inline const ETNonmanifoldMesh::EMap& ETNonmanifoldMesh::GetEdges () const
 {
-    return mEMap;
+	return mEMap;
 }
 //----------------------------------------------------------------------------
 inline int ETNonmanifoldMesh::GetNumTriangles () const
 {
-    return (int)mTMap.size();
+	return (int)mTMap.size();
 }
 //----------------------------------------------------------------------------
 inline const ETNonmanifoldMesh::TMap& ETNonmanifoldMesh::GetTriangles () const
 {
-    return mTMap;
+	return mTMap;
 }
 //----------------------------------------------------------------------------

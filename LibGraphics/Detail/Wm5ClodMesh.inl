@@ -9,16 +9,16 @@
 //----------------------------------------------------------------------------
 inline int ClodMesh::GetNumRecords () const
 {
-    return mRecordArray->GetNumRecords();
+	return mRecordArray->GetNumRecords();
 }
 //----------------------------------------------------------------------------
 inline int& ClodMesh::TargetRecord ()
 {
-    return mTargetRecord;
+	return mTargetRecord;
 }
 //----------------------------------------------------------------------------
 inline int ClodMesh::GetAutomatedTargetRecord ()
 {
-    return mTargetRecord;
+	return mTargetRecord;
 }
 //----------------------------------------------------------------------------

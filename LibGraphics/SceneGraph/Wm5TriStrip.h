@@ -17,21 +17,21 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM TriStrip : public Triangles
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(TriStrip);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(TriStrip);
 
 public:
-    // Construction and destruction.
-    TriStrip (VertexFormat* vformat, VertexBuffer* vbuffer, int indexSize);
-    TriStrip (VertexFormat* vformat, VertexBuffer* vbuffer,
-        IndexBuffer* ibuffer);
+	// Construction and destruction.
+	TriStrip (VertexFormat* vformat, VertexBuffer* vbuffer, int indexSize);
+	TriStrip (VertexFormat* vformat, VertexBuffer* vbuffer,
+	          IndexBuffer* ibuffer);
 
-    virtual ~TriStrip ();
+	virtual ~TriStrip ();
 
-    // Interpretation of the index buffer data.
-    virtual int GetNumTriangles () const;
-    virtual bool GetTriangle (int i, int& v0, int& v1, int& v2) const;
+	// Interpretation of the index buffer data.
+	virtual int GetNumTriangles () const;
+	virtual bool GetTriangle (int i, int& v0, int& v1, int& v2) const;
 };
 
 WM5_REGISTER_STREAM(TriStrip);

@@ -10,11 +10,11 @@
 inline void TransformController::SetTransform (
     const Transform& localTransform)
 {
-    mLocalTransform = localTransform;
+	mLocalTransform = localTransform;
 }
 //----------------------------------------------------------------------------
 inline const Transform& TransformController::GetTransform () const
 {
-    return mLocalTransform;
+	return mLocalTransform;
 }
 //----------------------------------------------------------------------------

@@ -9,26 +9,26 @@
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetTime () const
 {
-    return mTime;
+	return mTime;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetDeltaTime () const
 {
-    return mDeltaTime;
+	return mDeltaTime;
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetTheta () const
 {
-    return mState[0];
+	return mState[0];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetPhi () const
 {
-    return mState[1];
+	return mState[1];
 }
 //----------------------------------------------------------------------------
 inline double PhysicsModule::GetPsi () const
 {
-    return mState[2];
+	return mState[2];
 }
 //----------------------------------------------------------------------------

@@ -12,22 +12,22 @@
 class Rectangle2
 {
 public:
-    // Construction and destruction.
-    Rectangle2 (int xOrigin, int yOrigin, int xStride, int yStride);
-    ~Rectangle2 ();
+	// Construction and destruction.
+	Rectangle2 (int xOrigin, int yOrigin, int xStride, int yStride);
+	~Rectangle2 ();
 
-    int mXOrigin, mYOrigin, mXStride, mYStride;
-    int mYofXMin, mYofXMax, mXofYMin, mXofYMax;
+	int mXOrigin, mYOrigin, mXStride, mYStride;
+	int mYofXMin, mYofXMax, mXofYMin, mXofYMax;
 
-    // A 4-bit flag for how the level set intersects the rectangle boundary.
-    //   bit 0 = xmin edge
-    //   bit 1 = xmax edge
-    //   bit 2 = ymin edge
-    //   bit 3 = ymax edge
-    // A bit is set if the corresponding edge is intersected by the level set.
-    // This information is known from the CFG flags for LinearMergeTree.
-    // Intersection occurs whenever the flag is CFG_INCR or CFG_DECR.
-    unsigned char mType;
+	// A 4-bit flag for how the level set intersects the rectangle boundary.
+	//   bit 0 = xmin edge
+	//   bit 1 = xmax edge
+	//   bit 2 = ymin edge
+	//   bit 3 = ymax edge
+	// A bit is set if the corresponding edge is intersected by the level set.
+	// This information is known from the CFG flags for LinearMergeTree.
+	// Intersection occurs whenever the flag is CFG_INCR or CFG_DECR.
+	unsigned char mType;
 };
 
 #endif

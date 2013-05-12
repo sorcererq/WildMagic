@@ -18,31 +18,31 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrTetrahedron3Tetrahedron3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrTetrahedron3Tetrahedron3 (const Tetrahedron3<Real>& tetrahedron0,
-        const Tetrahedron3<Real>& tetrahedron1);
+	IntrTetrahedron3Tetrahedron3 (const Tetrahedron3<Real>& tetrahedron0,
+	                              const Tetrahedron3<Real>& tetrahedron1);
 
-    // Object access.
-    const Tetrahedron3<Real>& GetTetrahedron0 () const;
-    const Tetrahedron3<Real>& GetTetrahedron1 () const;
+	// Object access.
+	const Tetrahedron3<Real>& GetTetrahedron0 () const;
+	const Tetrahedron3<Real>& GetTetrahedron1 () const;
 
-    // Static query.
-    virtual bool Find ();
+	// Static query.
+	virtual bool Find ();
 
-    // Information about the intersection set.
-    const std::vector<Tetrahedron3<Real> >& GetIntersection () const;
+	// Information about the intersection set.
+	const std::vector<Tetrahedron3<Real> >& GetIntersection () const;
 
 private:
-    static void SplitAndDecompose (Tetrahedron3<Real> tetra,
-        const Plane3<Real>& plane, std::vector<Tetrahedron3<Real> >& Inside);
+	static void SplitAndDecompose (Tetrahedron3<Real> tetra,
+	                               const Plane3<Real>& plane, std::vector<Tetrahedron3<Real> >& Inside);
 
-    // The objects to intersect.
-    const Tetrahedron3<Real>* mTetrahedron0;
-    const Tetrahedron3<Real>* mTetrahedron1;
+	// The objects to intersect.
+	const Tetrahedron3<Real>* mTetrahedron0;
+	const Tetrahedron3<Real>* mTetrahedron1;
 
-    std::vector<Tetrahedron3<Real> > mIntersection;
+	std::vector<Tetrahedron3<Real> > mIntersection;
 };
 
 typedef IntrTetrahedron3Tetrahedron3<float> IntrTetrahedron3Tetrahedron3f;

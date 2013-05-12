@@ -19,18 +19,18 @@ namespace Wm5
 
 class GlossMapEffect : public VisualEffect
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(GlossMapEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(GlossMapEffect);
 
 public:
-    // Construction and destruction.
-    GlossMapEffect (const std::string& effectFile);
-    virtual ~GlossMapEffect ();
+	// Construction and destruction.
+	GlossMapEffect (const std::string& effectFile);
+	virtual ~GlossMapEffect ();
 
-    // Create an instance of the effect with unique parameters.
-    VisualEffectInstance* CreateInstance (Texture2D* texture, Light* light,
-        Material* material);
+	// Create an instance of the effect with unique parameters.
+	VisualEffectInstance* CreateInstance (Texture2D* texture, Light* light,
+	                                      Material* material);
 };
 
 WM5_REGISTER_STREAM(GlossMapEffect);

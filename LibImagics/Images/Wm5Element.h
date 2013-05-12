@@ -61,13 +61,13 @@ WM5_DECL_ELEMENT(rgb5);
 WM5_DECL_ELEMENT(rgb8);
 
 inline unsigned short GetColor16 (unsigned char r, unsigned char g,
-    unsigned char b);
+                                  unsigned char b);
 inline unsigned char GetRed16 (unsigned short color);
 inline unsigned char GetGreen16 (unsigned short color);
 inline unsigned char GetBlue16 (unsigned short color);
 
 inline unsigned int GetColor24 (unsigned char r, unsigned char g,
-    unsigned char b);
+                                unsigned char b);
 inline unsigned char GetRed24 (unsigned int color);
 inline unsigned char GetGreen24 (unsigned int color);
 inline unsigned char GetBlue24 (unsigned int color);

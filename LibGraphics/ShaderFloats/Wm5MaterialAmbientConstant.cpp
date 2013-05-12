@@ -18,11 +18,11 @@ WM5_IMPLEMENT_FACTORY(MaterialAmbientConstant);
 
 //----------------------------------------------------------------------------
 MaterialAmbientConstant::MaterialAmbientConstant (Material* material)
-    :
-    ShaderFloat(1),
-    mMaterial(material)
+	:
+	ShaderFloat(1),
+	mMaterial(material)
 {
-    EnableUpdater();
+	EnableUpdater();
 }
 //----------------------------------------------------------------------------
 MaterialAmbientConstant::~MaterialAmbientConstant ()
@@ -31,17 +31,17 @@ MaterialAmbientConstant::~MaterialAmbientConstant ()
 //----------------------------------------------------------------------------
 Material* MaterialAmbientConstant::GetMaterial ()
 {
-    return mMaterial;
+	return mMaterial;
 }
 //----------------------------------------------------------------------------
 void MaterialAmbientConstant::Update (const Visual*, const Camera*)
 {
-    const float* source = (const float*)mMaterial->Ambient;
-    float* target = mData;
-    for (int i = 0; i < 4; ++i)
-    {
-        *target++ = *source++;
-    }
+	const float* source = (const float*)mMaterial->Ambient;
+	float* target = mData;
+	for (int i = 0; i < 4; ++i)
+	{
+		*target++ = *source++;
+	}
 }
 //----------------------------------------------------------------------------
 
@@ -50,22 +50,22 @@ void MaterialAmbientConstant::Update (const Visual*, const Camera*)
 //----------------------------------------------------------------------------
 Object* MaterialAmbientConstant::GetObjectByName (const std::string& name)
 {
-    Object* found = ShaderFloat::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = ShaderFloat::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    WM5_GET_OBJECT_BY_NAME(mMaterial, name, found);
-    return 0;
+	WM5_GET_OBJECT_BY_NAME(mMaterial, name, found);
+	return 0;
 }
 //----------------------------------------------------------------------------
 void MaterialAmbientConstant::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+        std::vector<Object*>& objects)
 {
-    ShaderFloat::GetAllObjectsByName(name, objects);
+	ShaderFloat::GetAllObjectsByName(name, objects);
 
-    WM5_GET_ALL_OBJECTS_BY_NAME(mMaterial, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mMaterial, name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -73,59 +73,59 @@ void MaterialAmbientConstant::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 MaterialAmbientConstant::MaterialAmbientConstant (LoadConstructor value)
-    :
-    ShaderFloat(value)
+	:
+	ShaderFloat(value)
 {
 }
 //----------------------------------------------------------------------------
 void MaterialAmbientConstant::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    ShaderFloat::Load(source);
+	ShaderFloat::Load(source);
 
-    source.ReadPointer(mMaterial);
+	source.ReadPointer(mMaterial);
 
-    WM5_END_DEBUG_STREAM_LOAD(MaterialAmbientConstant, source);
+	WM5_END_DEBUG_STREAM_LOAD(MaterialAmbientConstant, source);
 }
 //----------------------------------------------------------------------------
 void MaterialAmbientConstant::Link (InStream& source)
 {
-    ShaderFloat::Link(source);
+	ShaderFloat::Link(source);
 
-    source.ResolveLink(mMaterial);
+	source.ResolveLink(mMaterial);
 }
 //----------------------------------------------------------------------------
 void MaterialAmbientConstant::PostLink ()
 {
-    ShaderFloat::PostLink();
+	ShaderFloat::PostLink();
 }
 //----------------------------------------------------------------------------
 bool MaterialAmbientConstant::Register (OutStream& target) const
 {
-    if (ShaderFloat::Register(target))
-    {
-        target.Register(mMaterial);
-        return true;
-    }
-    return false;
+	if (ShaderFloat::Register(target))
+	{
+		target.Register(mMaterial);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void MaterialAmbientConstant::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    ShaderFloat::Save(target);
+	ShaderFloat::Save(target);
 
-    target.WritePointer(mMaterial);
+	target.WritePointer(mMaterial);
 
-    WM5_END_DEBUG_STREAM_SAVE(MaterialAmbientConstant, target);
+	WM5_END_DEBUG_STREAM_SAVE(MaterialAmbientConstant, target);
 }
 //----------------------------------------------------------------------------
 int MaterialAmbientConstant::GetStreamingSize () const
 {
-    int size = ShaderFloat::GetStreamingSize();
-    size += WM5_POINTERSIZE(mMaterial);
-    return size;
+	int size = ShaderFloat::GetStreamingSize();
+	size += WM5_POINTERSIZE(mMaterial);
+	return size;
 }
 //----------------------------------------------------------------------------

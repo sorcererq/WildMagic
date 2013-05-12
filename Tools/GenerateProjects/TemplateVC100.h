@@ -12,22 +12,22 @@
 class TemplateVC100
 {
 public:
-    static void GenerateDx9 (const char* projectName);
-    static void GenerateWgl (const char* projectName);
+	static void GenerateDx9 (const char* projectName);
+	static void GenerateWgl (const char* projectName);
 
 private:
-    static void Generate (const char* projectName, const char* prefix,
-        char* projectLines[]);
+	static void Generate (const char* projectName, const char* prefix,
+	                      char* projectLines[]);
 
-    enum
-    {
-        NUM_PROJECT_LINES = 330,
-        NUM_FILTER_LINES = 23
-    };
+	enum
+	{
+		NUM_PROJECT_LINES = 330,
+		NUM_FILTER_LINES = 23
+	};
 
-    static char* msDx9ProjectLines[NUM_PROJECT_LINES];
-    static char* msWglProjectLines[NUM_PROJECT_LINES];
-    static char* msFilterLines[NUM_FILTER_LINES];
+	static char* msDx9ProjectLines[NUM_PROJECT_LINES];
+	static char* msWglProjectLines[NUM_PROJECT_LINES];
+	static char* msFilterLines[NUM_FILTER_LINES];
 };
 
 #endif

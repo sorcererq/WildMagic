@@ -12,34 +12,34 @@
 class MTTriangle
 {
 public:
-    MTTriangle (int label = -1);
-    MTTriangle (const MTTriangle& triangle);
-    virtual ~MTTriangle ();
+	MTTriangle (int label = -1);
+	MTTriangle (const MTTriangle& triangle);
+	virtual ~MTTriangle ();
 
-    MTTriangle& operator= (const MTTriangle& triangle);
+	MTTriangle& operator= (const MTTriangle& triangle);
 
-    inline int GetLabel () const;
-    inline int& Label ();
+	inline int GetLabel () const;
+	inline int& Label ();
 
-    inline int GetVertex (int i) const;
-    inline int& Vertex (int i);
-    bool ReplaceVertex (int vOld, int vNew);
+	inline int GetVertex (int i) const;
+	inline int& Vertex (int i);
+	bool ReplaceVertex (int vOld, int vNew);
 
-    inline int GetEdge (int i) const;
-    inline int& Edge (int i);
-    bool ReplaceEdge (int eOld, int eNew);
+	inline int GetEdge (int i) const;
+	inline int& Edge (int i);
+	bool ReplaceEdge (int eOld, int eNew);
 
-    inline int GetAdjacent (int i) const;
-    inline int& Adjacent (int i);
-    bool ReplaceAdjacent (int aOld, int aNew);
+	inline int GetAdjacent (int i) const;
+	inline int& Adjacent (int i);
+	bool ReplaceAdjacent (int aOld, int aNew);
 
-    bool operator== (const MTTriangle& triangle) const;
+	bool operator== (const MTTriangle& triangle) const;
 
 protected:
-    int mLabel;
-    int mVertex[3];
-    int mEdge[3];
-    int mAdjacent[3];
+	int mLabel;
+	int mVertex[3];
+	int mEdge[3];
+	int mAdjacent[3];
 };
 
 #include "MTTriangle.inl"

@@ -16,31 +16,31 @@ namespace Wm5
 template <typename Real>
 IntrSegment3Lozenge3<Real>::IntrSegment3Lozenge3 (
     const Segment3<Real>& rkSegment, const Lozenge3<Real>& rkLozenge)
-    :
-    mSegment(&rkSegment),
-    mLozenge(&rkLozenge)
+	:
+	mSegment(&rkSegment),
+	mLozenge(&rkLozenge)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Segment3<Real>& IntrSegment3Lozenge3<Real>::GetSegment () const
 {
-    return *mSegment;
+	return *mSegment;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Lozenge3<Real>& IntrSegment3Lozenge3<Real>::GetLozenge () const
 {
-    return *mLozenge;
+	return *mLozenge;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 bool IntrSegment3Lozenge3<Real>::Test ()
 {
-    Real distance = DistSegment3Rectangle3<Real>(*mSegment,
-        mLozenge->Rectangle).Get();
+	Real distance = DistSegment3Rectangle3<Real>(*mSegment,
+	                mLozenge->Rectangle).Get();
 
-    return distance <= mLozenge->Radius;
+	return distance <= mLozenge->Radius;
 }
 //----------------------------------------------------------------------------
 

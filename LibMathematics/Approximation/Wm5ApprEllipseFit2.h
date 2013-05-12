@@ -30,19 +30,19 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM EllipseFit2
 {
 public:
-    EllipseFit2 (int numPoints, const Vector2<Real>* points,
-        Vector2<Real>& center, Matrix2<Real>& rotate, Real diag[2],
-        Real& error);
+	EllipseFit2 (int numPoints, const Vector2<Real>* points,
+	             Vector2<Real>& center, Matrix2<Real>& rotate, Real diag[2],
+	             Real& error);
 
 private:
-    static void InitialGuess (int numPoints, const Vector2<Real>* points,
-        Vector2<Real>& center, Matrix2<Real>& rotate, Real diag[2]);
+	static void InitialGuess (int numPoints, const Vector2<Real>* points,
+	                          Vector2<Real>& center, Matrix2<Real>& rotate, Real diag[2]);
 
-    static Real Energy (const Real* input, void* userData);
+	static Real Energy (const Real* input, void* userData);
 
-    int mNumPoints;
-    const Vector2<Real>* mPoints;
-    Vector2<Real>* mTemp;
+	int mNumPoints;
+	const Vector2<Real>* mPoints;
+	Vector2<Real>* mTemp;
 };
 
 typedef EllipseFit2<float> EllipseFit2f;

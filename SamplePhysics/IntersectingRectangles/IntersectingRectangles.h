@@ -14,27 +14,27 @@ using namespace Wm5;
 
 class IntersectingRectangles : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    IntersectingRectangles ();
+	IntersectingRectangles ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual void OnDisplay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual void OnDisplay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void ModifyRectangles ();
-    void DrawRectangles ();
+	void ModifyRectangles ();
+	void DrawRectangles ();
 
-    std::vector<AxisAlignedBox2f> mRectangles;
-    RectangleManagerf* mManager;
-    float mLastIdle;
-    int mSize;
-    bool mMouseDown;
+	std::vector<AxisAlignedBox2f> mRectangles;
+	RectangleManagerf* mManager;
+	float mLastIdle;
+	int mSize;
+	bool mMouseDown;
 };
 
 WM5_REGISTER_INITIALIZE(IntersectingRectangles);

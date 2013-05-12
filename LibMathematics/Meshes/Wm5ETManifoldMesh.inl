@@ -9,11 +9,11 @@
 //----------------------------------------------------------------------------
 inline const ETManifoldMesh::EMap& ETManifoldMesh::GetEdges () const
 {
-    return mEMap;
+	return mEMap;
 }
 //----------------------------------------------------------------------------
 inline const ETManifoldMesh::TMap& ETManifoldMesh::GetTriangles () const
 {
-    return mTMap;
+	return mTMap;
 }
 //----------------------------------------------------------------------------

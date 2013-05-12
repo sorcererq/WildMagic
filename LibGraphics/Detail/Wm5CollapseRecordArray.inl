@@ -9,11 +9,11 @@
 //----------------------------------------------------------------------------
 inline int CollapseRecordArray::GetNumRecords () const
 {
-    return mNumRecords;
+	return mNumRecords;
 }
 //----------------------------------------------------------------------------
 inline CollapseRecord* CollapseRecordArray::GetRecords () const
 {
-    return mRecords;
+	return mRecords;
 }
 //----------------------------------------------------------------------------

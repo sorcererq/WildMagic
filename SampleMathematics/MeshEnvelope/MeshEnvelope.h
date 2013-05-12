@@ -15,28 +15,28 @@ using namespace Wm5;
 
 class MeshEnvelope : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    MeshEnvelope ();
+	MeshEnvelope ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
 
 protected:
-    // mesh
-    int mNumVertices;
-    Vector2f* mVertices;
-    int mNumIndices;
-    int* mIndices;
+	// mesh
+	int mNumVertices;
+	Vector2f* mVertices;
+	int mNumIndices;
+	int* mIndices;
 
-    // envelope of mesh
-    int mNumEnvelopeVertices;
-    Vector2f* mEnvelopeVertices;
+	// envelope of mesh
+	int mNumEnvelopeVertices;
+	Vector2f* mEnvelopeVertices;
 
-    int mSize;
+	int mSize;
 };
 
 WM5_REGISTER_INITIALIZE(MeshEnvelope);

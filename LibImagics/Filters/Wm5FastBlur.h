@@ -71,15 +71,15 @@ namespace Wm5
 
 template <typename Numeric>
 void FastBlur1 (int xBound, Numeric* image,
-    Numeric* temp, double scale, double logBase);
+                Numeric* temp, double scale, double logBase);
 
 template <typename Numeric>
 void FastBlur2 (int xBound, int yBound,
-    Numeric** image, Numeric** temp, double scale, double logBase);
+                Numeric** image, Numeric** temp, double scale, double logBase);
 
 template <typename Numeric>
 void FastBlur3 (int xBound, int yBound, int zBound,
-    Numeric*** image, Numeric*** temp, double scale, double logBase);
+                Numeric*** image, Numeric*** temp, double scale, double logBase);
 
 #include "Wm5FastBlur.inl"
 

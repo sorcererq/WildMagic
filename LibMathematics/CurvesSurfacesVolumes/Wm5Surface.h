@@ -18,11 +18,11 @@ template <typename Real>
 class WM5_MATHEMATICS_ITEM Surface
 {
 public:
-    // Abstract base class.
-    virtual ~Surface ();
+	// Abstract base class.
+	virtual ~Surface ();
 
 protected:
-    Surface ();
+	Surface ();
 };
 
 typedef Surface<float> Surfacef;

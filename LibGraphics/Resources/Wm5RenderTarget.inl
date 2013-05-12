@@ -9,41 +9,41 @@
 //----------------------------------------------------------------------------
 inline int RenderTarget::GetNumTargets () const
 {
-    return mNumTargets;
+	return mNumTargets;
 }
 //----------------------------------------------------------------------------
 inline Texture::Format RenderTarget::GetFormat () const
 {
-    return mColorTextures[0]->GetFormat();
+	return mColorTextures[0]->GetFormat();
 }
 //----------------------------------------------------------------------------
 inline int RenderTarget::GetWidth () const
 {
-    return mColorTextures[0]->GetWidth();
+	return mColorTextures[0]->GetWidth();
 }
 //----------------------------------------------------------------------------
 inline int RenderTarget::GetHeight () const
 {
-    return mColorTextures[0]->GetHeight();
+	return mColorTextures[0]->GetHeight();
 }
 //----------------------------------------------------------------------------
 inline Texture2D* RenderTarget::GetColorTexture (int i) const
 {
-    return mColorTextures[i];
+	return mColorTextures[i];
 }
 //----------------------------------------------------------------------------
 inline Texture2D* RenderTarget::GetDepthStencilTexture () const
 {
-    return mDepthStencilTexture;
+	return mDepthStencilTexture;
 }
 //----------------------------------------------------------------------------
 inline bool RenderTarget::HasMipmaps () const
 {
-    return mHasMipmaps;
+	return mHasMipmaps;
 }
 //----------------------------------------------------------------------------
 inline bool RenderTarget::HasDepthStencil () const
 {
-    return mDepthStencilTexture != 0;
+	return mDepthStencilTexture != 0;
 }
 //----------------------------------------------------------------------------

@@ -18,43 +18,43 @@ typedef std::pair<int,int> Edge3;
 class VETable
 {
 public:
-    // Construction and destruction.
-    VETable ();
-    ~VETable ();
+	// Construction and destruction.
+	VETable ();
+	~VETable ();
 
-    // Member access.
-    bool IsValidVertex (int i) const;
-    int GetNumVertices () const;
-    const Vector3f& GetPosition (int i) const;
+	// Member access.
+	bool IsValidVertex (int i) const;
+	int GetNumVertices () const;
+	const Vector3f& GetPosition (int i) const;
 
-    // Mesh insertions and removals.
-    void Insert (int i, float x, float y, float z);
-    void Insert (const Vector3f& position);
-    void Insert (const Edge3& edge);
+	// Mesh insertions and removals.
+	void Insert (int i, float x, float y, float z);
+	void Insert (const Vector3f& position);
+	void Insert (const Edge3& edge);
 
-    void RemoveTrianglesEC (std::vector<Vector3f>& positions,
-        std::vector<TriangleKey>& triangles);
+	void RemoveTrianglesEC (std::vector<Vector3f>& positions,
+	                        std::vector<TriangleKey>& triangles);
 
-    void RemoveTrianglesSE (std::vector<Vector3f>& positions,
-        std::vector<TriangleKey>& triangles);
+	void RemoveTrianglesSE (std::vector<Vector3f>& positions,
+	                        std::vector<TriangleKey>& triangles);
 
 protected:
-    void RemoveVertex (int i);
-    bool RemoveEC (TriangleKey& triangle);  // ear clipping
+	void RemoveVertex (int i);
+	bool RemoveEC (TriangleKey& triangle);  // ear clipping
 
-    class Vertex
-    {
-    public:
-        Vertex ();
-        Vertex (const Vector3f& position);
+	class Vertex
+	{
+	public:
+		Vertex ();
+		Vertex (const Vector3f& position);
 
-        Vector3f mPosition;
-        int mAdjQuantity;
-        int mAdjacent[4];
-        bool mValid;
-    };
+		Vector3f mPosition;
+		int mAdjQuantity;
+		int mAdjacent[4];
+		bool mValid;
+	};
 
-    std::vector<Vertex> mVertices;
+	std::vector<Vertex> mVertices;
 };
 
 #endif

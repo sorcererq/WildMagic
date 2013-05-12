@@ -13,24 +13,24 @@
 extern "C"
 {
 //----------------------------------------------------------------------------
-void* GTGetFunctionPointer (const char* function)
-{
-    NSSymbol symbol;
-    char* symbolName;
-
-    // Prepend a '_' for the Unix C symbol mangling convention.
-    symbolName = (char*)malloc(strlen((const char*)function) + 2);
-    strcpy(symbolName + 1,(const char*)function);
-    symbolName[0] = '_';
-
-    symbol = 0;
-    if (NSIsSymbolNameDefined(symbolName))
+	void* GTGetFunctionPointer (const char* function)
 	{
-        symbol = NSLookupAndBindSymbol(symbolName);
-	}
+		NSSymbol symbol;
+		char* symbolName;
 
-    free(symbolName);
-    return symbol ? NSAddressOfSymbol(symbol) : 0;
-}
+		// Prepend a '_' for the Unix C symbol mangling convention.
+		symbolName = (char*)malloc(strlen((const char*)function) + 2);
+		strcpy(symbolName + 1,(const char*)function);
+		symbolName[0] = '_';
+
+		symbol = 0;
+		if (NSIsSymbolNameDefined(symbolName))
+		{
+			symbol = NSLookupAndBindSymbol(symbolName);
+		}
+
+		free(symbolName);
+		return symbol ? NSAddressOfSymbol(symbol) : 0;
+	}
 //----------------------------------------------------------------------------
 }

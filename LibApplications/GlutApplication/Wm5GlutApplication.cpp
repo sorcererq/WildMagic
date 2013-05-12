@@ -65,253 +65,253 @@ static int gsButton = -1;
 //----------------------------------------------------------------------------
 void WindowApplication::SetMousePosition (int, int)
 {
-    assertion(false, "Not implemented.\n");
+	assertion(false, "Not implemented.\n");
 }
 //----------------------------------------------------------------------------
 void WindowApplication::GetMousePosition (int&, int&) const
 {
-    assertion(false, "Not implemented.\n");
+	assertion(false, "Not implemented.\n");
 }
 //----------------------------------------------------------------------------
 int WindowApplication::GetStringWidth (const char* text) const
 {
-    if (!text || strlen(text) == 0)
-    {
-        return 0;
-    }
+	if (!text || strlen(text) == 0)
+	{
+		return 0;
+	}
 
-    return 8.0f*strlen(text);
+	return 8.0f*strlen(text);
 }
 //----------------------------------------------------------------------------
 int WindowApplication::GetCharacterWidth (const char) const
 {
-    return 8.0f;
+	return 8.0f;
 }
 //----------------------------------------------------------------------------
 int WindowApplication::GetFontHeight () const
 {
-    return 13.0f;
+	return 13.0f;
 }
 //----------------------------------------------------------------------------
 static void ReshapeCallback (int width, int height)
 {
-    WindowApplication* theApp =
-        (WindowApplication*)Application::TheApplication;
+	WindowApplication* theApp =
+	    (WindowApplication*)Application::TheApplication;
 
-    if (theApp)
-    {
-        theApp->OnResize(width, height);
-        theApp->OnDisplay();
-    }
+	if (theApp)
+	{
+		theApp->OnResize(width, height);
+		theApp->OnDisplay();
+	}
 }
 //----------------------------------------------------------------------------
 static void DisplayCallback ()
 {
-    WindowApplication* theApp =
-        (WindowApplication*)Application::TheApplication;
+	WindowApplication* theApp =
+	    (WindowApplication*)Application::TheApplication;
 
-    if (theApp)
-    {
-        theApp->OnDisplay();
-    }
+	if (theApp)
+	{
+		theApp->OnDisplay();
+	}
 }
 //----------------------------------------------------------------------------
 static void IdleCallback ()
 {
-    WindowApplication* theApp =
-        (WindowApplication*)Application::TheApplication;
+	WindowApplication* theApp =
+	    (WindowApplication*)Application::TheApplication;
 
-    if (theApp)
-    {
-        theApp->OnIdle();
-    }
+	if (theApp)
+	{
+		theApp->OnIdle();
+	}
 }
 //----------------------------------------------------------------------------
 static void KeyDownCallback (unsigned char key, int x, int y)
 {
-    WindowApplication* theApp =
-        (WindowApplication*)Application::TheApplication;
+	WindowApplication* theApp =
+	    (WindowApplication*)Application::TheApplication;
 
-    if (theApp)
-    {
-        if (key == theApp->KEY_TERMINATE)
-        {
-            exit(0);
-        }
+	if (theApp)
+	{
+		if (key == theApp->KEY_TERMINATE)
+		{
+			exit(0);
+		}
 
-        theApp->OnKeyDown(key, x, y);
-    }
+		theApp->OnKeyDown(key, x, y);
+	}
 }
 //----------------------------------------------------------------------------
 static void KeyUpCallback (unsigned char key, int x, int y)
 {
-    WindowApplication* theApp =
-        (WindowApplication*)Application::TheApplication;
+	WindowApplication* theApp =
+	    (WindowApplication*)Application::TheApplication;
 
-    if (theApp)
-    {
-        theApp->OnKeyUp(key, x, y);
-    }
+	if (theApp)
+	{
+		theApp->OnKeyUp(key, x, y);
+	}
 }
 //----------------------------------------------------------------------------
 static void SpecialKeyDownCallback (int key, int x, int y)
 {
-    WindowApplication* theApp =
-        (WindowApplication*)Application::TheApplication;
+	WindowApplication* theApp =
+	    (WindowApplication*)Application::TheApplication;
 
-    if (theApp)
-    {
-        theApp->OnSpecialKeyDown(key, x, y);
-    }
+	if (theApp)
+	{
+		theApp->OnSpecialKeyDown(key, x, y);
+	}
 }
 //----------------------------------------------------------------------------
 static void SpecialKeyUpCallback (int key, int x, int y)
 {
-    WindowApplication* theApp =
-        (WindowApplication*)Application::TheApplication;
+	WindowApplication* theApp =
+	    (WindowApplication*)Application::TheApplication;
 
-    if (theApp)
-    {
-        theApp->OnSpecialKeyUp(key, x, y);
-    }
+	if (theApp)
+	{
+		theApp->OnSpecialKeyUp(key, x, y);
+	}
 }
 //----------------------------------------------------------------------------
 static void MouseClickCallback (int button, int state, int x, int y)
 {
-    WindowApplication* theApp =
-        (WindowApplication*)Application::TheApplication;
+	WindowApplication* theApp =
+	    (WindowApplication*)Application::TheApplication;
 
-    if (theApp)
-    {
-        int modifiers = glutGetModifiers();
-        gsGLUTModifiers = *(unsigned int*)&modifiers;
-        if (state == WindowApplication::MOUSE_DOWN)
-        {
-            gsButton = button;
-        }
-        else
-        {
-            gsButton = -1;
-        }
+	if (theApp)
+	{
+		int modifiers = glutGetModifiers();
+		gsGLUTModifiers = *(unsigned int*)&modifiers;
+		if (state == WindowApplication::MOUSE_DOWN)
+		{
+			gsButton = button;
+		}
+		else
+		{
+			gsButton = -1;
+		}
 
-        theApp->OnMouseClick(button, state, x, y, gsGLUTModifiers);
-    }
+		theApp->OnMouseClick(button, state, x, y, gsGLUTModifiers);
+	}
 }
 //----------------------------------------------------------------------------
 static void MotionCallback (int x, int y)
 {
-    WindowApplication* theApp =
-        (WindowApplication*)Application::TheApplication;
+	WindowApplication* theApp =
+	    (WindowApplication*)Application::TheApplication;
 
-    if (theApp)
-    {
-        theApp->OnMotion(gsButton, x, y, gsGLUTModifiers);
-    }
+	if (theApp)
+	{
+		theApp->OnMotion(gsButton, x, y, gsGLUTModifiers);
+	}
 }
 //----------------------------------------------------------------------------
 static void PassiveMotionCallback (int x, int y)
 {
-    WindowApplication* theApp =
-        (WindowApplication*)Application::TheApplication;
+	WindowApplication* theApp =
+	    (WindowApplication*)Application::TheApplication;
 
-    if (theApp)
-    {
-        theApp->OnPassiveMotion(x, y);
-    }
+	if (theApp)
+	{
+		theApp->OnPassiveMotion(x, y);
+	}
 }
 //----------------------------------------------------------------------------
 static void Terminate ()
 {
-    WindowApplication* theApp =
-        (WindowApplication*)Application::TheApplication;
+	WindowApplication* theApp =
+	    (WindowApplication*)Application::TheApplication;
 
-    if (theApp)
-    {
-        theApp->OnTerminate();
-        glutDestroyWindow(theApp->GetWindowID());
-        Renderer* renderer = (Renderer*)theApp->GetRenderer();
-        delete0(renderer);
-    }
+	if (theApp)
+	{
+		theApp->OnTerminate();
+		glutDestroyWindow(theApp->GetWindowID());
+		Renderer* renderer = (Renderer*)theApp->GetRenderer();
+		delete0(renderer);
+	}
 }
 //----------------------------------------------------------------------------
 int WindowApplication::Main (int, char**)
 {
-    WindowApplication* theApp = (WindowApplication*)TheApplication;
-    theApp->KEY_TERMINATE = WindowApplication::KEY_ESCAPE;
+	WindowApplication* theApp = (WindowApplication*)TheApplication;
+	theApp->KEY_TERMINATE = WindowApplication::KEY_ESCAPE;
 
-    // OpenGL uses a projection matrix for depth in [-1,1].
-    Camera::SetDefaultDepthType(Camera::PM_DEPTH_MINUS_ONE_TO_ONE);
+	// OpenGL uses a projection matrix for depth in [-1,1].
+	Camera::SetDefaultDepthType(Camera::PM_DEPTH_MINUS_ONE_TO_ONE);
 
-    // Register the termination function so that we can destroy the window
-    // after GLUT abnormally calls 'exit'.
-    if (atexit(Terminate) != 0)
-    {
-        return -1;
-    }
+	// Register the termination function so that we can destroy the window
+	// after GLUT abnormally calls 'exit'.
+	if (atexit(Terminate) != 0)
+	{
+		return -1;
+	}
 
-    // Give GLUT dummy arguments, because we are not allowing control to
-    // GLUT via command-line parameters.
-    int numArguments = 1;
-    char* arguments[1];
-    arguments[0] = new char[6];
-    strcpy(arguments[0], "dummy");
-    glutInit(&numArguments, arguments);
-    delete[] arguments[0];
+	// Give GLUT dummy arguments, because we are not allowing control to
+	// GLUT via command-line parameters.
+	int numArguments = 1;
+	char* arguments[1];
+	arguments[0] = new char[6];
+	strcpy(arguments[0], "dummy");
+	glutInit(&numArguments, arguments);
+	delete[] arguments[0];
 
-    // We will always use double buffering, 32-bit RGBA front buffer,
-    // depth buffer, and stencil buffer.
-    if (mNumMultisamples == 0)
-    {
-        glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_STENCIL);
-    }
-    else
-    {
-        glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_STENCIL
-            | GLUT_MULTISAMPLE);
-        mNumMultisamples = glutGet(GLUT_WINDOW_NUM_SAMPLES);
-    }
+	// We will always use double buffering, 32-bit RGBA front buffer,
+	// depth buffer, and stencil buffer.
+	if (mNumMultisamples == 0)
+	{
+		glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_STENCIL);
+	}
+	else
+	{
+		glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_STENCIL
+		                    | GLUT_MULTISAMPLE);
+		mNumMultisamples = glutGet(GLUT_WINDOW_NUM_SAMPLES);
+	}
 
-    // Allow work to be done before the window is created.
-    if (!theApp->OnPrecreate())
-    {
-        return -2;
-    }
+	// Allow work to be done before the window is created.
+	if (!theApp->OnPrecreate())
+	{
+		return -2;
+	}
 
-    // Create window and renderer.  Multisampling is not supported.
-    glutInitWindowSize(theApp->GetWidth(), theApp->GetHeight());
-    RendererInput input;
-    input.mWindowID = glutCreateWindow(theApp->GetWindowTitle());
-    input.mDisableVerticalSync = true;
-    mRenderer = new0 Renderer(input, theApp->GetWidth(), theApp->GetHeight(),
-        mColorFormat, mDepthStencilFormat, mNumMultisamples);
+	// Create window and renderer.  Multisampling is not supported.
+	glutInitWindowSize(theApp->GetWidth(), theApp->GetHeight());
+	RendererInput input;
+	input.mWindowID = glutCreateWindow(theApp->GetWindowTitle());
+	input.mDisableVerticalSync = true;
+	mRenderer = new0 Renderer(input, theApp->GetWidth(), theApp->GetHeight(),
+	                          mColorFormat, mDepthStencilFormat, mNumMultisamples);
 
-    // Save the handle as an 'int' for portable handle storage.
-    theApp->SetWindowID(input.mWindowID);
+	// Save the handle as an 'int' for portable handle storage.
+	theApp->SetWindowID(input.mWindowID);
 
-    // Set the callbacks for event handling.
-    glutReshapeFunc(ReshapeCallback);
-    glutDisplayFunc(DisplayCallback);
-    glutIdleFunc(IdleCallback);
-    glutKeyboardFunc(KeyDownCallback);
-    glutKeyboardUpFunc(KeyUpCallback);
-    glutSpecialFunc(SpecialKeyDownCallback);
-    glutSpecialUpFunc(SpecialKeyUpCallback);
-    glutMouseFunc(MouseClickCallback);
-    glutMotionFunc(MotionCallback);
-    glutPassiveMotionFunc(PassiveMotionCallback);
+	// Set the callbacks for event handling.
+	glutReshapeFunc(ReshapeCallback);
+	glutDisplayFunc(DisplayCallback);
+	glutIdleFunc(IdleCallback);
+	glutKeyboardFunc(KeyDownCallback);
+	glutKeyboardUpFunc(KeyUpCallback);
+	glutSpecialFunc(SpecialKeyDownCallback);
+	glutSpecialUpFunc(SpecialKeyUpCallback);
+	glutMouseFunc(MouseClickCallback);
+	glutMotionFunc(MotionCallback);
+	glutPassiveMotionFunc(PassiveMotionCallback);
 
-    if (theApp->OnInitialize())
-    {
-        // The default OnPreidle() clears the buffers.  Allow the application
-        // to fill them before the window is shown and before the event loop
-        // starts.
-        theApp->OnPreidle();
+	if (theApp->OnInitialize())
+	{
+		// The default OnPreidle() clears the buffers.  Allow the application
+		// to fill them before the window is shown and before the event loop
+		// starts.
+		theApp->OnPreidle();
 
-        glutMainLoop();
-    }
+		glutMainLoop();
+	}
 
-    // Because glutMainLoop never exits, the clean-up is handled via the
-    // static Terminate in this file (registered with 'atexit').
-    return 0;
+	// Because glutMainLoop never exits, the clean-up is handled via the
+	// static Terminate in this file (registered with 'atexit').
+	return 0;
 }
 //----------------------------------------------------------------------------

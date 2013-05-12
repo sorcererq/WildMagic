@@ -19,19 +19,19 @@ namespace Wm5
 
 class WM5_GRAPHICS_ITEM GlobalEffect : public Object
 {
-    WM5_DECLARE_RTTI;
-    WM5_DECLARE_NAMES;
-    WM5_DECLARE_STREAM(GlobalEffect);
+	WM5_DECLARE_RTTI;
+	WM5_DECLARE_NAMES;
+	WM5_DECLARE_STREAM(GlobalEffect);
 
 protected:
-    // Abstract base class.  Construction and destruction.
-    GlobalEffect ();
+	// Abstract base class.  Construction and destruction.
+	GlobalEffect ();
 public:
-    virtual ~GlobalEffect ();
+	virtual ~GlobalEffect ();
 
-    // This function is called in Renderer::Draw(visibleSet,globalEffect)
-    // when the globalEffect is nonnull.
-    virtual void Draw (Renderer* renderer, const VisibleSet& visibleSet) = 0;
+	// This function is called in Renderer::Draw(visibleSet,globalEffect)
+	// when the globalEffect is nonnull.
+	virtual void Draw (Renderer* renderer, const VisibleSet& visibleSet) = 0;
 };
 
 WM5_REGISTER_STREAM(GlobalEffect);

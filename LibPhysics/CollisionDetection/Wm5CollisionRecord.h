@@ -39,37 +39,37 @@ template <class Mesh, class Bound>
 class CollisionRecord
 {
 public:
-    typedef void (*Callback) (
-        CollisionRecord& record0, int t0,
-        CollisionRecord& record1, int t1,
-        Intersector<float,Vector3f>* intersector);
+	typedef void (*Callback) (
+	    CollisionRecord& record0, int t0,
+	    CollisionRecord& record1, int t1,
+	    Intersector<float,Vector3f>* intersector);
 
-    // Construction and destruction.  The input 'tree' must be dynamically
-    // allocated and created using 'storeInteriorTris = true'.
-    // CollisionRecord assumes responsibility for deleting 'tree'.
-    CollisionRecord (BoundTree<Mesh,Bound>* tree, const AVector* velocity,
-        Callback callback, void* callbackData);
+	// Construction and destruction.  The input 'tree' must be dynamically
+	// allocated and created using 'storeInteriorTris = true'.
+	// CollisionRecord assumes responsibility for deleting 'tree'.
+	CollisionRecord (BoundTree<Mesh,Bound>* tree, const AVector* velocity,
+	                 Callback callback, void* callbackData);
 
-    ~CollisionRecord ();
+	~CollisionRecord ();
 
-    // Member access.
-    inline Mesh* GetMesh () const;
-    inline const AVector* GetVelocity () const;
-    inline const void* GetCallbackData () const;
+	// Member access.
+	inline Mesh* GetMesh () const;
+	inline const AVector* GetVelocity () const;
+	inline const void* GetCallbackData () const;
 
-    // Intersection queries.  See the comments in class CollisionGroup about
-    // what information is available to the application via the callback
-    // function.
-    void TestIntersection (CollisionRecord& record);
-    void FindIntersection (CollisionRecord& record);
-    void TestIntersection (float tmax, CollisionRecord& record);
-    void FindIntersection (float tmax ,CollisionRecord& record);
+	// Intersection queries.  See the comments in class CollisionGroup about
+	// what information is available to the application via the callback
+	// function.
+	void TestIntersection (CollisionRecord& record);
+	void FindIntersection (CollisionRecord& record);
+	void TestIntersection (float tmax, CollisionRecord& record);
+	void FindIntersection (float tmax ,CollisionRecord& record);
 
 protected:
-    BoundTree<Mesh,Bound>* mTree;
-    const AVector* mVelocity;
-    Callback mCallback;
-    void* mCallbackData;
+	BoundTree<Mesh,Bound>* mTree;
+	const AVector* mVelocity;
+	Callback mCallback;
+	void* mCallbackData;
 };
 
 #include "Wm5CollisionRecord.inl"

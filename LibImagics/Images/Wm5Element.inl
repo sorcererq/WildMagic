@@ -8,48 +8,48 @@
 
 //----------------------------------------------------------------------------
 inline unsigned short GetColor16 (unsigned char r, unsigned char g,
-    unsigned char b)
+                                  unsigned char b)
 {
-    return (unsigned short)((unsigned(b) >> 3) 
-        |  ((unsigned(g) >> 3) << 5 ) 
-        |  ((unsigned(r) >> 3) << 10));
+	return (unsigned short)((unsigned(b) >> 3)
+	                        |  ((unsigned(g) >> 3) << 5 )
+	                        |  ((unsigned(r) >> 3) << 10));
 }
 //----------------------------------------------------------------------------
 inline unsigned char GetBlue16 (unsigned short color)
-{ 
-    return (unsigned char)(color & 0x001F); 
+{
+	return (unsigned char)(color & 0x001F);
 }
 //----------------------------------------------------------------------------
 inline unsigned char GetGreen16 (unsigned short color)
-{ 
-    return (unsigned char)((color & 0x03E0) >> 5); 
+{
+	return (unsigned char)((color & 0x03E0) >> 5);
 }
 //----------------------------------------------------------------------------
 inline unsigned char GetRed16 (unsigned short color)
-{ 
-    return (unsigned char)((color & 0x7C00) >> 10);
+{
+	return (unsigned char)((color & 0x7C00) >> 10);
 }
 //----------------------------------------------------------------------------
 inline unsigned int GetColor24 (unsigned char r, unsigned char g,
-    unsigned char b)
+                                unsigned char b)
 {
-    return (unsigned(b))
-        |  ((unsigned(g)) << 8)
-        |  ((unsigned(r)) << 16);
+	return (unsigned(b))
+	       |  ((unsigned(g)) << 8)
+	       |  ((unsigned(r)) << 16);
 }
 //----------------------------------------------------------------------------
 inline unsigned char GetBlue24 (unsigned int color)
-{ 
-    return (unsigned char)(color & 0x000000FF); 
+{
+	return (unsigned char)(color & 0x000000FF);
 }
 //----------------------------------------------------------------------------
 inline unsigned char GetGreen24 (unsigned int color)
-{ 
-    return (unsigned char)((color & 0x0000FF00) >> 8); 
+{
+	return (unsigned char)((color & 0x0000FF00) >> 8);
 }
 //----------------------------------------------------------------------------
 inline unsigned char GetRed24 (unsigned int color)
-{ 
-    return (unsigned char)((color & 0x00FF0000) >> 16);
+{
+	return (unsigned char)((color & 0x00FF0000) >> 16);
 }
 //----------------------------------------------------------------------------

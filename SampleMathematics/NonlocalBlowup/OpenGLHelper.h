@@ -24,53 +24,53 @@
 class OpenGL
 {
 public:
-    // Support for error reporting.
-    static bool IsSuccessful ();
+	// Support for error reporting.
+	static bool IsSuccessful ();
 
-    // Buffer creation and destruction.
-    static GLuint CreateVertexBuffer (int numVertices, int stride,
-        GLenum usage, const GLvoid* initialData);
-    static GLuint CreateIndexBuffer (int numIndices, int stride, GLenum usage,
-        const GLvoid* initialData);
-    static void DestroyBuffer (GLuint& buffer);
+	// Buffer creation and destruction.
+	static GLuint CreateVertexBuffer (int numVertices, int stride,
+	                                  GLenum usage, const GLvoid* initialData);
+	static GLuint CreateIndexBuffer (int numIndices, int stride, GLenum usage,
+	                                 const GLvoid* initialData);
+	static void DestroyBuffer (GLuint& buffer);
 
-    // Framebuffer creation and destruction.  The texture is attached to the
-    // framebuffer.  The framebuffer does not have a depth-stencil attachment.
-    static GLuint CreateFrameBuffer (GLuint texture);
-    static void DestroyFrameBuffer (GLuint& framebuffer);
+	// Framebuffer creation and destruction.  The texture is attached to the
+	// framebuffer.  The framebuffer does not have a depth-stencil attachment.
+	static GLuint CreateFrameBuffer (GLuint texture);
+	static void DestroyFrameBuffer (GLuint& framebuffer);
 
-    // Shader and program creation and destruction.  A positive handle is
-    // returned when the creation is successful; otherwise, zero is returned.
-    static GLuint CreateVertexShader (const char* text);
-    static GLuint CreateFragmentShader (const char* text);
-    static void DestroyShader (GLuint& shader);
-    static GLuint CreateProgram (GLuint vertexShader, GLuint fragmentShader);
-    static void DestroyProgram (GLuint& program);
+	// Shader and program creation and destruction.  A positive handle is
+	// returned when the creation is successful; otherwise, zero is returned.
+	static GLuint CreateVertexShader (const char* text);
+	static GLuint CreateFragmentShader (const char* text);
+	static void DestroyShader (GLuint& shader);
+	static GLuint CreateProgram (GLuint vertexShader, GLuint fragmentShader);
+	static void DestroyProgram (GLuint& program);
 
-    // Texture creation and destruction.
-    static GLuint CreateTexture1D (int width, GLenum format,
-        GLint internalFormat, GLenum type, const GLvoid* initialData);
-    static GLuint CreateTexture2D (int width, int height, GLenum format,
-        GLint internalFormat, GLenum type, const GLvoid* initialData);
-    static GLuint CreateTexture3D (int width, int height, int depth,
-        GLenum format, GLint internalFormat, GLenum type,
-        const GLvoid* initialData);
-    static GLuint CreateTextureRectangle (int width, int height,
-        GLenum format, GLint internalFormat, GLenum type,
-        const GLvoid* initialData);
-    static void DestroyTexture (GLuint& texture);
+	// Texture creation and destruction.
+	static GLuint CreateTexture1D (int width, GLenum format,
+	                               GLint internalFormat, GLenum type, const GLvoid* initialData);
+	static GLuint CreateTexture2D (int width, int height, GLenum format,
+	                               GLint internalFormat, GLenum type, const GLvoid* initialData);
+	static GLuint CreateTexture3D (int width, int height, int depth,
+	                               GLenum format, GLint internalFormat, GLenum type,
+	                               const GLvoid* initialData);
+	static GLuint CreateTextureRectangle (int width, int height,
+	                                      GLenum format, GLint internalFormat, GLenum type,
+	                                      const GLvoid* initialData);
+	static void DestroyTexture (GLuint& texture);
 
 private:
-    // Code common to vertex and index buffer creation and destruction.
-    static GLuint CreateBuffer (GLenum type, int numElements, int stride,
-        GLenum usage, const GLvoid* initialData);
+	// Code common to vertex and index buffer creation and destruction.
+	static GLuint CreateBuffer (GLenum type, int numElements, int stride,
+	                            GLenum usage, const GLvoid* initialData);
 
-    // Code common to vertex and fragment shader creation and destruction.
-    static GLuint CreateShader (GLenum type, const char* text);
+	// Code common to vertex and fragment shader creation and destruction.
+	static GLuint CreateShader (GLenum type, const char* text);
 
-    // Support for errors.
-    static const GLchar* GetErrorString (GLenum code);
-    static const GLchar* msErrorString[7];
+	// Support for errors.
+	static const GLchar* GetErrorString (GLenum code);
+	static const GLchar* msErrorString[7];
 };
 
 #endif

@@ -14,28 +14,28 @@ using namespace Wm5;
 
 class ScreenPolygons : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    ScreenPolygons ();
+	ScreenPolygons ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void CreateScene ();
+	void CreateScene ();
 
-    NodePtr mScene;
-    CameraPtr mScreenCamera;
-    TriMeshPtr mForePoly, mMidPoly, mBackPoly;
-    Culler mCuller;
+	NodePtr mScene;
+	CameraPtr mScreenCamera;
+	TriMeshPtr mForePoly, mMidPoly, mBackPoly;
+	Culler mCuller;
 
-    float mLinearZ, mDepthZ;
-    double mAnimTime, mAnimTimeDelta;
-    Float4 mTextColor;
+	float mLinearZ, mDepthZ;
+	double mAnimTime, mAnimTimeDelta;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(ScreenPolygons);

@@ -14,54 +14,54 @@ using namespace Wm5;
 
 class PolygonDistance : public WindowApplication2
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    PolygonDistance ();
+	PolygonDistance ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnDisplay ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnDisplay ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
 
 protected:
-    void InitialConfiguration ();
-    void NextConfiguration ();
+	void InitialConfiguration ();
+	void NextConfiguration ();
 
-    void GetPolarRepresentation (int numVertices, const Vector2f* vertices,
-        Vector2f& centroid, Vector2f* polars);
+	void GetPolarRepresentation (int numVertices, const Vector2f* vertices,
+	                             Vector2f& centroid, Vector2f* polars);
 
-    void GetCartesianRepresentation (int numVertices, Vector2f* vertices,
-        const Vector2f& centroid, const Vector2f* polars);
+	void GetCartesianRepresentation (int numVertices, Vector2f* vertices,
+	                                 const Vector2f& centroid, const Vector2f* polars);
 
-    void RotatePolygon (int numVertices, int sign, Vector2f* polars);
+	void RotatePolygon (int numVertices, int sign, Vector2f* polars);
 
-    void ComputePerpendiculars (int numVertices, const Vector2f* vertices,
-        const Vector2f& closest, Vector2f end[2]);
+	void ComputePerpendiculars (int numVertices, const Vector2f* vertices,
+	                            const Vector2f& closest, Vector2f end[2]);
 
-    void DrawLineSegment (int thick, ColorRGB color, const Vector2f& end0,
-        const Vector2f& end1);
+	void DrawLineSegment (int thick, ColorRGB color, const Vector2f& end0,
+	                      const Vector2f& end1);
 
-    void DrawPerpendiculars (const Vector2f end[2]);
-    void DrawPoints (int thick, ColorRGB color, const Vector2f& point);
+	void DrawPerpendiculars (const Vector2f end[2]);
+	void DrawPoints (int thick, ColorRGB color, const Vector2f& point);
 
-    class Polygon
-    {
-    public:
-        int NumVertices;
-        int Sign;
-        Vector2f* Vertices;
-        Vector2f Centroid;
-        Vector2f* Polars;
-        Tuple<2,int>* Faces;
-    };
+	class Polygon
+	{
+	public:
+		int NumVertices;
+		int Sign;
+		Vector2f* Vertices;
+		Vector2f Centroid;
+		Vector2f* Polars;
+		Tuple<2,int>* Faces;
+	};
 
-    enum { NUM_POLYGONS = 3 };
-    Polygon mPolygons[NUM_POLYGONS];
+	enum { NUM_POLYGONS = 3 };
+	Polygon mPolygons[NUM_POLYGONS];
 
-    int mSize;
-    bool mDrawPerpendiculars;
+	int mSize;
+	bool mDrawPerpendiculars;
 };
 
 WM5_REGISTER_INITIALIZE(PolygonDistance);

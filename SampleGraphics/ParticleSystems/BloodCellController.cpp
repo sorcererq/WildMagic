@@ -23,32 +23,32 @@ BloodCellController::BloodCellController ()
 //----------------------------------------------------------------------------
 void BloodCellController::UpdatePointMotion (float)
 {
-    Particles* particles = StaticCast<Particles>(mObject);
+	Particles* particles = StaticCast<Particles>(mObject);
 
-    const int numParticles = particles->GetNumParticles();
-    Float4* posSizes = particles->GetPositionSizes();
-    for (int i = 0; i < numParticles; ++i)
-    {
-        for (int j = 0; j < 3; ++j)
-        {
-            posSizes[i][j] += 0.01f*Mathf::SymmetricRandom();
-            if (posSizes[i][j] > 1.0f)
-            {
-                posSizes[i][j] = 1.0f;
-            }
-            else if (posSizes[i][j] < -1.0f)
-            {
-                posSizes[i][j] = -1.0f;
-            }
-        }
+	const int numParticles = particles->GetNumParticles();
+	Float4* posSizes = particles->GetPositionSizes();
+	for (int i = 0; i < numParticles; ++i)
+	{
+		for (int j = 0; j < 3; ++j)
+		{
+			posSizes[i][j] += 0.01f*Mathf::SymmetricRandom();
+			if (posSizes[i][j] > 1.0f)
+			{
+				posSizes[i][j] = 1.0f;
+			}
+			else if (posSizes[i][j] < -1.0f)
+			{
+				posSizes[i][j] = -1.0f;
+			}
+		}
 
-        posSizes[i][3] *= (1.0f + 0.01f*Mathf::SymmetricRandom());
-        if (posSizes[i][3] > 0.25f)
-        {
-            posSizes[i][3] = 0.25f;
-        }
-    }
+		posSizes[i][3] *= (1.0f + 0.01f*Mathf::SymmetricRandom());
+		if (posSizes[i][3] > 0.25f)
+		{
+			posSizes[i][3] = 0.25f;
+		}
+	}
 
-    Renderer::UpdateAll(particles->GetVertexBuffer());
+	Renderer::UpdateAll(particles->GetVertexBuffer());
 }
 //----------------------------------------------------------------------------

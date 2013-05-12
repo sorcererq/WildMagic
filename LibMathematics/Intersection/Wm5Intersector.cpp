@@ -15,8 +15,8 @@ namespace Wm5
 template <typename Real, typename TVector>
 Intersector<Real,TVector>::Intersector ()
 {
-    mContactTime = (Real)0;
-    mIntersectionType = IT_EMPTY;
+	mContactTime = (Real)0;
+	mIntersectionType = IT_EMPTY;
 }
 //----------------------------------------------------------------------------
 template <typename Real, typename TVector>
@@ -27,45 +27,45 @@ Intersector<Real,TVector>::~Intersector ()
 template <typename Real, typename TVector>
 Real Intersector<Real,TVector>::GetContactTime () const
 {
-    return mContactTime;
+	return mContactTime;
 }
 //----------------------------------------------------------------------------
 template <typename Real, typename TVector>
 int Intersector<Real,TVector>::GetIntersectionType () const
 {
-    return mIntersectionType;
+	return mIntersectionType;
 }
 //----------------------------------------------------------------------------
 template <typename Real, typename TVector>
 bool Intersector<Real,TVector>::Test ()
 {
-    // Stub for derived class.
-    assertion(false, "Function not yet implemented\n");
-    return false;
+	// Stub for derived class.
+	assertion(false, "Function not yet implemented\n");
+	return false;
 }
 //----------------------------------------------------------------------------
 template <typename Real, typename TVector>
 bool Intersector<Real,TVector>::Find ()
 {
-    // Stub for derived class.
-    assertion(false, "Function not yet implemented\n");
-    return false;
+	// Stub for derived class.
+	assertion(false, "Function not yet implemented\n");
+	return false;
 }
 //----------------------------------------------------------------------------
 template <typename Real, typename TVector>
 bool Intersector<Real,TVector>::Test (Real, const TVector&, const TVector&)
 {
-    // Stub for derived class.
-    assertion(false, "Function not yet implemented\n");
-    return false;
+	// Stub for derived class.
+	assertion(false, "Function not yet implemented\n");
+	return false;
 }
 //----------------------------------------------------------------------------
 template <typename Real, typename TVector>
 bool Intersector<Real,TVector>::Find (Real, const TVector&, const TVector&)
 {
-    // Stub for derived class.
-    assertion(false, "Function not yet implemented\n");
-    return false;
+	// Stub for derived class.
+	assertion(false, "Function not yet implemented\n");
+	return false;
 }
 //----------------------------------------------------------------------------
 

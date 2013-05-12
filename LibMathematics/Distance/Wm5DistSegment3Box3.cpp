@@ -16,87 +16,87 @@ namespace Wm5
 //----------------------------------------------------------------------------
 template <typename Real>
 DistSegment3Box3<Real>::DistSegment3Box3 (const Segment3<Real>& segment,
-    const Box3<Real>& box)
-    :
-    mSegment(&segment),
-    mBox(&box)
+        const Box3<Real>& box)
+	:
+	mSegment(&segment),
+	mBox(&box)
 {
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Segment3<Real>& DistSegment3Box3<Real>::GetSegment () const
 {
-    return *mSegment;
+	return *mSegment;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 const Box3<Real>& DistSegment3Box3<Real>::GetBox () const
 {
-    return *mBox;
+	return *mBox;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistSegment3Box3<Real>::Get ()
 {
-    return Math<Real>::Sqrt(GetSquared());
+	return Math<Real>::Sqrt(GetSquared());
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistSegment3Box3<Real>::GetSquared ()
 {
-    Line3<Real> line(mSegment->Center, mSegment->Direction);
-    DistLine3Box3<Real> queryLB(line, *mBox);
-    Real sqrDistance = queryLB.GetSquared();
-    Real lineParameter = queryLB.GetLineParameter();
+	Line3<Real> line(mSegment->Center, mSegment->Direction);
+	DistLine3Box3<Real> queryLB(line, *mBox);
+	Real sqrDistance = queryLB.GetSquared();
+	Real lineParameter = queryLB.GetLineParameter();
 
-    if (lineParameter >= -mSegment->Extent)
-    {
-        if (lineParameter <= mSegment->Extent)
-        {
-            mClosestPoint0 = queryLB.GetClosestPoint0();
-            mClosestPoint1 = queryLB.GetClosestPoint1();
-        }
-        else
-        {
-            DistPoint3Box3<Real> queryPB(mSegment->P1, *mBox);
-            sqrDistance = queryPB.GetSquared();
-            mClosestPoint0 = queryPB.GetClosestPoint0();
-            mClosestPoint1 = queryPB.GetClosestPoint1();
-        }
-    }
-    else
-    {
-        DistPoint3Box3<Real> queryPB(mSegment->P0, *mBox);
-        sqrDistance = queryPB.GetSquared();
-        mClosestPoint0 = queryPB.GetClosestPoint0();
-        mClosestPoint1 = queryPB.GetClosestPoint1();
-    }
+	if (lineParameter >= -mSegment->Extent)
+	{
+		if (lineParameter <= mSegment->Extent)
+		{
+			mClosestPoint0 = queryLB.GetClosestPoint0();
+			mClosestPoint1 = queryLB.GetClosestPoint1();
+		}
+		else
+		{
+			DistPoint3Box3<Real> queryPB(mSegment->P1, *mBox);
+			sqrDistance = queryPB.GetSquared();
+			mClosestPoint0 = queryPB.GetClosestPoint0();
+			mClosestPoint1 = queryPB.GetClosestPoint1();
+		}
+	}
+	else
+	{
+		DistPoint3Box3<Real> queryPB(mSegment->P0, *mBox);
+		sqrDistance = queryPB.GetSquared();
+		mClosestPoint0 = queryPB.GetClosestPoint0();
+		mClosestPoint1 = queryPB.GetClosestPoint1();
+	}
 
-    return sqrDistance;
+	return sqrDistance;
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistSegment3Box3<Real>::Get (Real t, const Vector3<Real>& velocity0,
-    const Vector3<Real>& velocity1)
+                                  const Vector3<Real>& velocity1)
 {
-    Vector3<Real> movedCenter0 = mSegment->Center + t*velocity0;
-    Vector3<Real> movedCenter1 = mBox->Center + t*velocity1;
-    Segment3<Real> movedSegment(movedCenter0, mSegment->Direction,
-        mSegment->Extent);
-    Box3<Real> movedBox(movedCenter1,mBox->Axis, mBox->Extent);
-    return DistSegment3Box3<Real>(movedSegment, movedBox).Get();
+	Vector3<Real> movedCenter0 = mSegment->Center + t*velocity0;
+	Vector3<Real> movedCenter1 = mBox->Center + t*velocity1;
+	Segment3<Real> movedSegment(movedCenter0, mSegment->Direction,
+	                            mSegment->Extent);
+	Box3<Real> movedBox(movedCenter1,mBox->Axis, mBox->Extent);
+	return DistSegment3Box3<Real>(movedSegment, movedBox).Get();
 }
 //----------------------------------------------------------------------------
 template <typename Real>
 Real DistSegment3Box3<Real>::GetSquared (Real t,
-    const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
+        const Vector3<Real>& velocity0, const Vector3<Real>& velocity1)
 {
-    Vector3<Real> movedCenter0 = mSegment->Center + t*velocity0;
-    Vector3<Real> movedCenter1 = mBox->Center + t*velocity1;
-    Segment3<Real> movedSegment(movedCenter0, mSegment->Direction,
-        mSegment->Extent);
-    Box3<Real> movedBox(movedCenter1,mBox->Axis, mBox->Extent);
-    return DistSegment3Box3<Real>(movedSegment, movedBox).GetSquared();
+	Vector3<Real> movedCenter0 = mSegment->Center + t*velocity0;
+	Vector3<Real> movedCenter1 = mBox->Center + t*velocity1;
+	Segment3<Real> movedSegment(movedCenter0, mSegment->Direction,
+	                            mSegment->Extent);
+	Box3<Real> movedBox(movedCenter1,mBox->Axis, mBox->Extent);
+	return DistSegment3Box3<Real>(movedSegment, movedBox).GetSquared();
 }
 //----------------------------------------------------------------------------
 

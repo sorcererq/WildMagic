@@ -16,10 +16,10 @@ WM5_IMPLEMENT_FACTORY(IKGoal);
 
 //----------------------------------------------------------------------------
 IKGoal::IKGoal (Spatial* target, Spatial* effector, float weight)
-    :
-    Weight(weight),
-    mTarget(target),
-    mEffector(effector)
+	:
+	Weight(weight),
+	mTarget(target),
+	mEffector(effector)
 {
 }
 //----------------------------------------------------------------------------
@@ -29,12 +29,12 @@ IKGoal::~IKGoal ()
 //----------------------------------------------------------------------------
 APoint IKGoal::GetTargetPosition () const
 {
-    return mTarget->WorldTransform.GetTranslate();
+	return mTarget->WorldTransform.GetTranslate();
 }
 //----------------------------------------------------------------------------
 APoint IKGoal::GetEffectorPosition () const
 {
-    return mEffector->WorldTransform.GetTranslate();
+	return mEffector->WorldTransform.GetTranslate();
 }
 //----------------------------------------------------------------------------
 
@@ -43,25 +43,25 @@ APoint IKGoal::GetEffectorPosition () const
 //----------------------------------------------------------------------------
 Object* IKGoal::GetObjectByName (const std::string& name)
 {
-    Object* found = Object::GetObjectByName(name);
-    if (found)
-    {
-        return found;
-    }
+	Object* found = Object::GetObjectByName(name);
+	if (found)
+	{
+		return found;
+	}
 
-    WM5_GET_OBJECT_BY_NAME(mTarget, name, found);
-    WM5_GET_OBJECT_BY_NAME(mEffector, name, found);
+	WM5_GET_OBJECT_BY_NAME(mTarget, name, found);
+	WM5_GET_OBJECT_BY_NAME(mEffector, name, found);
 
-    return 0;
+	return 0;
 }
 //----------------------------------------------------------------------------
 void IKGoal::GetAllObjectsByName (const std::string& name,
-    std::vector<Object*>& objects)
+                                  std::vector<Object*>& objects)
 {
-    Object::GetAllObjectsByName(name, objects);
+	Object::GetAllObjectsByName(name, objects);
 
-    WM5_GET_ALL_OBJECTS_BY_NAME(mTarget, name, objects);
-    WM5_GET_ALL_OBJECTS_BY_NAME(mEffector, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mTarget, name, objects);
+	WM5_GET_ALL_OBJECTS_BY_NAME(mEffector, name, objects);
 }
 //----------------------------------------------------------------------------
 
@@ -69,68 +69,68 @@ void IKGoal::GetAllObjectsByName (const std::string& name,
 // Streaming support.
 //----------------------------------------------------------------------------
 IKGoal::IKGoal (LoadConstructor value)
-    :
-    Object(value),
-    Weight(0.0f)
+	:
+	Object(value),
+	Weight(0.0f)
 {
 }
 //----------------------------------------------------------------------------
 void IKGoal::Load (InStream& source)
 {
-    WM5_BEGIN_DEBUG_STREAM_LOAD(source);
+	WM5_BEGIN_DEBUG_STREAM_LOAD(source);
 
-    Object::Load(source);
+	Object::Load(source);
 
-    source.Read(Weight);
-    source.ReadPointer(mTarget);
-    source.ReadPointer(mEffector);
+	source.Read(Weight);
+	source.ReadPointer(mTarget);
+	source.ReadPointer(mEffector);
 
-    WM5_END_DEBUG_STREAM_LOAD(IKGoal, source);
+	WM5_END_DEBUG_STREAM_LOAD(IKGoal, source);
 }
 //----------------------------------------------------------------------------
 void IKGoal::Link (InStream& source)
 {
-    Object::Link(source);
+	Object::Link(source);
 
-    source.ResolveLink(mTarget);
-    source.ResolveLink(mEffector);
+	source.ResolveLink(mTarget);
+	source.ResolveLink(mEffector);
 }
 //----------------------------------------------------------------------------
 void IKGoal::PostLink ()
 {
-    Object::PostLink();
+	Object::PostLink();
 }
 //----------------------------------------------------------------------------
 bool IKGoal::Register (OutStream& target) const
 {
-    if (Object::Register(target))
-    {
-        target.Register(mTarget);
-        target.Register(mEffector);
-        return true;
-    }
-    return false;
+	if (Object::Register(target))
+	{
+		target.Register(mTarget);
+		target.Register(mEffector);
+		return true;
+	}
+	return false;
 }
 //----------------------------------------------------------------------------
 void IKGoal::Save (OutStream& target) const
 {
-    WM5_BEGIN_DEBUG_STREAM_SAVE(target);
+	WM5_BEGIN_DEBUG_STREAM_SAVE(target);
 
-    Object::Save(target);
+	Object::Save(target);
 
-    target.Write(Weight);
-    target.WritePointer(mTarget);
-    target.WritePointer(mEffector);
+	target.Write(Weight);
+	target.WritePointer(mTarget);
+	target.WritePointer(mEffector);
 
-    WM5_END_DEBUG_STREAM_SAVE(IKGoal, target);
+	WM5_END_DEBUG_STREAM_SAVE(IKGoal, target);
 }
 //----------------------------------------------------------------------------
 int IKGoal::GetStreamingSize () const
 {
-    int size = Object::GetStreamingSize();
-    size += sizeof(Weight);
-    size += WM5_POINTERSIZE(mTarget);
-    size += WM5_POINTERSIZE(mEffector);
-    return size;
+	int size = Object::GetStreamingSize();
+	size += sizeof(Weight);
+	size += WM5_POINTERSIZE(mTarget);
+	size += WM5_POINTERSIZE(mEffector);
+	return size;
 }
 //----------------------------------------------------------------------------

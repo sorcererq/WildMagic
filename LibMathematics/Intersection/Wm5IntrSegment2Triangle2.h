@@ -19,44 +19,44 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrSegment2Triangle2
-    : public Intersector<Real,Vector2<Real> >
+	: public Intersector<Real,Vector2<Real> >
 {
 public:
-    IntrSegment2Triangle2 (const Segment2<Real>& segment,
-        const Triangle2<Real>& triangle);
+	IntrSegment2Triangle2 (const Segment2<Real>& segment,
+	                       const Triangle2<Real>& triangle);
 
-    // Object access.
-    const Segment2<Real>& GetSegment () const;
-    const Triangle2<Real>& GetTriangle () const;
+	// Object access.
+	const Segment2<Real>& GetSegment () const;
+	const Triangle2<Real>& GetTriangle () const;
 
-    // Static intersection query.
-    virtual bool Test ();
-    virtual bool Find ();
+	// Static intersection query.
+	virtual bool Test ();
+	virtual bool Find ();
 
-    // The intersection set.  If the segment and triangle do not intersect,
-    // GetQuantity() returns 0, in which case the intersection type is
-    // IT_EMPTY.  If the segment and triangle intersect in a single point,
-    // GetQuantity() returns 1, in which case the intersection type is
-    // IT_POINT and GetPoint() returns the intersection point.  If the segment
-    // and triangle intersect in a segment, GetQuantity() returns 2, in which
-    // case the intersection type is IT_SEGMENT and GetPoint() returns the
-    // segment endpoints.
-    int GetQuantity () const;
-    const Vector2<Real>& GetPoint (int i) const;
+	// The intersection set.  If the segment and triangle do not intersect,
+	// GetQuantity() returns 0, in which case the intersection type is
+	// IT_EMPTY.  If the segment and triangle intersect in a single point,
+	// GetQuantity() returns 1, in which case the intersection type is
+	// IT_POINT and GetPoint() returns the intersection point.  If the segment
+	// and triangle intersect in a segment, GetQuantity() returns 2, in which
+	// case the intersection type is IT_SEGMENT and GetPoint() returns the
+	// segment endpoints.
+	int GetQuantity () const;
+	const Vector2<Real>& GetPoint (int i) const;
 
 private:
-    using Intersector<Real,Vector2<Real> >::IT_EMPTY;
-    using Intersector<Real,Vector2<Real> >::IT_POINT;
-    using Intersector<Real,Vector2<Real> >::IT_SEGMENT;
-    using Intersector<Real,Vector2<Real> >::mIntersectionType;
+	using Intersector<Real,Vector2<Real> >::IT_EMPTY;
+	using Intersector<Real,Vector2<Real> >::IT_POINT;
+	using Intersector<Real,Vector2<Real> >::IT_SEGMENT;
+	using Intersector<Real,Vector2<Real> >::mIntersectionType;
 
-    // The objects to intersect.
-    const Segment2<Real>* mSegment;
-    const Triangle2<Real>* mTriangle;
+	// The objects to intersect.
+	const Segment2<Real>* mSegment;
+	const Triangle2<Real>* mTriangle;
 
-    // Information about the intersection set.
-    int mQuantity;
-    Vector2<Real> mPoint[2];
+	// Information about the intersection set.
+	int mQuantity;
+	Vector2<Real> mPoint[2];
 };
 
 typedef IntrSegment2Triangle2<float> IntrSegment2Triangle2f;

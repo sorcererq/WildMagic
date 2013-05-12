@@ -14,27 +14,27 @@ using namespace Wm5;
 
 class VolumeFog : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    VolumeFog ();
+	VolumeFog ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
 
 protected:
-    void CreateScene ();
-    void UpdateFog ();
+	void CreateScene ();
+	void UpdateFog ();
 
-    NodePtr mScene;
-    TriMeshPtr mMesh;
-    CameraPtr mScreenCamera;
-    TriMeshPtr mScreenPolygon;
-    Culler mCuller;
+	NodePtr mScene;
+	TriMeshPtr mMesh;
+	CameraPtr mScreenCamera;
+	TriMeshPtr mScreenPolygon;
+	Culler mCuller;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(VolumeFog);

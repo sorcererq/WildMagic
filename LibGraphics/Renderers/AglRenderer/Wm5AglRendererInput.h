@@ -20,8 +20,8 @@ namespace Wm5
 class RendererInput
 {
 public:
-    AGLDevice mDevice;
-    WindowRef mWindow;
+	AGLDevice mDevice;
+	WindowRef mWindow;
 };
 
 }

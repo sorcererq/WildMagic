@@ -19,23 +19,23 @@ namespace Wm5
 
 template <typename Real>
 class WM5_MATHEMATICS_ITEM IntrSphere3Frustum3
-    : public Intersector<Real,Vector3<Real> >
+	: public Intersector<Real,Vector3<Real> >
 {
 public:
-    IntrSphere3Frustum3 (const Sphere3<Real>& sphere,
-        const Frustum3<Real>& frustum);
+	IntrSphere3Frustum3 (const Sphere3<Real>& sphere,
+	                     const Frustum3<Real>& frustum);
 
-    // Object access.
-    const Sphere3<Real>& GetSphere () const;
-    const Frustum3<Real>& GetFrustum () const;
+	// Object access.
+	const Sphere3<Real>& GetSphere () const;
+	const Frustum3<Real>& GetFrustum () const;
 
-    // Static intersection query.
-    virtual bool Test ();
+	// Static intersection query.
+	virtual bool Test ();
 
 private:
-    // The objects to intersect.
-    const Sphere3<Real>* mSphere;
-    const Frustum3<Real>* mFrustum;
+	// The objects to intersect.
+	const Sphere3<Real>* mSphere;
+	const Frustum3<Real>* mFrustum;
 };
 
 typedef IntrSphere3Frustum3<float> IntrSphere3Frustum3f;

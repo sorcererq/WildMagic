@@ -14,25 +14,25 @@ using namespace Wm5;
 
 class VolumeTextures : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    VolumeTextures ();
+	VolumeTextures ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
 
 protected:
-    void CreateScene ();
+	void CreateScene ();
 
-    NodePtr mScene;
-    AlphaStatePtr mAlphaState;
-    CullStatePtr mCullState;
-    Culler mCuller;
+	NodePtr mScene;
+	AlphaStatePtr mAlphaState;
+	CullStatePtr mCullState;
+	Culler mCuller;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(VolumeTextures);

@@ -13,16 +13,16 @@
 //----------------------------------------------------------------------------
 int main (int numArguments, char** arguments)
 {
-    if (numArguments != 2)
-    {
-        std::cout << "usage: GenerateProjects projectname" << std::endl;
-        return -1;
-    }
+	if (numArguments != 2)
+	{
+		std::cout << "usage: GenerateProjects projectname" << std::endl;
+		return -1;
+	}
 
-    const char* projectName = arguments[1];
-    TemplateVC100::GenerateDx9(projectName);
-    TemplateVC100::GenerateWgl(projectName);
-    TemplateXC44 generate(projectName);
-    return 0;
+	const char* projectName = arguments[1];
+	TemplateVC100::GenerateDx9(projectName);
+	TemplateVC100::GenerateWgl(projectName);
+	TemplateXC44 generate(projectName);
+	return 0;
 }
 //----------------------------------------------------------------------------

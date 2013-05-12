@@ -20,10 +20,10 @@ WM5_IMPLEMENT_DEFAULT_STREAM(ShaderFloat, CameraWorldDVectorConstant);
 
 //----------------------------------------------------------------------------
 CameraWorldDVectorConstant::CameraWorldDVectorConstant ()
-    :
-    ShaderFloat(1)
+	:
+	ShaderFloat(1)
 {
-    mAllowUpdater = true;
+	mAllowUpdater = true;
 }
 //----------------------------------------------------------------------------
 CameraWorldDVectorConstant::~CameraWorldDVectorConstant ()
@@ -32,13 +32,13 @@ CameraWorldDVectorConstant::~CameraWorldDVectorConstant ()
 //----------------------------------------------------------------------------
 void CameraWorldDVectorConstant::Update (const Visual*, const Camera* camera)
 {
-    const AVector& worldDVector = camera->GetDVector();
+	const AVector& worldDVector = camera->GetDVector();
 
-    const float* source = (const float*)worldDVector;
-    float* target = mData;
-    for (int i = 0; i < 4; ++i)
-    {
-        *target++ = *source++;
-    }
+	const float* source = (const float*)worldDVector;
+	float* target = mData;
+	for (int i = 0; i < 4; ++i)
+	{
+		*target++ = *source++;
+	}
 }
 //----------------------------------------------------------------------------

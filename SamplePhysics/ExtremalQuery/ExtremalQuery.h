@@ -22,34 +22,34 @@ using namespace Wm5;
 
 class ExtremalQuery : public WindowApplication3
 {
-    WM5_DECLARE_INITIALIZE;
-    WM5_DECLARE_TERMINATE;
+	WM5_DECLARE_INITIALIZE;
+	WM5_DECLARE_TERMINATE;
 
 public:
-    ExtremalQuery ();
+	ExtremalQuery ();
 
-    virtual bool OnInitialize ();
-    virtual void OnTerminate ();
-    virtual void OnIdle ();
-    virtual bool OnKeyDown (unsigned char key, int x, int y);
-    virtual bool OnMotion (int button, int x, int y, unsigned int modifiers);
+	virtual bool OnInitialize ();
+	virtual void OnTerminate ();
+	virtual void OnIdle ();
+	virtual bool OnKeyDown (unsigned char key, int x, int y);
+	virtual bool OnMotion (int button, int x, int y, unsigned int modifiers);
 
 protected:
-    void CreateScene ();
-    void CreateConvexPolyhedron (int numVertices);
-    Node* CreateVisualConvexPolyhedron ();
-    void UpdateExtremePoints ();
+	void CreateScene ();
+	void CreateConvexPolyhedron (int numVertices);
+	Node* CreateVisualConvexPolyhedron ();
+	void UpdateExtremePoints ();
 
-    ConvexPolyhedron3f* mConvexPolyhedron;
-    ExtremalQuery3f* mExtremalQuery;
+	ConvexPolyhedron3f* mConvexPolyhedron;
+	ExtremalQuery3f* mExtremalQuery;
 
-    NodePtr mScene;
-    WireStatePtr mWireState;
-    CullStatePtr mCullState;
-    TriMeshPtr mMaxSphere, mMinSphere;
-    Culler mCuller;
+	NodePtr mScene;
+	WireStatePtr mWireState;
+	CullStatePtr mCullState;
+	TriMeshPtr mMaxSphere, mMinSphere;
+	Culler mCuller;
 
-    Float4 mTextColor;
+	Float4 mTextColor;
 };
 
 WM5_REGISTER_INITIALIZE(ExtremalQuery);

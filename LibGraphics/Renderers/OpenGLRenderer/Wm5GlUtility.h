@@ -507,14 +507,14 @@ extern "C" {
 #define GT_VERSION_3_2  32
 #define GT_VERSION_3_3  33
 #define GT_VERSION_4_0  40
-int GTGetVersion ();
-int GTSupportsExtension (const char* acExtension);
+	int GTGetVersion ();
+	int GTSupportsExtension (const char* acExtension);
 
 // This function must be implemented for each platform.
-void* GTGetFunctionPointer (const char*);
+	void* GTGetFunctionPointer (const char*);
 
 // For error checking.
-const char* GTGetErrorString (GLenum code);
+	const char* GTGetErrorString (GLenum code);
 
 #ifdef __cplusplus
 }  // extern "C"

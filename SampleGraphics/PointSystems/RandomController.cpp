@@ -25,27 +25,27 @@ RandomController::RandomController ()
 //----------------------------------------------------------------------------
 void RandomController::UpdatePointMotion (float)
 {
-    Polypoint* points = StaticCast<Polypoint>(mObject);
+	Polypoint* points = StaticCast<Polypoint>(mObject);
 
-    VertexBufferAccessor vba(points);
-    const int numPoints = vba.GetNumVertices();
-    for (int i = 0; i < numPoints; ++i)
-    {
-        Float3& position = vba.Position<Float3>(i);
-        for (int j = 0; j < 3; ++j)
-        {
-            position[j] += 0.01f*Mathf::SymmetricRandom();
-            if (position[j] > 1.0f)
-            {
-                position[j] = 1.0f;
-            }
-            else if (position[j] < -1.0f)
-            {
-                position[j] = -1.0f;
-            }
-        }
-    }
+	VertexBufferAccessor vba(points);
+	const int numPoints = vba.GetNumVertices();
+	for (int i = 0; i < numPoints; ++i)
+	{
+		Float3& position = vba.Position<Float3>(i);
+		for (int j = 0; j < 3; ++j)
+		{
+			position[j] += 0.01f*Mathf::SymmetricRandom();
+			if (position[j] > 1.0f)
+			{
+				position[j] = 1.0f;
+			}
+			else if (position[j] < -1.0f)
+			{
+				position[j] = -1.0f;
+			}
+		}
+	}
 
-    Renderer::UpdateAll(points->GetVertexBuffer());
+	Renderer::UpdateAll(points->GetVertexBuffer());
 }
 //----------------------------------------------------------------------------

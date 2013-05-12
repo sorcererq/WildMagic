@@ -21,25 +21,25 @@ PixelShader::Profile PixelShader::msProfile = PixelShader::PP_NONE;
 
 //----------------------------------------------------------------------------
 PixelShader::PixelShader (const std::string& programName, int numInputs,
-    int numOutputs, int numConstants, int numSamplers, bool profileOwner)
-    :
-    Shader(programName, numInputs, numOutputs, numConstants, numSamplers,
-        profileOwner)
+                          int numOutputs, int numConstants, int numSamplers, bool profileOwner)
+	:
+	Shader(programName, numInputs, numOutputs, numConstants, numSamplers,
+	       profileOwner)
 {
 }
 //----------------------------------------------------------------------------
 PixelShader::~PixelShader ()
 {
-    Renderer::UnbindAll(this);
+	Renderer::UnbindAll(this);
 }
 //----------------------------------------------------------------------------
 void PixelShader::SetProfile (Profile profile)
 {
-    msProfile = profile;
+	msProfile = profile;
 }
 //----------------------------------------------------------------------------
 PixelShader::Profile PixelShader::GetProfile ()
 {
-    return msProfile;
+	return msProfile;
 }
 //----------------------------------------------------------------------------

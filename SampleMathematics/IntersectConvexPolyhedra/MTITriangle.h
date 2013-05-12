@@ -12,16 +12,16 @@
 class MTITriangle
 {
 public:
-    MTITriangle (int label0, int label1, int lLabel2);
+	MTITriangle (int label0, int label1, int lLabel2);
 
-    bool operator< (const MTITriangle& triangle) const;
-    bool operator== (const MTITriangle& triangle) const;
-    bool operator!= (const MTITriangle& triangle) const;
+	bool operator< (const MTITriangle& triangle) const;
+	bool operator== (const MTITriangle& triangle) const;
+	bool operator!= (const MTITriangle& triangle) const;
 
-    int GetLabel (int i) const;
+	int GetLabel (int i) const;
 
 protected:
-    int mLabel[3];
+	int mLabel[3];
 };
 
 #endif
