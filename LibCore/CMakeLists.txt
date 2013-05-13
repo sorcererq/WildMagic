@@ -1,15 +1,10 @@
 FILE(GLOB SRC */*.cpp)
 FILE(GLOB HEADERS */*.h */*.inl *.h *.inl)
 
+IF (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+	ADD_DEFINITIONS (-DWM5_CORE_DLL_EXPORT=1)
+ENDIF ()
+
 INCLUDE_DIRECTORIES(${CORE_INCLUDES})
 
-add_library(Wm5Core SHARED ${SRC})                                                                                                                                                                    
-
-INSTALL(TARGETS Wm5Core
-        DESTINATION lib
-        PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
-
-INSTALL(FILES ${HEADERS}
-        DESTINATION include/Wm5
-        PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
-        
+ADD_LIBRARY (Wm5Core SHARED ${SRC} ${HEADERS})

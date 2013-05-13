@@ -52,7 +52,7 @@
 // when member data and functions involving templates or inlines occur.  To
 // avoid the warning, WM5_<libname>_ITEM can be applied only to those items
 // that really need to be exported.
-#pragma warning(disable : 4251)
+#pragma warning(disable : 4251) 
 
 // Support for standard integer types.  This is only a small part of what
 // stdint.h provides on Unix platforms.
@@ -117,18 +117,15 @@ typedef unsigned __int64    uint64_t;
 #endif
 //----------------------------------------------------------------------------
 
-// Begin Microsoft Windows DLL support.
+#ifdef _MSC_VER
 #if defined(WM5_CORE_DLL_EXPORT)
-// For the DLL library.
 #define WM5_CORE_ITEM __declspec(dllexport)
-#elif defined(WM5_CORE_DLL_IMPORT)
-// For a client of the DLL library.
-#define WM5_CORE_ITEM __declspec(dllimport)
 #else
-// For the static library and for Apple/Linux.
+#define WM5_CORE_ITEM __declspec(dllimport)
+#endif
+#else
 #define WM5_CORE_ITEM
 #endif
-// End Microsoft Windows DLL support.
 
 // Common standard library headers.
 #include <cassert>
@@ -171,14 +168,14 @@ typedef unsigned __int64    uint64_t;
 // Macros to enable or disable various Assert subsystems.  TODO:  Currently,
 // the extended assert system is implemented only for Microsoft Visual Studio.
 #ifdef _DEBUG
-#if defined(WIN32) && defined(_MSC_VER)
-#define WM5_USE_ASSERT
-#ifdef WM5_USE_ASSERT
-#define WM5_USE_ASSERT_WRITE_TO_OUTPUT_WINDOW
-#define WM5_USE_ASSERT_WRITE_TO_MESSAGE_BOX
-#endif
-#endif
-//#define WM5_USE_ASSERT_LOG_TO_FILE
+    #if defined(WIN32) && defined(_MSC_VER)
+        #define WM5_USE_ASSERT
+        #ifdef WM5_USE_ASSERT
+            #define WM5_USE_ASSERT_WRITE_TO_OUTPUT_WINDOW
+            #define WM5_USE_ASSERT_WRITE_TO_MESSAGE_BOX
+        #endif
+    #endif
+    //#define WM5_USE_ASSERT_LOG_TO_FILE
 #endif
 
 // Macros for memory management.  To report memory leaks and related
@@ -194,24 +191,24 @@ typedef unsigned __int64    uint64_t;
 //
 #define WM5_USE_MEMORY
 #ifdef WM5_USE_MEMORY
-// Enable an assertion when a allocation occurs before
-// Memory::Initialize was called or when a deallocation occurs after
-// Memory::Terminate was called.
-#define WM5_USE_MEMORY_ASSERT_ON_PREINIT_POSTTERM_OPERATIONS
+    // Enable an assertion when a allocation occurs before
+    // Memory::Initialize was called or when a deallocation occurs after
+    // Memory::Terminate was called.
+    #define WM5_USE_MEMORY_ASSERT_ON_PREINIT_POSTTERM_OPERATIONS
 
-// When WM5_USE_MEMORY is enabled, the Memory functions delete0,
-// delete1, delete2, and delete3 will fail when the incoming pointer
-// was not allocated by the Wild Magic memory manager.  Enabling the
-// following flag tells Wild Magic's memory manager to attempt
-// 'delete' or 'delete[]' under the assumption that the memory was
-// allocated by 'new' or 'new[]'.
-#define WM5_USE_MEMORY_ALLOW_DELETE_ON_FAILED_MAP_LOOKUP
+    // When WM5_USE_MEMORY is enabled, the Memory functions delete0,
+    // delete1, delete2, and delete3 will fail when the incoming pointer
+    // was not allocated by the Wild Magic memory manager.  Enabling the
+    // following flag tells Wild Magic's memory manager to attempt
+    // 'delete' or 'delete[]' under the assumption that the memory was
+    // allocated by 'new' or 'new[]'.
+    #define WM5_USE_MEMORY_ALLOW_DELETE_ON_FAILED_MAP_LOOKUP
 #endif
 
 // Flags for FileIO and BufferIO.
 #ifdef _DEBUG
-#define WM5_FILEIO_VALIDATE_OPERATION
-#define WM5_BUFFERIO_VALIDATE_OPERATION
+    #define WM5_FILEIO_VALIDATE_OPERATION
+    #define WM5_BUFFERIO_VALIDATE_OPERATION
 #endif
 
 #endif

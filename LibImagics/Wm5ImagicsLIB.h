@@ -11,17 +11,14 @@
 
 #include "Wm5MathematicsLIB.h"
 
-// Begin Microsoft Windows DLL support.
+#ifdef _MSC_VER
 #if defined(WM5_IMAGICS_DLL_EXPORT)
-// For the DLL library.
-#define WM5_IMAGICS_ITEM __declspec(dllexport)
-#elif defined(WM5_IMAGICS_DLL_IMPORT)
-// For a client of the DLL library.
-#define WM5_IMAGICS_ITEM __declspec(dllimport)
+    #define WM5_IMAGICS_ITEM __declspec(dllexport)
 #else
-// For the static library and for Apple/Linux.
+    #define WM5_IMAGICS_ITEM __declspec(dllimport)
+#endif
+#else
 #define WM5_IMAGICS_ITEM
 #endif
-// End Microsoft Windows DLL support.
 
 #endif

@@ -4,25 +4,20 @@ PROJECT(WildMagic5)
 
 #############################################
 ## Compiler
-SET (CMAKE_C_COMPILER             "/usr/bin/clang")
-SET (CMAKE_C_FLAGS                "-Wall -std=c99")
-SET (CMAKE_C_FLAGS_DEBUG          "-g")
-SET (CMAKE_C_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
-SET (CMAKE_C_FLAGS_RELEASE        "-O4 -DNDEBUG")
-SET (CMAKE_C_FLAGS_RELWITHDEBINFO "-O2 -g")
-
-SET (CMAKE_CXX_COMPILER             "/usr/bin/clang++")
-SET (CMAKE_CXX_FLAGS                "-Wall")
-SET (CMAKE_CXX_FLAGS_DEBUG          "-g")
-SET (CMAKE_CXX_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
-SET (CMAKE_CXX_FLAGS_RELEASE        "-O4 -DNDEBUG")
-SET (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
-
-SET (CMAKE_AR      "/usr/bin/llvm-ar")
-SET (CMAKE_LINKER  "/usr/bin/llvm-ld")
-SET (CMAKE_NM      "/usr/bin/llvm-nm")
-SET (CMAKE_OBJDUMP "/usr/bin/llvm-objdump")
-SET (CMAKE_RANLIB  "/usr/bin/llvm-ranlib")
+IF (MSVC)
+ELSE ()
+	SET (CMAKE_C_FLAGS                "-Wall -std=c99")
+	SET (CMAKE_C_FLAGS_DEBUG          "-g")
+	SET (CMAKE_C_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
+	SET (CMAKE_C_FLAGS_RELEASE        "-O4 -DNDEBUG")
+	SET (CMAKE_C_FLAGS_RELWITHDEBINFO "-O2 -g")
+	
+	SET (CMAKE_CXX_FLAGS                "-Wall")
+	SET (CMAKE_CXX_FLAGS_DEBUG          "-g")
+	SET (CMAKE_CXX_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
+	SET (CMAKE_CXX_FLAGS_RELEASE        "-O4 -DNDEBUG")
+	SET (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
+ENDIF ()
 
 #############################################
 ## CONFIGURATION
@@ -37,27 +32,34 @@ SET (CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${WM5_ROOT_DIR})
 SET(CMAKE_BUILD_TYPE Release)
 #SET(CMAKE_BUILD_TYPE Debug)
 
-## set other build definitions (you might want to remove the optimizations for Debug build)
-ADD_DEFINITIONS(-O3)
-ADD_DEFINITIONS(-D__LINUX__)
+## set other build definitions
+
+IF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+	SET (LIBAPPLICATIONS_TYPE GlxApplication)
+	SET (LIBGRAPHICS_RENDERER_TYPE GlxRenderer)
+	SET (LIBGRAPHICS_RENDERER OpenGLRenderer)
+ENDIF ()
+
+IF (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+	SET(LIBAPPLICATIONS_TYPE WinApplication)
+	IF (${WM5_RENDERER} MATCHES "DX9")
+		SET (LIBGRAPHICS_RENDERER Dx9Renderer)
+	ELSE ()
+		SET(LIBGRAPHICS_RENDERER OpenGLRenderer)
+		SET(LIBGRAPHICS_RENDERER_TYPE WglRenderer)
+	ENDIF ()
+ENDIF ()
 
 ## LibApplications type setup
 #SET(LIBAPPLICATIONS_TYPE AglApplication)
 #SET(LIBAPPLICATIONS_TYPE GlutApplication)
-SET(LIBAPPLICATIONS_TYPE GlxApplication)
-#SET(LIBAPPLICATIONS_TYPE WinApplication)
 
 ## LibGraphics type setup
-#SET(LIBGRAPHICS_RENDERER_TYPE Dx9Renderer)
-SET(LIBGRAPHICS_RENDERER OpenGLRenderer)
+#
 
 #SET(LIBGRAPHICS_RENDERER_TYPE AglRenderer)
 #SET(LIBGRAPHICS_RENDERER_TYPE GlutRenderer)
-SET(LIBGRAPHICS_RENDERER_TYPE GlxRenderer)
 #SET(LIBGRAPHICS_RENDERER_TYPE WglRenderer)
-
-## alternative installation directory
-#SET(CMAKE_INSTALL_PREFIX /home/martin/libs/install)
 
 #############################################
 ## BUILDING
@@ -144,7 +146,7 @@ ENDIF(DEFINED LIBAPPLICATIONS_TYPE)
 
 ## Samples
 
-FUNCTION (ADD_WM5_APP name)
+FUNCTION (ADD_SAMPLE name)
 	
 	FILE(GLOB SRC ${name}/*.cpp)
 	FILE(GLOB HEADERS ${name}/*.h ${name}/*.inl)
@@ -165,4 +167,3 @@ ADD_SUBDIRECTORY (SampleGraphics)
 ADD_SUBDIRECTORY (SampleImagics)
 ADD_SUBDIRECTORY (SampleMathematics)
 ADD_SUBDIRECTORY (SamplePhysics)
-ADD_SUBDIRECTORY (Tools)

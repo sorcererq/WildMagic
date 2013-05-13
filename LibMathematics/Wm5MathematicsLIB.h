@@ -11,18 +11,15 @@
 
 #include "Wm5CoreLIB.h"
 
-// Begin Microsoft Windows DLL support.
+#ifdef _MSC_VER
 #if defined(WM5_MATHEMATICS_DLL_EXPORT)
-// For the DLL library.
 #define WM5_MATHEMATICS_ITEM __declspec(dllexport)
-#elif defined(WM5_MATHEMATICS_DLL_IMPORT)
-// For a client of the DLL library.
-#define WM5_MATHEMATICS_ITEM __declspec(dllimport)
 #else
-// For the static library and for Apple/Linux.
+#define WM5_MATHEMATICS_ITEM __declspec(dllimport)
+#endif
+#else
 #define WM5_MATHEMATICS_ITEM
 #endif
-// End Microsoft Windows DLL support.
 
 // Enable this define if you want the Rational class to assert when the
 // constructor is passed a floating-point infinity or NaN.

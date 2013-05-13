@@ -11,18 +11,15 @@
 
 #include "Wm5MathematicsLIB.h"
 
-// Begin Microsoft Windows DLL support.
+#ifdef _MSC_VER
 #if defined(WM5_PHYSICS_DLL_EXPORT)
-// For the DLL library.
 #define WM5_PHYSICS_ITEM __declspec(dllexport)
-#elif defined(WM5_PHYSICS_DLL_IMPORT)
-// For a client of the DLL library.
-#define WM5_PHYSICS_ITEM __declspec(dllimport)
 #else
-// For the static library and for Apple/Linux.
+#define WM5_PHYSICS_ITEM __declspec(dllimport)
+#endif
+#else
 #define WM5_PHYSICS_ITEM
 #endif
-// End Microsoft Windows DLL support.
 
 // The CollisionGroup, CollisionRecord, and BoundTree classes are templated.
 // If changes are made to these classes, enable this define to ensure that the
@@ -33,9 +30,9 @@
 // LCPSolver.
 //#define WM5_LCPSOLVER_LOG
 #ifdef WM5_LCPSOLVER_LOG
-#define WM5_LCPSOLVER_FUNCTION(func) func
+    #define WM5_LCPSOLVER_FUNCTION(func) func
 #else
-#define WM5_LCPSOLVER_FUNCTION(func)
+    #define WM5_LCPSOLVER_FUNCTION(func)
 #endif
 
 // For writing messages to a log file during testing and debugging of
@@ -43,9 +40,9 @@
 // slows down.
 //#define WM5_LCPPOLYDIST_LOG
 #ifdef WM5_LCPPOLYDIST_LOG
-#define WM5_LCPPOLYDIST_FUNCTION(func) func
+    #define WM5_LCPPOLYDIST_FUNCTION(func) func
 #else
-#define WM5_LCPPOLYDIST_FUNCTION(func)
+    #define WM5_LCPPOLYDIST_FUNCTION(func)
 #endif
 
 #endif
